@@ -1,0 +1,5 @@
+<article role="article" itemscope ng-repeat="d in data.articles" class="hproduct prod post" id="post-{{ d.id }}" data-ng-cloak data-category="{{ d.prod_type }}" data-prodid="{{ d.prod_id }}" data-date="{{ d.date }}">
+	<h1 class="ttl post-ttl">{{ d.title }}</h1>
+	<section class="post-content">{{ d.body }}</section>
+	<aside class="post-aside">{{ d.exerpt }}</aside>
+</article>

@@ -1,0 +1,429 @@
+@import './_variables';
+@import './_mixins';
+@import './_grid';
+
+@-webkit-keyframes flash {
+	0% { opacity: 0 }
+	100% { opacity: 1 }
+}
+
+@keyframes flash {
+	0% { opacity: 0 }
+	100% { opacity: 1 }
+}
+
+// .ng-hide {
+// 	opacity: 0;
+// }
+
+// .ng-hide-remove {
+// 	-webkit-animation: flash 0.7s 1s;
+// 	 		animation: flash 0.7s 1s;
+// 	-webkit-animation-fill-mode: both;
+// 	 		animation-fill-mode: both;
+// }
+
+.sprite {
+	background-image: url(../im/sprite.png);
+}
+
+.animate {
+	.transition( all, 0.3s );
+}
+
+// .animate-enter.animate-enter-active {
+// 	opacity: 1;
+// }
+
+.lnk {
+	&:extend( .animate );
+}
+
+.ng-enter,
+.ng-leave {
+	&:extend( .animate );
+}
+
+// .ng-enter,
+// .ng-leave,
+// .ng-move {
+// 	&:extend( .animate );
+// }
+
+.filter-itm:after,
+.antisocial-itm:after,
+.social-itm {
+	.transition( opacity, .2s );
+}
+
+body {
+	background: @white-off url(../im/bck_watercolor.jpg) top center no-repeat fixed;
+	background-size: 100%;
+	border-top: 13px solid @white-out;
+}
+
+.page {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-content: stretch;
+	align-items: stretch;
+
+	&-content {
+		flex: 1 1 auto;
+	    align-self: flex-start;
+	    margin-left: @base-margin;
+	}
+
+	&-hdr {
+		padding: 0 1em;
+		background-color: @white-out;
+		flex: 0 0 300px;
+    	align-self: auto;
+	}
+
+	&-ttl {
+		padding-left: 2em;
+		top: 1em;
+		margin-bottom: 1em;
+		.font-size( @base-type-h3 );
+
+		&-logo {
+			top: 0;
+			position: absolute;
+			background-position: 0 -20px;
+			background-size: 281px;
+			width: 50px;
+			height: 50px;
+			left: 0;
+			top: -15px;
+			font-size: 0;
+			&:extend( .sprite );
+		}
+
+		&-lnk {
+			color: @grey;
+		}
+	}
+
+	&-nfo {
+		color: @blue;
+		margin: 0;
+		font-size: 0.6em;
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+
+		&-vrsn {}
+		&-yr {
+			float: right
+		}
+	}
+}
+
+
+.navlist {
+	list-style: none;
+	border-bottom: 1px dashed @white;
+	border-top: 1px dashed fade( @grey, 10% );
+	margin: auto;
+	padding: 1.2em 0;
+}
+
+.filter {
+	&-nav {
+		margin-top: 36px;
+	}
+
+	&-lst {
+		border-top: 1px solid transparent;
+		&:extend( .navlist );
+	}
+
+	&-itm {
+		// .icon( "app", @chevron-right );
+
+		// &:after {
+		// 	color: @icon-color;
+		// 	opacity: 0;
+		// 	margin-left: 0.5em;
+		// }
+
+		// &:hover {
+		// 	&:after {
+		// 		opacity: 1;
+		// 	}
+		// }
+	}
+}
+
+.add {
+	&-lst {
+		&:extend( .navlist );
+	}
+}
+
+.social {
+	&-lst {
+		border: none;
+		&:extend( .navlist );
+		padding-top: 0;
+	}
+
+	&-itm {
+		display: inline-block;
+		vertical-align: top;
+		width: 32px;
+		height: 32px;
+		font-size: 0;
+		line-height: 1;
+		border-radius: 32px;
+		box-shadow: 1px 1px 0 @white;
+		&:extend( .sprite );
+
+		&-flickr 		{ background-position: 0 0 }
+		&-twitter 		{ background-position: -40px 0 }
+		&-last-fm 		{ background-position: -80px 0 }
+		&-soundcloud 	{ background-position: -160px 0 }
+		&-society6 		{ background-position: -240px 0 }
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+}
+
+.antisocial {
+	&-lst {
+		border-bottom: none;
+		&:extend( .navlist );
+	}
+
+	&-itm {
+		.icon( "app", @link );
+
+		&:after {
+			opacity: 0;
+		}
+
+		&:hover {
+			&:after {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.search {
+	&-fld {
+		margin: 2em 0 @base-margin;
+		position: relative;
+	}
+
+	&-lbl {
+		position: absolute;
+		font-size: 0;
+		top: 30%;
+		left: 0.75%;
+		.icon( "pre", @eye );
+
+		.search-fld-active & {}
+	}
+
+	&-txt {
+		padding-left: @base-margin;
+	}
+}
+
+// some global product stuff
+.prod {
+	background: @white-out;
+	border: 0.5em solid @white-out;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	overflow: hidden;
+	margin-right: @base-margin;
+
+	&-hdr {
+		&:extend( .animate );
+	}
+
+	&-ttl {
+		color: @grey-dark;
+		.font-size( @base-type-size );
+	}
+
+	&-photo {
+		&:extend( .animate );
+		width: 100%;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	&-images,
+	&-nfo,
+	&-hdr {
+		position: absolute;
+		width: 100%;
+	}
+
+	&-thumb {
+		border: 4px solid @white;
+	}
+
+	&-nfo {
+		&:extend( .animate );
+		padding: @base-margin;
+
+		&-typ,
+		&-val {
+			display: inline-block;
+			vertical-align: top;
+			width: calc( ~"100% / 2" );
+		}
+
+		&-lnk {
+			.icon("app", @link );
+		}
+	}
+}
+
+.music {
+	&-hdr {
+		z-index: 4;
+		opacity: 0;
+		top: 40%;
+		background-color: @white-out;
+		padding: ( @base-margin-half / 2 ) @base-margin-half;
+	}
+
+	&-images {
+		margin: 0;
+		z-index: 1;
+	}
+
+	&-nfo {
+		background-color: @white-out;
+		padding: @base-margin-half;
+		opacity: 0;
+		z-index: 1;
+		top: 460px;
+		.tall(6);
+		&:extend( .animate );
+
+		&-lst {
+			margin-left: 1em;
+			width: 75%;
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+
+	&-grid {
+		position: relative;
+		overflow: hidden;
+		cursor: pointer;
+		&:extend( .animate );
+
+		&:hover {
+			.music-hdr,
+			.expand-btn {
+				opacity: 1;
+			}
+
+			.photo {
+				.scale( 1.1, 1.1 );
+			}
+		}
+
+	&.ng-hide {
+		opacity: 0;
+		.scale( 1, 1 );
+	}
+
+	&.ng-move {
+		.scale( 2, 2 );
+	}
+
+		&-active {
+			.music-hdr,
+			.music-nfo,
+			.expand-btn {
+				opacity: 1;
+			}
+
+			.expand-btn {
+				&:after {
+					.rotate( 45deg );
+				}
+			}
+
+			.music-nfo {
+				top: @base-type-size * 0.5%;
+			}
+
+			.music-hdr {
+				top: 0;
+			}
+
+			.music-photo {
+				.scale( 1.1, 1.1, center );
+			}
+		}
+	}
+}
+
+.wall {
+	&-grid {
+		&:hover {
+			.wall-nfo {
+				top: 0;
+				opacity: 1;
+			}
+		}
+	}
+
+	&-images {
+		overflow: hidden;
+		position: static;
+	}
+
+	&-photo {
+	}
+
+	&-nfo {
+		top: -2em;
+		opacity: 0;
+		position: absolute;
+		background-color: @white-out;
+	}
+}
+
+.article {}
+
+.btn {
+	color: @blue;
+	text-shadow: -1px -1px 0 @black, 1px 1px 0 @grey-dark;
+	padding: @base-margin @base-margin-half;
+	.gradient( 0deg, @black, 0%, @grey-dark, 100% );
+	&:extend( .animate );
+}
+
+.expand-btn {
+	position: absolute;
+	right: 0;
+	font-size: 0;
+	top: 0;
+	z-index: 22;
+	opacity: 0;
+	.icon("app", @plus, 24 );
+
+	&:after {
+		.transition( all, 0.1s );
+		padding: 0.25em 0.45em;
+	}
+}
+
+@import './media';

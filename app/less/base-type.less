@@ -1,0 +1,178 @@
+@import '_variables';
+@import '_mixins';
+
+* {
+	.box-sizing;
+}
+
+html,
+body {
+	font-family: @base-type;
+	color: @base-type-color;
+	height: 100%;
+	margin: 0;
+}
+
+// Links
+a {
+	text-decoration: none;
+	color: @base-link;
+
+	&:hover {
+		color: @base-link-hover;
+	}
+
+	&:focus { outline: none }
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	&:extend( .ttl );
+	margin-bottom: 0;
+	margin-top: 0;
+	position: relative;
+}
+
+h1 {
+	.font-size( @base-type-h1 );
+	line-height: 1;
+}
+
+h2 {
+	.font-size( @base-type-h2 );
+	line-height: @base-line-height;
+	top: 4px;
+}
+
+h3 {
+	.font-size( @base-type-h3 );
+	line-height: @base-line-height + 0.2143;
+	top: 7px;
+}
+
+h4 {
+	.font-size( @base-type-h4 );
+	line-height: @base-line-height + 0.5;
+    margin-bottom: 0.5em;
+    top: @base-line-height * @base-type-h4 + 1px;
+}
+
+h5 {
+	.font-size( @base-type-h5 );
+    line-height: @base-line-height + 0.7536;
+    top: -2px;
+//    top: @base-line-height * @base-tpe-h5 - 2px;
+}
+
+h6 {
+	.font-size( @base-type-h6 );
+    line-height: @base-line-height + 1.0668;
+    top: -2px;
+    // top: @base-line-height - 2px;
+}
+
+blockquote { margin: @base-margin @base-margin-half }
+
+p,
+th,
+td {
+	.font-size( @base-type-size );
+}
+
+p { margin-top: 0 }
+
+ul,
+ol,
+dl {
+	margin-top: @base-line-height + 1px;
+}
+
+table {
+	margin-bottom: @base-line-height / 2 + 1px;
+}
+
+ul,
+ol,
+p {
+	margin-bottom: @base-line-height + 1px;
+}
+
+body,
+th,
+p,
+dt,
+dd,
+li {
+	line-height: @base-line-height
+}
+
+th { text-align: left }
+
+td {
+	line-height: @base-line-height;
+	padding-bottom: 0
+}
+
+caption,
+dt {
+	font-weight: bold
+}
+
+ol { list-style: decimal }
+ul { list-style: disc }
+
+dt {
+	&:after,
+	&::after {
+		._inject( ":" );
+	}
+}
+
+dd { margin-left: 0 }
+
+sup { bottom: 0.75em }
+sub { bottom: -0.75em }
+
+img,
+object,
+embed,
+video,
+audio {
+	max-width: 100%;
+}
+
+img { height: auto }
+
+fieldset { border: none }
+
+// Lists
+.lst {}
+
+// List items
+.itm {}
+
+// Information wrappers
+.nfo {}
+
+// Information type
+.typ {}
+
+// Information values
+.val {}
+
+.lnk {
+	&:extend(a);
+}
+
+// titles
+.ttl {
+	font-family: @base-type-heading;
+	color: @base-type-heading-color;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 0 @white-out;
+}

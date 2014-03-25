@@ -1,0 +1,167 @@
+@import '_variables';
+@import '_mixins';
+
+ // Nice UI touch for placeholders.
+[ placeholder ] {
+	cursor: pointer;
+
+	&:active,
+	&:focus { cursor: text }
+}
+
+.frm {
+	overflow: hidden;
+	text-align: left;
+}
+
+ // parent element for label field combos
+.fld {
+	vertical-align: baseline;
+
+	&-err {
+		.error,
+		&:before {
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+}
+
+.lbl,
+.btn {
+	display: inline-block;
+	vertical-align: top;
+}
+
+// text inputs and text area
+.sel,
+.txtarea,
+.txt {
+	padding: ( @base-margin-half / 2) ( @base-margin-half / 2 );
+	width: @input-width;
+
+	&:hover,
+	&:focus {
+		color: @input-focus;
+	}
+}
+
+.txtarea {
+	min-height: 150px;
+	width: calc(~"100% - 10em");
+}
+
+	.opt {
+		cursor: pointer;
+
+		&:nth-child( odd ) {
+			// background-color: rgba(230,230,230,0.5)
+		}
+	}
+
+// ------- main wrapper for a group of radio buttons
+//  padded so it lines up to the left edge of the other labels in a form
+// exceptionally useful when the labels and inputs are set to default display of inline
+// ------- radio inputs
+.rdo {
+	margin-right: @label-right;
+
+	&-group {
+		padding-left: 0;
+		margin-left: 0
+	}
+}
+
+.btn {
+	position: relative;
+	cursor: pointer;
+	visibility: visible;
+	opacity: 1;
+	padding: @btn-pad;
+
+	&:hover {
+		// background-color: rgba(255, 255, 255, 0.75);
+		// color: #666;
+	}
+
+	&-disabled,
+	&:disabled {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+// ------------------------------------ notes - hints
+.note { font-style: italic }
+
+// ------------------------------------ required
+.req {
+	box-shadow: 0 0 5px @error inset;
+	position: relative;
+
+	&:after {
+		position: absolute;
+		left: -18px;
+		&:extend( .base-font );
+		._inject("*");
+	}
+}
+
+// ------------------------------------ errors
+// error wrapper
+.fault {
+	&:extend( .base-font );
+}
+
+.fault,
+.err {
+	color: @error
+}
+
+.err {
+	background-color: @error;
+	border-radius: 16px;
+	height: auto;
+	left: 33%;
+	padding: 0 @base-margin;
+	// box-shadow: 0 0 0 4px rgba(153,0,0,0.7) inset,
+	// 			0 0 0 5px rgba(238,0,0,0.5) inset,
+	// 			0 0 15px rgba(0,0,0,0.5);
+
+	&-ttl {
+		text-transform: uppercase;
+		font-family: @base-type;
+		text-shadow: 1px 1px 0 rgb(220,0,0);
+	}
+}
+
+.error {
+	.fld-err & {
+		text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+		text-transform: uppercase;
+		// background-color: #900;
+		// color: white;
+		padding: 0 8px 0 4px;
+		border-radius: 0 5px 5px 0;
+		box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+
+		&:before {
+			margin-right: 0;
+			position: relative;
+			top: 5px;
+			border: 12px solid;
+			border-color: transparent #900 transparent transparent;
+			color: @white;
+			._inject("");
+		}
+	}
+}
+
+// resettting reset button to default text look and feel
+.reset {
+	background: none;
+	border: none;
+	color: rgb(22, 114, 173);
+
+	&:hover { color: rgb(0, 0, 0) }
+}

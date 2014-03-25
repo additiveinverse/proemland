@@ -1,0 +1,19 @@
+<article role="article" itemscope ng-repeat="d in data.walls" class="hproduct prod wall-grid" id="wall-{{ d.id }}" data-ng-cloak data-prodid="wall-{{ d.id }}" data-date="{{ d.date }}">
+	<a href="files/{{ d.ttl }}" class="lnk wall-lnk" target="_blank">
+		<figure class="prod-images wall-images images">
+			<img class="prod-photo wall-photo photo" data-ng-cloak ng-src="images/{{ d.img }}.png" src="images/{{ d.img }}.png"/>
+		</figure>
+
+		<div class="prod-nfo wall-nfo nfo">
+			<h2 ng-bind-html-unsafe="d.ttl" class="ttl wall-ttl prod-ttl fn" itemprop="name">{{ d.ttl }}</h2>
+			<h3 ng-bind-html-unsafe="d.filename" class="ttl wall-ttl prod-ttl fn" itemprop="name">{{ d.filename }}</h3>
+
+			<dl class="lst prod-nfo-lst wall-nfo-lst">
+				<dt class="type prod-nfo-typ wall-nfo-typ">Size</dt>
+				<dd class="val prod-nfo-val wall-nfo-val">{{ d.size }}</dd>
+				<dt class="type prod-nfo-typ wall-nfo-typ">DL</dt>
+				<dd class="val prod-nfo-val wall-nfo-val">{{ d.dl }} times</dd>
+			</dl>
+		</div>
+	</a>
+</article>

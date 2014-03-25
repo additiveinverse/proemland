@@ -1,0 +1,12 @@
+extends layout
+
+block append vars
+	- bodyclass = 'home'
+
+block content
+	div( class='ps fld search-fld', data-toggler='')
+		label( for='searchInput', class='lbl search-lbl' )= Search
+		input( ng-model='query', class='txt search-txt', placeholder='type stuff', id='searchInput', type='search', name='searchInput')
+
+	ng-view
+

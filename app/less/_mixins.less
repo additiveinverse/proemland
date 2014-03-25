@@ -1,0 +1,185 @@
+@import './_variables';
+
+.box-sizing ( @sizing: border-box ) {
+	-webkit-box-sizing: @sizing;
+	   -moz-box-sizing: @sizing;
+			box-sizing: @sizing;
+}
+
+.background-origin( @origin ) {
+	-webkit-origin-size: @origin;
+	   -moz-origin-size: @origin;
+	   		origin-size: @origin;
+}
+
+.background-size( @size ) {
+	-webkit-background-size: @size;
+	   -moz-background-size: @size;
+			background-size: @size;
+}
+
+.background-clip( @type: padding-box ) {
+	background-clip: @arguments;
+}
+
+.font-size( @font-size: 16 ) {
+	@rem: ( @font-size / 10 );
+	font-size : ~"@{rem}rem";
+	font-size : @font-size * 1px;
+}
+
+._inject( @content: "" ) {
+	content: @content;
+	display: inline-block;
+}
+
+//////////////////////////// Helper Class
+.ico_base {
+	position: relative;
+	line-height: 1;
+	font-family: @font-icon;
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+			font-smoothing: antialiased;
+}
+
+.ico {
+	&:before,
+	&:after {
+		&:extend( .ico_base );
+	}
+}
+
+//////////////////////////// Let's go ahead and set the base icon styles
+._ico( @_ico, @font-size: 14 ) {
+	&:extend( .ico_base );
+	.font-size( @font-size );
+	._inject( @_ico );
+}
+
+//////////////////////////// Let's make some icons
+// 	Here's where the magic happens
+.icon( @place, @_ico, @fs: 14 ) when ( @place = "pre" ) {
+	&:before {
+		margin-right: 0.25em;
+		._ico( @_ico, @fs );
+	}
+}
+
+.icon( @place, @_ico, @fs ) when ( @place = "app" ) {
+	&:after {
+		// margin-left: 0.25em;
+		._ico( @_ico, @fs );
+	}
+}
+
+// @note: these all do nothing but switch the direction.
+// @note: offset is based on border @width sent by .arrow()
+.arrow_pointing( up, @-color, @offset ) {
+	margin-bottom: @offset / 2;
+	border-color: transparent transparent @-color transparent;
+}
+
+.arrow_pointing( down, @-color, @offset ) {
+	margin-top: @offset / 2;
+	border-color: @-color transparent transparent transparent;
+}
+
+.arrow_pointing( left, @-color, @offset ) {
+	margin-right: @offset / 2;
+	border-color: transparent transparent transparent @-color;
+}
+
+.arrow_pointing( right, @-color, @offset ) {
+	margin-left: @offset / 2;
+	border-color: transparent @-color transparent transparent;
+}
+
+.arrow( @_, @width: 5px, @-color: @border-color ) {
+	&:after {
+		position: relative;
+		border: @width solid;
+		._inject();
+		.arrow_pointing( @_, @-color, @width );
+	}
+}
+
+// Border helpers
+.border ( @width: 1px, @style: solid, @color ) {
+	border: @arguments;
+}
+
+.bt ( @width: 1px, @style: solid, @color: @border-color ) {
+	border-top: @arguments
+}
+
+.br ( @width: 1px, @style: solid, @color: @border-color ) {
+	border-right: @arguments
+}
+
+.bb ( @width: 1px, @style: solid, @color: @border-color ) {
+	border-bottom: @arguments
+}
+
+.bl ( @width: 1px, @style: solid, @color: @border-color ) {
+	border-left: @arguments
+}
+
+// box shadows
+.shadow( @x-axis: 0, @y-axis: 1px, @blur: 2px, @color: #000, @alpha: 0.1 ) {
+	box-shadow: @x-axis @y-axis @blur fade( @color, @alpha );
+}
+
+.gradient( @deg, @start: #EEE, @start-percent: 0%, @stop: #FFF, @stop-percent: 100% ) {
+	background-color: @start;
+	background-image: -webkit-linear-gradient( @deg, @start @start-percent, @stop @stop-percent );
+	background-image: 		  linear-gradient( @deg, @start @start-percent, @stop @stop-percent );
+}
+
+// transforms
+.transform(...) {
+	-webkit-transform: @arguments;
+		-ms-transform: @arguments;
+			transform: @arguments;
+}
+
+.transform-origin(...) {
+	-webkit-transform-origin: @arguments;
+	   -moz-transform-origin: @arguments;
+		-ms-transform-origin: @arguments;
+			transform-origin: @arguments;
+}
+
+	.rotate( @deg: 5deg, @origin: center ) {
+		.transform( rotate( @deg ) );
+		.transform-origin( @origin );
+	}
+
+	.scale( @r1: 1, @r2: 1, @origin: center ) {
+		.transform( scale( @r1, @r2 ) );
+		.transform-origin( @origin );
+	}
+
+	.translate( @x:0, @y:0, @origin: center ) {
+		.transform( translate( @x, @y ) );
+		.transform-origin( @origin );
+	}
+
+	.translate3d( @x:0, @y:0, @origin: center ) {
+		.transform( translate3d( @x, @y ) );
+		.transform-origin( @origin );
+	}
+
+.transition( @thing: all, @dur: 0.2s, @ease: ease-in-out, @delay: 0s) {
+	-webkit-transition: @arguments;
+			transition: @arguments;
+}
+
+.animator( @name, @time: 0.5s, @iteration: infinite, @delay: 0.5s, @fillmode: both ) {
+	-webkit-animation: @arguments;
+			animation: @arguments;
+}
+
