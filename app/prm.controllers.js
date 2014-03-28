@@ -4,9 +4,6 @@ proem.controller( 'ProductsController', function( $scope, $http, $route, $contro
 
 	$scope.data = dataComm( $scope, $http, url, 'GET', $route );
 
-	// $scope.refilter = function( value ) {
-	// 	$scope.$apply();
-	// }
 });
 
 proem.controller( 'WallsController', function( $scope, $http, $route, $controller ) {
