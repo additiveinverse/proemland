@@ -4,7 +4,7 @@ mixin menuMaker( navName, stuff )
 			case navName
 				when 'filter'
 					li( role='menuitem', class='itm ' + navName + '-itm ' + navName + '-itm-' + i )
-						a( class=navName + '-lnk lnk', href=val, ng-click='refilter('+ val +')' )= val
+						a( class=navName + '-lnk lnk' + navName + '-itm-lnk', ng-href='#' + i )= val
 				when 'add'
 					li( role='menuitem', class='itm ' + navName + '-itm ' + navName + '-itm-' + i )
 						a( class=navName + '-lnk lnk', href="#" )= val

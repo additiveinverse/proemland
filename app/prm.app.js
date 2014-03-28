@@ -5,17 +5,9 @@ angular.element( document ).ready( function() {
 })
 
 proem.config( function( $routeProvider, $locationProvider ) {
-	$routeProvider.when( 'walls/', {
+	$routeProvider.when( 'wallpapers', {
 		templateUrl: 'app/partials/itm-walls.html'
 	,	controller: 'WallsController'
-	})
-	// .when( 'site-docs/', {
-	// 	templateUrl: '/app/partials/itm-single.html'
-	// ,	controller: 'ArticlesController'
-	// })
-	.when( 'discog/', {
-		templateUrl: 'app/partials/itm-prdgrid.html'
-	,	controller: 'ProductsController'
 	})
 	.otherwise({
 		redirectTo: ''

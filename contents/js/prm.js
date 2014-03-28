@@ -5,7 +5,7 @@ angular.element( document ).ready( function() {
 })
 
 proem.config( function( $routeProvider, $locationProvider ) {
-	$routeProvider.when( 'walls/', {
+	$routeProvider.when( 'wallpapers', {
 		templateUrl: 'app/partials/itm-walls.html'
 	,	controller: 'WallsController'
 	})
@@ -13,10 +13,10 @@ proem.config( function( $routeProvider, $locationProvider ) {
 	// 	templateUrl: '/app/partials/itm-single.html'
 	// ,	controller: 'ArticlesController'
 	// })
-	.when( 'discog/', {
-		templateUrl: 'app/partials/itm-prdgrid.html'
-	,	controller: 'ProductsController'
-	})
+	// .when( 'discog/', {
+	// 	templateUrl: 'app/partials/itm-prdgrid.html'
+	// ,	controller: 'ProductsController'
+	// })
 	.otherwise({
 		redirectTo: ''
 	,	templateUrl: 'app/partials/itm-prdgrid.html'
@@ -43,7 +43,7 @@ var	dataComm = function( $scope, $http, url, method ) {
 	});
 } // /////////////////////////////////////////////////////// Proemland
 proem.controller( 'ProductsController', function( $scope, $http, $route, $controller, $filter ) {
-	var url = prfx + 'discog.js'
+	var url = prfx + 'discog.json'
 
 	$scope.data = dataComm( $scope, $http, url, 'GET', $route );
 
@@ -53,16 +53,10 @@ proem.controller( 'ProductsController', function( $scope, $http, $route, $contro
 });
 
 proem.controller( 'WallsController', function( $scope, $http, $route, $controller ) {
-	var url = prfx + 'walls.js'
+	var url = prfx + 'walls.json'
 
 	$scope.data = dataComm( $scope, $http, url, 'GET', $route );
 });
-
-// proem.controller( 'ArticlesController', function( $scope, $http, $route, $controller ) {
-// 	var url = prfx + 'docs.json'
-
-// 	$scope.data = dataComm( $scope, $http, url, 'GET', $route );
-// });
 
 
 // /////////////////////////////////////////////////////// last.fm
@@ -134,7 +128,7 @@ twtr.controller( 'searchController', function( $scope, $http ) {
 				,   trgrClass 	= [prefix, TXTactive].join('-')
 
 				element.on( ev , function( e ) {
-					console.dir( e );
+					// console.dir( e );
 					// console.log("Clicked", this, arguments);
 					trgt = e.currentTarget;
 
@@ -202,7 +196,7 @@ proem.factory( 'httpQuery', function ( $http, $q ) {
   'use strict';
 
   $templateCache.put('app/partials/itm-prdgrid.html',
-    "<article role=\"article\" itemscope ng-repeat=\"d in data.rekkids | filter:query \" class=\"hproduct prod music-grid\" id=\"music-{{ d.id }}\" toggler=\"\" ng-animate=\"'show'\" data-ng-cloak=\"\" data-elem=\"self\" data-category=\"{{ d.prod_type }}\" data-prodid=\"{{ d.prod_id }}\" data-date=\"{{ d.date }}\" data-format=\"{{ d.prod_frmt }}\" data-label=\"{{ d.cat_lbl }}\"><span role=\"button\" class=\"btn expand-btn\">expand</span><header class=\"hdr prod-hdr music-hdr\"><h2 ng-bind-html-unsafe=\"d.ttl\" class=\"ttl prod-ttl music-ttl fn\" itemprop=\"name\">{{ d.ttl }}</h2></header><section class=\"prod-details music-details\"><figure class=\"prod-images music-images images\"><img class=\"prod-photo music-photo photo\" data-ng-cloak=\"\" ng-src=\"{{ d.img }}\" alt=\"{{ d.ttl }}\"></figure><div class=\"prod-nfo music-nfo nfo\"><img class=\"prod-thumb music-thumb photo\" ng-src=\"{{ d.thumbimg }}\" alt=\"{{ d.ttl }}\"><dl class=\"lst prod-nfo-lst music-nfo-lst\"><dt class=\"type prod-nfo-typ music-nfo-typ\">category</dt><dd class=\"val prod-nfo-val music-nfo-val\">{{ d.prod_type }}</dd><dt class=\"type prod-nfo-typ music-nfo-typ\">released</dt><dd class=\"val prod-nfo-val music-nfo-val\">{{ d.date | date:yyyy }}</dd><dt class=\"type prod-nfo-typ music-nfo-typ\">format</dt><dd class=\"val prod-nfo-val music-nfo-val ico ico-{{ d.prod_frmt }}\">{{ d.prod_frmt }}</dd><dt class=\"type prod-nfo-typ music-nfo-typ\">label</dt><dd class=\"val prod-nfo-val music-nfo-val\"><a class=\"prod-nfo-lnk\" href=\"{{ d.cat_lnk }}\" target=\"_blank\">{{ d.cat_lbl }}</a></dd><dt class=\"type prod-nfo-typ music-nfo-typ\">catalog ID</dt><dd class=\"val prod-nfo-val music-nfo-val\">{{ d.cat_num }}</dd><dt class=\"type prod-nfo-typ music-nfo-typ\">limited to</dt><dd class=\"val prod-nfo-val music-nfo-val\">{{ d.cat_limit }}</dd></dl><ol><li ng-repeat=\"lst in d.Body\">{{ lst }}</li></ol></div></section></article>"
+    "<article role=\"article\" itemscope ng-repeat=\"d in data.rekkids | filter:query \" class=\"hproduct prod music-grid\" id=\"music-{{ d.id }}\" toggler=\"\" ng-animate=\"'show'\" data-ng-cloak=\"\" data-elem=\"self\" data-category=\"{{ d.prod_type }}\" data-prodid=\"{{ d.prod_id }}\" data-date=\"{{ d.date }}\" data-format=\"{{ d.prod_frmt }}\" data-label=\"{{ d.cat_lbl }}\"><span role=\"button\" class=\"btn expand-btn\">expand</span><header class=\"hdr prod-hdr music-hdr\"><h2 ng-bind-html-unsafe=\"d.ttl\" class=\"ttl prod-ttl music-ttl fn\" itemprop=\"name\">{{ d.ttl }}</h2></header><section class=\"prod-details music-details\"><figure class=\"prod-images music-images images\"><img class=\"prod-photo music-photo photo\" data-ng-cloak=\"\" ng-src=\"{{ d.img }}\" alt=\"{{ d.ttl }}\"></figure><div class=\"prod-nfo music-nfo nfo\"><img class=\"prod-thumb music-thumb photo\" ng-src=\"{{ d.thumbimg }}\" alt=\"{{ d.ttl }}\"><dl class=\"lst prod-nfo-lst music-nfo-lst\"><dt class=\"type prod-nfo-typ music-nfo-typ\">category</dt><dd class=\"val prod-nfo-val music-nfo-val\">{{ d.prod_type }}</dd><dt class=\"type prod-nfo-typ music-nfo-typ\">released</dt><dd class=\"val prod-nfo-val music-nfo-val\">{{ d.date | date:yyyy }}</dd><dt class=\"type prod-nfo-typ music-nfo-typ\">format</dt><dd class=\"val prod-nfo-val music-nfo-val ico ico-{{ d.prod_frmt }}\">{{ d.prod_frmt }}</dd><dt class=\"type prod-nfo-typ music-nfo-typ\">label</dt><dd class=\"val prod-nfo-val music-nfo-val\"><a class=\"prod-nfo-lnk\" href=\"{{ d.cat_lnk }}\" target=\"_blank\">{{ d.cat_lbl }}</a></dd><dt class=\"type prod-nfo-typ music-nfo-typ\">catalog ID</dt><dd class=\"val prod-nfo-val music-nfo-val\">{{ d.cat_num }}</dd><dt class=\"type prod-nfo-typ music-nfo-typ\">limited to</dt><dd class=\"val prod-nfo-val music-nfo-val\">{{ d.cat_limit }}</dd></dl><ol class=\"lst music-track-lst\"><li ng-repeat=\"lst in d.Body\">{{ lst }}</li></ol></div></section></article>"
   );
 
 

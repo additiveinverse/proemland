@@ -1,6 +1,6 @@
 // /////////////////////////////////////////////////////// Proemland
 proem.controller( 'ProductsController', function( $scope, $http, $route, $controller, $filter ) {
-	var url = prfx + 'discog.js'
+	var url = prfx + 'discog.json'
 
 	$scope.data = dataComm( $scope, $http, url, 'GET', $route );
 
@@ -10,16 +10,10 @@ proem.controller( 'ProductsController', function( $scope, $http, $route, $contro
 });
 
 proem.controller( 'WallsController', function( $scope, $http, $route, $controller ) {
-	var url = prfx + 'walls.js'
+	var url = prfx + 'walls.json'
 
 	$scope.data = dataComm( $scope, $http, url, 'GET', $route );
 });
-
-// proem.controller( 'ArticlesController', function( $scope, $http, $route, $controller ) {
-// 	var url = prfx + 'docs.json'
-
-// 	$scope.data = dataComm( $scope, $http, url, 'GET', $route );
-// });
 
 
 // /////////////////////////////////////////////////////// last.fm

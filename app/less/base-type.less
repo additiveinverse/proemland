@@ -32,7 +32,7 @@ h3,
 h4,
 h5,
 h6 {
-	&:extend( .ttl );
+	color: @yellow;
 	margin-bottom: 0;
 	margin-top: 0;
 	position: relative;
@@ -66,14 +66,12 @@ h5 {
 	.font-size( @base-type-h5 );
     line-height: @base-line-height + 0.7536;
     top: -2px;
-//    top: @base-line-height * @base-tpe-h5 - 2px;
 }
 
 h6 {
 	.font-size( @base-type-h6 );
     line-height: @base-line-height + 1.0668;
     top: -2px;
-    // top: @base-line-height - 2px;
 }
 
 blockquote { margin: @base-margin @base-margin-half }

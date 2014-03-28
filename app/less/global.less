@@ -12,9 +12,9 @@
 	100% { opacity: 1 }
 }
 
-// .ng-hide {
-// 	opacity: 0;
-// }
+.ng-hide {
+	opacity: 0;
+}
 
 // .ng-hide-remove {
 // 	-webkit-animation: flash 0.7s 1s;
@@ -70,12 +70,6 @@ body {
 	align-content: stretch;
 	align-items: stretch;
 
-	&-content {
-		flex: 1 1 auto;
-	    align-self: flex-start;
-	    margin-left: @base-margin;
-	}
-
 	&-hdr {
 		padding: 0 1em;
 		background-color: @white-out;
@@ -113,15 +107,21 @@ body {
 		font-size: 0.6em;
 		overflow: hidden;
 		position: absolute;
-		top: 0;
+		top: @base-margin;
+		width: 300px - 32;
 
 		&-vrsn {}
 		&-yr {
 			float: right
 		}
 	}
-}
 
+	&-cnt {
+		flex: 1 1 auto;
+	    align-self: flex-start;
+	    padding: 0 @base-margin;
+	}
+}
 
 .navlist {
 	list-style: none;
@@ -129,6 +129,8 @@ body {
 	border-top: 1px dashed fade( @grey, 10% );
 	margin: auto;
 	padding: 1.2em 0;
+	text-shadow: 1px 1px 0 @white;
+	font-weight: bold;
 }
 
 .filter {
@@ -141,21 +143,7 @@ body {
 		&:extend( .navlist );
 	}
 
-	&-itm {
-		// .icon( "app", @chevron-right );
-
-		// &:after {
-		// 	color: @icon-color;
-		// 	opacity: 0;
-		// 	margin-left: 0.5em;
-		// }
-
-		// &:hover {
-		// 	&:after {
-		// 		opacity: 1;
-		// 	}
-		// }
-	}
+//	&-itm {}
 }
 
 .add {
@@ -164,11 +152,32 @@ body {
 	}
 }
 
+.antisocial {
+	&-lst {
+		border-bottom: none;
+		&:extend( .navlist );
+	}
+
+	&-itm {
+		.icon( "app", @link );
+
+		&:after {
+			opacity: 0
+		}
+
+		&:hover {
+			&:after {
+				opacity: 1
+			}
+		}
+	}
+}
+
 .social {
 	&-lst {
 		border: none;
-		&:extend( .navlist );
 		padding-top: 0;
+		&:extend( .navlist );
 	}
 
 	&-itm {
@@ -188,36 +197,13 @@ body {
 		&-soundcloud 	{ background-position: -160px 0 }
 		&-society6 		{ background-position: -240px 0 }
 
-		&:hover {
-			opacity: 0.8;
-		}
-	}
-}
-
-.antisocial {
-	&-lst {
-		border-bottom: none;
-		&:extend( .navlist );
-	}
-
-	&-itm {
-		.icon( "app", @link );
-
-		&:after {
-			opacity: 0;
-		}
-
-		&:hover {
-			&:after {
-				opacity: 1;
-			}
-		}
+		&:hover { opacity: 0.8 }
 	}
 }
 
 .search {
 	&-fld {
-		margin: 2em 0 @base-margin;
+		margin: @base-margin 0;
 		position: relative;
 	}
 
@@ -231,9 +217,7 @@ body {
 		.search-fld-active & {}
 	}
 
-	&-txt {
-		padding-left: @base-margin;
-	}
+	&-txt { padding-left: @base-margin; }
 }
 
 // some global product stuff
@@ -269,9 +253,7 @@ body {
 		width: 100%;
 	}
 
-	&-thumb {
-		border: 4px solid @white;
-	}
+	&-thumb { border: 4px solid @white }
 
 	&-nfo {
 		&:extend( .animate );
@@ -401,8 +383,6 @@ body {
 	}
 }
 
-.article {}
-
 .btn {
 	color: @blue;
 	text-shadow: -1px -1px 0 @black, 1px 1px 0 @grey-dark;
@@ -425,5 +405,16 @@ body {
 		padding: 0.25em 0.45em;
 	}
 }
+
+.post {
+	padding: 3.6em 0 0;
+	color: @white;
+	text-shadow: 1px 1px 0 @grey-dark;
+
+	&-content {
+	    background: fade(@grey-dark, 35%);
+	}
+}
+
 
 @import './media';

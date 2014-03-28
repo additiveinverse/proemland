@@ -5,14 +5,14 @@
     "version": "0.9.0",
     "owner": "Proem",
     "description": "Proemland redesign for 2014",
-    "cats": [
-      "full-lengths",
-      "singles",
-      "remixes",
-      "live-sets",
-      "various-artist",
-      "wallpapers"
-    ],
+    "cats": {
+      "full-lengths": "Full Lengths",
+      "singles": "Singles",
+      "remixes": "Remixes",
+      "live-sets": "Live",
+      "various-artist": "Various Artist",
+      "walls": "Wallpapers"
+    },
     "network": {
       "social": {
         "twitter": "http://twitter.com/wallofknives",
@@ -27,6 +27,9 @@
       }
     }
   },
+  "ignore": [
+      "./contents/js/*.json"
+  ],
   "plugins": [
     "./plugins/paginator.coffee",
     "wintersmith-less",

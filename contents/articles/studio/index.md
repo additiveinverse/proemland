@@ -1,33 +1,43 @@
 ---
-title: studio info
+title: Studio Info
 author: Proem
 date: 2012-10-01 15:00
 template: article.jade
 ---
 
-h4. hardware
+## Hardware
+* 	Korg Wavestation A/D
+* 	Moog Little Phatty Stage II
+*	Waldorf Blofeld
+*	Meeblip mkI
+*	Elektron Machine Drum MKII
+* 	Korg Wavedrum
+*	Fretless bass
+*	Guitar Rig - Rig Kontrol
+* 	Novation Remote SL25
+*	Alesis IODock
+*	Ipad 2
+* 	Motu 2408 x 2
+*	ART FXRII
+* 	Lexicon MX400
 
-* "korg r3 synthesizer":http://www.korg.com/Product.aspx?pd=279
-* "korg wavestation A/D":http://www.vintagesynth.com/korg/korgwavead.php
-* "Novation Launchpad":http://www.novationmusic.com/products/launchpad?option=1
-* -maudio trigger finger-
-* -korg nanopad-
-* -korg nanoKontrol-
-* "evolution mk-249c midi controller":http://www.synthony.com/vintage/mk249c.html
-* "HP Pavilion tx2500z w/Integrated Touch-screen":http://www.amazon.com/Pavilion-tx2500z-12-1-Vista-Premium/dp/B001EK0GP4
-* -wacom intous 6x8-
-* -wiimote-
+## Software
+### Desktop
+* 	FLStudio
+* 	Ableton Live
+* 	Reaper
+* 	Native Instruments Komplete
+* 	Korg Legacy Digital Collection
+* 	Audio Damage Plugins
 
-h4. software
-
-* flstudio
-* ableton live
-* usine
-* reaper
-* native Instruments komplete
-* korg legacy digital collection
-* tweakbench plugins
-* audio damage plugins
-* -smart electronics plugins-
-* -tablet2midi-
-* -the wiiinstrument-
+### IOS
+*	Sector
+* 	Liine Lemur
+*	Korg Polysix
+* 	Korg MS-20
+*	Yamaha TNR-i
+* 	Reactable Mobile
+*	Moog Animoog
+*	PPG Wavetable
+* 	Propellerheads Rebirth mobile
+*

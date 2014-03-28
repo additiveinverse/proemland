@@ -32,6 +32,9 @@ body {
     opacity: 1;
   }
 }
+.ng-hide {
+  opacity: 0;
+}
 .sprite,
 .page-ttl-logo,
 .social-itm {
@@ -69,11 +72,6 @@ body {
   align-content: stretch;
   align-items: stretch;
 }
-.page-content {
-  flex: 1 1 auto;
-  align-self: flex-start;
-  margin-left: 1.5em;
-}
 .page-hdr {
   padding: 0 1em;
   background-color: rgba(240, 243, 243, 0.7);
@@ -102,32 +100,49 @@ body {
   color: #5e5e63;
 }
 .page-nfo {
-  color: #04b4be;
+  color: #04b4bf;
   margin: 0;
   font-size: 0.6em;
   overflow: hidden;
   position: absolute;
-  top: 0;
+  top: 1.5em;
+  width: 268px;
 }
 .page-nfo-yr {
   float: right;
 }
+.page-cnt {
+  flex: 1 1 auto;
+  align-self: flex-start;
+  padding: 0 1.5em;
+}
 .navlist,
 .filter-lst,
 .add-lst,
-.social-lst,
-.antisocial-lst {
+.antisocial-lst,
+.social-lst {
   list-style: none;
   border-bottom: 1px dashed #ffffff;
   border-top: 1px dashed rgba(94, 94, 99, 0.1);
   margin: auto;
   padding: 1.2em 0;
+  text-shadow: 1px 1px 0 #ffffff;
+  font-weight: bold;
 }
 .filter-nav {
   margin-top: 36px;
 }
 .filter-lst {
   border-top: 1px solid transparent;
+}
+.antisocial-lst {
+  border-bottom: none;
+}
+.antisocial-itm:after {
+  opacity: 0;
+}
+.antisocial-itm:hover:after {
+  opacity: 1;
 }
 .social-lst {
   border: none;
@@ -161,17 +176,8 @@ body {
 .social-itm:hover {
   opacity: 0.8;
 }
-.antisocial-lst {
-  border-bottom: none;
-}
-.antisocial-itm:after {
-  opacity: 0;
-}
-.antisocial-itm:hover:after {
-  opacity: 1;
-}
 .search-fld {
-  margin: 2em 0 1.5em;
+  margin: 1.5em 0;
   position: relative;
 }
 .search-lbl {
@@ -200,7 +206,7 @@ body {
   margin-right: 1.5em;
 }
 .prod-ttl {
-  color: #333333;
+  color: #9e9ea3;
   font-size: 1.6rem;
   font-size: 16px;
 }
@@ -334,12 +340,12 @@ body {
   background-color: rgba(240, 243, 243, 0.7);
 }
 .btn {
-  color: #04b4be;
-  text-shadow: -1px -1px 0 #000000, 1px 1px 0 #333333;
+  color: #04b4bf;
+  text-shadow: -1px -1px 0 #000000, 1px 1px 0 #9e9ea3;
   padding: 1.5em 0.75em;
   background-color: #000000;
-  background-image: -webkit-linear-gradient(0deg, #000000 0%, #333333 100%);
-  background-image: linear-gradient(0deg, #000000 0%, #333333 100%);
+  background-image: -webkit-linear-gradient(0deg, #000000 0%, #9e9ea3 100%);
+  background-image: linear-gradient(0deg, #000000 0%, #9e9ea3 100%);
 }
 .expand-btn {
   position: absolute;
@@ -359,6 +365,14 @@ body {
   -webkit-transition: all 0.1s ease-in-out 0s;
   transition: all 0.1s ease-in-out 0s;
   padding: 0.25em 0.45em;
+}
+.post {
+  padding: 3.6em 0 0;
+  color: #ffffff;
+  text-shadow: 1px 1px 0 #9e9ea3;
+}
+.post-content {
+  background: rgba(158, 158, 163, 0.35);
 }
 @media only screen and (min-width: 320px) {
   .music-grid {

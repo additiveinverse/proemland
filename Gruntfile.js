@@ -145,12 +145,11 @@ module.exports = function(grunt) {
 						'less:dev'
 					,	'ngtemplates'
 					,	'concat'
-					,	'wintersmith:preview'
 					]
 		,	options:
 			{
 				reload: true
-			,	livereload: true
+			// ,	livereload: true
 			,	spawn: false
 			,	dateFormat: function( time )
 				{
@@ -159,12 +158,23 @@ module.exports = function(grunt) {
 				}
 			}
 		}
+	,	concurrent:
+		{
+			target:
+			{
+				tasks: ['wintersmith:preview', 'watch']
+			,	options:
+				{
+					logConcurrentOutput: true
+				}
+			}
+		}
 	});
 
 	require('matchdep').filterDev('grunt-*').forEach( grunt.loadNpmTasks );
 
 	// Develop
-	grunt.registerTask('default', [ 'watch' ]);
+	grunt.registerTask('default', [ 'concurrent' ]);
 
 	// Test
 	grunt.registerTask('test', [ 'less:dev', 'csscss', 'csslint', 'ngtemplates', 'concat', 'wintersmith:build' ]);

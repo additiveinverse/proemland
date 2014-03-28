@@ -16,24 +16,24 @@ html(lang='en')
 
 		link( rel='alternate', href=locals.url + '/feed.xml', type='application/rss+xml', title=locals.description )
 
-		link(rel='stylesheet', href=locals.url+'/css/layout.min.css')
-		link(rel='stylesheet', href=locals.url+'/css/global.css')
+		link( rel='stylesheet', href=locals.url+'/css/layout.min.css' )
+		link( rel='stylesheet', href=locals.url+'/css/global.css' )
 
-		script(src='js/head.min.js')
+		script( src=locals.url+'/js/head.min.js' )
 		script.
 			head.js(
-				{ ang: 'js/angular.js'}
-			,	{ jq: 'js/zepto.min.js'}
-			,	{ gbl: 'js/prm.js'}
+				{ ang: 'js/angular.js' }
+			,	{ jq: 'js/zepto.min.js' }
+			,	{ gbl: 'js/prm.js' }
 			);
 			prfx = 'js/';
 
-body(class=bodyclass, lang='en')
+body(lang='en')
 	.page
 		header( class='hdr page-hdr ps', role='banner' )
 			h1( class='ttl page-ttl', title=locals.title , role='banner' )
 				span( class='logo page-ttl-logo' )= locals.description
-				a( href=locals.url )= locals.title
+				a(class="page-ttl-lnk lnk", href=locals.url )= locals.title
 
 			p( class='nfo page-nfo', role='note' )
 				span( class='page-nfo-vrsn nfo' )= locals.version
@@ -55,6 +55,6 @@ body(class=bodyclass, lang='en')
 				+menuMaker('antisocial', locals.network.antisocial )
 				+menuMaker('social', locals.network.social )
 
-		main( class='ng-cloak page-content content grd' )
+		main( class='ng-cloak grd page-cnt ' + bodyclass + '-content' )
 			block content
 
