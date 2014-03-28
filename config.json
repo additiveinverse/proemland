@@ -11,7 +11,8 @@
       "remixes": "Remixes",
       "live-sets": "Live",
       "various-artist": "Various Artist",
-      "walls": "Wallpapers"
+      "walls": "Wallpapers",
+      "dls": "Downloads"
     },
     "network": {
       "social": {
@@ -28,7 +29,8 @@
     }
   },
   "ignore": [
-      "./contents/js/*.json"
+      "./contents/js/discogs.json",
+      "./contents/js/walls.json"
   ],
   "plugins": [
     "./plugins/paginator.coffee",
