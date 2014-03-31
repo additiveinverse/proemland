@@ -28,10 +28,6 @@
       }
     }
   },
-  "ignore": [
-      "./contents/js/discogs.json",
-      "./contents/js/walls.json"
-  ],
   "plugins": [
     "./plugins/paginator.coffee",
     "wintersmith-less",

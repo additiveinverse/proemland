@@ -9,6 +9,7 @@
     "zepto": "zepto/zepto.min.js",
     "angular-animate": "angularjs-bower/angular-animate.min.js",
     "angular-route": "angularjs-bower/angular-route.min.js",
+    "angular-route": "angularjs-bower/angular-resource.min.js",
     "angular-sanitize": "angularjs-bower/angular-sanitize.min.js",
     "angular": "angularjs-bower/angular.min.js",
     "headjs": "headjs/dist/1.0.0/head.min.js"
