@@ -23,10 +23,9 @@ html(lang='en')
 		script.
 			head.js(
 				{ ang: 'js/angular.js' }
-			,	{ jq: 'js/zepto.min.js' }
 			,	{ gbl: 'js/prm.js' }
 			);
-			prfx = 'js/';
+			prfx = '/js/';
 
 body(lang='en')
 	.page
@@ -55,6 +54,6 @@ body(lang='en')
 				+menuMaker('antisocial', locals.network.antisocial )
 				+menuMaker('social', locals.network.social )
 
-		main( class='ng-cloak grd page-cnt ' + bodyclass + '-content' )
+		main( class='ng-cloak grd page-content ' + bodyclass + '-content' )
 			block content
 

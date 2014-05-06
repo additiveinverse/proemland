@@ -83,6 +83,13 @@ module.exports = function(grunt) {
 				]
 			,	dest: pathJS + 'prm.js'
 			}
+		,	dataJS:
+			{
+				src: [
+					appJS + '*.json'
+				]
+			,	dest: pathJS + '*.json'
+			}
 		,	libJS:
 			{
 				src: [
@@ -140,6 +147,7 @@ module.exports = function(grunt) {
 					, 	appIMG + '*'
 					, 	appJS + '*'
 					,	appSRC + "*"
+					,	"templates/*"
 					]
 		,	tasks: [
 						'less:dev'
@@ -149,7 +157,7 @@ module.exports = function(grunt) {
 		,	options:
 			{
 				reload: true
-			// ,	livereload: true
+			,	livereload: true
 			,	spawn: false
 			,	dateFormat: function( time )
 				{

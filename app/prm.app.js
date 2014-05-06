@@ -1,13 +1,18 @@
 proem = angular.module( 'proem', ['ngRoute', 'directives', 'ngAnimate']);
 
 angular.element( document ).ready( function() {
-	angular.bootstrap( document, ['proem'] );
-})
+	angular.bootstrap( document, ['proem'] )
+});
+
 
 proem.config( function( $routeProvider, $locationProvider ) {
-	$routeProvider.when( 'wallpapers', {
+	$routeProvider.when( 'walls', {
 		templateUrl: 'app/partials/itm-walls.html'
 	,	controller: 'WallsController'
+	})
+	$routeProvider.when( 'dls', {
+		templateUrl: 'app/partials/itm-walls.html'
+	,	controller: 'DlsController'
 	})
 	.otherwise({
 		redirectTo: ''
@@ -18,6 +23,8 @@ proem.config( function( $routeProvider, $locationProvider ) {
 
 // this should probably be a factory or maybe even a service
 var	dataComm = function( $scope, $http, url, method ) {
+//	$resource('http://localhost:8080/resource.json');
+
 	$http({
 		url : url
 	,	method: method
@@ -33,4 +40,4 @@ var	dataComm = function( $scope, $http, url, method ) {
 		console.log( 'status: ' + status )
 		console.dir( config )
 	});
-}
+};

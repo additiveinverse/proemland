@@ -1,51 +1,50 @@
 {
-  "locals": {
-    "url": "http://localhost:8080",
-    "title": "Proemland",
-    "version": "0.9.0",
-    "owner": "Proem",
-    "description": "Proemland redesign for 2014",
-    "cats": {
-      "full-lengths": "Full Lengths",
-      "singles": "Singles",
-      "remixes": "Remixes",
-      "live-sets": "Live",
-      "various-artist": "Various Artist",
-      "walls": "Wallpapers",
-      "dls": "Downloads"
-    },
-    "network": {
-      "social": {
-        "twitter": "http://twitter.com/wallofknives",
-        "soundcloud": "http://soundcloud.com/proem",
-        "last-fm": "http://www.last.fm/user/proemland",
-        "flickr": "http://www.flickr.com/photos/proem/",
-        "society6": "http://society6.com/proem"
-      },
-      "antisocial": {
-        "placeguntohead": "http://placeguntohead.com",
-        "additiveinverse": "http://additiveinverse.com"
-      }
-    }
-  },
-  "plugins": [
-    "./plugins/paginator.coffee",
-    "wintersmith-less",
-    "wintersmith-jade"
-  ],
-  "require": {
-    "moment": "moment",
-    "_": "underscore",
-    "typogr": "typogr"
-  },
-  "jade": {
-    "pretty": true
-  },
-  "markdown": {
-    "smartLists": true,
-    "smartypants": true
-  },
-  "paginator": {
-    "perPage": 10
-  }
+	"locals": {
+		"url": "http://localhost:8080",
+		"title": "Proemland",
+		"version": "0.9.0",
+		"owner": "Proem",
+		"description": "Proemland redesign for 2014",
+		"cats": {
+			"full-lengths": "Full Lengths",
+			"singles": "Singles",
+			"remixes": "Remixes",
+			"live-sets": "Live",
+			"various-artist": "Various Artist",
+			"walls": "Wallpapers",
+			"dls": "Downloads"
+		},
+		"network": {
+			"social": {
+				"twitter": "http://twitter.com/wallofknives",
+				"soundcloud": "http://soundcloud.com/proem",
+				"last-fm": "http://www.last.fm/user/proemland",
+				"flickr": "http://www.flickr.com/photos/proem/",
+				"society6": "http://society6.com/proem"
+			},
+			"antisocial": {
+				"placeguntohead": "http://placeguntohead.com",
+				"additiveinverse": "http://additiveinverse.com"
+			}
+		}
+	},
+	"plugins": [
+		"./plugins/paginator.coffee",
+		"wintersmith-jade"
+	],
+	"require": {
+		"moment": "moment",
+		"_": "underscore",
+		"typogr": "typogr"
+	},
+	"jade": {
+		"pretty": true
+	},
+	"markdown": {
+		"smartLists": true,
+		"smartypants": true
+	},
+	"paginator": {
+		"perPage": 10
+	}
 }

@@ -1,25 +1,24 @@
 {
-  "name": "proemland",
-  "version": "7.0.0",
-  "authors": [
-    "Richard Bailey <additive.inverse@gmail.com>"
-  ],
-  "description": "Proemland redesign",
-  "license": "MIT",
-  "homepage": "www.proemland.com",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "app_modules",
-    "src",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "angular-sanitize": "~1.2.2",
-    "angular": "~1.2.2",
-    "normalize-less": "*",
-    "angular-animate": "~1.2.2",
-    "angular-route": "~1.2.2"
-  }
+	"name": "proemland",
+	"version": "7.0.0",
+	"authors": [
+		"Richard Bailey <additive.inverse@gmail.com>"
+	],
+	"description": "Proemland redesign",
+	"license": "MIT",
+	"homepage": "www.proemland.com",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"app_modules",
+		"src",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"angularjs-bower": "*",
+		"normalize-less": "*",
+		"headjs": "*",
+		"jq": "*"
+	}
 }

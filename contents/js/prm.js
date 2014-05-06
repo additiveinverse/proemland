@@ -1,22 +1,19 @@
 proem = angular.module( 'proem', ['ngRoute', 'directives', 'ngAnimate']);
 
 angular.element( document ).ready( function() {
-	angular.bootstrap( document, ['proem'] );
-})
+	angular.bootstrap( document, ['proem'] )
+});
+
 
 proem.config( function( $routeProvider, $locationProvider ) {
-	$routeProvider.when( 'wallpapers', {
+	$routeProvider.when( 'walls', {
 		templateUrl: 'app/partials/itm-walls.html'
 	,	controller: 'WallsController'
 	})
-	// .when( 'site-docs/', {
-	// 	templateUrl: '/app/partials/itm-single.html'
-	// ,	controller: 'ArticlesController'
-	// })
-	// .when( 'discog/', {
-	// 	templateUrl: 'app/partials/itm-prdgrid.html'
-	// ,	controller: 'ProductsController'
-	// })
+	$routeProvider.when( 'dls', {
+		templateUrl: 'app/partials/itm-walls.html'
+	,	controller: 'DlsController'
+	})
 	.otherwise({
 		redirectTo: ''
 	,	templateUrl: 'app/partials/itm-prdgrid.html'
@@ -26,6 +23,8 @@ proem.config( function( $routeProvider, $locationProvider ) {
 
 // this should probably be a factory or maybe even a service
 var	dataComm = function( $scope, $http, url, method ) {
+//	$resource('http://localhost:8080/resource.json');
+
 	$http({
 		url : url
 	,	method: method
@@ -41,15 +40,12 @@ var	dataComm = function( $scope, $http, url, method ) {
 		console.log( 'status: ' + status )
 		console.dir( config )
 	});
-} // /////////////////////////////////////////////////////// Proemland
+}; // /////////////////////////////////////////////////////// Proemland
 proem.controller( 'ProductsController', function( $scope, $http, $route, $controller, $filter ) {
-	var url = prfx + 'discog.json'
+	var url = prfx + 'discog.js'
 
 	$scope.data = dataComm( $scope, $http, url, 'GET', $route );
 
-	// $scope.refilter = function( value ) {
-	// 	$scope.$apply();
-	// }
 });
 
 proem.controller( 'WallsController', function( $scope, $http, $route, $controller ) {
@@ -58,6 +54,11 @@ proem.controller( 'WallsController', function( $scope, $http, $route, $controlle
 	$scope.data = dataComm( $scope, $http, url, 'GET', $route );
 });
 
+proem.controller( 'DLController', function( $scope, $http, $route, $controller ) {
+	var url = prfx + 'dl.json'
+
+	$scope.data = dataComm( $scope, $http, url, 'GET', $route );
+});
 
 // /////////////////////////////////////////////////////// last.fm
 lastfm = angular.module('lastfm', [])
@@ -141,58 +142,7 @@ twtr.controller( 'searchController', function( $scope, $http ) {
 				})
 			}
 		}
-	}]).
-	directive('clonee', ['$parse', function(){
-		// Runs during compile
-		return {
-			// name: '',
-			// priority: 1,
-			// terminal: true,
-			// scope: {}, // {} = isolate, true = child, false/undefined = no change
-			// cont­rol­ler: function($scope, $element, $attrs, $transclue) {},
-			// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
-			// restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
-			// template: '',
-			// templateUrl: '',
-			// replace: true,
-			// transclude: true,
-			// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-			link: function($scope, iElm, iAttrs, controller) {
-
-			}
-		};
-	}]);
-
-// httpQuery takes a URL and returns a function that accepts a query string,
-// and will make a request to the given URL when invoked.
-// the fn returned by httpQuery ensures that only one request is made to
-// the given URL at a time, cancalling in-flight requests  before they complete
-
-proem.factory( 'httpQuery', function ( $http, $q ) {
-	return function ( url )	{
-		var cancelQuery = null;
-
-		return function runQuery( query ) {
-			// if we were running a query before,
-			// cancel it so it doesn't invoke its success callback
-			if ( cancelQuery ) {
-				cancelQuery.resolve();
-			}
-
-			cancelQuery = $q.defer();
-
-			return $http.
-				get( url, {
-						params: { query: query }
-					,	timeout: cancelQuery.promise
-					}).
-				then( function ( response ) {
-						cancelQuery = null;
-						return response.data;
-				});
-		}
-	}
-}); angular.module('proem').run(['$templateCache', function($templateCache) {
+	}]); angular.module('proem').run(['$templateCache', function($templateCache) {
   'use strict';
 
   $templateCache.put('app/partials/itm-prdgrid.html',

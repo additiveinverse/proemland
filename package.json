@@ -1,53 +1,44 @@
 {
-  "name": "proemland2014",
-  "version": "8.5.0",
-  "description": "Proemland redesign for 2014... almost 5 years since the last one",
-  "main": "Gruntfile.js",
-  "author": "Richard Bailey",
-  "repository": "none",
-  "manifest_js": {
-    "zepto": "zepto/zepto.min.js",
-    "angular-animate": "angularjs-bower/angular-animate.min.js",
-    "angular-route": "angularjs-bower/angular-route.min.js",
-    "angular-route": "angularjs-bower/angular-resource.min.js",
-    "angular-sanitize": "angularjs-bower/angular-sanitize.min.js",
-    "angular": "angularjs-bower/angular.min.js",
-    "headjs": "headjs/dist/1.0.0/head.min.js"
-  },
-  "manifest": {
-    "contents/css/layout.min.css": [
-      "app_modules/normalize-less/normalize.less",
-      "app/less/base-*.less"
-    ],
-    "contents/css/global.css": "app/less/global.less"
-  },
-  "dependencies": {
-    "grunt": ">=0.4.1",
-    "moment": "2.3.x",
-    "underscore": "1.4.x",
-    "typogr": "0.5.x",
-    "wintersmith-jade": "~0.1.0",
-    "wintersmith-less": "~0.2.2"
-  },
-  "devDependencies": {
-    "grunt-angular-templates": "*",
-    "grunt-contrib-clean": "*",
-    "grunt-contrib-concat": "*",
-    "grunt-contrib-copy": ">=0.4.1",
-    "grunt-contrib-csslint": "*",
-    "grunt-contrib-imagemin": "*",
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-less": "*",
-    "grunt-contrib-nodeunit": "*",
-    "grunt-contrib-uglify": "~0.4.0",
-    "grunt-contrib-watch": "*",
-    "grunt-csscss": "*",
-    "grunt-jsonlint": "*",
-    "matchdep": ">=0.1.2",
-    "grunt-ngmin": ">=0.0.3",
-    "grunt": "~0.4.4",
-    "grunt-wintersmith": "0.0.2",
-    "grunt-concurrent": "~0.5.0",
-    "grunt-json-minify": "~0.4.0"
-  }
+	"name": "proemland2014",
+	"version": "8.5.0",
+	"description": "Proemland redesign for 2014... almost 5 years since the last one",
+	"main": "Gruntfile.js",
+	"author": "Richard Bailey",
+	"repository": "https://github.com/additiveinverse/pland.git",
+	"manifest": {
+		"contents/css/layout.min.css": [
+			"app_modules/normalize-less/normalize.less",
+			"app/less/base-*.less"
+		],
+		"contents/css/global.css": "app/less/global.less"
+	},
+	"dependencies": {
+		"grunt": ">=0.4.1",
+		"moment": "2.3.x",
+		"underscore": "1.4.x",
+		"typogr": "0.5.x",
+		"wintersmith-jade": "~0.1.0",
+		"wintersmith-less": "~0.2.2"
+	},
+	"devDependencies": {
+		"grunt-angular-templates": "*",
+		"grunt-contrib-clean": "*",
+		"grunt-contrib-concat": "*",
+		"grunt-contrib-copy": ">=0.4.1",
+		"grunt-contrib-csslint": "*",
+		"grunt-contrib-imagemin": "*",
+		"grunt-contrib-jshint": "*",
+		"grunt-contrib-less": "*",
+		"grunt-contrib-nodeunit": "*",
+		"grunt-contrib-uglify": "~0.4.0",
+		"grunt-contrib-watch": "*",
+		"grunt-csscss": "*",
+		"grunt-jsonlint": "*",
+		"matchdep": ">=0.1.2",
+		"grunt-ngmin": ">=0.0.3",
+		"grunt": "~0.4.4",
+		"grunt-wintersmith": "0.0.2",
+		"grunt-concurrent": "~0.5.0",
+		"grunt-json-minify": "~0.4.0"
+	}
 }

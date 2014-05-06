@@ -116,8 +116,8 @@ body {
 		}
 	}
 
-	&-cnt {
-		flex: 1 1 auto;
+	&-content {
+		flex: 1 1 0;
 	    align-self: flex-start;
 	    padding: 0 @base-margin;
 	}
@@ -130,7 +130,8 @@ body {
 	margin: auto;
 	padding: 1.2em 0;
 	text-shadow: 1px 1px 0 @white;
-	font-weight: bold;
+	// font-weight: bold;
+	text-transform: uppercase;
 }
 
 .filter {
@@ -217,7 +218,10 @@ body {
 		.search-fld-active & {}
 	}
 
-	&-txt { padding-left: @base-margin; }
+	&-txt {
+		padding-left: @base-margin;
+		box-shadow: 0 2px 3px @grey-light inset;
+	}
 }
 
 // some global product stuff

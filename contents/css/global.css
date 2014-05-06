@@ -111,8 +111,8 @@ body {
 .page-nfo-yr {
   float: right;
 }
-.page-cnt {
-  flex: 1 1 auto;
+.page-content {
+  flex: 1 1 0;
   align-self: flex-start;
   padding: 0 1.5em;
 }
@@ -127,7 +127,7 @@ body {
   margin: auto;
   padding: 1.2em 0;
   text-shadow: 1px 1px 0 #ffffff;
-  font-weight: bold;
+  text-transform: uppercase;
 }
 .filter-nav {
   margin-top: 36px;
@@ -195,6 +195,7 @@ body {
 }
 .search-txt {
   padding-left: 1.5em;
+  box-shadow: 0 2px 3px #9e9ea3 inset;
 }
 .prod {
   background: rgba(240, 243, 243, 0.7);
@@ -206,7 +207,7 @@ body {
   margin-right: 1.5em;
 }
 .prod-ttl {
-  color: #9e9ea3;
+  color: #202022;
   font-size: 1.6rem;
   font-size: 16px;
 }
@@ -341,11 +342,11 @@ body {
 }
 .btn {
   color: #04b4bf;
-  text-shadow: -1px -1px 0 #000000, 1px 1px 0 #9e9ea3;
+  text-shadow: -1px -1px 0 #000000, 1px 1px 0 #202022;
   padding: 1.5em 0.75em;
   background-color: #000000;
-  background-image: -webkit-linear-gradient(0deg, #000000 0%, #9e9ea3 100%);
-  background-image: linear-gradient(0deg, #000000 0%, #9e9ea3 100%);
+  background-image: -webkit-linear-gradient(0deg, #000000 0%, #202022 100%);
+  background-image: linear-gradient(0deg, #000000 0%, #202022 100%);
 }
 .expand-btn {
   position: absolute;
@@ -369,10 +370,10 @@ body {
 .post {
   padding: 3.6em 0 0;
   color: #ffffff;
-  text-shadow: 1px 1px 0 #9e9ea3;
+  text-shadow: 1px 1px 0 #202022;
 }
 .post-content {
-  background: rgba(158, 158, 163, 0.35);
+  background: rgba(32, 32, 34, 0.35);
 }
 @media only screen and (min-width: 320px) {
   .music-grid {

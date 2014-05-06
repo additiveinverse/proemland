@@ -1,7 +1,7 @@
 // //////////////////////// Greyscale
 @black: 					rgb( 0, 0, 0 );
 @grey-darker:				darken( @grey, 10% );
-@grey-dark:					lighten( @grey, 25% );
+@grey-dark:					darken( @grey, 25% );
 @grey:						rgb( 94, 94, 99 );
 @grey-light:				lighten( @grey, 25% );
 @grey-lighter: 				lighten( @grey, 10% );
@@ -25,7 +25,7 @@
 // ------------------------ Typography
 @base-type:        			@font-sans-serif;
 @base-type-size:   			16;
-@base-type-color: 			@grey;
+@base-type-color: 			@grey-dark;
 
 @base-type-heading:			@font-heading;
 @base-type-heading-color:   @blue;
