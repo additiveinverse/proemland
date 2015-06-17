@@ -1,0 +1,27 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "."
+		}
+	],
+	"settings":
+	{
+		"auto_indent": true,
+		"caret_style": "phase",
+		"detect_indentation": false,
+		"highlight_line": true,
+		"highlight_modified_tabs": true,
+		"indent_to_bracket": true,
+		"line_padding_bottom": 5,
+		"line_padding_top": 5,
+		"overlay_scroll_bars": "enabled",
+		"scroll_past_end": false,
+		"smart_indent": false,
+		"tab_size": 4,
+		"translate_spaces_to_tabs": true,
+		"trim_trailing_white_space_on_save": true,
+		"use_tab_stops": true
+	}
+}
