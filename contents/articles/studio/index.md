@@ -6,38 +6,39 @@ template: article.jade
 ---
 
 ## Hardware
-* 	Korg Wavestation A/D
-* 	Moog Little Phatty Stage II
-*	Waldorf Blofeld
-*	Meeblip mkI
-*	Elektron Machine Drum MKII
-* 	Korg Wavedrum
-*	Fretless bass
-*	Guitar Rig - Rig Kontrol
-* 	Novation Remote SL25
 *	Alesis IODock
-*	Ipad 2
-* 	Motu 2408 x 2
+* Arturia beatstep
+* Arturia microbrute
 *	ART FXRII
-* 	Lexicon MX400
+* Korg Wavestation A/D
+* Moog Little Phatty Stage II
+*	Fretless bass
+* Fender Squier Bass VI
+*	Guitar Rig - Rig Kontrol
+*	Ipad 2
+* Lexicon MX400
+* Novation Remote SL25
+* Novation Launchpad mini
+* Motu 2408 x 3
+*	Waldorf Blofeld
 
-## Software
-### Desktop
-* 	FLStudio
-* 	Ableton Live
-* 	Reaper
-* 	Native Instruments Komplete
-* 	Korg Legacy Digital Collection
-* 	Audio Damage Plugins
+## Desktop Software
+* Ableton Live
+* Audio Damage Plugins
+* Bitwig Studio
+* FLStudio
+* Korg Legacy Digital Collection
+* Native Instruments Komplete
+* Reaper
 
-### IOS
-*	Sector
-* 	Liine Lemur
+## IOS Software
+* Conductr
+* Liine Lemur
 *	Korg Polysix
-* 	Korg MS-20
-*	Yamaha TNR-i
-* 	Reactable Mobile
+* Korg MS-20
+* Korg M1
 *	Moog Animoog
-*	PPG Wavetable
-* 	Propellerheads Rebirth mobile
-*
+* Propellerheads Rebirth mobile
+* Reactable Mobile
+*	Sector
+*	Yamaha TNR-i

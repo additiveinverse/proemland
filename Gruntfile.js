@@ -1,16 +1,16 @@
 module.exports = function(grunt) {
-	var name 		= '<%= pkg.name %>-v<%= pkg.version%>'
-	,	manifest 	= '<%= pkg.manifest %>'
-	,	reports 	= 'reports/<%= pkg.name %>-'
-	,	bowerPath 	= 'app_modules/'
-	, 	winterPath	= 'contents/'
-	,	pathJS 		= winterPath + 'js/'
-	,	pathCSS 	= winterPath + 'css/'
-	,	pathIMG 	= winterPath + 'img/'
-	,	appSRC 		= 'app/'
-	,	appLESS 	= appSRC + 'less/'
-	,	appIMG 		= appSRC + 'images/'
-	,	appJS 		= appSRC;
+	var name  = '<%= pkg.name %>-v<%= pkg.version%>',
+			manifest = '<%= pkg.manifest %>',
+			reports = 'reports/<%= pkg.name %>-',
+			bowerPath = 'app_modules/',
+			winterPath = 'contents/',
+			pathJS = winterPath + 'js/'
+	,	pathCSS = winterPath + 'css/'
+	,	pathIMG = winterPath + 'img/'
+	,	appSRC = 'app/'
+	,	appLESS = appSRC + 'less/'
+	,	appIMG = appSRC + 'images/'
+	,	appJS = appSRC;
 
 	grunt.initConfig(
 	{
