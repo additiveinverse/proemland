@@ -1,24 +1,29 @@
 {
-	"name": "proemland",
-	"version": "7.0.0",
-	"authors": [
-		"Richard Bailey <additive.inverse@gmail.com>"
-	],
-	"description": "Proemland redesign",
-	"license": "MIT",
-	"homepage": "www.proemland.com",
-	"ignore": [
-		"**/.*",
-		"node_modules",
-		"app_modules",
-		"src",
-		"test",
-		"tests"
-	],
-	"dependencies": {
-		"angularjs-bower": "*",
-		"normalize-less": "*",
-		"headjs": "*",
-		"jq": "*"
-	}
+  "name": "root",
+  "version": "7.0.0",
+  "homepage": "https://github.com/additiveinverse/pland",
+  "authors": [
+    "Richard Bailey <additive.inverse@gmail.com>"
+  ],
+  "keywords": [
+    "less",
+    "angular",
+    "headjs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app_modules",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "lesshat": "~3.0.2",
+    "normalize-less": "*",
+    "headjs": "~1.0.3",
+    "angularjs-bower": "*",
+    "angular": "1.4.3"
+  }
 }

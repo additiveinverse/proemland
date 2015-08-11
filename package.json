@@ -1,6 +1,6 @@
 {
   "name": "proemland2014",
-  "version": "8.5.0",
+  "version": "7.0.0",
   "description": "Proemland redesign for 2014... almost 5 years since the last one",
   "main": "Gruntfile.js",
   "author": "Richard Bailey",
@@ -21,23 +21,24 @@
     "wintersmith-data-json": "0.0.5"
   },
   "devDependencies": {
-    "grunt-angular-templates": "*",
+    "grunt-bump": "^0.3.1",
     "grunt-contrib-clean": "*",
-    "grunt-contrib-concat": "*",
-    "grunt-contrib-copy": ">=0.4.1",
-    "grunt-contrib-csslint": "*",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-uglify": "^0.9.1",
     "grunt-contrib-imagemin": "*",
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-less": "*",
-    "grunt-contrib-nodeunit": "*",
-    "grunt-contrib-uglify": "~0.4.0",
-    "grunt-contrib-watch": "*",
-    "grunt-csscss": "*",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jsbeautifier": "^0.2.10",
+    "grunt-concurrent": "^0.5.0",
+    "grunt-lesslint": "*",
+    "grunt-strip": "^0.2.1",
+    "grunt-json-minify": "~0.4.0",
     "grunt-jsonlint": "*",
-    "matchdep": ">=0.1.2",
+    "grunt-angular-templates": "*",
     "grunt-ngmin": ">=0.0.3",
     "grunt-wintersmith": "0.0.2",
-    "grunt-concurrent": "~0.5.0",
-    "grunt-json-minify": "~0.4.0"
+    "matchdep": "^0.3.0"
   }
 }
