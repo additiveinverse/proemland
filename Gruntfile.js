@@ -1,33 +1,33 @@
-module.exports = function( grunt ) {
+module.exports = function ( grunt ) {
 	var name = "<%= pkg.name %>-v<%= pkg.version%>",
 		manifest = "<%= pkg.manifest %>",
 		reports = "reports/<%= pkg.name %>-",
-		bowerPath = "app_modules/",
-		pathCSS = winterPath + 'css/',
-		pathIMG = winterPath + 'img/',
 		appSRC = 'app/',
-		appLESS = appSRC + 'less/',
-		appIMG = appSRC + 'images/',
 		appJS = appSRC;
 
 	grunt.initConfig( {
 		config: {
 			lib: "app_modules/",
-			tmp: "temp/"
+			tmp: "temp/",
 			app: {
 				root: "app/",
-				js: "app/lib/",
-				less: "app/less",
-				partials: "app/partials"
-			}
+				js: "app/",
+				less: "app/less/",
+				partials: "app/partials/",
+				img: "app/images/"
+			},
 			dist: {
 				root: "contents/",
-				css: "<%= config.dist.root %>css",
-				js: "<%= config.dist.root %>js",
+				css: "contents/css/",
+				js: "contents/js/",
+				img: "contents/img/"
+			}
 		},
 		manifest: {
 			js_test: [
-				"Gruntfile.js"
+				"Gruntfile.js",
+				"<%=config.app.js %>prm*.js",
+				"<%=config.app.js %>*.json"
 			],
 			js_bundle: []
 		},
@@ -42,14 +42,14 @@ module.exports = function( grunt ) {
 		less: {
 			dev: {
 				options: {
-					path: appLESS,
+					path: "<%= config.app.less %>",
 					cleancss: false
 				},
 				files: manifest
 			},
 			production: {
 				options: {
-					path: appLESS,
+					path: "<%= config.app.less %>",
 					compress: true,
 					cleancss: true
 				},
@@ -62,29 +62,29 @@ module.exports = function( grunt ) {
 			},
 			appJS: {
 				src: [
-					appJS + 'prm.*.js'
+					"<%= config.app.js %>prm.*.js"
 				],
-				dest: '<%= config.js %>prm.js'
+				dest: "<%= config.dist.js %>prm.js"
 			},
 			dataJS: {
 				src: [
 					appJS + '*.json'
 				],
-				dest: '<%= config.js %>*.json'
+				dest: "<%= config.dist.js %>*.json"
 			},
 			libJS: {
 				src: [
-					bowerPath + '/angularjs-bower/angular.min.js',
-					bowerPath + '/angularjs-bower/angular-animate.min.js',
-					bowerPath + '/angularjs-bower/angular-route.min.js',
-					bowerPath + '/angularjs-bower/angular-sanitize.min.js'
+					"<%= config.lib %>/angular/angular.min.js",
+					"<%= config.lib %>/angular/angular-animate.min.js",
+					"<%= config.lib %>/angular/angular-route.min.js",
+					"<%= config.lib %>/angular/angular-sanitize.min.js"
 				],
-				dest: '<%= config.js %>/angular.js'
+				dest: "<%= config.dist.js %>/angular.js"
 			}
 		},
 		// testing
 		lesslint: {
-			src: "<%= config.dist.css %>*.css",
+			src: "<%= config.app.less %>*.less",
 			csslintrc: '.csslintrc',
 			options: {
 				formatters: [ {
@@ -116,9 +116,9 @@ module.exports = function( grunt ) {
 				},
 				files: [ {
 					expand: true,
-					cwd: appIMG,
+					cwd: "<%= config.app.img %>",
 					src: [ '**/*.{png,jpg,gif}' ],
-					dest: pathIMG
+					dest: "<%= config.dist.img %>"
 				} ]
 			}
 		},
@@ -126,7 +126,7 @@ module.exports = function( grunt ) {
 		ngtemplates: {
 			proem: {
 				src: "<%= config.app.partials %>*.html",
-				dest: appSRC + 'prm.tpl.js',
+				dest: "<%= config.app %> prm.tpl.js",
 				options: {
 					htmlmin: {
 						collapseWhitespace: true,
@@ -225,16 +225,16 @@ module.exports = function( grunt ) {
 
 		watch: {
 			files: [
-				appLESS + '*', appIMG + '*', appJS + '*', appSRC + "*", "templates/*"
+				"<%= config.app.root %>**/*"
 			],
 			tasks: [
-				'less:dev', 'ngtemplates', 'concat'
+				'less:dev', 'newer:ngtemplates', 'concat'
 			],
 			options: {
 				reload: true,
 				livereload: true,
 				spawn: false,
-				dateFormat: function( time ) {
+				dateFormat: function ( time ) {
 					grunt.log.writeln( 'The watch finished in ' + time + 'ms at' + ( new Date() ).toString() );
 					grunt.log.writeln( 'Waiting for more changes...' );
 				}

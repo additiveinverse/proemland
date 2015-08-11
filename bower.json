@@ -23,7 +23,7 @@
     "lesshat": "~3.0.2",
     "normalize-less": "*",
     "headjs": "~1.0.3",
-    "angularjs-bower": "*",
-    "angular": "1.4.3"
+    "angular": "1.4.3",
+    "typicons": "~2.0.7"
   }
 }
