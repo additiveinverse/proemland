@@ -19,41 +19,43 @@ html(lang='en')
 		link( rel='stylesheet', href=locals.url + '/css/layout.min.css' )
 		link( rel='stylesheet', href=locals.url + '/css/global.css' )
 
-		script( src=locals.url + '/js/head.min.js' )
+		//- script( type="text/javascript", src=locals.url + '/js/head.min.js' )
 		script.
-			head.js(
-				{ ang: locals.url + '/js/angular.js' }
-			,	{ gbl: locals.url + '/js/prm.js' }
-			);
-			prfx = locals.url + '/js/';
+			//- head.js(
+			//- 	{ ang: locals.url + '/js/angular.js' },
+			//- 	{ gbl: locals.url + '/js/prm.js' }
+			//- );
+			prfx = '/js/';
 
-body(lang='en')
-	.page
-		header( class='hdr page-hdr ps', role='banner' )
-			h1( class='ttl page-ttl', title=locals.title , role='banner' )
-				span( class='logo page-ttl-logo' )= locals.description
-				a(class="page-ttl-lnk lnk", href=locals.url )= locals.title
+	body(lang='en')
+		.page
+			header( class='hdr page-hdr ps', role='banner' )
+				h1( class='ttl page-ttl', title=locals.title , role='banner' )
+					span( class='logo page-ttl-logo' )= locals.description
+					a(class="page-ttl-lnk lnk", href=locals.url )= locals.title
 
-			p( class='nfo page-nfo', role='note' )
-				span( class='page-nfo-vrsn nfo' )= locals.version
-				span( class='page-nfo-yr nfo' )= new Date().getFullYear()
+				p( class='nfo page-nfo', role='note' )
+					span( class='page-nfo-vrsn nfo' )= locals.version
+					span( class='page-nfo-yr nfo' )= new Date().getFullYear()
 
-			include nav
-			nav( class='nav nav-filter', id='grid-filter', role='navigation' )
-				+menuMaker( 'filter', locals.cats )
+				include nav
+				nav( class='nav nav-filter', id='grid-filter', role='navigation' )
+					+menuMaker( 'filter', locals.cats )
 
-				- var Aname = 'add'
-				ul( role='menu', class='lst ' + Aname + '-lst' )
-					- var articles = env.helpers.getArticles(contents)
-					each article in articles
-						- var permalink = locals.url + article.url
-						li( role='menuitem', class='itm ' + Aname + '-itm ' + Aname )
-							a( class=Aname + '-lnk lnk', href=permalink )= article.title
+					- var Aname = 'add'
+					ul( role='menu', class='lst ' + Aname + '-lst' )
+						- var articles = env.helpers.getArticles(contents)
+						each article in articles
+							- var permalink = locals.url + article.url
+							li( role='menuitem', class='itm ' + Aname + '-itm ' + Aname )
+								a( class=Aname + '-lnk lnk', href=permalink )= article.title
 
-			nav( class='nav network-nav', role='navigation' )
-				+menuMaker('antisocial', locals.network.antisocial )
-				+menuMaker('social', locals.network.social )
+				nav( class='nav network-nav', role='navigation' )
+					+menuMaker('antisocial', locals.network.antisocial )
+					+menuMaker('social', locals.network.social )
 
-		main( class='ng-cloak grd page-content ' + bodyclass + '-content' )
-			block content
+			main( class='ng-cloak grd page-content ' + bodyclass + '-content' )
+				block content
 
+	script( type="text/javascript", src=locals.url + '/js/angular.js' )
+	script( type="text/javascript", src=locals.url + '/js/prm.js' )

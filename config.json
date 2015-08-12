@@ -30,8 +30,8 @@
   },
   "plugins": [
     "./plugins/paginator.coffee",
-    "wintersmith-jade",
-    "wintersmith-data-json"
+    "./node_modules/wintersmith-jade",
+    "./node_modules/wintersmith-data-json/index.js"
   ],
   "require": {
     "moment": "moment",

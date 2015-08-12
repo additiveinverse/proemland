@@ -1,16 +1,16 @@
 // /////////////////////////////////////////////////////// Proemland
 proem.controller( 'ProductsController', function ( $scope, $http, $route, $controller, $filter ) {
-	var url = prfx + 'discog.js'
+	var url = 'discog.json'
 	$scope.data = dataComm( $scope, $http, url, 'GET', $route )
 } )
 
 proem.controller( 'WallsController', function ( $scope, $http, $route, $controller ) {
-	var url = prfx + 'walls.json'
+	var url = 'walls.json'
 	$scope.data = dataComm( $scope, $http, url, 'GET', $route )
 } )
 
 proem.controller( 'DLController', function ( $scope, $http, $route, $controller ) {
-	var url = prfx + 'dl.json'
+	var url = 'dl.json'
 	$scope.data = dataComm( $scope, $http, url, 'GET', $route )
 } )
 

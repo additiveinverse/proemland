@@ -1,9 +1,8 @@
 module.exports = function ( grunt ) {
-	var name = "<%= pkg.name %>-v<%= pkg.version%>",
-		manifest = "<%= pkg.manifest %>",
-		reports = "reports/<%= pkg.name %>-",
-		appSRC = 'app/',
-		appJS = appSRC;
+	var name = "<%= pkg.name %>-v<%= pkg.version%>"
+	var manifestcss = "<%= pkg.manifestcss %>"
+	var manifestjs = "<%= pkg.manifest.js %>"
+	var reports = "reports/<%= pkg.name %>-"
 
 	grunt.initConfig( {
 		config: {
@@ -23,29 +22,22 @@ module.exports = function ( grunt ) {
 				img: "contents/img/"
 			}
 		},
-		manifest: {
-			js_test: [
-				"Gruntfile.js",
-				"<%=config.app.js %>prm*.js",
-				"<%=config.app.js %>*.json"
-			],
-			js_bundle: []
-		},
+
 		pkg: grunt.file.readJSON( 'package.json' ),
+
 		banner: "/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - " +
 			'<%= grunt.template.today("yyyy-mm-dd") %>\n' +
 			'<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
 			'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
 			' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
 
-		// scaffolding
 		less: {
 			dev: {
 				options: {
 					path: "<%= config.app.less %>",
 					cleancss: false
 				},
-				files: manifest
+				files: manifestcss
 			},
 			production: {
 				options: {
@@ -53,12 +45,14 @@ module.exports = function ( grunt ) {
 					compress: true,
 					cleancss: true
 				},
-				files: manifest
+				files: manifestcss
 			}
 		},
+
 		concat: {
 			options: {
-				separator: ' ',
+				separator: " ",
+				banner: "<%= banner %>"
 			},
 			appJS: {
 				src: [
@@ -66,23 +60,17 @@ module.exports = function ( grunt ) {
 				],
 				dest: "<%= config.dist.js %>prm.js"
 			},
-			dataJS: {
-				src: [
-					appJS + '*.json'
-				],
-				dest: "<%= config.dist.js %>*.json"
-			},
 			libJS: {
 				src: [
 					"<%= config.lib %>/angular/angular.min.js",
-					"<%= config.lib %>/angular/angular-animate.min.js",
-					"<%= config.lib %>/angular/angular-route.min.js",
-					"<%= config.lib %>/angular/angular-sanitize.min.js"
+					"<%= config.lib %>/angular-animate/angular-animate.min.js",
+					"<%= config.lib %>/angular-route/angular-route.min.js",
+					"<%= config.lib %>/angular-sanitize/angular-sanitize.min.js"
 				],
-				dest: "<%= config.dist.js %>/angular.js"
+				dest: "<%= config.dist.js %>angular.js"
 			}
 		},
-		// testing
+
 		lesslint: {
 			src: "<%= config.app.less %>*.less",
 			csslintrc: '.csslintrc',
@@ -93,6 +81,7 @@ module.exports = function ( grunt ) {
 				} ]
 			}
 		},
+
 		jshint: {
 			options: {
 				curly: true,
@@ -101,13 +90,29 @@ module.exports = function ( grunt ) {
 				browser: true,
 				asi: true,
 				globals: {
-					jQuery: true
+					jQuery: true,
 				}
 			},
-			all: "<%= manifest.js_test %>"
+			all: manifestjs
 		},
 
-		// sanitizing
+		minjson: {
+			compile: {
+				files: {
+					"<%= config.dist.js %>discog.json": [ "<%= config.app.root %>.json" ]
+				}
+			}
+		},
+
+		jsonlint: {
+			config: {
+				src: [ "config.json", "package.json", "bower.json" ]
+			},
+			data: {
+				src: [ "<%= config.app.root %>*.json", "<%= config.dist.js %>*.json" ]
+			}
+		},
+
 		imagemin: {
 			dynamic: {
 				options: {
@@ -126,11 +131,11 @@ module.exports = function ( grunt ) {
 		ngtemplates: {
 			proem: {
 				src: "<%= config.app.partials %>*.html",
-				dest: "<%= config.app %> prm.tpl.js",
+				dest: "<%= config.app.js %>prm.tpl.js",
 				options: {
 					htmlmin: {
 						collapseWhitespace: true,
-						collapseBooleanAttributes: true
+						collapseBooleanAttributes: trueng
 					}
 				}
 			}
@@ -147,7 +152,7 @@ module.exports = function ( grunt ) {
 		},
 
 		jsbeautifier: {
-			files: "<%= manifest.js_test %>",
+			files: manifestjs,
 			options: {
 				css: {
 					indentSize: 2,
@@ -204,46 +209,57 @@ module.exports = function ( grunt ) {
 			},
 			dist: {
 				src: "<%= manifest.js_bundle %>",
-				dest: "<%= config.dist %>ess.<%= pkg.name %>.min.js"
+				dest: "<%= config.dist %>prm.<%= pkg.name %>.min.js"
 			}
+		},
+
+		open: {
+			dev: {
+				path: "http://localhost:8080/",
+				app: "Chrome"
+			},
 		},
 
 		wintersmith: {
 			build: {
 				options: {
 					action: "build",
-					config: 'config.json'
+					config: "config.json"
 				}
 			},
 			preview: {
 				options: {
 					action: "preview",
-					config: 'config.json'
+					config: "config.json"
 				}
 			}
 		},
 
 		watch: {
 			files: [
+				"Gruntfile.js",
+				"templates/**/*",
 				"<%= config.app.root %>**/*"
 			],
 			tasks: [
-				'less:dev', 'newer:ngtemplates', 'concat'
+				"less:dev",
+				"newer:ngtemplates",
+				"concat",
+				"jshint"
 			],
 			options: {
 				reload: true,
 				livereload: true,
 				spawn: false,
 				dateFormat: function ( time ) {
-					grunt.log.writeln( 'The watch finished in ' + time + 'ms at' + ( new Date() ).toString() );
-					grunt.log.writeln( 'Waiting for more changes...' );
+					grunt.log.writeln( "The watch finished in " + time + "ms at" + ( new Date() ).toString() );
 				}
 			}
 		},
 
 		concurrent: {
 			target: {
-				tasks: [ 'wintersmith:preview', 'watch' ],
+				tasks: [ "watch", "wintersmith:preview" ],
 				options: {
 					logConcurrentOutput: true
 				}
@@ -254,10 +270,12 @@ module.exports = function ( grunt ) {
 	require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks );
 
 	// Develop
-	grunt.registerTask( 'default', [ 'concurrent' ] );
+	grunt.registerTask( "default", [ "concurrent", "open:dev" ] );
 
 	// Test
 	grunt.registerTask( 'test', [ 'less:dev', 'lesslint', 'ngtemplates', 'concat', 'wintersmith:build' ] );
+
+	grunt.registerTask( "dataprep", [ "minjson", "jsonlint" ] );
 
 	// Deploy
 	grunt.registerTask( 'deploy', [ 'less:prod', 'test', 'imagemin', 'ngtemplates', 'concat', 'wintersmith:build' ] );

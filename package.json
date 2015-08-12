@@ -1,19 +1,26 @@
 {
   "name": "proemland2014",
   "version": "7.0.0",
-  "description": "Proemland redesign for 2014... almost 5 years since the last one",
+  "description": "Proemland redesign for 2014... almost 5 years since the last one. more than that now though",
   "main": "Gruntfile.js",
   "author": "Richard Bailey",
   "repository": "https://github.com/additiveinverse/pland.git",
   "manifest": {
-    "contents/css/layout.min.css": [
-      "app_modules/normalize-less/normalize.less",
-      "app/less/base-*.less"
-    ],
-    "contents/css/global.css": "app/less/global.less"
+    "css": {
+      "contents/css/layout.min.css": [
+        "app_modules/normalize-less/normalize.less",
+        "app/less/base-*.less"
+      ],
+      "contents/css/global.css": "app/less/global.less"
+    },
+    "js": [
+      "Gruntfile.js",
+      "app/prm.*.js",
+      "contents/js/prm.js"
+    ]
   },
   "dependencies": {
-    "grunt": "~0.4.4",
+    "grunt": "~0.4.5",
     "moment": "2.3.x",
     "underscore": "1.4.x",
     "typogr": "0.5.x",
@@ -33,11 +40,12 @@
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-jsbeautifier": "^0.2.10",
-    "grunt-json-minify": "~0.4.0",
-    "grunt-jsonlint": "*",
+    "grunt-jsonlint": "^1.0.4",
     "grunt-lesslint": "*",
+    "grunt-minjson": "^0.3.0",
     "grunt-newer": "^1.1.1",
     "grunt-ngmin": ">=0.0.3",
+    "grunt-open": "^0.2.3",
     "grunt-strip": "^0.2.1",
     "grunt-wintersmith": "0.0.2",
     "matchdep": "^0.3.0"
