@@ -16,10 +16,10 @@ module.exports = function ( grunt ) {
 				img: "app/images/"
 			},
 			dist: {
-				root: "contents/",
-				css: "contents/css/",
-				js: "contents/js/",
-				img: "contents/img/"
+				root: "build/",
+				css: "build/css/",
+				js: "build/js/",
+				img: "build/img/"
 			}
 		},
 
@@ -135,7 +135,7 @@ module.exports = function ( grunt ) {
 				options: {
 					htmlmin: {
 						collapseWhitespace: true,
-						collapseBooleanAttributes: trueng
+						collapseBooleanAttributes: true
 					}
 				}
 			}
@@ -273,10 +273,10 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( "default", [ "concurrent", "open:dev" ] );
 
 	// Test
-	grunt.registerTask( 'test', [ 'less:dev', 'lesslint', 'ngtemplates', 'concat', 'wintersmith:build' ] );
+	grunt.registerTask( 'test', [ 'less:dev', 'lesslint', 'ngtemplates', 'concat' ] );
 
 	grunt.registerTask( "dataprep", [ "minjson", "jsonlint" ] );
 
 	// Deploy
-	grunt.registerTask( 'deploy', [ 'less:prod', 'test', 'imagemin', 'ngtemplates', 'concat', 'wintersmith:build' ] );
+	grunt.registerTask( 'deploy', [ 'less:prod', 'test', 'imagemin', 'ngtemplates', 'concat' ] );
 }
