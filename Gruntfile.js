@@ -1,6 +1,12 @@
 module.exports = function ( grunt ) {
 	var name = "<%= pkg.name %>-v<%= pkg.version%>"
-	var manifestcss = "<%= pkg.manifestcss %>"
+	var manifestcss = {
+      "build/css/layout.min.css": [
+        "app_modules/normalize-less/normalize.less",
+        "app/less/base-*.less"
+      ],
+      "build/css/<%= pkg.name %>.css": "app/less/global.less"
+    }
 	var manifestjs = "<%= pkg.manifest.js %>"
 	var reports = "reports/<%= pkg.name %>-"
 
@@ -13,13 +19,24 @@ module.exports = function ( grunt ) {
 				js: "app/",
 				less: "app/less/",
 				partials: "app/partials/",
-				img: "app/images/"
+				img: "app/images/",
+				tpl: "templates/"
 			},
 			dist: {
 				root: "build/",
 				css: "build/css/",
 				js: "build/js/",
 				img: "build/img/"
+			},
+			manifest: {
+				css: {
+					"build/css/layout.min.css":
+					[
+						"app_modules/normalize-less/normalize.less",
+						"app/less/base-*.less"
+					],
+					"build/css/<%= pkg.name %>.css": "app/less/global.less"
+		    }
 			}
 		},
 
@@ -31,24 +48,7 @@ module.exports = function ( grunt ) {
 			'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
 			' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
 
-		less: {
-			dev: {
-				options: {
-					path: "<%= config.app.less %>",
-					cleancss: false
-				},
-				files: manifestcss
-			},
-			production: {
-				options: {
-					path: "<%= config.app.less %>",
-					compress: true,
-					cleancss: true
-				},
-				files: manifestcss
-			}
-		},
-
+		// ///////////////////////////////////////////////////////////////// scaffold
 		concat: {
 			options: {
 				separator: " ",
@@ -71,6 +71,7 @@ module.exports = function ( grunt ) {
 			}
 		},
 
+		// ///////////////////////////////////////////////////////////////// linting / testing / cleanup
 		lesslint: {
 			src: "<%= config.app.less %>*.less",
 			csslintrc: '.csslintrc',
@@ -82,62 +83,12 @@ module.exports = function ( grunt ) {
 			}
 		},
 
-		jshint: {
-			options: {
-				curly: true,
-				eqeqeq: true,
-				eqnull: true,
-				browser: true,
-				asi: true,
-				globals: {
-					jQuery: true,
-				}
-			},
-			all: manifestjs
-		},
-
-		minjson: {
-			compile: {
-				files: {
-					"<%= config.dist.js %>discog.json": [ "<%= config.app.root %>.json" ]
-				}
-			}
-		},
-
 		jsonlint: {
 			config: {
 				src: [ "config.json", "package.json", "bower.json" ]
 			},
 			data: {
 				src: [ "<%= config.app.root %>*.json", "<%= config.dist.js %>*.json" ]
-			}
-		},
-
-		imagemin: {
-			dynamic: {
-				options: {
-					optimizationLevel: 5,
-					pngquant: true
-				},
-				files: [ {
-					expand: true,
-					cwd: "<%= config.app.img %>",
-					src: [ '**/*.{png,jpg,gif}' ],
-					dest: "<%= config.dist.img %>"
-				} ]
-			}
-		},
-
-		ngtemplates: {
-			proem: {
-				src: "<%= config.app.partials %>*.html",
-				dest: "<%= config.app.js %>prm.tpl.js",
-				options: {
-					htmlmin: {
-						collapseWhitespace: true,
-						collapseBooleanAttributes: true
-					}
-				}
 			}
 		},
 
@@ -183,7 +134,102 @@ module.exports = function ( grunt ) {
 			}
 		},
 
-		// build / deploy
+		// ///////////////////////////////////////////////////////////////// compile
+		less: {
+			dev: {
+				options: {
+					path: "<%= config.app.less %>",
+					cleancss: false
+				},
+				files: "<%= config.manifest.css %>"
+			},
+			production: {
+				options: {
+					path: "<%= config.app.less %>",
+					compress: true,
+					cleancss: true
+				},
+				files: "<%= config.manifest.css %>"
+			}
+		},
+
+		jade: {
+			compile: {
+				options: {
+					pretty: true,
+					data: function( dest, src ) {
+						return grunt.file.readJSON("config.json")
+					}
+				},
+				files: {
+					"<%= config.dist.root %>index.html": "<%= config.app.tpl %>index.jade"
+				}
+			}
+		},
+
+		ngtemplates: {
+			proem: {
+				src: "<%= config.app.partials %>*.html",
+				dest: "<%= config.app.js %>prm.tpl.js",
+				options: {
+					htmlmin: {
+						collapseWhitespace: true,
+						collapseBooleanAttributes: true
+					}
+				}
+			}
+		},
+
+		// ///////////////////////////////////////////////////////////////// minifying
+		minjson: {
+			compile: {
+				files: {
+					"<%= config.dist.js %>discog.json": [ "<%= config.app.root %>.json" ]
+				}
+			}
+		},
+
+		imagemin: {
+			dynamic: {
+				options: {
+					optimizationLevel: 5,
+					pngquant: true
+				},
+				files: [ {
+					expand: true,
+					cwd: "<%= config.app.img %>",
+					src: [ '**/*.{png,jpg,gif}' ],
+					dest: "<%= config.dist.img %>"
+				} ]
+			}
+		},
+
+		uglify: {
+			options: {
+				banner: "<%= banner %>",
+				sourceMap: true,
+				screwIE8: false
+			},
+			dist: {
+				src: "<%= manifest.js_bundle %>",
+				dest: "<%= config.dist %>prm.<%= pkg.name %>.min.js"
+			}
+		},
+
+		htmlmin: {
+			dist: {
+				options: {
+					removeComments: true,
+					removeAttributeQuotes: true,
+					useShortDocType: true,
+					collapseWhitespace: true
+				},
+				files: {
+					'<%= prod.root %>index.html': '<%= prod.root %>index.html'
+				}
+			}
+		},
+		// ///////////////////////////////////////////////////////////////// build / deploy / workflow
 		bump: {
 			options: {
 				files: [ "package.json", "bower.json" ],
@@ -201,36 +247,18 @@ module.exports = function ( grunt ) {
 			}
 		},
 
-		uglify: {
-			options: {
-				banner: "<%= banner %>",
-				sourceMap: true,
-				screwIE8: false
-			},
-			dist: {
-				src: "<%= manifest.js_bundle %>",
-				dest: "<%= config.dist %>prm.<%= pkg.name %>.min.js"
-			}
-		},
-
-		open: {
-			dev: {
-				path: "http://localhost:8080/",
-				app: "Chrome"
-			},
-		},
-
-		wintersmith: {
-			build: {
+		connect: {
+			server: {
 				options: {
-					action: "build",
-					config: "config.json"
-				}
-			},
-			preview: {
-				options: {
-					action: "preview",
-					config: "config.json"
+					port: "9001",
+					base: "build/",
+					protocol: "http",
+					hostname: "localhost",
+					livereload: true,
+					open: {
+						target: "http://localhost:9001/", // target url to open
+						appName: "Chrome"
+					},
 				}
 			}
 		},
@@ -243,6 +271,7 @@ module.exports = function ( grunt ) {
 			],
 			tasks: [
 				"less:dev",
+				"newer:jade",
 				"newer:ngtemplates",
 				"concat",
 				"jshint"
@@ -259,7 +288,7 @@ module.exports = function ( grunt ) {
 
 		concurrent: {
 			target: {
-				tasks: [ "watch", "wintersmith:preview" ],
+				tasks: [ "connect", "watch" ],
 				options: {
 					logConcurrentOutput: true
 				}
@@ -269,11 +298,13 @@ module.exports = function ( grunt ) {
 
 	require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks );
 
+	// init
+	grunt.registerTask( "devint", [ "jade", "less:dev" ] )
 	// Develop
-	grunt.registerTask( "default", [ "concurrent", "open:dev" ] );
+	grunt.registerTask( "default", [ "jade", "connect", "watch" ] );
 
 	// Test
-	grunt.registerTask( 'test', [ 'less:dev', 'lesslint', 'ngtemplates', 'concat' ] );
+	grunt.registerTask( 'test', [ "lesslint", 'jsonlint' ] );
 
 	grunt.registerTask( "dataprep", [ "minjson", "jsonlint" ] );
 

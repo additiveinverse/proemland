@@ -5,22 +5,8 @@
   "main": "Gruntfile.js",
   "author": "Richard Bailey",
   "repository": "https://github.com/additiveinverse/pland.git",
-  "manifest": {
-    "css": {
-      "contents/css/layout.min.css": [
-        "app_modules/normalize-less/normalize.less",
-        "app/less/base-*.less"
-      ],
-      "contents/css/global.css": "app/less/global.less"
-    },
-    "js": [
-      "Gruntfile.js",
-      "app/prm.*.js",
-      "contents/js/prm.js"
-    ]
-  },
   "dependencies": {
-    "grunt": "~0.4.5",
+    "grunt": "~0.4.5"
   },
   "devDependencies": {
     "grunt-angular-templates": "*",
@@ -41,7 +27,6 @@
     "grunt-lesslint": "^1.2.0",
     "grunt-minjson": "^0.3.0",
     "grunt-newer": "^1.1.1",
-    "grunt-ngmin": ">=0.0.3",
     "grunt-open": "^0.2.3",
     "grunt-strip": "^0.2.1",
     "matchdep": "^0.3.0"

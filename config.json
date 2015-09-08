@@ -1,6 +1,5 @@
 {
-  "locals": {
-    "url": "http://localhost:8080",
+    "url": "http://localhost:9001",
     "title": "Proemland",
     "version": "7.0.0",
     "owner": "Proem",
@@ -27,25 +26,4 @@
         "additiveinverse": "http://additiveinverse.com"
       }
     }
-  },
-  "plugins": [
-    "./plugins/paginator.coffee",
-    "./node_modules/wintersmith-jade",
-    "./node_modules/wintersmith-data-json/index.js"
-  ],
-  "require": {
-    "moment": "moment",
-    "_": "underscore",
-    "typogr": "typogr"
-  },
-  "jade": {
-    "pretty": true
-  },
-  "markdown": {
-    "smartLists": true,
-    "smartypants": true
-  },
-  "paginator": {
-    "perPage": 10
-  }
 }
