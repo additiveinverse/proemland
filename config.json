@@ -1,29 +1,29 @@
 {
-    "url": "http://localhost:9001",
-    "title": "Proemland",
-    "version": "7.0.0",
-    "owner": "Proem",
-    "description": "Proemland redesign for 2014",
-    "cats": {
-      "full-lengths": "Full Lengths",
-      "singles": "Singles",
-      "remixes": "Remixes",
-      "live-sets": "Live",
-      "various-artist": "Various Artist",
-      "walls": "Wallpapers",
-      "dls": "Downloads"
+  "url": "http://localhost:9001",
+  "title": "Proemland",
+  "version": "7.0.0",
+  "owner": "Proem",
+  "description": "Proemland redesign for 2014",
+  "cats": {
+    "full-lengths": "Full Lengths",
+    "singles": "Singles",
+    "remixes": "Remixes",
+    "live-sets": "Live",
+    "various-artist": "Various Artist",
+    "walls": "Wallpapers",
+    "dls": "Downloads"
+  },
+  "network": {
+    "social": {
+      "twitter": "http://twitter.com/wallofknives",
+      "soundcloud": "http://soundcloud.com/proem",
+      "last-fm": "http://www.last.fm/user/proemland",
+      "flickr": "http://www.flickr.com/photos/proem/",
+      "society6": "http://society6.com/proem"
     },
-    "network": {
-      "social": {
-        "twitter": "http://twitter.com/wallofknives",
-        "soundcloud": "http://soundcloud.com/proem",
-        "last-fm": "http://www.last.fm/user/proemland",
-        "flickr": "http://www.flickr.com/photos/proem/",
-        "society6": "http://society6.com/proem"
-      },
-      "antisocial": {
-        "placeguntohead": "http://placeguntohead.com",
-        "additiveinverse": "http://additiveinverse.com"
-      }
+    "antisocial": {
+      "placeguntohead": "http://placeguntohead.com",
+      "additiveinverse": "http://additiveinverse.com"
     }
+  }
 }

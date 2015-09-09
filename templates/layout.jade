@@ -14,25 +14,25 @@ html(lang='en')
 			block title
 				= locals.title
 
-		link( rel='alternate', href=locals.url + '/feed.xml', type='application/rss+xml', title=locals.description )
+		link( rel='alternate', href=locals.url + '/feed.xml', type='application/rss+xml', title=description )
 
 		link( rel='stylesheet', href=locals.url + '/css/layout.min.css' )
 		link( rel='stylesheet', href=locals.url + '/css/proemland2014.css' )
 
-		//- script( type="text/javascript", src=locals.url + '/js/head.min.js' )
+		//- script( type="text/javascript", src=url + '/js/head.min.js' )
 		script.
-			//- head.js(
-			//- 	{ ang: locals.url + '/js/angular.js' },
-			//- 	{ gbl: locals.url + '/js/prm.js' }
-			//- );
+			//- 	head.js(
+			//- 		{ ang: '/js/angular.js' },
+			//- 		{ gbl: '/js/prm.js' }
+			//- 	);
 			prfx = '/js/';
 
-	body(lang='en')
+	body(lang='en', ng-app="appProem")
 		.page
 			header( class='hdr page-hdr ps', role='banner' )
 				h1( class='ttl page-ttl', title=locals.title , role='banner' )
 					span( class='logo page-ttl-logo' )= locals.description
-					a(class="page-ttl-lnk lnk", href=locals.url )= locals.title
+					a(class="page-ttl-lnk lnk", href=url )= locals.title
 
 				p( class='nfo page-nfo', role='note' )
 					span( class='page-nfo-vrsn nfo' )= locals.version
@@ -40,11 +40,11 @@ html(lang='en')
 
 				include nav
 				nav( class='nav nav-filter', id='grid-filter', role='navigation' )
-					+menuMaker( 'filter', locals.cats )
+					+menuMaker( 'filter', cats )
 
 				nav( class='nav network-nav', role='navigation' )
-					+menuMaker('antisocial', locals.network.antisocial )
-					+menuMaker('social', locals.network.social )
+					+menuMaker('antisocial', network.antisocial )
+					+menuMaker('social', network.social )
 
 			main( class='ng-cloak grd page-content ' + bodyclass + '-content' )
 				block content

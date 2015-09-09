@@ -1,22 +1,22 @@
-proem = angular.module( 'proem', [ 'ngRoute', 'directives', 'ngAnimate' ] )
+proem = angular.module( "appProem", [ "ngRoute", "ngSanitize", "direcTives", "ngAnimate" ] )
 
-angular.element( document ).ready( function () {
-	angular.bootstrap( document, [ 'proem' ] )
-} )
+// angular.element( document ).ready( function () {
+// 	angular.bootstrap( document, [ "appProem" ] )
+// } )
 
 proem.config( function ( $routeProvider, $locationProvider ) {
-	$routeProvider.when( 'walls', {
-		templateUrl: 'app/partials/itm-walls.html',
-		controller: 'WallsController'
+	$routeProvider.when( "walls", {
+		templateUrl: "app/partials/itm-walls.html",
+		controller: "WallsController"
 	} )
-	$routeProvider.when( 'dls', {
-			templateUrl: 'app/partials/itm-walls.html',
-			controller: 'DlsController'
+	$routeProvider.when( "dls", {
+			templateUrl: "app/partials/itm-walls.html",
+			controller: "DlsController"
 		} )
 		.otherwise( {
-			redirectTo: '',
-			templateUrl: 'app/partials/itm-prdgrid.html',
-			controller: 'ProductsController'
+			redirectTo: "",
+			templateUrl: "app/partials/itm-prdgrid.html",
+			controller: "ProductsController"
 		} )
 } )
 
@@ -32,11 +32,11 @@ var dataComm = function ( $scope, $http, url, method ) {
 	} ).
 	success( function ( data, status, headers, config ) {
 		$scope.data = data
-			// console.dir( data )
+			console.dir( data )
 	} ).
 	error( function ( data, status, headers, config ) {
 		$scope.status = status
-		console.log( 'status: ' + status )
+		console.log( "status: " + status )
 		console.dir( config )
 	} )
 }

@@ -1,0 +1,146 @@
+
+
+csslint: There are 1 problems in app/less/_mixins.less.
+
+_mixins.less
+1: warning at line 45, col 2
+Unknown property 'font-smoothing'.
+  font-smoothing: antialiased;
+
+csslint: There are 3 problems in app/less/base-frm-err.less.
+
+base-frm-err.less
+1: warning at line 4, col -1
+Unqualified attribute selectors are known to be slow.
+[placeholder] {
+
+base-frm-err.less
+2: warning at line 7, col 0
+Unqualified attribute selectors are known to be slow.
+[placeholder]:active,
+
+base-frm-err.less
+3: warning at line 8, col 0
+Unqualified attribute selectors are known to be slow.
+[placeholder]:focus {
+
+csslint: There are 10 problems in app/less/base-type.less.
+
+base-type.less
+1: warning at line 3, col -1
+The universal selector (*) is known to be slow.
+* {
+
+base-type.less
+2: warning at line 24, col 1
+Outlines shouldn't be hidden unless other visual changes are made.
+a:focus {
+
+base-type.less
+3: warning at line 40, col -1
+Heading (h1) has already been defined.
+h1 {
+
+base-type.less
+4: warning at line 45, col -1
+Heading (h2) has already been defined.
+h2 {
+
+base-type.less
+5: warning at line 51, col -1
+Heading (h3) has already been defined.
+h3 {
+
+base-type.less
+6: warning at line 57, col -1
+Heading (h4) has already been defined.
+h4 {
+
+base-type.less
+7: warning at line 64, col -1
+Heading (h5) has already been defined.
+h5 {
+
+base-type.less
+8: warning at line 70, col -1
+Heading (h6) has already been defined.
+h6 {
+
+base-type.less
+9: warning
+Too many font-size declarations (14), abstraction needed.
+
+base-type.less
+10: warning
+You have 2 h1s, 2 h2s, 2 h3s, 2 h4s, 2 h5s, 2 h6s defined in this stylesheet.
+
+csslint: There are 14 problems in app/less/global.less.
+
+global.less
+1: warning at line 61, col 0
+Fallback border-top (hex or RGB) should precede RGBA border-top.
+  border-top: 13px solid rgba(240, 243, 243, 0.7);
+
+global.less
+2: warning at line 74, col 1
+Fallback background-color (hex or RGB) should precede RGBA background-color.
+  background-color: rgba(240, 243, 243, 0.7);
+
+global.less
+3: warning at line 93, col 2
+Duplicate property 'top' found.
+  top: -15px;
+
+global.less
+4: warning at line 128, col 0
+Fallback border-top (hex or RGB) should precede RGBA border-top.
+  border-top: 1px dashed rgba(94, 94, 99, 0.1);
+
+global.less
+5: warning at line 228, col 0
+Fallback background (hex or RGB) should precede RGBA background.
+  background: rgba(240, 243, 243, 0.7);
+
+global.less
+6: warning at line 229, col 0
+Fallback border (hex or RGB) should precede RGBA border.
+  border: 0.5em solid rgba(240, 243, 243, 0.7);
+
+global.less
+7: warning at line 283, col 1
+Fallback background-color (hex or RGB) should precede RGBA background-color.
+  background-color: rgba(240, 243, 243, 0.7);
+
+global.less
+8: warning at line 293, col 1
+Fallback background-color (hex or RGB) should precede RGBA background-color.
+  background-color: rgba(240, 243, 243, 0.7);
+
+global.less
+9: warning at line 326, col 0
+Don't use adjoining classes.
+.music-grid.ng-hide {
+
+global.less
+10: warning at line 331, col 0
+Don't use adjoining classes.
+.music-grid.ng-move {
+
+global.less
+11: warning at line 385, col 1
+Fallback background-color (hex or RGB) should precede RGBA background-color.
+  background-color: rgba(240, 243, 243, 0.7);
+
+global.less
+12: warning at line 389, col -1
+Missing vendor-prefixed CSS gradients for Firefox 3.6+, Old Webkit (Safari 4+, Chrome), Opera 11.1+.
+.btn {
+
+global.less
+13: warning at line 418, col 4
+Fallback background (hex or RGB) should precede RGBA background.
+  background: rgba(32, 32, 34, 0.35);
+
+global.less
+14: warning
+Too many font-size declarations (13), abstraction needed.

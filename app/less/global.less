@@ -1,5 +1,6 @@
 @import './_variables';
 @import './_mixins';
+@import './lesshat';
 @import './_grid';
 
 @-webkit-keyframes flash {
@@ -16,12 +17,12 @@
 	opacity: 0;
 }
 
-// .ng-hide-remove {
-// 	-webkit-animation: flash 0.7s 1s;
-// 	 		animation: flash 0.7s 1s;
-// 	-webkit-animation-fill-mode: both;
-// 	 		animation-fill-mode: both;
-// }
+.ng-hide-remove {
+	-webkit-animation: flash 0.7s 1s;
+	 		animation: flash 0.7s 1s;
+	-webkit-animation-fill-mode: both;
+	 		animation-fill-mode: both;
+}
 
 .sprite {
 	background-image: url(../im/sprite.png);
@@ -31,9 +32,9 @@
 	.transition( all, 0.3s );
 }
 
-// .animate-enter.animate-enter-active {
-// 	opacity: 1;
-// }
+.animate-enter.animate-enter-active {
+	opacity: 1;
+}
 
 .lnk {
 	&:extend( .animate );
@@ -44,11 +45,11 @@
 	&:extend( .animate );
 }
 
-// .ng-enter,
-// .ng-leave,
-// .ng-move {
-// 	&:extend( .animate );
-// }
+.ng-enter,
+.ng-leave,
+.ng-move {
+	&:extend( .animate );
+}
 
 .filter-itm:after,
 .antisocial-itm:after,
@@ -129,8 +130,8 @@ body {
 	border-top: 1px dashed fade( @grey, 10% );
 	margin: auto;
 	padding: 1.2em 0;
-	text-shadow: 1px 1px 0 @white;
-	// font-weight: bold;
+	// text-shadow: 1px 1px 0 @white;
+	font-weight: bold;
 	text-transform: uppercase;
 }
 
@@ -221,6 +222,7 @@ body {
 	&-txt {
 		padding-left: @base-margin;
 		box-shadow: 0 2px 3px @grey-light inset;
+		width: 100%;
 	}
 }
 

@@ -1,12 +1,12 @@
 module.exports = function ( grunt ) {
 	var name = "<%= pkg.name %>-v<%= pkg.version%>"
 	var manifestcss = {
-      "build/css/layout.min.css": [
-        "app_modules/normalize-less/normalize.less",
-        "app/less/base-*.less"
-      ],
-      "build/css/<%= pkg.name %>.css": "app/less/global.less"
-    }
+		"build/css/layout.min.css": [
+			"app/less/normalize.less",
+			"app/less/base-*.less"
+		],
+		"build/css/<%= pkg.name %>.css": "app/less/global.less"
+	}
 	var manifestjs = "<%= pkg.manifest.js %>"
 	var reports = "reports/<%= pkg.name %>-"
 
@@ -30,13 +30,12 @@ module.exports = function ( grunt ) {
 			},
 			manifest: {
 				css: {
-					"build/css/layout.min.css":
-					[
+					"build/css/layout.min.css": [
 						"app_modules/normalize-less/normalize.less",
 						"app/less/base-*.less"
 					],
 					"build/css/<%= pkg.name %>.css": "app/less/global.less"
-		    }
+				}
 			}
 		},
 
@@ -52,7 +51,9 @@ module.exports = function ( grunt ) {
 		concat: {
 			options: {
 				separator: " ",
-				banner: "<%= banner %>"
+				banner: "<%= banner %>",
+				stripBanners: false,
+				sourceMap: true
 			},
 			appJS: {
 				src: [
@@ -64,10 +65,24 @@ module.exports = function ( grunt ) {
 				src: [
 					"<%= config.lib %>/angular/angular.min.js",
 					"<%= config.lib %>/angular-animate/angular-animate.min.js",
+					"<%= config.lib %>/angular-ui-router/release/angular-ui-router.min.js",
 					"<%= config.lib %>/angular-route/angular-route.min.js",
 					"<%= config.lib %>/angular-sanitize/angular-sanitize.min.js"
 				],
 				dest: "<%= config.dist.js %>angular.js"
+			}
+		},
+
+		copy: {
+			lesslib: {
+				expand: true,
+				flatten: true,
+				cwd: "<%= config.lib %>",
+				src: [
+					"lesshat/build/lesshat.less",
+					"normalize-less/normalize.less"
+				],
+				dest: "<%= config.app.less %>"
 			}
 		},
 
@@ -103,7 +118,7 @@ module.exports = function ( grunt ) {
 		},
 
 		jsbeautifier: {
-			files: manifestjs,
+			files: [ "<%= config.app.js %>*.js", "Gruntfile.js" ],
 			options: {
 				css: {
 					indentSize: 2,
@@ -157,8 +172,8 @@ module.exports = function ( grunt ) {
 			compile: {
 				options: {
 					pretty: true,
-					data: function( dest, src ) {
-						return grunt.file.readJSON("config.json")
+					data: function ( dest, src ) {
+						return grunt.file.readJSON( "config.json" )
 					}
 				},
 				files: {
@@ -168,7 +183,7 @@ module.exports = function ( grunt ) {
 		},
 
 		ngtemplates: {
-			proem: {
+			appProem: {
 				src: "<%= config.app.partials %>*.html",
 				dest: "<%= config.app.js %>prm.tpl.js",
 				options: {
@@ -266,20 +281,17 @@ module.exports = function ( grunt ) {
 		watch: {
 			files: [
 				"Gruntfile.js",
-				"templates/**/*",
+				"<%= config.app.tpl %>**/*",
 				"<%= config.app.root %>**/*"
 			],
 			tasks: [
-				"less:dev",
-				"newer:jade",
-				"newer:ngtemplates",
-				"concat",
-				"jshint"
+				"devint",
+				"test"
 			],
 			options: {
 				reload: true,
 				livereload: true,
-				spawn: false,
+				spawn: true,
 				dateFormat: function ( time ) {
 					grunt.log.writeln( "The watch finished in " + time + "ms at" + ( new Date() ).toString() );
 				}
@@ -288,7 +300,7 @@ module.exports = function ( grunt ) {
 
 		concurrent: {
 			target: {
-				tasks: [ "connect", "watch" ],
+				tasks: [ "watch", "connect" ],
 				options: {
 					logConcurrentOutput: true
 				}
@@ -299,14 +311,15 @@ module.exports = function ( grunt ) {
 	require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks );
 
 	// init
-	grunt.registerTask( "devint", [ "jade", "less:dev" ] )
+	grunt.registerTask( "devint", [ "jade", "concat", "ngtemplates", "copy", "less:dev" ] )
+
 	// Develop
-	grunt.registerTask( "default", [ "jade", "connect", "watch" ] );
+	grunt.registerTask( "default", [ "devint", "connect", "watch" ] );
 
 	// Test
-	grunt.registerTask( 'test', [ "lesslint", 'jsonlint' ] );
+	grunt.registerTask( "test", [ "jsonlint" ] );
 
-	grunt.registerTask( "dataprep", [ "minjson", "jsonlint" ] );
+	grunt.registerTask( "dataprep", [ "minjson" ] );
 
 	// Deploy
 	grunt.registerTask( 'deploy', [ 'less:prod', 'test', 'imagemin', 'ngtemplates', 'concat' ] );

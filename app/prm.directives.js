@@ -1,4 +1,4 @@
-angular.module( 'directives', [] ).
+angular.module( 'direcTives', [] ).
 directive( 'toggler', [ '$parse', function ( $parse ) {
 	return {
 		restrict: 'EA',
