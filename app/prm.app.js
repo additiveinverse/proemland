@@ -1,4 +1,4 @@
-proem = angular.module( "appProem", [ "ngRoute", "ngSanitize", "direcTives", "ngAnimate" ] )
+proem = angular.module( "appProem", [ "ngRoute", "ui.router", "ngSanitize", "direcTives", "ngAnimate" ] )
 
 // angular.element( document ).ready( function () {
 // 	angular.bootstrap( document, [ "appProem" ] )

@@ -12,21 +12,17 @@
 		<div class="prod-nfo music-nfo nfo">
 			<img class="prod-thumb music-thumb photo" ng-src="{{ d.thumbimg }}" alt="{{ d.ttl }}" />
 			<dl class="lst prod-nfo-lst music-nfo-lst">
-				<dt class="type prod-nfo-typ music-nfo-typ">category</dt>
-				<dd class="val prod-nfo-val music-nfo-val">{{ d.prod_type }}</dd>
 				<dt class="type prod-nfo-typ music-nfo-typ">released</dt>
 				<dd class="val prod-nfo-val music-nfo-val">{{ d.date | date:yyyy }}</dd>
-				<dt class="type prod-nfo-typ music-nfo-typ">format</dt>
-				<dd class="val prod-nfo-val music-nfo-val ico ico-{{ d.prod_frmt }}">{{ d.prod_frmt }}</dd>
 				<dt class="type prod-nfo-typ music-nfo-typ">label</dt>
-				<dd class="val prod-nfo-val music-nfo-val"><a class="prod-nfo-lnk" href="{{ d.cat_lnk }}" target="_blank">{{ d.cat_lbl }}</a></dd>
+				<dd class="val prod-nfo-val music-nfo-val">
+					<a class="prod-nfo-lnk" href="{{ d.cat_lnk }}" target="_blank">{{ d.cat_lbl }}</a>
+				</dd>
 				<dt class="type prod-nfo-typ music-nfo-typ">catalog ID</dt>
 				<dd class="val prod-nfo-val music-nfo-val">{{ d.cat_num }}</dd>
-				<dt class="type prod-nfo-typ music-nfo-typ">limited to</dt>
-				<dd class="val prod-nfo-val music-nfo-val">{{ d.cat_limit }}</dd>
 			</dl>
 			<ol class="lst music-track-lst">
-				<li ng-repeat="tl in d.Body">{{ tl }}</li>
+				<li ng-repeat="tl in d.Body track by $index">{{ tl }}</li>
 			</ol>
 		</div>
 	</section>

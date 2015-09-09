@@ -1,66 +1,66 @@
 // //////////////////////// Greyscale
-@black: 					rgb( 0, 0, 0 );
-@grey-darker:				darken( @grey, 10% );
-@grey-dark:					darken( @grey, 25% );
-@grey:						rgb( 94, 94, 99 );
-@grey-light:				lighten( @grey, 25% );
-@grey-lighter: 				lighten( @grey, 10% );
-@white: 					rgb( 255, 255, 255 );
+@black: 										rgb( 0, 0, 0 );
+@grey-darker:								darken( @grey, 10% );
+@grey-dark:									darken( @grey, 25% );
+@grey:											rgb( 94, 94, 99 );
+@grey-light:								lighten( @grey, 25% );
+@grey-lighter: 							lighten( @grey, 10% );
+@white: 										rgb( 255, 255, 255 );
 
 // //////////////////////// Branding
-@white-off: 				rgb( 240, 243, 243 );
-@white-out: 				fade( @white-off, 70% );
-@blue: 						rgb( 4, 180, 191 );
-@green: 					rgb( 72, 179, 14 );
-@orange: 					rgb( 255, 94, 7 );
-@yellow: 					rgb( 240, 181, 20 );
-@red:						red;
+@white-off: 								rgb( 240, 243, 243 );
+@white-out: 								fade( @white-off, 70% );
+@blue: 											rgb( 4, 180, 191 );
+@green: 										rgb( 72, 179, 14 );
+@orange: 										rgb( 255, 94, 7 );
+@yellow: 										rgb( 240, 181, 20 );
+@red:												red;
 
-@font-sans-serif: 			"Nexa", Helvetica, Arial, sans-serif;
-@font-serif:				"Times New Roman", Times, serif;
-@font-heading:				"Nexa";
-@font-icon:					"typicons";
+@font-sans-serif: 					"Nexa", Helvetica, Arial, sans-serif;
+@font-serif:								"Times New Roman", Times, serif;
+@font-heading:							"Nexa";
+@font-icon:									"typicons";
 
 // //////////////////////// VISUAL DEFAULTS
 // ------------------------ Typography
-@base-type:        			@font-sans-serif;
-@base-type-size:   			16;
-@base-type-color: 			@grey-dark;
+@base-type:        					@font-sans-serif;
+@base-type-size:   					16;
+@base-type-color: 					@grey-dark;
 
-@base-type-heading:			@font-heading;
+@base-type-heading:					@font-heading;
 @base-type-heading-color:   @blue;
 
-@base-line-height: 			1.5;
+@base-line-height: 					1.5;
 
-@base-link:					@orange;
-@base-link-hover:	 		darken( @base-link, 10% );
-@base-input-focus:			darken( @base-link, 25% );
+@base-link:									@orange;
+@base-link-hover:	 					darken( @base-link, 10% );
+@base-input-focus:					darken( @base-link, 25% );
 
 // ------------------------ Typography - headings
-@base-type-h1: 				floor( @base-type-size * 3 ); // ~48px
-@base-type-h2:				floor( @base-type-size * 2 ); // ~32px
-@base-type-h3:				ceil( @base-type-size * 1.75 ); // ~28px
-@base-type-h4:				ceil( @base-type-size * 1.5 ); // ~24px
-@base-type-h5:				ceil( @base-type-size * 1.3313 ); // ~21.3px
-@base-type-h6:				ceil( @base-type-size * 1.1688 ); // ~18.7px
+@base-type-h1: 							floor( @base-type-size * 3 ); // ~48px
+@base-type-h2:							floor( @base-type-size * 2 ); // ~32px
+@base-type-h3:							ceil( @base-type-size * 1.75 ); // ~28px
+@base-type-h4:							ceil( @base-type-size * 1.5 ); // ~24px
+@base-type-h5:							ceil( @base-type-size * 1.3313 ); // ~21.3px
+@base-type-h6:							ceil( @base-type-size * 1.1688 ); // ~18.7px
 
 // ------------------------ Typography - spacing
-@base-margin:				@base-line-height * 1em;
-@base-margin-half:			@base-margin / 2;
+@base-margin:								@base-line-height * 1em;
+@base-margin-half:					@base-margin / 2;
 
 // ------------------------ Forms - Messaging
-@error: 					@orange;
-@alert: 					@yellow;
-@note:						@grey;
+@error: 										@orange;
+@alert: 										@yellow;
+@note:											@grey;
 
 // ------------------------ Forms - buttons
-@btn-primary: 				@yellow;
-@btn-secondary:	 			@orange;
+@btn-primary: 							@yellow;
+@btn-secondary:	 						@orange;
 
 // ------------------------ Forms - labels
-@label-width: 				30%;
-@label-right: 				@base-margin-half;
-@label-total: 				( @label-width + @label-right );
+@label-width: 							30%;
+@label-right: 							@base-margin-half;
+@label-total: 							( @label-width + @label-right );
 
 // ------------------------ Forms - inputs
 @input-width:				calc( ~"100% - @label-total" );
