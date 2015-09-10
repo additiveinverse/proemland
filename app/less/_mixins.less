@@ -1,77 +1,69 @@
-@import './_variables';
+@import 'lesshat';
+@import '_variables';
 
-.box-sizing ( @sizing: border-box ) {
-	-webkit-box-sizing: @sizing;
-	   -moz-box-sizing: @sizing;
-			box-sizing: @sizing;
-}
-
-.background-origin( @origin ) {
-	-webkit-origin-size: @origin;
-	   -moz-origin-size: @origin;
-	   		origin-size: @origin;
-}
-
-.background-size( @size ) {
-	-webkit-background-size: @size;
-	   -moz-background-size: @size;
-			background-size: @size;
-}
-
-.background-clip( @type: padding-box ) {
-	background-clip: @arguments;
-}
-
-.font-size( @font-size: 16 ) {
+.font-size( @font-size: @base-type-size, @offset: 1 ) {
 	@rem: ( @font-size / 10 );
 	font-size : ~"@{rem}rem";
-	font-size : @font-size * 1px;
+	font-size : unit( @font-size, px );
+	line-height+: @base-line-multiplier / @font-size * @offset;
 }
 
 ._inject( @content: "" ) {
 	content: @content;
+}
+
+.zero {
+	margin: 0;
+	padding-left: 0;
+}
+
+
+.inline-block( @valign: top ) {
 	display: inline-block;
+	vertical-align: @valign;
 }
 
 //////////////////////////// Helper Class
-.ico_base {
+// icons
+.icon_base {
 	position: relative;
-	line-height: 1;
 	font-family: @font-icon;
 	font-style: normal;
 	font-weight: normal;
+	padding-right: 7px;
 	speak: none;
+	color: @base-icon-color;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
-			font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	.inline-block(middle);
+	line-height: 1;
 }
 
 .ico {
-	&:before,
-	&:after {
-		&:extend( .ico_base );
-	}
+	&:extend( .icon_base );
 }
 
 //////////////////////////// Let's go ahead and set the base icon styles
-._ico( @_ico, @font-size: 14 ) {
-	&:extend( .ico_base );
-	.font-size( @font-size );
+._ico( @_ico, @font-size ) {
 	._inject( @_ico );
+	.font-size( @font-size );
 }
 
 //////////////////////////// Let's make some icons
 // 	Here's where the magic happens
-.icon( @place, @_ico, @fs: 14 ) when ( @place = "pre" ) {
+.icon( @place, @_ico, @fs: @base-icon-size ) when ( @place = "pre" ) {
 	&:before {
-		margin-right: 0.25em;
+		&:extend(.icon_base);
+		margin-right: @base-margin-eighth;
 		._ico( @_ico, @fs );
 	}
 }
 
-.icon( @place, @_ico, @fs ) when ( @place = "app" ) {
+.icon( @place, @_ico, @fs: @base-icon-size ) when ( @place = "app" ) {
 	&:after {
-		// margin-left: 0.25em;
+		&:extend(.icon_base);
+		margin-left: @base-margin-eighth;
 		._ico( @_ico, @fs );
 	}
 }
@@ -98,7 +90,7 @@
 	border-color: transparent @-color transparent transparent;
 }
 
-.arrow( @_, @width: 5px, @-color: @border-color ) {
+.arrow( @_, @-color: @border-color, @width: 5px ) {
 	&:after {
 		position: relative;
 		border: @width solid;
@@ -127,59 +119,50 @@
 .bl ( @width: 1px, @style: solid, @color: @border-color ) {
 	border-left: @arguments
 }
-
-// box shadows
-.shadow( @x-axis: 0, @y-axis: 1px, @blur: 2px, @color: #000, @alpha: 0.1 ) {
-	box-shadow: @x-axis @y-axis @blur fade( @color, @alpha );
-}
-
-.gradient( @deg, @start: #EEE, @start-percent: 0%, @stop: #FFF, @stop-percent: 100% ) {
-	background-color: @start;
-	background-image: -webkit-linear-gradient( @deg, @start @start-percent, @stop @stop-percent );
-	background-image: 		  linear-gradient( @deg, @start @start-percent, @stop @stop-percent );
-}
-
-// transforms
-.transform(...) {
-	-webkit-transform: @arguments;
-		-ms-transform: @arguments;
-			transform: @arguments;
-}
-
-.transform-origin(...) {
-	-webkit-transform-origin: @arguments;
-	   -moz-transform-origin: @arguments;
-		-ms-transform-origin: @arguments;
-			transform-origin: @arguments;
-}
-
-	.rotate( @deg: 5deg, @origin: center ) {
-		.transform( rotate( @deg ) );
-		.transform-origin( @origin );
+// Yes. (sigh). I lifted this from bootstrap
+// oh the feels
+#gradient {
+	// Horizontal gradient, from left to right
+	// Creates two color stops, start and end, by specifying a color and position for each color stop.
+	// Color stops are not available in IE9 and below.
+	.horizontal(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) {
+		background-image: -webkit-linear-gradient(left, @start-color @start-percent, @end-color @end-percent); // Safari 5.1-6, Chrome 10+
+		background-image: -o-linear-gradient(left, @start-color @start-percent, @end-color @end-percent); // Opera 12
+		background-image: linear-gradient(to right, @start-color @start-percent, @end-color @end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+		background-repeat: repeat-x;
+		filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color),argb(@end-color))); // IE9 and down
 	}
 
-	.scale( @r1: 1, @r2: 1, @origin: center ) {
-		.transform( scale( @r1, @r2 ) );
-		.transform-origin( @origin );
+	// Vertical gradient, from top to bottom
+	// Creates two color stops, start and end, by specifying a color and position for each color stop.
+	// Color stops are not available in IE9 and below.
+	.vertical(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) {
+		background-image: -webkit-linear-gradient(top, @start-color @start-percent, @end-color @end-percent);  // Safari 5.1-6, Chrome 10+
+		background-image: -o-linear-gradient(top, @start-color @start-percent, @end-color @end-percent);  // Opera 12
+		background-image: linear-gradient(to bottom, @start-color @start-percent, @end-color @end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+		background-repeat: repeat-x;
+		filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down
 	}
 
-	.translate( @x:0, @y:0, @origin: center ) {
-		.transform( translate( @x, @y ) );
-		.transform-origin( @origin );
+	.directional(@start-color: #555; @end-color: #333; @deg: 45deg) {
+		background-repeat: repeat-x;
+		background-image: -webkit-linear-gradient(@deg, @start-color, @end-color); // Safari 5.1-6, Chrome 10+
+		background-image: -o-linear-gradient(@deg, @start-color, @end-color); // Opera 12
+		background-image: linear-gradient(@deg, @start-color, @end-color); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
 	}
-
-	.translate3d( @x:0, @y:0, @origin: center ) {
-		.transform( translate3d( @x, @y ) );
-		.transform-origin( @origin );
-	}
-
-.transition( @thing: all, @dur: 0.2s, @ease: ease-in-out, @delay: 0s) {
-	-webkit-transition: @arguments;
-			transition: @arguments;
 }
 
-.animator( @name, @time: 0.5s, @iteration: infinite, @delay: 0.5s, @fillmode: both ) {
-	-webkit-animation: @arguments;
-			animation: @arguments;
-}
+.size(@square) {
+  @unit: 'px';
+  .process(@square) when (ispixel(@square)), (isem(@square)), (ispercentage(@square)), (iskeyword(@square)) {
+    width: @square;
+    height: @square;
+  }
 
+  .process(@square) when not (ispixel(@square)) and not (isem(@square)) and not (ispercentage(@square)) and not (isstring(@square)) and not (iskeyword(@square)) {
+    width: ~`@{square} + @{unit}`;
+    height: ~`@{square} + @{unit}`;
+  }
+
+  .process(@square);
+}

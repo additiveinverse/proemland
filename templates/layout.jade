@@ -35,8 +35,8 @@ html(lang='en')
 					a(class="page-ttl-lnk lnk", href=url )= locals.title
 
 				p( class='nfo page-nfo', role='note' )
-					span( class='page-nfo-vrsn nfo' )= locals.version
 					span( class='page-nfo-yr nfo' )= new Date().getFullYear()
+					span( class='page-nfo-vrsn nfo' )= locals.version
 
 				include nav
 				nav( class='nav nav-filter', id='grid-filter', role='navigation' )

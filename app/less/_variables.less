@@ -11,18 +11,28 @@
 @white-off: 								rgb( 240, 243, 243 );
 @white-out: 								fade( @white-off, 70% );
 @blue: 											rgb( 4, 180, 191 );
+@blue-dark:									rgb(39, 47, 53);
+@blue-darker: 							fade(@blue-dark, 75%);
 @green: 										rgb( 72, 179, 14 );
 @orange: 										rgb( 255, 94, 7 );
 @yellow: 										rgb( 240, 181, 20 );
 @red:												red;
 
-@font-sans-serif: 					"Nexa", Helvetica, Arial, sans-serif;
-@font-serif:								"Times New Roman", Times, serif;
-@font-heading:							"Nexa";
-@font-icon:									"typicons";
+
 
 // //////////////////////// VISUAL DEFAULTS
+// ------------------------ icons
+@font-icon:									'typicons';
+
+@base-icon-color: 					@orange;
+@base-icon-size: 						@base-type-h4;
+
 // ------------------------ Typography
+@font-sans-serif: 					"Nexa", Helvetica, Arial, sans-serif;
+@font-serif:								"Times New Roman", Times, serif;
+
+@font-heading:							"Nexa";
+
 @base-type:        					@font-sans-serif;
 @base-type-size:   					16;
 @base-type-color: 					@grey-dark;
@@ -31,6 +41,7 @@
 @base-type-heading-color:   @blue;
 
 @base-line-height: 					1.5;
+@base-line-multiplier:			@base-type-size * @base-line-height; // 24
 
 @base-link:									@orange;
 @base-link-hover:	 					darken( @base-link, 10% );
@@ -45,8 +56,11 @@
 @base-type-h6:							ceil( @base-type-size * 1.1688 ); // ~18.7px
 
 // ------------------------ Typography - spacing
-@base-margin:								@base-line-height * 1em;
+// @base-margin:								unit( @base-line-height, %) * 3;
+@base-margin:								unit( @base-line-height, em);
 @base-margin-half:					@base-margin / 2;
+@base-margin-quarter:				@base-margin / 4;
+@base-margin-eighth:				@base-margin / 8;
 
 // ------------------------ Forms - Messaging
 @error: 										@orange;
@@ -79,7 +93,29 @@
 @btn-pad:					@base-margin @base-margin-half;
 @btn-bg:					@btn-primary;
 
-// ------------------------ icons
-@icon-color: 				@orange;
+@btn-pad:										@base-margin @base-margin-half;
+
+// ------------------------ Forms - labels
+@label-width: 							30%;
+@label-right: 							@base-margin-half;
+@label-total: 							( @label-width + @label-right );
+
+// ------------------------ Forms - inputs
+@input-width:								calc( ~"100% - @label-total" );
+@input-bg:									@white;
+@input-bg-disabled: 				@grey-lighter;
+
+@input-color:								@grey-dark;
+@input-border:							@border-color;
+@input-focus:								darken( @input-color, 50% );
+@input-height-base:					( @base-line-height + ( @base-margin-half * 2 ) + 2 );
+
+@legend-color:							@grey-dark;
+@legend-border-color:				#e5e5e5;
+
+@border-color: 							@grey;
+@border-radius: 						100%;
+
+@base-opacity: 							0.65;
 
 @import './_typicons';

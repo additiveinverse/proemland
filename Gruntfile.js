@@ -20,7 +20,8 @@ module.exports = function ( grunt ) {
 				less: "app/less/",
 				partials: "app/partials/",
 				img: "app/images/",
-				tpl: "templates/"
+				tpl: "templates/",
+				data: "app/data/"
 			},
 			dist: {
 				root: "build/",
@@ -103,14 +104,14 @@ module.exports = function ( grunt ) {
 				src: [ "config.json", "package.json", "bower.json" ]
 			},
 			data: {
-				src: [ "<%= config.app.root %>*.json", "<%= config.dist.js %>*.json" ]
+				src: [ "<%= config.app.data %>*.json", "<%= config.dist.root %>*.json" ]
 			}
 		},
 
 		strip: {
 			main: {
-				src: "<%= config.app %>autocomplete.js",
-				dest: "<%= config.tmpDist %>autocomplete.js",
+				src: "<%= config.app.root %>*.js",
+				dest: "<%= config.app.root %>*.js",
 				options: {
 					nodes: [ "console.log", "console.dir", "debug" ]
 				}
@@ -199,7 +200,7 @@ module.exports = function ( grunt ) {
 		minjson: {
 			compile: {
 				files: {
-					"<%= config.dist.js %>discog.json": [ "<%= config.app.root %>.json" ]
+					"<%= config.dist.root %>discog.json": [ "<%= config.app.data %>discog.json" ]
 				}
 			}
 		},
@@ -284,25 +285,13 @@ module.exports = function ( grunt ) {
 				"<%= config.app.tpl %>**/*",
 				"<%= config.app.root %>**/*"
 			],
-			tasks: [
-				"devint",
-				"test"
-			],
+			tasks: [ "newer:jade", "concat", "newer:ngtemplates", "less:dev"	],
 			options: {
-				reload: true,
+				reload: false,
 				livereload: true,
 				spawn: true,
 				dateFormat: function ( time ) {
 					grunt.log.writeln( "The watch finished in " + time + "ms at" + ( new Date() ).toString() );
-				}
-			}
-		},
-
-		concurrent: {
-			target: {
-				tasks: [ "watch", "connect" ],
-				options: {
-					logConcurrentOutput: true
 				}
 			}
 		}

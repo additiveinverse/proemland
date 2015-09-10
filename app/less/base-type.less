@@ -1,5 +1,7 @@
 @import '_variables';
 @import '_mixins';
+@import 'lesshat';
+@import '_utilities';
 
 * {
 	.box-sizing;
@@ -15,14 +17,7 @@ body {
 
 // Links
 a {
-	text-decoration: none;
-	color: @base-link;
-
-	&:hover {
-		color: @base-link-hover;
-	}
-
-	&:focus { outline: none }
+	&:extend( .lnk all );
 }
 
 // Headings
@@ -147,30 +142,3 @@ audio {
 img { height: auto }
 
 fieldset { border: none }
-
-// Lists
-.lst {}
-
-// List items
-.itm {}
-
-// Information wrappers
-.nfo {}
-
-// Information type
-.typ {}
-
-// Information values
-.val {}
-
-.lnk {
-	&:extend(a);
-}
-
-// titles
-.ttl {
-	font-family: @base-type-heading;
-	color: @base-type-heading-color;
-	text-transform: uppercase;
-	text-shadow: 1px 1px 0 @white-out;
-}

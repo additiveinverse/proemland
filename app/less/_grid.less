@@ -3,16 +3,16 @@
 /////////////////
 
 // Defaults which you can freely override
-@column-width: 60;
+@column-width: 40;
 @gutter-width: 20;
-@columns: 12;
+@columns: 16;
 
 // Utility variable — you should never need to modify this
 @gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
 
 // Set @total-width to 100% for a fluid layout
-@total-width: @gridsystem-width;
-
+// @total-width: @gridsystem-width;
+@total-width: 100%;
 
 // The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
 .clearfix() {
