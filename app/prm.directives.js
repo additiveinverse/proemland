@@ -13,16 +13,9 @@ directive( 'toggler', [ '$parse', function ( $parse ) {
 				trgrClass = [ prefix, TXTactive ].join( '-' )
 
 			element.on( ev, function ( e ) {
-				// console.dir( e );
-				// console.log("Clicked", this, arguments);
 				trgt = e.currentTarget
-
-				// element.parent().children().removeClass( elemClass );
-				element.toggleClass( elemClass )
-					//					element.siblings().removeClass( elemClass );
-
-				// // elem != '' ? element.find( elem ).toggleClass( trgrClass ) : null;
-				// e.currentTarget != e.currentTarget ? element.find( elem ).removeClass( trgrClass ) : null;
+				element.parent().children().removeClass( elemClass )
+				element.addClass( elemClass )
 			} )
 		}
 	}

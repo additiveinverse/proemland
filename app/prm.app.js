@@ -22,8 +22,6 @@ proem.config( function ( $routeProvider, $locationProvider ) {
 
 // this should probably be a factory or maybe even a service
 var dataComm = function ( $scope, $http, url, method ) {
-	//	$resource('http://localhost:8080/resource.json')
-
 	$http( {
 		url: url,
 		method: method,
@@ -32,11 +30,11 @@ var dataComm = function ( $scope, $http, url, method ) {
 	} ).
 	success( function ( data, status, headers, config ) {
 		$scope.data = data
-			console.dir( data )
+			// console.dir( data )
 	} ).
 	error( function ( data, status, headers, config ) {
 		$scope.status = status
 		console.log( "status: " + status )
-		console.dir( config )
+		// console.dir( config )
 	} )
 }
