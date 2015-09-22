@@ -52,8 +52,9 @@
 
 
 body {
-	background: @white-off url(../im/bck_watercolor.jpg) top center no-repeat fixed;
-	background-size: cover;
+	// background: @white-off url(../im/bck_watercolor.jpg) top center no-repeat fixed;
+	// background-size: cover;
+	background-color: @blue-dark;
 	border-top: 13px solid @white-out;
 }
 
@@ -66,9 +67,8 @@ body {
 
 	&-hdr {
 		padding: 0 1em;
-		background-color: @white-out;
+		// background-color: @white-out;
 		flex: 0 1 1;
-		height: 100%;
 		.col(3);
 	}
 
@@ -77,6 +77,8 @@ body {
 		top: 1em;
 		margin-bottom: 0;
 		.font-size( @base-type-h3, 2.5 );
+		text-shadow: -1px -1px 0 @grey;
+		font-family: @base-type;
 
 		&-logo {
 			top: 0;
@@ -102,17 +104,23 @@ body {
 		position: absolute;
 		top: @base-margin;
 		.col(3);
+		min-width: 320px;
 
 		&-vrsn,
 		&-yr {
 			.inline-block;
 			width: calc(~"100% / 2");
 		}
-		&-yr { text-align: right;		}
+		&-yr {
+			text-align: left
+		}
+		&-vrsn {
+			text-align: right
+		}
 	}
 
 	&-content {
-	  padding: 0 @base-margin;
+	  padding: 0 @base-margin 0 0;
 		flex: 1 0 0;
 	}
 }
@@ -122,8 +130,8 @@ body {
 	border-bottom: 1px dashed @white;
 	border-top: 1px dashed fade( @grey, 15% );
 	padding: @base-margin 0 @base-margin @base-margin * 2.5;
-	font-weight: bold;
 	text-transform: uppercase;
+	font-family: @font-heading;
 }
 
 .filter {
@@ -217,14 +225,17 @@ body {
 // some global product stuff
 .prod {
 	background: @white-out;
-	border: 0.5em solid @white-out;
+	border: @border-width solid @white-out;
 	position: relative;
 	overflow: hidden;
-	margin-right: @base-margin;
-	margin-bottom: @base-margin;
+	margin-left: 2.4em;
+	margin-bottom: 2.4em;
 	&:extend( .animate );
-	float: left;
-	.size( 200px );
+	.col(3);
+	min-height: 175px;
+
+
+	.inline-block;
 
 	.defaults {
 		width: 100%;
@@ -332,19 +343,14 @@ body {
 			}
 		}
 	}
-}
+		// &.ng-hide {
+		// 	opacity: 0;
+		// 	.scale( 1, 1 );
+		// }
 
-.music {
-	&-grid {
-		&.ng-hide {
-			opacity: 0;
-			.scale( 1, 1 );
-		}
-
-		&.ng-move {
-			.scale( 2, 2 );
-		}
-	}
+		// &.ng-move {
+		// 	.scale( 2, 2 );
+		// }
 }
 
 
@@ -362,13 +368,12 @@ body {
 	right: 0;
 	font-size: 0;
 	top: 0;
-	z-index: 22;
 	opacity: 0;
+	z-index: 22;
 	.icon("app", @plus, 24 );
 
 	&:after {
 		.transition( all, 0.1s );
-		padding: 0.25em 0.45em;
 	}
 }
 
@@ -378,7 +383,7 @@ body {
 	text-shadow: 1px 1px 0 @grey-dark;
 
 	&-content {
-	    background: fade(@grey-dark, 35%);
+    background: fade(@grey-dark, 35%);
 	}
 }
 

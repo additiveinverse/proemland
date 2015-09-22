@@ -172,6 +172,11 @@ module.exports = function ( grunt ) {
 		jade: {
 			compile: {
 				options: {
+					filters: {
+						some: function( block ) {
+
+						}
+					},
 					pretty: true,
 					data: function ( dest, src ) {
 						return grunt.file.readJSON( "config.json" )
@@ -245,6 +250,7 @@ module.exports = function ( grunt ) {
 				}
 			}
 		},
+
 		// ///////////////////////////////////////////////////////////////// build / deploy / workflow
 		bump: {
 			options: {
@@ -291,25 +297,24 @@ module.exports = function ( grunt ) {
 				livereload: true,
 				spawn: true,
 				dateFormat: function ( time ) {
-					grunt.log.writeln( "The watch finished in " + time + "ms at" + ( new Date() ).toString() );
+					grunt.log.writeln( "The watch finished in " + time + "ms at" + ( new Date() ).toString() )
 				}
 			}
 		}
 	} );
 
-	require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks );
+	require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks )
 
 	// init
 	grunt.registerTask( "devint", [ "jade", "concat", "ngtemplates", "copy", "less:dev" ] )
 
 	// Develop
-	grunt.registerTask( "default", [ "devint", "connect", "watch" ] );
+	grunt.registerTask( "default", [ "devint", "connect", "watch" ] )
 
 	// Test
-	grunt.registerTask( "test", [ "jsonlint" ] );
-
-	grunt.registerTask( "dataprep", [ "minjson" ] );
+	grunt.registerTask( "test", [ "jsonlint" ] )
+	grunt.registerTask( "dataprep", [ "minjson" ] )
 
 	// Deploy
-	grunt.registerTask( 'deploy', [ 'less:prod', 'test', 'imagemin', 'ngtemplates', 'concat' ] );
+	grunt.registerTask( 'deploy', [ 'less:prod', 'test', 'imagemin', 'ngtemplates', 'concat' ] )
 }

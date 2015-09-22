@@ -1,8 +1,8 @@
 proem = angular.module( "appProem", [ "ngRoute", "ui.router", "ngSanitize", "direcTives", "ngAnimate" ] )
 
-// angular.element( document ).ready( function () {
-// 	angular.bootstrap( document, [ "appProem" ] )
-// } )
+angular.element( document ).ready( function () {
+	angular.bootstrap( document, [ "appProem" ] )
+} )
 
 proem.config( function ( $routeProvider, $locationProvider ) {
 	$routeProvider.when( "walls", {

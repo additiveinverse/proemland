@@ -30,6 +30,7 @@
     "grunt-newer": "^1.1.1",
     "grunt-open": "^0.2.3",
     "grunt-strip": "^0.2.1",
+    "jstransformer-json": "0.0.0",
     "matchdep": "^0.3.0"
   }
 }

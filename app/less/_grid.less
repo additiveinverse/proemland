@@ -34,25 +34,24 @@ body {
 }
 
 .row( @columns: @columns ) {
-	display: block;
 	width: @total-width*((@gutter-width + @gridsystem-width)/@gridsystem-width);
 	margin: 0 @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1);
 }
 
 .column( @x, @columns: @columns, @margin-top: 'auto') {
-	width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
+	.col( @x, @columns: @columns );
 	margin: @margin-top @total-width*((@gutter-width*.5)/@gridsystem-width);
 }
 
 // just the width ma'am
 .col( @x, @columns: @columns ) {
 	width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
-	// margin: auto @total-width*((@gutter-width*.5)/@gridsystem-width);
+	max-width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
 }
 
 .tall( @x, @columns: @columns ) {
 	height: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
-	margin-bottom: @total-width*((@gutter-width*.5)/@gridsystem-width) * 2;
+	max-height: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
 }
 
 .push( @offset: 1 ) {

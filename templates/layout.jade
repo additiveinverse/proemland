@@ -15,10 +15,9 @@ html(lang='en')
 				= locals.title
 
 		link( rel='alternate', href=locals.url + '/feed.xml', type='application/rss+xml', title=description )
-
-		link( rel='stylesheet', href=locals.url + '/css/layout.min.css' )
-		link( rel='stylesheet', href=locals.url + '/css/proemland2014.css' )
-
+		link( rel='stylesheet', href='https://fonts.googleapis.com/css?family=Oswald:700,300|Unica+One', type='text/css')
+		link( rel='stylesheet', href=locals.url + '/css/layout.min.css', type='text/css' )
+		link( rel='stylesheet', href=locals.url + '/css/proemland2014.css', type='text/css' )
 		//- script( type="text/javascript", src=url + '/js/head.min.js' )
 		script.
 			//- 	head.js(
@@ -27,7 +26,7 @@ html(lang='en')
 			//- 	);
 			prfx = '/js/';
 
-	body(lang='en', ng-app="appProem")
+	body(lang='en')
 		.page
 			header( class='hdr page-hdr ps', role='banner' )
 				h1( class='ttl page-ttl', title=locals.title , role='banner' )
@@ -40,7 +39,7 @@ html(lang='en')
 
 				include nav
 				nav( class='nav nav-filter', id='grid-filter', role='navigation' )
-					+menuMaker( 'filter', cats )
+					+menuMaker( 'filter', locals.cats )
 
 				nav( class='nav network-nav', role='navigation' )
 					+menuMaker('antisocial', network.antisocial )
@@ -48,6 +47,9 @@ html(lang='en')
 
 			main( class='ng-cloak grd page-content ' + bodyclass + '-content' )
 				block content
+
+				//- include author
+				//- include article
 
 	script( type="text/javascript", src=locals.url + '/js/angular.js' )
 	script( type="text/javascript", src=locals.url + '/js/prm.js' )
