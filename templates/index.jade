@@ -9,8 +9,8 @@ block content
 			label( for='searchInput', class='lbl search-lbl' )= Search
 			input( ng-model='query', class='txt search-txt', id='searchInput', type='search', name='searchInput', placeholder='Search')
 
-		ng-view.page-content-wrap
+		ng-view
 
-
-	//- include studio
+	//- static articles
 	include author
+	include studio
