@@ -1,15 +1,9 @@
--var post_class= 'page-content-bio'
-//- include:json ../app/data/bio.json
-//- we'll do this for now but needs to be fed in from external later
--var bio= {
-- 'title': 'Press Kit',
-- 'image': null,
-- 'content': 'Proem (otherwise known as Richard Bailey) has been releasing emotive, ham-fisted electronic music since 1999's release of Burnplate no.1 on the now defunct Hydrant records. For the past two decades Proem has released full lengths, eps, and remixes on underground labels like Merck and n5MD.  Richard began with experimental electronics at the age of 19, armed with thrift store vinyl, some tape and a pile of guitar effects (reverb, most obviously). While the early recordings focused on drone, power noise and sound collage, they set the murky and tonal underpinnings of the later beat driven electronic in ways that wouldn't resurface until the release of the darker still ep on enpeg.  With the purchase of his first computer, things changed.',
-- 'link': '/files/Proem_presspack.pdf'
-- }
+-var post_id= 'bio'
+-var post_content= 'post-content'
+-var post_class= post_content + '-' + post_id
 
-section( id='bio', class= post_class )
-	h1(class=post_class + '-ttl ttl')= bio.title
-	p(class=post_class + 'desc')= bio.content
+section( id= post_id, class=post_content + ' ' + post_class )
+	h1( class= post_class + '-ttl ttl' )= content.bio.title
+	p( class= post_class + '-desc' )= content.bio.content
 	p
-		a( href= bio.link ) press kit download
+		a( href= content.bio.link ) press kit download

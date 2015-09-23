@@ -378,12 +378,22 @@ body {
 }
 
 .post {
-	padding: 3.6em 0 0;
-	color: @white;
-	text-shadow: 1px 1px 0 @grey-dark;
-
 	&-content {
+		padding: @base-margin 2.4em;
+		color: @white-off;
+		text-shadow: 1px 1px 0 @grey-dark;
     background: fade(@grey-dark, 35%);
+    margin-bottom: @base-margin;
+    &-bio {
+
+    }
+    &-studio {
+    	&-lst {
+    		display: inline-block;
+    		vertical-align: top;
+    		width: calc( ~"100% / 3 - 1em" );
+    	}
+    }
 	}
 }
 

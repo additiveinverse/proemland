@@ -201,6 +201,18 @@ module.exports = function ( grunt ) {
 			}
 		},
 
+		svg_sprite: {
+			icons: {
+				expand: true,
+				cwd: "<%= config.app.img %>icons/",
+				src: ['*.svg'],
+				dest: "<%= config.dist.img %>",
+				options: {
+						// Target-specific options
+				}
+			},
+		},
+
 		// ///////////////////////////////////////////////////////////////// minifying
 		minjson: {
 			compile: {

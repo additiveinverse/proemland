@@ -1,13 +1,16 @@
--var post_class='page-content-studio'
-//- -var studio= {
-//- -	"title": "Studio",
-//- -	"image": "",
-//- -	"content": "",
-//- -	"gear": [{ "Hardware": [ "Alesis IODock",	"Arturia beatstep", "Arturia microbrute", "ART FXRII", "Korg Wavestation A/D", "Korg Volca Keys", "Moog Little Phatty Stage II", "POS Fretless bass", "Fender Squier Bass VI", "Guitar Rig - Rig Kontrol 2", "Ipad 2", "Lexicon MX400", "Novation Remote SL25", "Novation Launchpad mini", "Motu 2408 x 3", "Motu midi express", "Waldorf Blofeld"]},
-//- -					{	"Desktop": [ "Ableton Live Suite", "Audio Damage plugins", "Arturia Arp2600 vst", "Bitwig Studio", "Cuckos Reaper", "FLStudio", "izotope StutterEdit", "Korg Legacy Digital Collection (M1, Polysix, Wavestation)", "Madrona Aalto", "Native Instruments Komplete 9", "Sunrizer vst" ]},
-//- -					{	"IOS": [ "Arturia iSem", "AudioShare", "AudioBus", "Beatmaker 2", "Borderlands", "Brute LFO", "Conductr", "ElasticDrums", "Korg iPolysix", "Korg iMS-20", "Korg iM1", "Liine Lemur", "Moog Animoog", "Moog Filatron", "Propellerheads Rebirth mobile", "Reactable Mobile", "Samplr", "Sector", "StepPolyArp", "Sunrizer", "Yamaha TNR-i" ]}
-//- - ]}
+-var post_id= 'studio'
+-var post_content= 'post-content'
+-var post_class= post_content + '-' + post_id
 
-section( class=post_class )
-	h1( class=post_class + '-ttl ttl fn' )= page.title
-	section(class=post_class + '-main')!= page.html
+section( id= post_id, class=post_content + ' ' + post_class )
+	h1( class=post_class + '-ttl ttl fn' )= content.studio.title
+	img( src= content.studio.image )
+	article(class=post_class + '-main')
+		p( class= post_class + '-desc' )= content.studio.content
+		-each gear, key in content.studio.gear
+			dl( class= post_class + '-lst ' + post_class + '-lst-' + key )
+				dt(class=post_class + '-lst-ttl ttl') #{key}
+				dd(class=post_class + '-lst-itm itm')
+					ul.lst
+						for item in gear
+							li.itm #{item}

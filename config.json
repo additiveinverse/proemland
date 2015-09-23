@@ -1,29 +1,102 @@
 {
-  "url": "http://localhost:9001",
-  "title": "Proemland",
-  "version": "7.0.0",
-  "owner": "Proem",
-  "description": "Proemland redesign for 2014",
-  "cats": {
-    "full-lengths": "Full Lengths",
-    "singles": "Singles",
-    "remixes": "Remixes",
-    "live-sets": "Live",
-    "various-artist": "Various Artist",
-    "bio": "Press Kit",
-    "studio": "Studio"
-  },
-  "network": {
-    "social": {
-      "twitter": "http://twitter.com/wallofknives",
-      "soundcloud": "http://soundcloud.com/proem",
-      "last-fm": "http://www.last.fm/user/proemland",
-      "flickr": "http://www.flickr.com/photos/proem/",
-      "society6": "http://society6.com/proem"
-    },
-    "antisocial": {
-      "placeguntohead": "http://placeguntohead.com",
-      "additiveinverse": "http://additiveinverse.com"
-    }
-  }
+	"url": "http://localhost:9001",
+	"title": "Proemland",
+	"version": "7.0.0",
+	"owner": "Proem",
+	"description": "Proemland redesign for 2014",
+	"cats": {
+		"full-lengths": "Full Lengths",
+		"singles": "Singles",
+		"remixes": "Remixes",
+		"live-sets": "Live",
+		"various-artist": "Various Artist",
+		"bio": "Press Kit",
+		"studio": "Studio"
+	},
+	"network": {
+		"social": {
+			"bandcamp": "proem.bandcamp.com",
+			"twitter": "http://twitter.com/wallofknives",
+			"last-fm": "http://www.last.fm/user/proemland",
+			"flickr": "http://www.flickr.com/photos/proem/",
+			"soundcloud": "http://soundcloud.com/proem",
+			"spotify": "#spotify",
+			"society6": "http://society6.com/proem"
+		},
+		"antisocial": {
+			"placeguntohead": "http://placeguntohead.com",
+			"additiveinverse": "http://additiveinverse.com",
+			"dxrxt": "http://dxrxt.com"
+		}
+	},
+	"content": {
+		"bio": {
+			"title": "Press Kit",
+			"image": null,
+			"content": "Proem (otherwise known as Richard Bailey) has been releasing emotive, ham-fisted electronic music since 1999's release of Burnplate no.1 on the now defunct Hydrant records. For the past two decades Proem has released full lengths, eps, and remixes on underground labels like Merck and n5MD.  Richard began with experimental electronics at the age of 19, armed with thrift store vinyl, some tape and a pile of guitar effects (reverb, most obviously). While the early recordings focused on drone, power noise and sound collage, they set the murky and tonal underpinnings of the later beat driven electronic in ways that wouldn't resurface until the release of the darker still ep on enpeg.  With the purchase of his first computer, things changed.",
+			"link": "/files/Proem_presspack.pdf"
+		},
+		"studio": {
+			"title": "studio",
+			"image": "",
+			"content": "",
+			"gear": {
+				"Hardware": [
+					"Alesis IODock",
+					"Arturia beatstep",
+					"Arturia microbrute",
+					"ART FXRII",
+					"Korg Wavestation A/D",
+					"Korg Volca Keys",
+					"Moog Little Phatty Stage II",
+					"POS Fretless bass",
+					"Fender Squier Bass VI",
+					"Guitar Rig - Rig Kontrol 2",
+					"Ipad 2",
+					"Lexicon MX400",
+					"Novation Remote SL25",
+					"Novation Launchpad mini",
+					"Motu 2408 x 3",
+					"Motu Midi Express XT",
+					"Waldorf Blofeld"
+				],
+				"Desktop": [
+					"Ableton Live Suite",
+					"Arturia Arp2600 vst",
+					"Audio Damage plugins",
+					"Bitwig Studio",
+					"Cuckos Reaper",
+					"FLStudio 12",
+					"Izotope StutterEdit",
+					"Korg Legacy Digital Collection (M1, Polysix, Wavestation)",
+					"Madrona Aalto",
+					"Native Instruments Komplete 9",
+					"Sunrizer vst"
+				],
+				"IOS": [
+					"Arturia iSem",
+					"AudioShare",
+					"AudioBus",
+					"Beatmaker 2",
+					"Borderlands",
+					"Brute LFO",
+					"Conductr",
+					"ElasticDrums",
+					"Korg iPolysix",
+					"Korg iMS-20",
+					"Korg iM1",
+					"Liine Lemur",
+					"Moog Animoog",
+					"Moog Filatron",
+					"Propellerheads Rebirth mobile",
+					"Reactable Mobile",
+					"Samplr",
+					"Sector",
+					"StepPolyArp",
+					"Sunrizer",
+					"Yamaha TNR-i"
+				]
+			}
+		}
+	}
 }
