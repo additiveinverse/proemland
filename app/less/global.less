@@ -68,7 +68,8 @@ body {
 	&-hdr {
 		padding: 0 1em;
 		// background-color: @white-out;
-		flex: 0 1 1;
+		flex: 0 1 0;
+		position: fixed;
 		.col(3);
 	}
 
@@ -121,7 +122,8 @@ body {
 
 	&-content {
 	  padding: 0 @base-margin 0 0;
-		flex: 1 0 0;
+		flex: 1 1 0;
+		.push(3);
 	}
 }
 
@@ -185,19 +187,21 @@ body {
 
 	&-itm {
 		.inline-block;
-		width: 32px;
-		height: 32px;
+		.size(32px);
 		font-size: 0;
 		line-height: 1;
 		border-radius: 32px;
 		box-shadow: 1px 1px 0 @white;
 		&:extend( .sprite, .opacity-transition );
 
+		&-bandcamp {}
 		&-flickr 		{ background-position: 0 0 }
-		&-twitter 		{ background-position: -40px 0 }
 		&-last-fm 		{ background-position: -80px 0 }
-		&-soundcloud 	{ background-position: -160px 0 }
 		&-society6 		{ background-position: -240px 0 }
+		&-soundcloud 	{ background-position: -160px 0 }
+		&-spotify {}
+		&-twitter 		{ background-position: -40px 0 }
+
 
 		&:hover { opacity: 0.8 }
 	}

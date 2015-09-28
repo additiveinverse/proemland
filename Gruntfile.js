@@ -66,9 +66,10 @@ module.exports = function ( grunt ) {
 				src: [
 					"<%= config.lib %>/angular/angular.min.js",
 					"<%= config.lib %>/angular-animate/angular-animate.min.js",
-					"<%= config.lib %>/angular-ui-router/release/angular-ui-router.min.js",
+					"<%= config.lib %>/angular-sanitize/angular-sanitize.min.js",
+					"<%= config.lib %>/angular-smooth-scroll/angular-smooth-scroll.min.js",
 					"<%= config.lib %>/angular-route/angular-route.min.js",
-					"<%= config.lib %>/angular-sanitize/angular-sanitize.min.js"
+					"<%= config.lib %>/angular-ui-router/release/angular-ui-router.min.js"
 				],
 				dest: "<%= config.dist.js %>angular.js"
 			}
