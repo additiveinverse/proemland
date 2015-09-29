@@ -1,0 +1,9 @@
+-var post_id= 'bio'
+-var post_content= 'post-content'
+-var post_class= post_content + '-' + post_id
+
+section( id= post_id, class=post_content + ' ' + post_class )
+	h1( class= post_class + '-ttl ttl' )= content.bio.title
+	p( class= post_class + '-desc' )= content.bio.content
+	p
+		a( href= content.bio.link ) press kit download

@@ -16,11 +16,11 @@ module.exports = function ( grunt ) {
 			tmp: "temp/",
 			app: {
 				root: "app/",
-				js: "app/",
+				js: "app/js/",
 				less: "app/less/",
 				partials: "app/partials/",
 				img: "app/images/",
-				tpl: "templates/",
+				tpl: "app/layout/",
 				data: "app/data/"
 			},
 			dist: {
