@@ -301,12 +301,16 @@ module.exports = function ( grunt ) {
 		watch: {
 			files: [
 				"Gruntfile.js",
+				"config.json",
 				"<%= config.app.tpl %>**/*",
-				"<%= config.app.root %>**/*"
+				"<%= config.app.less %>**/*",
+				"<%= config.app.js %>**/*",
+				"<%= config.app.partials %>**/*",
+				"<%= config.app.img %>**/*"
 			],
-			tasks: [ "newer:jade", "concat", "newer:ngtemplates", "less:dev"	],
+			tasks: [ "jade", "concat", "newer:ngtemplates", "less:dev"	],
 			options: {
-				reload: false,
+				reload: true,
 				livereload: true,
 				spawn: true,
 				dateFormat: function ( time ) {

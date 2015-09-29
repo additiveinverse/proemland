@@ -17,13 +17,6 @@
 	opacity: 0;
 }
 
-.ng-hide-remove {
-	-webkit-animation: flash 0.7s 1s;
-	 		animation: flash 0.7s 1s;
-	-webkit-animation-fill-mode: both;
-	 		animation-fill-mode: both;
-}
-
 .sprite {
 	background-image: url(../im/sprite.png);
 }
@@ -36,20 +29,9 @@
 	.transition( opacity, .2s );
 }
 
-.animate-enter-active {
-	opacity: 1;
-}
-
 .lnk {
 	&:extend( .animate );
 }
-
-.ng-enter,
-.ng-leave,
-.ng-move {
-	&:extend( .animate );
-}
-
 
 body {
 	// background: @white-off url(../im/bck_watercolor.jpg) top center no-repeat fixed;
@@ -69,8 +51,8 @@ body {
 		padding: 0 1em;
 		// background-color: @white-out;
 		flex: 0 1 0;
-		position: fixed;
 		.col(3);
+		min-width: 320px;
 	}
 
 	&-ttl {
@@ -104,8 +86,8 @@ body {
 		font-size: 0.6em;
 		position: absolute;
 		top: @base-margin;
-		.col(3);
 		min-width: 320px;
+		.col(3);
 
 		&-vrsn,
 		&-yr {
@@ -123,7 +105,7 @@ body {
 	&-content {
 	  padding: 0 @base-margin 0 0;
 		flex: 1 1 0;
-		.push(3);
+		// .push(3);
 	}
 }
 
@@ -142,17 +124,20 @@ body {
 	}
 
 	&-lst {
-		border-top: 1px solid transparent;
 		&:extend( .navlist );
+		border: none;
+		padding-bottom: 0;
 	}
 	&-itm {
 		line-height: 1.7;
 	}
 }
 
-.add {
+.info {
 	&-lst {
 		&:extend( .navlist );
+		padding-top: 0;
+		border-top: none;
 	}
 }
 
@@ -213,16 +198,23 @@ body {
 		margin: 1.25em 0 @base-margin 0;
 		position: relative;
 		text-align: right;
+		&-active {
+			.txt {
+				padding-left: inherit;
+				width: auto;
+			}
+		}
 	}
 
 	&-txt {
+		width: 0;
+		padding-left: 0;
 		.font-size( @base-type-h4 );
 	}
 
 	&-lbl {
 		font-size: 0;
 		.icon( "pre", @eye, @base-type-h2 );
-		.search-fld-active & {}
 	}
 }
 
@@ -265,10 +257,10 @@ body {
 		top: 40%;
 		opacity: 0;
 		z-index: 4;
-		padding: ( @base-margin-half / 2 ) @base-margin-half;
 		&-ttl {
+			padding: @base-margin-quarter @base-margin-half @base-margin-half;
 			color: @grey-dark;
-			.font-size( @base-type-size );
+			.font-size( @base-type-h5 );
 		}
 	}
 
@@ -297,7 +289,7 @@ body {
 		padding: @base-margin-half;
 		opacity: 0;
 		z-index: 1;
-		top: 455px;
+		top: 425px;
 		.tall(600px);
 
 		&-lst {
@@ -334,7 +326,7 @@ body {
 
 		.prod {
 			&-nfo {
-				top: 5.5%;
+				top: 7.25%;
 			}
 
 			&-hdr {
@@ -347,14 +339,6 @@ body {
 			}
 		}
 	}
-		// &.ng-hide {
-		// 	opacity: 0;
-		// 	.scale( 1, 1 );
-		// }
-
-		// &.ng-move {
-		// 	.scale( 2, 2 );
-		// }
 }
 
 

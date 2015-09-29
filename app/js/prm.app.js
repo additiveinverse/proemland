@@ -1,14 +1,10 @@
-proem = angular.module( "appProem", [ "ngRoute", "ui.router", "ngSanitize", "smoothScroll", "direcTives", "ngAnimate" ] )
+proem = angular.module( "appProem", [ "ngRoute", "ngSanitize", "ngAnimate", "direcTives", "smoothScroll" ] )
 
-angular.element( document ).ready( function () {
-	angular.bootstrap( document, [ "appProem" ] )
-} )
+// angular.element( document ).ready( function () {
+// 	angular.bootstrap( document, [ "appProem" ] )
+// } )
 
 proem.config( function ( $routeProvider, $locationProvider ) {
-	$routeProvider.when( "walls", {
-		templateUrl: "app/partials/itm-walls.html",
-		controller: "WallsController"
-	} )
 	$routeProvider.when( "dls", {
 			templateUrl: "app/partials/itm-walls.html",
 			controller: "DlsController"

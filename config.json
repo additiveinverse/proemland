@@ -4,12 +4,14 @@
 	"version": "7.0.0",
 	"owner": "Proem",
 	"description": "Proemland redesign for 2014",
-	"cats": {
+	"discog": {
 		"full-lengths": "Full Lengths",
 		"singles": "Singles",
 		"remixes": "Remixes",
 		"live-sets": "Live",
-		"various-artist": "Various Artist",
+		"various-artist": "Various Artist"
+	},
+	"info": {
 		"bio": "About",
 		"studio": "Studio"
 	},
@@ -24,8 +26,9 @@
 			"society6": "http://society6.com/proem"
 		},
 		"antisocial": {
-			"placeguntohead": "http://placeguntohead.com",
-			"additiveinverse": "http://additiveinverse.com",
+			"book of proem": "http://placeguntohead.com",
+			"design work": "http://additiveinverse.com",
+			"resume": "http://additiveinverse.github.io/resume/",
 			"dxrxt": "http://dxrxt.com"
 		}
 	},

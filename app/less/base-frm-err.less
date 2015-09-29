@@ -28,8 +28,7 @@
 
 .lbl,
 .btn {
-	display: inline-block;
-	vertical-align: top;
+	.inline-block();
 }
 
 // text inputs and text area
@@ -46,7 +45,7 @@
 
 	&:hover,
 	&:focus {
-		box-shadow: 1px 1px 2px @grey-light inset;
+		box-shadow: 1px 1px 10px @grey-light inset;
 		color: @input-focus;
 	}
 }
@@ -94,6 +93,15 @@
 		opacity: 0;
 		visibility: hidden;
 	}
+
+	// resettting reset button to default text look and feel
+	.reset {
+		background: none;
+		border: none;
+		color: rgb(22, 114, 173);
+
+		&:hover { color: rgb(0, 0, 0) }
+	}
 }
 
 // ------------------------------------ notes - hints
@@ -129,9 +137,6 @@
 	height: auto;
 	left: 33%;
 	padding: 0 @base-margin;
-	// box-shadow: 0 0 0 4px rgba(153,0,0,0.7) inset,
-	// 			0 0 0 5px rgba(238,0,0,0.5) inset,
-	// 			0 0 15px rgba(0,0,0,0.5);
 
 	&-ttl {
 		text-transform: uppercase;
@@ -157,13 +162,4 @@
 			._inject("");
 		}
 	}
-}
-
-// resettting reset button to default text look and feel
-.reset {
-	background: none;
-	border: none;
-	color: rgb(22, 114, 173);
-
-	&:hover { color: rgb(0, 0, 0) }
 }

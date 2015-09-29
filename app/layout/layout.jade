@@ -26,12 +26,12 @@ html(lang='en')
 			//- 	);
 			prfx = '/js/';
 
-	body(lang='en')
+	body(lang='en', ng-app='appProem')
 		.page
 			header( class='hdr page-hdr ps', role='banner' )
 				h1( class='ttl page-ttl', title=locals.title , role='banner' )
 					span( class='logo page-ttl-logo' )= locals.description
-					a(class="page-ttl-lnk lnk", href=url )= locals.title
+					a(class="page-ttl-lnk lnk", href=url, ng-click='query=' )= locals.title
 
 				p( class='nfo page-nfo', role='note' )
 					span( class='page-nfo-yr nfo' )= new Date().getFullYear()
@@ -39,7 +39,8 @@ html(lang='en')
 
 				include nav
 				nav( class='nav nav-filter', id='grid-filter', role='navigation' )
-					+menuMaker( 'filter', locals.cats )
+					+menuMaker( 'filter', locals.discog )
+					+menuMaker( 'info', locals.info )
 
 				nav( class='nav network-nav', role='navigation' )
 					+menuMaker('antisocial', network.antisocial )

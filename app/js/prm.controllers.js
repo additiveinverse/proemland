@@ -4,11 +4,6 @@ proem.controller( "ProductsController", function ( $scope, $http, $route, $contr
 	$scope.data = dataComm( $scope, $http, url, "GET", $route )
 } )
 
-proem.controller( "WallsController", function ( $scope, $http, $route, $controller ) {
-	var url = "walls.json"
-	$scope.data = dataComm( $scope, $http, url, "GET", $route )
-} )
-
 proem.controller( "DLController", function ( $scope, $http, $route, $controller ) {
 	var url = "dl.json"
 	$scope.data = dataComm( $scope, $http, url, "GET", $route )
