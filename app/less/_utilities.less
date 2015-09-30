@@ -3,6 +3,23 @@
 	text-transform: uppercase;
 }
 
+.sprite {
+	background-image: url(../im/sprite.png);
+}
+
+.all-transition {
+	.transition( all, 0.3s );
+}
+
+.opacity-transition {
+	.transition( opacity, .2s );
+}
+
+.zero {
+	margin: 0;
+	padding-left: 0;
+}
+
 // Lists
 .lst {}
 
@@ -19,6 +36,7 @@
 .val {}
 
 .lnk {
+	&:extend( .all-transition );
 	text-decoration: none;
 	color: @base-link;
 

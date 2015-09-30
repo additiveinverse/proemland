@@ -31,7 +31,7 @@ html(lang='en')
 			header( class='hdr page-hdr ps', role='banner' )
 				h1( class='ttl page-ttl', title=locals.title , role='banner' )
 					span( class='logo page-ttl-logo' )= locals.description
-					a(class="page-ttl-lnk lnk", href=url, ng-click='query=' )= locals.title
+					a(class="page-ttl-lnk lnk", href=url )= locals.title
 
 				p( class='nfo page-nfo', role='note' )
 					span( class='page-nfo-yr nfo' )= new Date().getFullYear()
@@ -39,6 +39,8 @@ html(lang='en')
 
 				include nav
 				nav( class='nav nav-filter', id='grid-filter', role='navigation' )
+					span( ng-click='query=""', class='btn btn-reset', title='Reset Filters' ) reset
+
 					+menuMaker( 'filter', locals.discog )
 					+menuMaker( 'info', locals.info )
 

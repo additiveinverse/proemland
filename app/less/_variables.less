@@ -1,7 +1,7 @@
 // //////////////////////// Greyscale
 @black: 										rgb( 0, 0, 0 );
-@grey-darker:								darken( @grey, 10% );
-@grey-dark:									darken( @grey, 25% );
+@grey-darker:								darken( @grey, 25% );
+@grey-dark:									darken( @grey, 15% );
 @grey:											rgb( 94, 94, 99 );
 @grey-light:								lighten( @grey, 25% );
 @grey-lighter: 							lighten( @grey, 10% );
@@ -19,7 +19,6 @@
 @red:												red;
 
 
-
 // //////////////////////// VISUAL DEFAULTS
 // ------------------------ icons
 @font-icon:									'typicons';
@@ -30,8 +29,8 @@
 // ------------------------ Typography
 @font-sans-serif: 					Helvetica, Arial, sans-serif;
 @font-serif:								"Times New Roman", Times, serif;
-
-@font-heading:							"Unica One", sans-serif;
+@font-button: 							"Unica One", sans-serif;
+@font-heading:							"Oswald", sans-serif;
 
 @base-type:        					@font-sans-serif;
 @base-type-size:   					16;
@@ -44,7 +43,7 @@
 @base-line-multiplier:			@base-type-size * @base-line-height; // 24
 
 @base-link:									@orange;
-@base-link-hover:	 					darken( @base-link, 10% );
+@base-link-hover:	 					lighten( @base-link, 10% );
 @base-input-focus:					darken( @base-link, 25% );
 
 // ------------------------ Typography - headings
@@ -63,13 +62,16 @@
 @base-margin-eighth:				@base-margin / 8;
 
 // ------------------------ Forms - Messaging
-@error: 										@orange;
-@alert: 										@yellow;
-@note:											@grey;
+@error: 										@yellow;
+@alert: 										@green;
+@note:											@grey-light;
 
 // ------------------------ Forms - buttons
-@btn-primary: 							@yellow;
-@btn-secondary:	 						@orange;
+@btn-primary: 							@black;
+@btn-secondary:							@grey-darker;
+@btn-type-color:						@blue;
+@btn-pad:										@base-margin-quarter @base-margin;
+@btn-type-family:						@font-button;
 
 // ------------------------ Forms - labels
 @label-width: 							30%;
@@ -79,42 +81,18 @@
 // ------------------------ Forms - inputs
 @input-width:								calc( ~"100% - @label-total" );
 @input-bg:									@white;
-@input-bg-disabled: 				@grey-lighter;
+@input-bg-disabled: 				@white-off;
 
-@input-color:								@grey;
-@input-border:							@blue-dark;
-@input-focus:				darken( @input-color, 50% );
-@input-height-base:			( @base-line-height + ( @base-margin-half * 2 ) + 2 );
-
-@legend-color:				@grey-dark;
-@legend-border-color:		#e5e5e5;
-
-@btn-type-color:			@white;
-@btn-pad:					@base-margin @base-margin-half;
-@btn-bg:					@btn-primary;
-
-@btn-pad:										@base-margin @base-margin-half;
-
-// ------------------------ Forms - labels
-@label-width: 							30%;
-@label-right: 							@base-margin-half;
-@label-total: 							( @label-width + @label-right );
-
-// ------------------------ Forms - inputs
-@input-width:								calc( ~"100% - @label-total" );
-@input-bg:									@white;
-@input-bg-disabled: 				@grey-lighter;
-
-@input-color:								@grey-dark;
+@input-color:								@border-color;
 @input-border:							@border-color;
 @input-focus:								darken( @input-color, 50% );
 @input-height-base:					( @base-line-height + ( @base-margin-half * 2 ) + 2 );
 
-@legend-color:							@grey-dark;
-@legend-border-color:				#e5e5e5;
+@legend-color:				@grey-dark;
+@legend-border-color:		#e5e5e5;
 
-@border-color: 							@grey;
-@border-radius: 						100%;
+@border-color: 							@grey-darker;
+@border-radius: 						@base-margin-eighth;
 @border-width: 							@base-margin-quarter;
 
 @base-opacity: 							0.65;

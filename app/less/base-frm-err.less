@@ -1,5 +1,7 @@
-@import '_variables';
-@import '_mixins';
+@import './_variables';
+@import './_utilities';
+@import './_mixins';
+@import './lesshat';
 
  // Nice UI touch for placeholders.
 [ placeholder ] {
@@ -16,7 +18,7 @@
 
  // parent element for label field combos
 .fld {
-	vertical-align: baseline;
+	vertical-align: middle;
 
 	&-err {
 		.error,
@@ -26,18 +28,19 @@
 	}
 }
 
-.lbl,
-.btn {
+.lbl {
 	.inline-block();
 }
+
 
 // text inputs and text area
 .sel,
 .txtarea,
 .txt {
 	border: 1px solid @border-color;
-	padding: @base-margin-quarter @base-margin-half @base-margin-eighth;
+	padding: @base-margin-quarter @base-margin-half;
 	width: @input-width;
+	margin-right: @base-margin-eighth;
 
 	&:hover {
 		box-shadow: 1px 1px 5px @grey-light inset;
@@ -50,42 +53,33 @@
 	}
 }
 
-.txtarea {
-	min-height: 150px;
-	width: calc(~"100% - 10em");
-}
-
-	.opt {
-		cursor: pointer;
-
-		&:nth-child( odd ) {
-			// background-color: rgba(230,230,230,0.5)
-		}
-	}
-
-// ------- main wrapper for a group of radio buttons
-//  padded so it lines up to the left edge of the other labels in a form
-// exceptionally useful when the labels and inputs are set to default display of inline
-// ------- radio inputs
-.rdo {
-	margin-right: @label-right;
-
-	&-group {
-		padding-left: 0;
-		margin-left: 0
-	}
-}
-
 .btn {
-	position: relative;
-	cursor: pointer;
+	.inline-block();
 	visibility: visible;
-	opacity: 1;
+	cursor: pointer;
 	padding: @btn-pad;
+	color: @btn-type-color;
+	border: 1px solid @grey-darker;
+	text-shadow: 1px 1px 0 @black;
+	text-transform: capitalize;
+	text-align: center;
+	font-family: @btn-type-family;
+	.uppercase;
+
+	#gradient .vertical( @btn-primary, @btn-secondary, 0%, 100% );
+	&:extend( .all-transition );
+
+	&:after,
+	&:before {
+		&:extend( .all-transition );
+	}
 
 	&:hover {
-		// background-color: rgba(255, 255, 255, 0.75);
-		// color: #666;
+		&:after,
+		&:before {
+			color: lighten(@btn-type-color, 25%);
+		}
+		color: lighten(@btn-type-color, 25%);
 	}
 
 	&-disabled,
@@ -93,14 +87,38 @@
 		opacity: 0;
 		visibility: hidden;
 	}
-
 	// resettting reset button to default text look and feel
 	.reset {
 		background: none;
 		border: none;
-		color: rgb(22, 114, 173);
+		color: @btn-type-color;
+	}
 
-		&:hover { color: rgb(0, 0, 0) }
+	&-expand {
+		position: absolute;
+		right: 0;
+		font-size: 0;
+		top: 0;
+		z-index: 22;
+		.icon("app", @plus, 24 );
+		.size(40px);
+		&:after {
+			margin-left: 0;
+		}
+	}
+
+	&-reset {
+		.icon("app", @delete, 24 );
+	}
+
+	&-link {
+		position: absolute;
+		right: 0;
+		font-size: 0;
+		top: 0;
+		opacity: 0;
+		z-index: 22;
+		.icon("app", @plus, 24 );
 	}
 }
 

@@ -5,9 +5,10 @@ block append vars
 
 block content
 	section.page-content-discog
-		div( class='fld search-fld', toggler )
-			label( for='searchInput', class='lbl search-lbl' )= Search
-			input( ng-model='query', class='txt search-txt', id='searchInput', type='search', name='searchInput', placeholder='Search')
+		div.fld.search-fld
+			label( for='searchInput', class='lbl search-fld-lbl' )= Search
+			input( ng-model='query', class='txt search-fld-txt', id='searchInput', type='search', name='searchInput', placeholder='Search')
+			span( role='button', ng-click='query=""', class='btn btn-reset search-fld-reset', title='reset filters' ) reset
 
 		ng-view
 

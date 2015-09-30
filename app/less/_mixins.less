@@ -12,12 +12,6 @@
 	content: @content;
 }
 
-.zero {
-	margin: 0;
-	padding-left: 0;
-}
-
-
 .inline-block( @valign: top ) {
 	display: inline-block;
 	vertical-align: @valign;
@@ -30,7 +24,7 @@
 	font-family: @font-icon;
 	font-style: normal;
 	font-weight: normal;
-	padding-right: 7px;
+	padding: 0 @base-margin-eighth;
 	speak: none;
 	color: @base-icon-color;
 	text-rendering: optimizeLegibility;
@@ -47,7 +41,7 @@
 //////////////////////////// Let's go ahead and set the base icon styles
 ._ico( @_ico, @font-size ) {
 	._inject( @_ico );
-	.font-size( @font-size, 1.5 );
+	.font-size( @font-size, @base-line-height );
 }
 
 //////////////////////////// Let's make some icons
