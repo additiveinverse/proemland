@@ -5,15 +5,15 @@
 @full-path: "@{sprite-path}@{sprite-image}";
 
 .{{mixinName}}-image( @image ) {
-	background-image: url( @image );
+	background: url( @image ) no-repeat;
 }
 
 .{{mixinName}}-width( @sprite ) {
-	width: extract( @sprite, 3 );
+	width: extract( @sprite, 2 );
 }
 
 .{{mixinName}}-height( @sprite ) {
-	height: extract( @sprite, 4 );
+	height: extract( @sprite, 3 );
 }
 
 .{{mixinName}}-square( @sprite ) {
@@ -22,9 +22,8 @@
 }
 
 .{{mixinName}}-position(@sprite) {
-  @sprite-offset-x: extract( @sprite, 1);
-  @sprite-offset-y: extract( @sprite, 2);
-  background-position: @sprite-offset-x @sprite-offset-y;
+  @sprite-offset-y: extract( @sprite, 1);
+  background-position: @sprite-offset-y;
 }
 
 .{{mixinName}}(@sprite) {
@@ -47,5 +46,5 @@
 
 // variables
 {{#shapes}}
-{{#selector.shape}}{{expression}}{{/selector.shape}}: {{position.relative.x}}%, {{position.relative.y}}%, {{#dimensions.inline}}{{width.outer}}px, {{height.outer}}px{{/dimensions.inline}};
+{{#selector.shape}}{{expression}}{{/selector.shape}}: {{position.relative.xy}}, {{#dimensions.inline}}{{width.outer}}px, {{height.outer}}px{{/dimensions.inline}};
 {{/shapes}}

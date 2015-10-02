@@ -146,12 +146,14 @@ body {
 
 	&-itm {
 		.inline-block;
-		.size(32px);
 		font-size: 0;
 		line-height: 1;
-		border-radius: 32px;
-		box-shadow: 1px 1px 0 @white;
+		border-radius: 40px;
+		.size(36px);
+		margin-right: 4px;
 		&:extend( .sprite, .opacity-transition );
+		background-size: 145px;
+		background-color: @white-off;
 
 		&-bandcamp {
 			.svg-sprite-position( @ico-bandcamp );
@@ -162,14 +164,26 @@ body {
 		&-last-fm {
 			.svg-sprite-position( @ico-lastfm-fill );
 		}
-		&-society6 		{ background-position: -240px 0 }
-		&-soundcloud 	{ background-position: -160px 0 }
-		&-spotify {}
-		&-twitter 		{ background-position: -40px 0 }
-
+		&-society6 {
+			.svg-sprite-position( @ico-society6 );
+		}
+		&-soundcloud 	{
+			.svg-sprite-position( @ico-soundcloud-fill );
+		}
+		&-spotify {
+			.svg-sprite-position( @ico-spotify-fill );
+		}
+		&-twitter {
+			.svg-sprite-position( @ico-twitter-fill );
+		}
 
 		&:hover { opacity: 0.8 }
+
 	}
+		&-lnk {
+			display: block;
+			.size(32px);
+		}
 }
 
 .search {

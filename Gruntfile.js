@@ -213,16 +213,16 @@ module.exports = function ( grunt ) {
 			dest: "<%= config.app.img %>",
 			options: {
 				shape: {
-        	dimension: {
-            maxWidth: 128,
-            maxHeight: 128,
-            precision: 3
-        	}
-    		},
-    		svg: {
-	    		padding: 16,
-        	dimensionAttributes: false
-    		},
+					dimension: {
+						maxWidth: 200,
+						maxHeight: 200,
+						precision: 1
+					}
+				},
+				svg: {
+					padding: 20,
+					dimensionAttributes: true
+				},
 				mode: {
 					view: {
 						prefix: "@ico-%s",
