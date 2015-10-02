@@ -77,14 +77,22 @@ module.exports = function ( grunt ) {
 
 	copy: {
 		lesslib: {
-		expand: true,
-		flatten: true,
-		cwd: "<%= config.lib %>",
-		src: [
-			"lesshat/build/lesshat.less",
-			"normalize-less/normalize.less"
-		],
-		dest: "<%= config.app.less %>"
+			expand: true,
+			flatten: true,
+			cwd: "<%= config.lib %>",
+			src: [
+				"lesshat/build/lesshat.less",
+				"normalize-less/normalize.less"
+			],
+			dest: "<%= config.app.less %>"
+		},
+		svgs: {
+			files: [ {
+				expand: true,
+				cwd: "<%= config.app.img %>",
+				src: [ 'icons.sprite-*.svg' ],
+				dest: "<%= config.dist.img %>"
+			} ]
 		}
 	},
 
@@ -199,13 +207,40 @@ module.exports = function ( grunt ) {
 
 	svg_sprite: {
 		icons: {
-		expand: true,
-		cwd: "<%= config.tmp %>",
-		src: ['*.svg'],
-		dest: "<%= config.dist.img %>",
-		options: {
-			// Target-specific options
-		}
+			expand: true,
+			cwd: "<%= config.app.img %>icons/",
+			src: ['*.svg'],
+			dest: "<%= config.app.img %>",
+			options: {
+				shape: {
+        	dimension: {
+            maxWidth: 128,
+            maxHeight: 128,
+            precision: 3
+        	}
+    		},
+    		svg: {
+	    		padding: 16,
+        	dimensionAttributes: false
+    		},
+				mode: {
+					view: {
+						prefix: "@ico-%s",
+						bust: true,
+						sprite: "icons.sprite.svg",
+						dest: "../images/",
+						common: "sprite",
+						dimensions: true,
+						mixin: "svg-sprite",
+						render: {
+							less: {
+								template: "<%= config.app.img %>icons/sprite.mustache",
+								dest: '../less/_sprite.less'
+							}
+						}
+					}
+				}
+			}
 		},
 	},
 
@@ -232,6 +267,7 @@ module.exports = function ( grunt ) {
 		} ]
 		}
 	},
+
 	svgmin: {
 		options: {
 			plugins: [
@@ -244,11 +280,12 @@ module.exports = function ( grunt ) {
 			files: [ {
 				expand: true,
 				cwd: "<%= config.app.img %>",
-				src: [ 'icons/*.svg' ],
-				dest: "<%= config.tmp %>"
+				src: [ 'icons.sprite-*.svg' ],
+				dest: "<%= config.app.img %>"
 			} ]
 		}
 	},
+
 	uglify: {
 		options: {
 		banner: "<%= banner %>",
@@ -310,30 +347,45 @@ module.exports = function ( grunt ) {
 	},
 
 	watch: {
-		files: [
-		"Gruntfile.js",
-		"config.json",
-		"<%= config.app.root %>**/*"
-		],
-		tasks: [ "jade", "concat", "newer:ngtemplates", "less:dev", "newer:minjson" ],
-		options: {
-		reload: false,
-		livereload: true,
-		spawn: true,
-		dateFormat: function ( time ) {
-			grunt.log.writeln( "The watch finished in " + time + "ms at" + ( new Date() ).toString() )
-		}
+		build: {
+			files: [
+				"Gruntfile.js",
+				"config.json",
+				"<%= config.app.root %>**/*"
+			],
+			tasks: [ "jade", "concat", "newer:ngtemplates", "less:dev" ],
+			options: {
+				reload: false,
+				livereload: true,
+				spawn: true,
+				dateFormat: function ( time ) {
+					grunt.log.writeln( "The watch finished in " + time + "ms at" + ( new Date() ).toString() )
+				}
+			}
+		},
+		assets: {
+			files: [
+				"Gruntfile",
+				"<%= config.app.img %>**/*"
+				],
+			tasks: [ "svgprep" ],
+			options: {
+				reload: true,
+				livereload: true,
+				spawn: true
+			}
 		}
 	}
-	} );
+} );
 
 	require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks )
 
 	// init
-	grunt.registerTask( "devint", [ "jade", "concat", "ngtemplates", "copy", "less:dev" ] )
+	grunt.registerTask( "devint", [ "jade", "concat", "ngtemplates", "svgprep", "copy", "less:dev" ] )
 
 	// Develop
-	grunt.registerTask( "default", [ "devint", "connect", "watch" ] )
+	grunt.registerTask( "default", [ "devint", "connect", "watch:build" ] )
+	grunt.registerTask( "svgprep", [ "svg_sprite", "svgmin" ] )
 
 	// Test
 	grunt.registerTask( "test", [ "jsonlint" ] )

@@ -1,0 +1,49 @@
+// mixins and helpers
+@sprite-image: "icons.sprite-360d3bda.svg";
+@sprite-path: "../img/";
+@full-path: "@{sprite-path}@{sprite-image}";
+
+.svg-sprite-image( @image ) {
+	background-image: url( @image );
+}
+
+.svg-sprite-width( @sprite ) {
+	width: extract( @sprite, 3 );
+}
+
+.svg-sprite-height( @sprite ) {
+	height: extract( @sprite, 4 );
+}
+
+.svg-sprite-square( @sprite ) {
+	.svg-sprite-width( @sprite );
+  .svg-sprite-height( @sprite );
+}
+
+.svg-sprite-position(@sprite) {
+  @sprite-offset-x: extract( @sprite, 1);
+  @sprite-offset-y: extract( @sprite, 2);
+  background-position: @sprite-offset-x @sprite-offset-y;
+}
+
+.svg-sprite(@sprite) {
+  &:extend( .sprite );
+  .svg-sprite-position(@sprite);
+  .svg-sprite-square(@sprite);
+}
+
+.sprite {
+	.svg-sprite-image( @full-path );
+}
+
+// variables
+@ico-bandcamp: 34.08726339428938%, 99.70245049929117%, 97.236px, 97.236px;
+@ico-flickr: 34.87738419618529%, 32.13887240356083%, 17px, 17px;
+@ico-lastfm-fill: 0%, 99.90243902439025%, 97.75px, 97.75px;
+@ico-lastfm-open: 0%, 0%, 128px, 128px;
+@ico-society6: 50%, 0%, 128px, 108.308px;
+@ico-soundcloud-fill: 0%, 56.63716814159292%, 128px, 128px;
+@ico-soundcloud3: 50%, 56.63716814159292%, 128px, 128px;
+@ico-spotify-fill: 100%, 0%, 128px, 128px;
+@ico-twitter-fill: 67.70347222222222%, 99.2248062015504%, 96px, 96px;
+@ico-twitter-open: 100%, 56.63716814159292%, 128px, 128px;
