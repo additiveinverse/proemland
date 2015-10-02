@@ -3,16 +3,16 @@
 /////////////////
 
 // Defaults which you can freely override
-@column-width: 40;
+@column-width: 42;
 @gutter-width: 20;
 @columns: 16;
 
 // Utility variable — you should never need to modify this
-@gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
+@gridsystem-width: unit( (@column-width*@columns) + (@gutter-width*@columns), px);
 
 // Set @total-width to 100% for a fluid layout
-// @total-width: @gridsystem-width;
-@total-width: 100%;
+@total-width: @gridsystem-width;
+// @total-width: 100%;
 
 // The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
 .clearfix() {
@@ -45,13 +45,13 @@ body {
 
 // just the width ma'am
 .col( @x, @columns: @columns ) {
-	width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
-	max-width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
+	@grid-measure: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
+	width: @grid-measure;
 }
 
 .tall( @x, @columns: @columns ) {
-	height: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
-	max-height: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
+	@grid-measure: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @gridsystem-width);
+	height: @grid-measure;
 }
 
 .push( @offset: 1 ) {

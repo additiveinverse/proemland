@@ -29,24 +29,23 @@ html(lang='en')
 	body(lang='en', ng-app='appProem')
 		.page
 			header( class='hdr page-hdr ps', role='banner' )
-				h1( class='ttl page-ttl', title=locals.title , role='banner' )
-					span( class='logo page-ttl-logo' )= locals.description
-					a(class="page-ttl-lnk lnk", href=url )= locals.title
-
-				p( class='nfo page-nfo', role='note' )
-					span( class='page-nfo-yr nfo' )= new Date().getFullYear()
-					span( class='page-nfo-vrsn nfo' )= locals.version
+				h1( class='ttl page-hdr-ttl', title=locals.title , role='banner' )
+					a(class="page-hdr-ttl-lnk lnk", href=url )= locals.title
+					p( class='nfo page-nfo', role='note' )
+						span.page-nfo-desc.nfo= locals.description
+						span.page-nfo-vrsn.nfo= 'v' + locals.version
+						span.page-nfo-yr.nfo= new Date().getFullYear()
+						img( class='logo page-hdr-ttl-logo' src='../img/logo_flat.svg' )
 
 				include nav
 				nav( class='nav nav-filter', id='grid-filter', role='navigation' )
-					span( ng-click='query=""', class='btn btn-reset', title='Reset Filters' ) reset
-
 					+menuMaker( 'filter', locals.discog )
-					+menuMaker( 'info', locals.info )
+					span( ng-click='query=""', class='btn btn-reset filter-btn-reset', title='Reset Filters' ) reset
 
 				nav( class='nav network-nav', role='navigation' )
-					+menuMaker('antisocial', network.antisocial )
-					+menuMaker('social', network.social )
+					+menuMaker( 'info', locals.info )
+					+menuMaker( 'antisocial', network.antisocial )
+					+menuMaker( 'social', network.social )
 
 			main( class='ng-cloak grd page-content ' + bodyclass + '-content' )
 				block content

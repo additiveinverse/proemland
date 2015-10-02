@@ -3,7 +3,7 @@
 	"title": "Proemland",
 	"version": "7.0.0",
 	"owner": "Proem",
-	"description": "Proemland redesign for 2014",
+	"description": "Relatively stagnant since 2007",
 	"discog": {
 		"full-lengths": "Full Lengths",
 		"singles": "Singles",
@@ -17,12 +17,12 @@
 	},
 	"network": {
 		"social": {
-			"bandcamp": "proem.bandcamp.com",
+			"bandcamp": "http://proem.bandcamp.com/",
 			"twitter": "http://twitter.com/wallofknives",
 			"last-fm": "http://www.last.fm/user/proemland",
 			"flickr": "http://www.flickr.com/photos/proem/",
 			"soundcloud": "http://soundcloud.com/proem",
-			"spotify": "#spotify",
+			"spotify": "https://open.spotify.com/artist/1hTlyo5QWVHUA3xUGgXqa5",
 			"society6": "http://society6.com/proem"
 		},
 		"antisocial": {

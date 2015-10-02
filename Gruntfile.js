@@ -90,7 +90,7 @@ module.exports = function ( grunt ) {
 			files: [ {
 				expand: true,
 				cwd: "<%= config.app.img %>",
-				src: [ 'icons.sprite-*.svg' ],
+				src: [ '*.svg' ],
 				dest: "<%= config.dist.img %>"
 			} ]
 		}
@@ -262,7 +262,7 @@ module.exports = function ( grunt ) {
 		files: [ {
 			expand: true,
 			cwd: "<%= config.app.img %>",
-			src: [ '**/*.{png,jpg,gif}' ],
+			src: [ '**/*.{png,jpg,gif,svg}' ],
 			dest: "<%= config.tmp %>"
 		} ]
 		}
@@ -280,7 +280,7 @@ module.exports = function ( grunt ) {
 			files: [ {
 				expand: true,
 				cwd: "<%= config.app.img %>",
-				src: [ 'icons.sprite-*.svg' ],
+				src: [ '*.svg'  ],
 				dest: "<%= config.app.img %>"
 			} ]
 		}
@@ -353,7 +353,7 @@ module.exports = function ( grunt ) {
 				"config.json",
 				"<%= config.app.root %>**/*"
 			],
-			tasks: [ "jade", "concat", "newer:ngtemplates", "less:dev" ],
+			tasks: [ "jade", "concat", "newer:minjson", "newer:ngtemplates", "less:dev" ],
 			options: {
 				reload: false,
 				livereload: true,
