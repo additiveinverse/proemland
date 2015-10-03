@@ -4,7 +4,7 @@ block append vars
 	- bodyclass = 'home'
 
 block content
-	section.page-content-discog
+	section#discog.page-content-discog.ng-cloak
 		div.fld.search-fld
 			label( for='searchInput', class='lbl search-fld-lbl' )= Search
 			input( ng-model='query', class='txt search-fld-txt', id='searchInput', type='search', name='searchInput', placeholder='Search')

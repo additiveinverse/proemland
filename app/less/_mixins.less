@@ -1,12 +1,11 @@
 @import 'lesshat';
 @import '_variables';
-@import '_sprite';
 
 .font-size( @font-size: @base-type-size, @offset: 1 ) {
 	@rem: ( @font-size / 10 );
-	font-size : ~"@{rem}rem";
-	font-size : unit( @font-size, px );
-	line-height+: @base-line-multiplier / @font-size * @offset;
+	font-size: ~"@{rem}rem";
+	font-size: unit( @font-size, px );
+	line-height: @base-line-multiplier / @font-size * @offset;
 }
 
 ._inject( @content: "" ) {

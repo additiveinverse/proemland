@@ -1,20 +1,22 @@
 @import './_variables';
-@import './_utilities';
 @import './_mixins';
-@import './lesshat';
 @import './_grid';
+@import './lesshat';
+@import './_utilities';
+@import './_sprite';
 
 @font-face {
 	.font-face('typicons', '../fonts/typicons', 'normal', 'normal');
 }
 
 .content-border {
-	border-top: @base-margin-half solid fade( @yellow, 35%);
+	border-top: 12px solid fade( @yellow, 35%);
 }
-
 body {
 	background-color: @blue-dark;
 	&:extend(.content-border);
+	background-image: url(../img/rough.png);
+	// background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAYCAYAAADQ+yzZAAAAF0lEQVQIW2NkgALG4cEoLy//39nZyQgAHvQEGcWYIRgAAAAASUVORK5CYII=);
 }
 
 .page {
@@ -43,19 +45,23 @@ body {
 			&-logo {
 				position: relative;
 				left: 0;
-				top: -1.5%;
+				top: -8px;
 				font-size: 0;
 				opacity: 0.6;
-				.size( 200 );
+				.size( 196 );
 			}
 
 			&-lnk {
 				color: @blue-darker;
+				position: relative;
+				top: 8px;
 			}
 		}
 	}
 
 	&-nfo {
+		margin-top: -4px;
+		margin-bottom: 0;
 		text-shadow: none;
 		text-align: center;
 		color: @grey-light;
@@ -89,8 +95,11 @@ body {
 	padding: @base-margin 0 @base-margin @base-margin * 2.5;
 	text-transform: uppercase;
 	font-family: @font-heading;
+	margin-top: 0;
+	margin-bottom: 0;
+
 	.itm  {
-		line-height: 2;
+		// line-height: 2;
 	}
 }
 
@@ -99,6 +108,7 @@ body {
 		&:extend( .navlist );
 		border: none;
 		padding-bottom: 0;
+		padding-top: @base-margin-quarter;
 	}
 
 	&-itm {
@@ -109,9 +119,9 @@ body {
 		cursor: pointer;
 	}
 	&-btn-reset {
-		margin-left: 2.4em;
-		margin-bottom: 1.5em;
 		.btn .reset;
+		margin-left: 3.7em;
+		margin-bottom: 1em;
 	}
 }
 
@@ -139,7 +149,9 @@ body {
 
 		&:after {
 			&:extend( .opacity-transition );
-			opacity: 0
+			opacity: 0;
+			line-height: 1;
+			margin-top: -7px;
 		}
 
 		&:hover {
@@ -203,7 +215,7 @@ body {
 
 .search {
 	&-fld {
-		margin: 1.25em 0 @base-margin 0;
+		margin: @base-margin-half 0 @base-margin;
 		position: relative;
 		text-align: right;
 		padding-right: @base-margin;
@@ -227,8 +239,8 @@ body {
 	border: @border-width solid @white-out;
 	position: relative;
 	overflow: hidden;
-	margin-left: 2.4em;
-	margin-bottom: 2.4em;
+	margin-left: 1rem;
+	margin-bottom: 1.25rem;
 	.col(5);
 	min-height: 180px;
 	.inline-block;
@@ -262,7 +274,7 @@ body {
 		z-index: 4;
 
 		&-ttl {
-			padding: @base-margin-quarter @base-margin-half @base-margin-half;
+			padding: @base-margin-quarter @base-margin-half 0 @base-margin-half;
 			color: @grey-dark;
 			.font-size( @base-type-h5 );
 		}
@@ -349,7 +361,7 @@ body {
 .post {
 	&-content {
 		&:extend(.content-border);
-		padding: @base-margin 2.4em;
+		padding: @base-margin / 3  2.4em 0.9em;
 		color: @white-off;
 		text-shadow: 1px 1px 0 @grey-dark;
     background: fade(@black, 10%);

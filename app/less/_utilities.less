@@ -1,14 +1,18 @@
+@import './_variables';
+@import './_mixins';
+@import './lesshat';
+
 // a bunch of helper classes that should probably be used with &:extend()
-.uppercase() {
+.uppercase {
 	text-transform: uppercase;
 }
 
 .all-transition {
-	.transition( all, 0.3s );
+	.transition( all, 0.3s, ease-in-out );
 }
 
 .opacity-transition {
-	.transition( opacity, .2s );
+	.transition( opacity, .2s, ease-in-out );
 }
 
 .zero {
@@ -60,16 +64,15 @@
 	cursor: pointer;
 	padding: @btn-pad;
 	color: @btn-type-color;
-	border: 1px solid @grey-darker;
+	border: none;
 	text-shadow: 1px 1px 0 @black;
-	text-transform: capitalize;
 	text-align: center;
 	font-family: @btn-type-family;
-	.uppercase;
+	text-transform: uppercase;
 
 	#gradient .vertical( @btn-primary, @btn-secondary, 0%, 100% );
-	&:extend( .all-transition );
 
+	&,
 	&:after,
 	&:before {
 		&:extend( .all-transition );
@@ -93,6 +96,7 @@
 		background: none;
 		border: none;
 		color: @btn-type-color;
+		padding: 0;
 	}
 
 	&-expand {

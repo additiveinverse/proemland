@@ -53,6 +53,7 @@
 @base-type-h4:							ceil( @base-type-size * 1.5 ); // ~24px
 @base-type-h5:							ceil( @base-type-size * 1.3313 ); // ~21.3px
 @base-type-h6:							ceil( @base-type-size * 1.1688 ); // ~18.7px
+@base-type-sm:							@base-type-size / @base-line-height;
 
 // ------------------------ Typography - spacing
 // @base-margin:								unit( @base-line-height, %) * 3;
@@ -62,7 +63,7 @@
 @base-margin-eighth:				@base-margin / 8;
 
 // ------------------------ Forms - Messaging
-@error: 										@yellow;
+@error: 										@red;
 @alert: 										@green;
 @note:											@grey-light;
 
@@ -88,8 +89,8 @@
 @input-focus:								darken( @input-color, 50% );
 @input-height-base:					( @base-line-height + ( @base-margin-half * 2 ) + 2 );
 
-@legend-color:				@grey-dark;
-@legend-border-color:		#e5e5e5;
+@legend-color:							@grey-dark;
+@legend-border-color:				#e5e5e5;
 
 @border-color: 							@grey-darker;
 @border-radius: 						@base-margin-eighth;
