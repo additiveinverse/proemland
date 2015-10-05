@@ -13,15 +13,7 @@ directive( 'toggler', [ '$parse', function ( $parse ) {
 			var trgrClass = [ prefix, TXTactive ].join( '-' )
 
 			element.on( ev, function ( e ) {
-				console.log(element)
-
-				if ( e.currentTarget == elem ) {
-					element.removeClass( elemClass )
-				} else {
-					element.parent().children().removeClass( elemClass )
-				}
-
-				element.addClass( elemClass )
+					element.toggleClass( elemClass )
 			} )
 		}
 	}

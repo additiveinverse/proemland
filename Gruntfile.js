@@ -68,8 +68,7 @@ module.exports = function ( grunt ) {
 			"<%= config.lib %>/angular-animate/angular-animate.min.js",
 			"<%= config.lib %>/angular-sanitize/angular-sanitize.min.js",
 			"<%= config.lib %>/angular-smooth-scroll/angular-smooth-scroll.min.js",
-			"<%= config.lib %>/angular-route/angular-route.min.js",
-			"<%= config.lib %>/angular-ui-router/release/angular-ui-router.min.js"
+			"<%= config.lib %>/angular-route/angular-route.min.js"
 		],
 		dest: "<%= config.dist.js %>angular.js"
 		}
@@ -353,7 +352,7 @@ module.exports = function ( grunt ) {
 				"config.json",
 				"<%= config.app.root %>**/*"
 			],
-			tasks: [ "jade", "concat", "newer:minjson", "newer:ngtemplates", "less:dev" ],
+			tasks: [ "jade", "newer:minjson", "newer:ngtemplates", "concat", "newer:less:dev" ],
 			options: {
 				reload: false,
 				livereload: true,

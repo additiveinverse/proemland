@@ -4,7 +4,7 @@
 
 section( id=post_id, class=post_content + ' ' + post_class )
 	h1( class=post_class + '-ttl ttl fn' )= content.studio.title
-	img( src= content.studio.image )
+	img( class=post_class + '-img ttl fn', src= content.studio.image )
 	article(class=post_class + '-main')
 		-each gear, key in content.studio.gear
 			dl( class= post_class + '-lst ' + post_class + '-lst-' + key )

@@ -12,11 +12,11 @@
 .content-border {
 	border-top: 12px solid fade( @yellow, 35%);
 }
+
 body {
 	background-color: @blue-dark;
-	&:extend(.content-border);
 	background-image: url(../img/rough.png);
-	// background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAYCAYAAADQ+yzZAAAAF0lEQVQIW2NkgALG4cEoLy//39nZyQgAHvQEGcWYIRgAAAAASUVORK5CYII=);
+	&:extend(.content-border);
 }
 
 .page {
@@ -29,11 +29,13 @@ body {
 	&-hdr {
 		&:extend(.content-border);
 		padding: 0 1em;
-		flex: 0 1 0;
 
+		flex: 0 1 0;
 		position: fixed;
 		top: 0;
 		.col(5);
+
+
 
 		&-ttl {
 			margin-bottom: 0;
@@ -41,6 +43,17 @@ body {
 			text-shadow: -1px -1px 0 @grey;
 			font-family: @base-type;
 			text-align: center;
+			position: relative;
+
+			&:after {
+				._inject("");
+				.inline-block();
+				border: 0.25em solid;
+				border-color: transparent @blue-dark @blue-dark transparent;
+				position: absolute;
+				top: -13px;
+				right: -16px;
+			}
 
 			&-logo {
 				position: relative;
@@ -86,6 +99,10 @@ body {
 	&-content {
 		flex: 1 1 0;
 		.push(5);
+		&-discog {
+			padding-left: @base-margin-quarter;
+	    margin-bottom: @base-margin * 20;
+		}
 	}
 }
 
@@ -241,7 +258,8 @@ body {
 	overflow: hidden;
 	margin-left: 1rem;
 	margin-bottom: 1.25rem;
-	.col(5);
+	// .col(5);
+	width: calc(~"100% / 5 - 2em" );
 	min-height: 180px;
 	.inline-block;
 
@@ -272,6 +290,7 @@ body {
 		top: 38%;
 		opacity: 0;
 		z-index: 4;
+		max-height: 48px;
 
 		&-ttl {
 			padding: @base-margin-quarter @base-margin-half 0 @base-margin-half;
@@ -343,7 +362,7 @@ body {
 
 		.prod {
 			&-nfo {
-				top: 7.5%;
+				top: 8%;
 			}
 
 			&-hdr {
@@ -365,9 +384,17 @@ body {
 		color: @white-off;
 		text-shadow: 1px 1px 0 @grey-dark;
     background: fade(@black, 10%);
-    margin-bottom: @base-margin;
+    margin-bottom: @base-margin * 20;
     &-bio {
-
+ 			&-desc {
+ 				overflow: hidden;
+ 			}
+    	&-img {
+				border: @border-width solid @white-out;
+    		width: 25%;
+    		float: right;
+    		margin-left: @base-margin;
+    	}
     }
     &-studio {
     	&-lst {
@@ -375,6 +402,10 @@ body {
     		vertical-align: top;
     		width: calc( ~"100% / 3 - 1em" );
     	}
+			&-img {
+				width: 100%;
+				border: @border-width solid @white-out;
+			}
     }
 	}
 }
