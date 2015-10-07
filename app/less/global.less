@@ -11,6 +11,12 @@
 
 .content-border {
 	border-top: 12px solid fade( @yellow, 35%);
+
+	.tile {
+		background-image: linear-gradient(-45deg, transparent 46%, fade( @yellow, 25%) 50%, transparent 54%);
+		background-repeat: repeat-x;
+		background-size: 6px 14px;
+	}
 }
 
 body {
@@ -379,11 +385,11 @@ body {
 
 .post {
 	&-content {
-		&:extend(.content-border);
+		&:extend(.content-border, .content-border .tile);
+    background-color: fade(@black, 10%);
 		padding: @base-margin / 3  2.4em 0.9em;
 		color: @white-off;
 		text-shadow: 1px 1px 0 @grey-dark;
-    background: fade(@black, 10%);
     margin-bottom: @base-margin * 20;
     &-bio {
  			&-desc {
