@@ -39,26 +39,26 @@
 }
 
 //////////////////////////// Let's go ahead and set the base icon styles
-._ico( @_ico, @font-size ) {
+._ico( @_ico, @font-size, @offset: 1 ) {
 	._inject( @_ico );
-	.font-size( @font-size, @base-line-height );
+	.font-size( @font-size, @offset );
 }
 
 //////////////////////////// Let's make some icons
 // 	Here's where the magic happens
-.icon( @place, @_ico, @fs: @base-icon-size ) when ( @place = "pre" ) {
+.icon( @place, @_ico, @fs: @base-icon-size, @offset: 1 ) when ( @place = "pre" ) {
 	&:before {
 		&:extend(.icon_base);
 		margin-right: @base-margin-eighth;
-		._ico( @_ico, @fs );
+		._ico( @_ico, @fs, @offset );
 	}
 }
 
-.icon( @place, @_ico, @fs: @base-icon-size ) when ( @place = "app" ) {
+.icon( @place, @_ico, @fs: @base-icon-size, @offset: 1 ) when ( @place = "app" ) {
 	&:after {
 		&:extend(.icon_base);
 		margin-left: @base-margin-eighth;
-		._ico( @_ico, @fs );
+		._ico( @_ico, @fs, @offset );
 	}
 }
 
