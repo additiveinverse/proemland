@@ -9,20 +9,54 @@
 	.font-face('typicons', '../fonts/typicons', 'normal', 'normal');
 }
 
-.content-border {
-	border-top: 12px solid fade( @yellow, 35%);
+#decor {
+	.content-border {
+		border-top: 12px solid fade( @yellow, 35%);
+	}
 
 	.tile {
-		background-image: linear-gradient(-45deg, transparent 46%, fade( @yellow, 25%) 50%, transparent 54%);
+		.diagonals;
+		.background-size( 9px 21px );
 		background-repeat: repeat-x;
-		background-size: 6px 14px;
+	}
+
+
+	.diagonals( @color: fade( @yellow, 25%) ) {
+		background-image: linear-gradient(-45deg,
+			transparent 26%,
+			fade( @color, 25%) 30%,
+			transparent 34%,
+			transparent 58%,
+			fade( @color, 25%) 60%,
+			transparent 64%,
+			transparent 88%,
+			fade( @color, 25%) 90%,
+			transparent 94%
+			);
+	}
+
+	.little_box_base {
+		.size(28px, 6px);
+		._inject();
+		.inline-block();
+		position: absolute;
+		top: -12px;
+		left: 35px;
+	}
+
+	.lil_box( @color ) {
+		position: relative;
+		&:before {
+			&:extend( #decor .little_box_base );
+			background-color: @color;
+		}
 	}
 }
 
 body {
 	background-color: @blue-dark;
 	background-image: url(../img/rough.png);
-	&:extend(.content-border);
+	#decor .content-border;
 }
 
 .page {
@@ -33,15 +67,13 @@ body {
 	height: 100%;
 
 	&-hdr {
-		&:extend(.content-border);
+		#decor .content-border;
 		padding: 0 1em;
 
 		flex: 0 1 0;
 		position: fixed;
 		top: 0;
 		.col(5);
-
-
 
 		&-ttl {
 			margin-bottom: 0;
@@ -94,6 +126,7 @@ body {
 			.inline-block;
 			width: calc(~"100% / 2");
 		}
+
 		&-yr {
 			text-align: right
 		}
@@ -351,8 +384,9 @@ body {
 	}
 
 	&-active {
-		.tall(10);
-		.col(10);
+		height: 603px;
+		width: 595px;
+		float: left;
 
 		.prod-hdr,
 		.prod-nfo,
@@ -385,12 +419,14 @@ body {
 
 .post {
 	&-content {
-		&:extend(.content-border, .content-border .tile);
+		&:extend( #decor .content-border, #decor .tile );
+   	#decor .lil_box( darken( @blue-darker, 5%) );
     background-color: fade(@black, 10%);
 		padding: @base-margin / 3  2.4em 0.9em;
 		color: @white-off;
 		text-shadow: 1px 1px 0 @grey-dark;
     margin-bottom: @base-margin * 20;
+
     &-bio {
  			&-desc {
  				overflow: hidden;
@@ -402,6 +438,7 @@ body {
     		margin-left: @base-margin;
     	}
     }
+
     &-studio {
     	&-lst {
     		display: inline-block;
@@ -415,6 +452,5 @@ body {
     }
 	}
 }
-
 
 // @import './media';
