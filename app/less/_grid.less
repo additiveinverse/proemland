@@ -61,3 +61,7 @@ body {
 .pull( @offset: 1 ) {
 	margin-right: @total-width*(((@gutter-width+@column-width)*@offset) / @gridsystem-width) + @total-width*((@gutter-width*.5)/@gridsystem-width);
 }
+
+.prefix( @offset: 1 ) {
+	padding-left: @total-width*(((@gutter-width+@column-width)*@offset) / @gridsystem-width) + @total-width*((@gutter-width*.5)/@gridsystem-width);
+}

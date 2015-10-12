@@ -33,6 +33,12 @@
 		}
 	},
 	"content": {
+		"news": {
+			"title": "Vault ep 1/4 2/4",
+			"image": "/images/vault-ep24.jpg",
+			"content": "to be released at the same time!",
+			"link": ""
+		},
 		"bio": {
 			"title": "About",
 			"image": "/images/proem.jpg",

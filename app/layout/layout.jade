@@ -15,7 +15,7 @@ html(lang='en')
 				= locals.title
 
 		link( rel='alternate', href=locals.url + '/feed.xml', type='application/rss+xml', title=description )
-		//- link( rel='stylesheet', href='https://fonts.googleapis.com/css?family=Oswald:700,300|Unica+One', type='text/css')
+		link( rel='stylesheet', href='https://fonts.googleapis.com/css?family=Oswald:700,300|Unica+One', type='text/css')
 		link( rel='stylesheet', href=locals.url + '/css/layout.min.css', type='text/css' )
 		link( rel='stylesheet', href=locals.url + '/css/proemland2014.css', type='text/css' )
 		//- script( type="text/javascript", src=url + '/js/head.min.js' )
@@ -47,7 +47,8 @@ html(lang='en')
 						+menuMaker( 'antisocial', network.antisocial )
 						+menuMaker( 'social', network.social )
 
-			main( class='ng-cloak grd page-content ' + bodyclass + '-content' )
+			main( class='page-content ' + bodyclass + '-content' )
+				block news
 				block content
 				block static
 

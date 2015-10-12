@@ -3,19 +3,12 @@ extends layout
 block append vars
 	- bodyclass = 'home'
 
+block news
+	include news
+
 block content
-	section#discog.page-content-discog
-		div.fld.search-fld
-			label( for='searchInput', class='lbl search-fld-lbl' )= Search
-			input( ng-model='query', class='txt search-fld-txt', id='searchInput', type='search', name='searchInput', placeholder='Search')
-			span( role='button', ng-click='query=""', class='btn btn-reset search-fld-reset', title='reset filters' ) reset
+	include discog
 
-		ng-view
-		a( scroll-to='discog', href="#")= top
-
-//- static articles
 block static
 	include author
-	a( scroll-to='discog', href="#")= top
 	include studio
-	a( scroll-to='discog', href="#")= top
