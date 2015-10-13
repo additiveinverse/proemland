@@ -13,7 +13,8 @@
 	},
 	"info": {
 		"bio": "About",
-		"studio": "Studio"
+		"studio": "Studio",
+		"news": "Update"
 	},
 	"network": {
 		"social": {
@@ -35,7 +36,7 @@
 	"content": {
 		"news": {
 			"title": "Vault ep 1/4 2/4",
-			"image": "/images/vault-ep24.jpg",
+			"image": "/images/vault-ep24.png",
 			"content": "to be released at the same time!",
 			"link": ""
 		},

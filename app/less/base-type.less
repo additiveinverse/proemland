@@ -1,6 +1,6 @@
 @import './_variables';
-@import './_mixins';
 @import './lesshat';
+@import './_mixins';
 
 * {
 	.box-sizing;
@@ -17,14 +17,8 @@ body {
 
 // Links
 a {
-	text-decoration: none;
-	color: @base-link;
-
-	&:hover {
-		color: @base-link-hover;
-	}
-
-	&:focus { outline: none }
+	cursor: pointer;
+	.lnk();
 }
 
 // Headings
@@ -65,8 +59,8 @@ h4 {
 
 h5 {
 	.font-size( @base-type-h5, 1 );
-    // line-height: @base-line-height + 0.7536;
-    // top: -2px;
+	// line-height: @base-line-height + 0.7536;
+	// top: -2px;
 }
 
 h6 {
@@ -77,9 +71,7 @@ h6 {
 
 blockquote { margin: @base-margin }
 
-p,
-th,
-td {
+p {
 	.font-size( @base-type-size, 1 );
 }
 
@@ -95,10 +87,6 @@ ul li {
 	list-style: none;
 }
 
-table {
-	margin-bottom: @base-margin-half;
-}
-
 ul,
 ol,
 p {
@@ -106,24 +94,11 @@ p {
 }
 
 body,
-th,
 p,
 dt,
 dd,
-li,
-td {
+li {
 	line-height: @base-line-height
-}
-
-th { text-align: left }
-
-td {
-	padding-bottom: 0
-}
-
-caption,
-dt {
-	// font-weight: bold
 }
 
 ol { list-style: decimal }

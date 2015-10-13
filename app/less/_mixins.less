@@ -26,7 +26,6 @@
 	font-weight: normal;
 	padding: 0 @base-margin-eighth;
 	speak: none;
-	color: @base-icon-color;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
@@ -46,17 +45,19 @@
 
 //////////////////////////// Let's make some icons
 // 	Here's where the magic happens
-.icon( @place, @_ico, @fs: @base-icon-size, @offset: 1 ) when ( @place = "pre" ) {
+.icon( @place, @_ico, @color: @base-icon-color, @fs: @base-icon-size, @offset: 1 ) when ( @place = "pre" ) {
 	&:before {
 		&:extend(.icon_base);
+		color: @color;
 		margin-right: @base-margin-eighth;
 		._ico( @_ico, @fs, @offset );
 	}
 }
 
-.icon( @place, @_ico, @fs: @base-icon-size, @offset: 1 ) when ( @place = "app" ) {
+.icon( @place, @_ico, @color: @base-icon-color, @fs: @base-icon-size, @offset: 1 ) when ( @place = "app" ) {
 	&:after {
 		&:extend(.icon_base);
+		color: @color;
 		margin-left: @base-margin-eighth;
 		._ico( @_ico, @fs, @offset );
 	}
@@ -159,4 +160,94 @@
   }
 
   .process(@square);
+}
+
+.lnk( @color: @base-link ) {
+	&:extend( .all-transition );
+	text-decoration: none;
+	color: @color;
+	cursor: pointer;
+
+	&:after,
+	&:before {
+		color: @color;
+	}
+
+	&:hover {
+		color: lighten(@color, 25%);
+
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.btn {
+	.inline-block();
+	visibility: visible;
+	cursor: pointer;
+	padding: @btn-pad;
+	color: @btn-type-color;
+	border: none;
+	text-shadow: 1px 1px 0 @black;
+	text-align: center;
+	font-family: @btn-type-family;
+	text-transform: uppercase;
+
+	#gradient .vertical( @btn-primary, @btn-secondary, 0%, 100% );
+
+	&,
+	&:after,
+	&:before {
+		&:extend( .all-transition );
+	}
+
+	&:hover {
+		&:after,
+		&:before {
+			color: lighten(@btn-type-color, 25%);
+		}
+		color: lighten(@btn-type-color, 25%);
+	}
+
+	&-disabled,
+	&:disabled {
+		opacity: 0;
+		visibility: hidden;
+	}
+	// resettting reset button to default text look and feel
+	.reset {
+		background: none;
+		border: none;
+		color: @btn-type-color;
+		padding: 0;
+	}
+
+	&-expand {
+		position: absolute;
+		right: 0;
+		font-size: 0;
+		top: 0;
+		z-index: 22;
+		.icon("app", @plus, 24 );
+		.size(40px);
+		&:after {
+			margin-left: 0;
+		}
+	}
+
+	&-reset {
+		.icon("app", @delete, 24 );
+	}
+
+	&-link {
+		position: absolute;
+		right: 0;
+		font-size: 0;
+		top: 0;
+		opacity: 0;
+		z-index: 22;
+		.icon("app", @plus, 24 );
+	}
 }

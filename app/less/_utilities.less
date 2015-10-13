@@ -1,6 +1,5 @@
-@import './_variables';
-@import './_mixins';
-@import './lesshat';
+@import '_variables';
+@import 'lesshat';
 
 // a bunch of helper classes that should probably be used with &:extend()
 .uppercase {
@@ -35,19 +34,6 @@
 // Information values
 .val {}
 
-.lnk {
-	&:extend( .all-transition );
-	text-decoration: none;
-	color: @base-link;
-
-	&:hover {
-		color: @base-link-hover;
-	}
-
-	&:focus {
-		outline: none;
-	}
-}
 
 // titles
 .ttl {
@@ -55,74 +41,4 @@
 	color: @base-type-heading-color;
 	font-weight: 400;
 	text-transform: uppercase;
-	// text-shadow: -1px -1px 0 @grey;
-}
-
-.btn {
-	.inline-block();
-	visibility: visible;
-	cursor: pointer;
-	padding: @btn-pad;
-	color: @btn-type-color;
-	border: none;
-	text-shadow: 1px 1px 0 @black;
-	text-align: center;
-	font-family: @btn-type-family;
-	text-transform: uppercase;
-
-	#gradient .vertical( @btn-primary, @btn-secondary, 0%, 100% );
-
-	&,
-	&:after,
-	&:before {
-		&:extend( .all-transition );
-	}
-
-	&:hover {
-		&:after,
-		&:before {
-			color: lighten(@btn-type-color, 25%);
-		}
-		color: lighten(@btn-type-color, 25%);
-	}
-
-	&-disabled,
-	&:disabled {
-		opacity: 0;
-		visibility: hidden;
-	}
-	// resettting reset button to default text look and feel
-	.reset {
-		background: none;
-		border: none;
-		color: @btn-type-color;
-		padding: 0;
-	}
-
-	&-expand {
-		position: absolute;
-		right: 0;
-		font-size: 0;
-		top: 0;
-		z-index: 22;
-		.icon("app", @plus, 24 );
-		.size(40px);
-		&:after {
-			margin-left: 0;
-		}
-	}
-
-	&-reset {
-		.icon("app", @delete, 24 );
-	}
-
-	&-link {
-		position: absolute;
-		right: 0;
-		font-size: 0;
-		top: 0;
-		opacity: 0;
-		z-index: 22;
-		.icon("app", @plus, 24 );
-	}
 }

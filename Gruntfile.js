@@ -32,8 +32,8 @@ module.exports = function ( grunt ) {
 		manifest: {
 		css: {
 			"build/css/layout.min.css": [
-			"app_modules/normalize-less/normalize.less",
-			"app/less/base-*.less"
+				"app_modules/normalize-less/normalize.less",
+				"app/less/base-*.less"
 			],
 			"build/css/<%= pkg.name %>.css": "app/less/global.less"
 		}
@@ -186,7 +186,7 @@ module.exports = function ( grunt ) {
 			}
 		},
 		files: {
-			"<%= config.dist.root %>index.html": "<%= config.app.tpl %>index.jade"
+			"<%= config.dist.root %>index.htm": "<%= config.app.tpl %>index.jade"
 		}
 		}
 	},
@@ -285,29 +285,17 @@ module.exports = function ( grunt ) {
 		}
 	},
 
-	uglify: {
-		options: {
-		banner: "<%= banner %>",
-		sourceMap: true,
-		screwIE8: false
-		},
-		dist: {
-		src: "<%= manifest.js_bundle %>",
-		dest: "<%= config.dist %>prm.<%= pkg.name %>.min.js"
-		}
-	},
-
 	htmlmin: {
 		dist: {
-		options: {
-			removeComments: true,
-			removeAttributeQuotes: true,
-			useShortDocType: true,
-			collapseWhitespace: true
-		},
-		files: {
-			'<%= prod.root %>index.html': '<%= prod.root %>index.html'
-		}
+			options: {
+				removeComments: true,
+				removeAttributeQuotes: true,
+				useShortDocType: true,
+				collapseWhitespace: true
+			},
+			files: {
+				'<%= config.dist.root %>index.htm': '<%= config.dist.root %>index.htm'
+			}
 		}
 	},
 
@@ -352,7 +340,7 @@ module.exports = function ( grunt ) {
 				"config.json",
 				"<%= config.app.root %>**/*"
 			],
-			tasks: [ "jade", "newer:minjson", "newer:ngtemplates", "concat", "newer:less:dev" ],
+			tasks: [ "newer:jade", "newer:minjson", "newer:ngtemplates", "concat", "less:dev" ],
 			options: {
 				reload: false,
 				livereload: true,
