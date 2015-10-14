@@ -326,7 +326,7 @@ module.exports = function ( grunt ) {
 			hostname: "localhost",
 			livereload: true,
 			open: {
-			target: "http://localhost:9001/", // target url to open
+			target: "http://localhost:9001/index.htm", // target url to open
 			appName: "Chrome"
 			},
 		}

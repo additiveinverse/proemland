@@ -33,9 +33,9 @@
 	line-height: 1;
 }
 
-.ico {
-	&:extend( .icon_base );
-}
+// .ico {
+// 	&:extend( .icon_base );
+// }
 
 //////////////////////////// Let's go ahead and set the base icon styles
 ._ico( @_ico, @font-size, @offset: 1 ) {
@@ -95,23 +95,23 @@
 }
 
 // Border helpers
-.border ( @width: 1px, @style: solid, @color ) {
+.border( @width: 1px, @style: solid, @color ) {
 	border: @arguments;
 }
 
-.bt ( @width: 1px, @style: solid, @color: @border-color ) {
+.bt( @width: 1px, @style: solid, @color: @border-color ) {
 	border-top: @arguments
 }
 
-.br ( @width: 1px, @style: solid, @color: @border-color ) {
+.br( @width: 1px, @style: solid, @color: @border-color ) {
 	border-right: @arguments
 }
 
-.bb ( @width: 1px, @style: solid, @color: @border-color ) {
+.bb( @width: 1px, @style: solid, @color: @border-color ) {
 	border-bottom: @arguments
 }
 
-.bl ( @width: 1px, @style: solid, @color: @border-color ) {
+.bl( @width: 1px, @style: solid, @color: @border-color ) {
 	border-left: @arguments
 }
 // Yes. (sigh). I lifted this from bootstrap
@@ -180,74 +180,5 @@
 
 	&:focus {
 		outline: none;
-	}
-}
-
-.btn {
-	.inline-block();
-	visibility: visible;
-	cursor: pointer;
-	padding: @btn-pad;
-	color: @btn-type-color;
-	border: none;
-	text-shadow: 1px 1px 0 @black;
-	text-align: center;
-	font-family: @btn-type-family;
-	text-transform: uppercase;
-
-	#gradient .vertical( @btn-primary, @btn-secondary, 0%, 100% );
-
-	&,
-	&:after,
-	&:before {
-		&:extend( .all-transition );
-	}
-
-	&:hover {
-		&:after,
-		&:before {
-			color: lighten(@btn-type-color, 25%);
-		}
-		color: lighten(@btn-type-color, 25%);
-	}
-
-	&-disabled,
-	&:disabled {
-		opacity: 0;
-		visibility: hidden;
-	}
-	// resettting reset button to default text look and feel
-	.reset {
-		background: none;
-		border: none;
-		color: @btn-type-color;
-		padding: 0;
-	}
-
-	&-expand {
-		position: absolute;
-		right: 0;
-		font-size: 0;
-		top: 0;
-		z-index: 22;
-		.icon("app", @plus, 24 );
-		.size(40px);
-		&:after {
-			margin-left: 0;
-		}
-	}
-
-	&-reset {
-		.icon("app", @delete, 24 );
-	}
-
-	&-link {
-		position: absolute;
-		right: 0;
-		font-size: 0;
-		top: 0;
-		opacity: 0;
-		z-index: 22;
-		.icon("app", @plus, 24 );
 	}
 }

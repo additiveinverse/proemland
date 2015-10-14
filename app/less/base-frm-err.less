@@ -1,5 +1,6 @@
 @import './_variables';
 @import './_mixins';
+@import './_utilities';
 @import './lesshat';
 
  // Nice UI touch for placeholders.
@@ -110,5 +111,59 @@
 			color: @white;
 			._inject("");
 		}
+	}
+}
+
+.btn {
+	.inline-block();
+	visibility: visible;
+	cursor: pointer;
+	padding: @btn-pad;
+	color: @btn-type-color;
+	border: none;
+	text-shadow: 1px 1px 0 @black;
+	text-align: center;
+	font-family: @btn-type-family;
+	text-transform: uppercase;
+
+	#gradient .vertical( @btn-primary, @btn-secondary, 0%, 100% );
+
+	&,
+	&:after,
+	&:before {
+		&:extend( .all-transition );
+	}
+
+	&:hover {
+		&:after,
+		&:before {
+			color: lighten(@btn-type-color, 25%);
+		}
+		color: lighten(@btn-type-color, 25%);
+	}
+
+	&-disabled,
+	&:disabled {
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	&-expand {
+		&:extend( .btn .topright );
+		.icon("app", @plus, 24 );
+		.size(40px);
+		&:after {
+			margin-left: 0;
+		}
+	}
+
+	&-reset {
+		.icon("app", @delete, 24 );
+	}
+
+	&-link {
+		&:extend( .btn .topright );
+		opacity: 0;
+		.icon("app", @plus, 24 );
 	}
 }

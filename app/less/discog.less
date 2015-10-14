@@ -1,0 +1,125 @@
+// some global product stuff
+.prod {
+	background: @white-out;
+	position: relative;
+	overflow: hidden;
+	margin-left: 1rem;
+	margin-bottom: 1.25rem;
+	.inline-block;
+	&:extend( .post .content-defaults .post-image );
+
+	.defaults {
+		width: 100%;
+		position: absolute;
+	}
+
+	.btn-expand {
+		opacity: 0;
+	}
+
+	&:hover {
+		.prod-hdr,
+		.btn-expand {
+			opacity: 1;
+		}
+		.prod-photo {
+			.scale( 1.1, 1.1 );
+		}
+	}
+
+	&-hdr {
+		&:extend( .all-transition, .prod .defaults );
+		cursor: pointer;
+		background-color: @white-out;
+		top: 38%;
+		opacity: 0;
+		z-index: 4;
+		max-height: 48px;
+
+		&-ttl {
+			padding: @base-margin-quarter @base-margin-half 0 @base-margin-half;
+			color: @grey-dark;
+			text-shadow: 1px 1px 0 @white;
+			.font-size( @base-type-h5 );
+		}
+	}
+
+	&-images {
+		margin: 0;
+		z-index: 1;
+		&:extend( .prod .defaults );
+	}
+
+	&-photo {
+		width: 100%;
+		&:extend( .all-transition );
+		.inline-block;
+		.scale( 1.1, 1.1, center );
+	}
+	&-thumb {
+		border: 4px solid @white;
+		.col(2);
+	}
+
+	&-nfo {
+		&:extend( .all-transition, .prod .defaults );
+		background-color: @white-out;
+		padding: @base-margin-half;
+		opacity: 0;
+		z-index: 1;
+		color: @blue-darker;
+		text-shadow: none;
+
+		top: 600px;
+		.tall(600px);
+
+		&-lst {
+			margin-left: 1em;
+			width: 75%;
+			.inline-block;
+		}
+
+		&-typ,
+		&-val {
+			.inline-block;
+			width: calc( ~"100% / 2" );
+		}
+
+		&-lnk {
+			.icon("app", @link );
+		}
+	}
+
+	&-active {
+		height: 603px;
+		width: 595px;
+		float: left;
+
+		.prod-hdr,
+		.prod-nfo,
+		.btn-expand {
+			opacity: 1;
+		}
+
+		.btn-expand {
+			&:after {
+				.rotate( 45deg );
+			}
+		}
+
+		.prod {
+			&-nfo {
+				top: 8%;
+			}
+
+			&-hdr {
+				top: 0;
+			}
+
+			&-photo {
+				.blur(5);
+				.scale(1.1, 1.1);
+			}
+		}
+	}
+}

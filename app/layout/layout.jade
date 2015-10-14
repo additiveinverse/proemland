@@ -24,7 +24,7 @@ html(lang='en')
 			header( class='hdr page-hdr ps', role='banner' )
 				h1( class='ttl page-hdr-ttl', title=locals.title , role='banner' )
 					a(class="page-hdr-ttl-lnk lnk", href=url )= locals.title
-					p( class='nfo page-nfo', role='note' )
+					p( class='nfo page-hdr-ttl-nfo page-nfo', role='note' )
 						span.page-nfo-desc.nfo= locals.description
 						span.page-nfo-vrsn.nfo= 'v' + locals.version
 						span.page-nfo-yr.nfo= new Date().getFullYear()

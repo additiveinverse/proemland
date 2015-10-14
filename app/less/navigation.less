@@ -1,0 +1,114 @@
+.navlist {
+	list-style: none;
+	border-top: 1px dashed @grey-lighter;
+	padding: @base-margin 0 @base-margin @base-margin * 2.5;
+	text-transform: uppercase;
+	font-family: @font-heading;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.filter {
+	&-lst {
+		&:extend( .navlist );
+		border: none;
+		padding-bottom: 0;
+		padding-top: @base-margin-quarter;
+	}
+
+	&-itm {
+		&:extend( .navlist .itm );
+	}
+
+	&-btn-reset {
+		.btn .reset;
+		margin-left: 3.7em;
+		margin-bottom: 1em;
+	}
+}
+
+.info {
+	&-lst {
+		&:extend( .navlist );
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+	&-itm {
+		&:extend( .navlist .itm );
+	}
+	&-lnk {
+		.lnk( @yellow );
+	}
+}
+
+.antisocial {
+	&-lst {
+		padding-top: 0;
+		border-top: none;
+		&:extend( .navlist );
+	}
+
+	&-itm {
+		&:extend( .navlist .itm );
+		.icon( "app", @link, @green );
+
+		&:after {
+			line-height: 1;
+			margin-top: -7px;
+		}
+	}
+	&-lnk {
+		.lnk( @green );
+	}
+}
+
+.social {
+	&-lst {
+		border: none;
+		padding-top: 0;
+		&:extend( .navlist );
+	}
+
+	&-itm {
+		.inline-block;
+		font-size: 0;
+		border-radius: 40px;
+		border: 1px solid @border-color;
+		margin: 8px 8px 8px 0;
+		.size(40px);
+		&:extend( .sprite, .opacity-transition );
+		background-size: 300%;
+		background-color: @white-off;
+
+		&-bandcamp {
+			.svg-sprite-position( @ico-bandcamp );
+		}
+		&-flickr {
+			.svg-sprite-position( @ico-flickr );
+		}
+		&-last-fm {
+			.svg-sprite-position( @ico-lastfm-fill );
+		}
+		&-society6 {
+			.svg-sprite-position( @ico-society6 );
+		}
+		&-soundcloud 	{
+			.svg-sprite-position( @ico-soundcloud-fill );
+		}
+		&-spotify {
+			.svg-sprite-position( @ico-spotify-fill );
+		}
+		&-twitter {
+			.svg-sprite-position( @ico-twitter-fill );
+		}
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
+	&-lnk {
+		display: block;
+		.size(32px);
+	}
+}
