@@ -8,6 +8,9 @@ proem.controller( "DLController", function ( $scope, $http, $route, $controller 
 	var url = "dl.json"
 	$scope.data = dataComm( $scope, $http, url, "GET", $route )
 } )
+// /////////////////////////////////////////////////////// spotify junk
+
+// /////////////////////////////////////////////////////// soundcloud
 
 // /////////////////////////////////////////////////////// last.fm
 lastfm = angular.module( "appLastfm", [] )
@@ -23,27 +26,10 @@ lastfm.controller( "GroupShoutsController", function ( $scope, $http, $route, $r
 	$scope.data = dataComm( $scope, $http, combined, "GET" )
 } )
 
-// group scrobbles
-lastfm.controller( "GroupScrobblesController", function ( $scope, $http, $route, $routeParams ) {
-	var method = "group.getshouts",
-		limit = "&limit=15",
-		combined = lastfm.url + method + lastfm.artist + limit
-
-	$scope.data = dataComm( $scope, $http, combined, "GET" )
-} )
 
 // artist shouts
 lastfm.controller( "ShoutsController", function ( $scope, $http, $route, $routeParams ) {
 	var method = "artist.getshouts",
-		limit = "&limit=15",
-		combined = lastfm.url + method + lastfm.artist + limit
-
-	$scope.data = dataComm( $scope, $http, combined, "GET" )
-} )
-
-// fan list
-lastfm.controller( "FansController", function ( $scope, $http ) {
-	var method = "artist.gettopfans",
 		limit = "&limit=15",
 		combined = lastfm.url + method + lastfm.artist + limit
 

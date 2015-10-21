@@ -3,11 +3,11 @@ mixin menuMaker( navName, stuff )
 		each val, i in stuff
 			case navName
 				when 'filter'
-					li( role='menuitem', class='itm ' + navName + '-itm ' + navName + '-itm-' + i )
-						a( class=navName + '-lnk lnk ' + navName + '-itm-lnk', ng-click='query="'+ i +'"', scroll-to='discog', duration='1000', offset='0', callback-after=''  )= val
+					li( role='menuitem', class='itm ' + navName + '-lst-itm ' + navName + '-lst-itm-' + i )
+						a( class=navName + '-lst-itm-lnk lnk ' + navName + '-lst-itm-lnk', ng-click='query="'+ i +'"', scroll-to='discog', duration='1000', offset='0', callback-after=''  )= val
 				when 'info'
-					li( role='menuitem', class='itm ' + navName + '-itm ' + navName + '-itm-' + i )
-						a( class=navName + '-lnk lnk', href='#', scroll-to=i, duration='1000', callback-after='', offset='0' )= val
+					li( role='menuitem', class='itm ' + navName + '-lst-itm ' + navName + '-lst-itm-' + i )
+						a( class=navName + '-lst-itm-lnk lnk', href='#', scroll-to=i, duration='1000', callback-after='', offset='0' )= val
 				default
-					li( role='menuitem', class='itm ' + navName + '-itm ' + navName + '-itm-' + i )
-						a( class=navName + '-lnk lnk', href=val, target='_blank' )= i
+					li( role='menuitem', class='itm ' + navName + '-lst-itm ' + navName + '-lst-itm-' + i )
+						a( class=navName + '-lst-itm-lnk lnk', href=val, target='_blank' )= i

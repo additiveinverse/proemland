@@ -173,12 +173,9 @@
 		color: @color;
 	}
 
-	&:hover {
-		color: lighten(@color, 25%);
-
-	}
-
+	&:hover,
 	&:focus {
 		outline: none;
+		color: lighten(@color, 25%);
 	}
 }

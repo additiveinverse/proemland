@@ -3,6 +3,8 @@
 -var post_class= post_content + '-' + post_id
 
 section( id=post_id, class=post_content + ' ' + post_class )
+	block page_nav
+
 	article(class=post_content + '-wrap ' + post_content + '-wrap-' + post_id )
 		h1( class=post_class + '-ttl ttl' )= content.bio.title
 		p( class=post_class + '-desc' )
@@ -10,3 +12,5 @@ section( id=post_id, class=post_content + ' ' + post_class )
 			!=content.bio.content
 		p
 			a( href=content.bio.link ) press kit download
+
+	include link_top

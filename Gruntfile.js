@@ -340,11 +340,11 @@ module.exports = function ( grunt ) {
 				"config.json",
 				"<%= config.app.root %>**/*"
 			],
-			tasks: [ "newer:jade", "newer:minjson", "newer:ngtemplates", "concat", "less:dev" ],
+			tasks: [ "jade", "newer:minjson", "newer:ngtemplates", "concat", "less:dev" ],
 			options: {
 				reload: false,
 				livereload: true,
-				spawn: true,
+				spawn: false,
 				dateFormat: function ( time ) {
 					grunt.log.writeln( "The watch finished in " + time + "ms at" + ( new Date() ).toString() )
 				}

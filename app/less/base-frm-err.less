@@ -11,6 +11,7 @@
 	&:focus { cursor: text }
 }
 
+form,
 .frm {
 	overflow: hidden;
 	text-align: left;
@@ -28,15 +29,20 @@
 	}
 }
 
+label,
 .lbl {
 	.inline-block();
 }
 
 
 // text inputs and text area
+input,
+select,
+textarea,
 .sel,
 .txtarea,
 .txt {
+	color: @input-color;
 	border: 1px solid @border-color;
 	padding: @base-margin-quarter @base-margin-half;
 	width: @input-width;
@@ -151,10 +157,15 @@
 	&-expand {
 		&:extend( .btn .topright );
 		.icon("app", @plus, 24 );
-		.size(40px);
+		.size(40px, 32px);
 		&:after {
 			margin-left: 0;
 		}
+	}
+
+	&-top {
+		.icon("app", @arrow-up, 24 );
+		.size(40px, 32px);
 	}
 
 	&-reset {

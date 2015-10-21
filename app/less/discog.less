@@ -5,6 +5,8 @@
 	overflow: hidden;
 	margin-left: 1rem;
 	margin-bottom: 1.25rem;
+	max-width: 190px;
+	min-width: 150px;
 	.inline-block;
 	&:extend( .post .content-defaults .post-image );
 
@@ -62,64 +64,60 @@
 	}
 
 	&-nfo {
-		&:extend( .all-transition, .prod .defaults );
-		background-color: @white-out;
-		padding: @base-margin-half;
-		opacity: 0;
-		z-index: 1;
-		color: @blue-darker;
-		text-shadow: none;
+		// &:extend( .all-transition, .prod .defaults );
+		// background-color: @white-out;
+		// padding: @base-margin-half;
+		// opacity: 0;
+		// z-index: 1;
+		// color: @blue-darker;
+		// text-shadow: none;
 
-		top: 600px;
-		.tall(600px);
+		// top: 600px;
+		// .tall(600px);
 
-		&-lst {
-			margin-left: 1em;
-			width: 75%;
-			.inline-block;
-		}
+		// &-lst {
+		// 	margin-left: 1em;
+		// 	width: 75%;
+		// 	.inline-block;
+		// }
 
-		&-typ,
-		&-val {
-			.inline-block;
-			width: calc( ~"100% / 2" );
-		}
+		// &-typ,
+		// &-val {
+		// 	.inline-block;
+		// 	width: calc( ~"100% / 2" );
+		// }
 
-		&-lnk {
-			.icon("app", @link );
-		}
+		// &-lnk {
+		// 	.icon("app", @link );
+		// }
 	}
 
 	&-active {
-		height: 603px;
-		width: 595px;
-		float: left;
+		// .prod-hdr,
+		// .prod-nfo,
+		// .btn-expand {
+		// 	opacity: 1;
+		// }
 
-		.prod-hdr,
-		.prod-nfo,
-		.btn-expand {
-			opacity: 1;
-		}
+		// .btn-expand {
+		// 	&:after {
+		// 		.rotate( 45deg );
+		// 	}
+		// }
 
-		.btn-expand {
-			&:after {
-				.rotate( 45deg );
-			}
-		}
+		// .prod {
+		// 	&-nfo {
+		// 		top: 8%;
+		// 	}
 
-		.prod {
-			&-nfo {
-				top: 8%;
-			}
+		// 	&-hdr {
+		// 		top: 0;
+		// 	}
 
-			&-hdr {
-				top: 0;
-			}
-
-			&-photo {
-				.blur(5);
-				.scale(1.1, 1.1);
-			}
-		}
+		// 	&-photo {
+		// 		.blur(5);
+		// 		.scale(1.1, 1.1);
+		// 	}
+		// }
 	}
 }

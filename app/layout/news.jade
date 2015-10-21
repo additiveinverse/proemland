@@ -4,8 +4,13 @@
 
 if content.news
 	section( id=post_id, class=post_content + ' ' + post_class )
-		article(class=post_content + '-wrap ' + post_content + '-wrap-' + post_id )
-			h1( class=post_class + '-ttl ttl' )= content.news.title
-			img( class=post_class + '-img ttl fn', src= content.news.image )
-			p( class=post_class + '-desc' )
-				!=content.news.content
+		block page_nav
+
+		-each post in content.news
+			article(class=post_content + '-wrap ' + post_content + '-wrap-' + post_id )
+				h1( class=post_class + '-ttl ttl' )= post.title
+				img( class=post_class + '-img ttl fn', src= post.image )
+				p( class=post_class + '-desc' )
+					!=post.content
+
+		include link_top

@@ -21,8 +21,8 @@
 		background-repeat: repeat-x;
 	}
 
-	.diagonals( @color: fade( @yellow, 25%) ) {
-		background-image: linear-gradient(-45deg,
+	.diagonals( @color: @yellow ) {
+		background-image: linear-gradient(45deg,
 			transparent 26%,
 			fade( @color, 25%) 30%,
 			transparent 34%,
@@ -59,25 +59,17 @@ body {
 
 .page {
 	&-hdr {
-		#decor .content-border;
+		border: solid;
+		border-width: 12px 12px 0 0;
+		border-color: fade( @yellow, 50%) transparent;
 		padding: 0 1em;
+		height: 100%;
 
 		&-ttl {
 			text-shadow: -1px -1px 0 @grey;
 			font-family: @base-type;
 			.font-size( @base-type-h3, 2.5 );
-			position: relative;
 			margin-bottom: 0;
-
-			&:after {
-				._inject("");
-				.inline-block();
-				border: 0.25em solid;
-				border-color: transparent @blue-dark @blue-dark transparent;
-				position: absolute;
-				top: -12px;
-				right: -16px;
-			}
 
 			&-logo {
 				position: relative;
@@ -114,11 +106,11 @@ body {
 	}
 
 	&-content {
-		&-discog {
-			&:extend( #decor .content-border );
-			padding-left: @base-margin-quarter;
-	    margin-bottom: @base-margin * 20;
-		}
+		// &-discog {
+		// 	&:extend( #decor .content-border );
+		// 	padding-left: @base-margin-quarter;
+	 //    margin-bottom: @base-margin * 20;
+		// }
 	}
 }
 
@@ -160,8 +152,7 @@ body {
 		&-wrap {
 			position: relative;
 			padding: @base-margin / 3  2.4em 0.9em;
-    	background-color: fade(@black, 20%);
-	  	#decor .lil_box( darken( @blue-dark, 5%) );
+	  	#decor .lil_box( rgb(39, 52, 56) );
 	  	#decor .tile;
 
 			&-discog {
@@ -204,12 +195,14 @@ body {
 // 320px
 @media only screen and ( min-width: 320px ) {
 	.page {
+		display: flex;
+
 		&-hdr {
-			position: relative;
+			flex: 1 1 320px;
+			order: 1;
 
 			&-ttl {
 				text-align: left;
-				overflow: hidden;
 
 				&-logo {
 					.size(30%, auto);
@@ -226,22 +219,23 @@ body {
 					.inline-block;
 				}
 			}
-
-			&-nav {
-				.nav {
-					display: none;
-				}
-			}
 		}
+
 		&-nfo-vrsn,
 		&-nfo-yr {
 			display: inline;
+		}
+
+		&-content {
+			margin-left: 13px;
+			flex: 1 1 auto;
+			order: 2;
 		}
 	}
 
 	.prod {
 		width: calc(~"100% / 1 - 3.5em" );
-		min-height: 180px;
+		min-height: 150px;
 	}
 
 	.search {
@@ -279,6 +273,10 @@ body {
 		&-hdr {}
 		&-content {}
 	}
+
+	.prod {
+		width: calc(~"100% / 2 - 3em" );
+	}
 }
 
 // 640px
@@ -297,7 +295,7 @@ body {
 	}
 
 	.prod {
-		width: calc(~"100% / 2 - 2.5em" );
+		width: calc(~"100% / 3 - 2.5em" );
 	}
 
 	.post {
@@ -325,40 +323,34 @@ body {
 		&-hdr {
 			&-ttl {
 				text-align: center;
-
 				&-logo {
-					.size( 196 );
+					.size( 150 );
+					position: static;
+					margin-top: -1em;
 				}
 			}
 		}
-		&-content {}
+		&-content {
+			.prefix(5);
+		}
 	}
 }
 
 // 980px
 @media only screen and ( min-width: 992px ) {
 	.page {
-		display: flex;
-	 	align-content: stretch;
-	 	align-items: stretch;
-		flex-direction: row;
-		height: 100%;
-
 		&-hdr {
-			flex: 0 1 0;
-			position: fixed;
 			top: 0;
-			.col(5);
 			z-index: 20;
+			.col(5);
+			position: fixed;
 		}
 
 		&-content {
-			flex: 1 1 0;
-			// .push(5);
-			&-discog {
-				padding-left: @base-margin-quarter;
-		    margin-bottom: @base-margin * 20;
-			}
+			&-wrap {
+				.prefix(3);
+	    	margin-bottom: @base-margin * 20;
+	    }
 		}
 	}
 
@@ -374,8 +366,6 @@ body {
 
 	.post {
 		&-content {
-			.prefix(5);
-
 	    &-bio {
 	    	&-img {
 	    		width: 25%;

@@ -4,26 +4,29 @@
 	"version": "7.0.0",
 	"owner": "Proem",
 	"description": "Relatively stagnant since 2007",
-	"discog": {
-		"full-lengths": "Full Lengths",
-		"singles": "Singles",
-		"remixes": "Remixes",
-		"live-sets": "Live",
-		"various-artist": "Various Artist"
-	},
-	"info": {
-		"bio": "About",
-		"studio": "Studio",
-		"news": "Update"
+	"map": {
+		"discog": {
+			"full-lengths": "Full Lengths",
+			"singles": "Singles",
+			"remixes": "Remixes",
+			"live-sets": "Live",
+			"various-artist": "Various Artist"
+		},
+		"info": {
+			"discog": "Discography",
+			"news": "News",
+			"bio": "About",
+			"studio": "Studio"
+		}
 	},
 	"network": {
 		"social": {
 			"bandcamp": "http://proem.bandcamp.com/",
-			"twitter": "http://twitter.com/wallofknives",
 			"last-fm": "http://www.last.fm/user/proemland",
-			"flickr": "http://www.flickr.com/photos/proem/",
 			"soundcloud": "http://soundcloud.com/proem",
 			"spotify": "https://open.spotify.com/artist/1hTlyo5QWVHUA3xUGgXqa5",
+			"twitter": "http://twitter.com/wallofknives",
+			"flickr": "http://www.flickr.com/photos/proem/",
 			"society6": "http://society6.com/proem"
 		},
 		"antisocial": {
@@ -34,12 +37,13 @@
 		}
 	},
 	"content": {
-		"news": {
-			"title": "Vault ep 1/4 2/4",
-			"image": "/images/vault-ep24.png",
-			"content": "to be released at the same time!",
-			"link": ""
-		},
+		"news": [
+			{	"title": "Vault ep 1/4 2/4",
+				"image": "/images/vault-ep24.png",
+				"content": "to be released at the same time!",
+				"link": ""
+			}
+		],
 		"bio": {
 			"title": "About",
 			"image": "/images/proem.jpg",

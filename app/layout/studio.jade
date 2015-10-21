@@ -3,6 +3,8 @@
 -var post_class= post_content + '-' + post_id
 
 section( role='article', id=post_id, class=post_content + ' ' + post_class )
+	block page_nav
+
 	article(class=post_content + '-wrap ' + post_content + '-wrap-' + post_id )
 		h1( class=post_class + '-ttl ttl fn' )= content.studio.title
 		img( class=post_class + '-img ttl fn', src= content.studio.image )
@@ -13,3 +15,5 @@ section( role='article', id=post_id, class=post_content + ' ' + post_class )
 					ul.lst
 						for item in gear
 							li.itm #{item}
+
+	include link_top

@@ -71,7 +71,7 @@
 @btn-primary: 							@black;
 @btn-secondary:							@grey-darker;
 @btn-type-color:						@blue;
-@btn-pad:										@base-margin-quarter @base-margin;
+@btn-pad:										@base-margin-quarter @base-margin-eighth;
 @btn-type-family:						@font-button;
 
 // ------------------------ Forms - labels
@@ -80,7 +80,7 @@
 @label-total: 							( @label-width + @label-right );
 
 // ------------------------ Forms - inputs
-@input-width:								calc( ~"100% - @label-total" );
+@input-width:								calc( ~"100% - " @label-total );
 @input-bg:									@white;
 @input-bg-disabled: 				@white-off;
 
@@ -90,7 +90,7 @@
 @input-height-base:					( @base-line-height + ( @base-margin-half * 2 ) + 2 );
 
 @legend-color:							@grey-dark;
-@legend-border-color:				#e5e5e5;
+// @legend-border-color:				#e5e5e5;
 
 @border-color: 							@grey-darker;
 @border-radius: 						@base-margin-eighth;

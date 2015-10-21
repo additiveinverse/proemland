@@ -11,7 +11,7 @@ proem.config( function ( $routeProvider, $locationProvider ) {
 		} )
 		.otherwise( {
 			redirectTo: "",
-			templateUrl: "app/partials/itm-prdgrid.html",
+			templateUrl: "app/partials/itm-single.html",
 			controller: "ProductsController"
 		} )
 } )
