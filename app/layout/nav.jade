@@ -4,10 +4,10 @@ mixin menuMaker( navName, stuff )
 			case navName
 				when 'filter'
 					li( role='menuitem', class='itm ' + navName + '-lst-itm ' + navName + '-lst-itm-' + i )
-						a( class=navName + '-lst-itm-lnk lnk ' + navName + '-lst-itm-lnk', ng-click='query="'+ i +'"', scroll-to='discog', duration='1000', offset='0', callback-after=''  )= val
+						a( class=navName + '-lst-itm-lnk lnk ' + navName + '-lst-itm-lnk', ng-click='query="'+ i +'"' )= val
 				when 'info'
 					li( role='menuitem', class='itm ' + navName + '-lst-itm ' + navName + '-lst-itm-' + i )
-						a( class=navName + '-lst-itm-lnk lnk', href='#', scroll-to=i, duration='1000', callback-after='', offset='0' )= val
+						a( class=navName + '-lst-itm-lnk lnk', href='#', scroll-to=i, duration='1000', offset='0' )= val
 				default
 					li( role='menuitem', class='itm ' + navName + '-lst-itm ' + navName + '-lst-itm-' + i )
 						a( class=navName + '-lst-itm-lnk lnk', href=val, target='_blank' )= i

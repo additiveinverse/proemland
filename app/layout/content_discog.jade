@@ -1,13 +1,12 @@
--var post_id= 'discog'
--var post_content= 'post-content'
--var post_class= post_content + '-' + post_id
+block variables
+	-var post_content= 'post-content'
+	-var post_class= post_content + '-' + post_id
 
 section( id=post_id, class=post_content + ' ' + post_class ).ng-cloak
 	block page_nav
 
 	nav( class='nav filter-nav', id='grid-filter', role='navigation' )
 		+menuMaker( 'filter', locals.map.discog )
-		span( ng-click='query=""', class='btn btn-reset filter-btn-reset', title='Reset Filters' ) reset
 
 		div.fld.search-fld
 			label( for='searchInput', class='lbl search-fld-lbl' )= Search

@@ -1,12 +1,11 @@
--var post_id= 'studio'
--var post_content= 'post-content'
--var post_class= post_content + '-' + post_id
+block variables
+	-var post_content= 'post-content'
+	-var post_class= post_content + '-' + post_id
 
 section( role='article', id=post_id, class=post_content + ' ' + post_class )
 	block page_nav
 
 	article(class=post_content + '-wrap ' + post_content + '-wrap-' + post_id )
-		h1( class=post_class + '-ttl ttl fn' )= content.studio.title
 		img( class=post_class + '-img ttl fn', src= content.studio.image )
 		-each gear, key in content.studio.gear
 			dl( class= post_class + '-lst ' + post_class + '-lst-' + key )

@@ -6,12 +6,19 @@ block append vars
 block page_nav
 	include nav_page
 
-block news
-	include news
-
 block content
-	include discog
+	append variables
+	-var post_id= 'discog'
+	include content_discog
 
-block static
-	include author
-	include studio
+	append variables
+	-var post_id= 'news'
+	include content_news
+
+	append variables
+	-var post_id= 'bio'
+	include content_author
+
+	append variables
+	-var post_id= 'studio'
+	include content_studio

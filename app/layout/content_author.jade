@@ -1,6 +1,6 @@
--var post_id= 'bio'
--var post_content= 'post-content'
--var post_class= post_content + '-' + post_id
+block variables
+	-var post_content= 'post-content'
+	-var post_class= post_content + '-' + post_id
 
 section( id=post_id, class=post_content + ' ' + post_class )
 	block page_nav
