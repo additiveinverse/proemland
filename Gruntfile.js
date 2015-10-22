@@ -379,5 +379,5 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( "dataprep", [ "minjson" ] )
 
 	// Deploy
-	grunt.registerTask( 'deploy', [ 'less:prod', 'test', 'imagemin', 'ngtemplates', 'concat' ] )
+	grunt.registerTask( "deploy", [ "devint", "htmlmin", "less:production", "dataprep" ] )
 }
