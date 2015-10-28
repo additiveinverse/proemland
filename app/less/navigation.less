@@ -1,7 +1,9 @@
 .nav {
 	.list {
 		list-style: none;
-		padding: @base-margin-half 0 @base-margin-half @base-margin * 2.5;
+		padding: @base-margin;
+
+		// padding: @base-margin-half 0 @base-margin-half @base-margin * 2.5;
 		text-transform: uppercase;
 		font-family: @font-heading;
 		margin-top: 0;
@@ -22,7 +24,7 @@
 		background-color: fade( @black, 25% );
 	}
 	&-lst {
-		&:extend( .nav .list, .width-half);
+		&:extend( .nav .list, .width-half );
 		padding+: @base-margin-half @base-margin;
 
 		&-itm {
@@ -40,16 +42,13 @@
 .info {
 	&-lst {
 		&:extend( .nav .list );
-		.post-content & {
-			padding: @base-margin;
-			background-color: fade(@yellow, 20%);
-			&-itm {
-				padding: 0 @base-margin-half;
-				.font-size(@base-type-h3);
-				.inline-block();
-				&-lnk {
-					.lnk( @blue-dark );
-				}
+		background-color: fade(@yellow, 20%);
+		&-itm {
+			padding: 0 @base-margin-half;
+			.font-size(@base-type-h3);
+			.inline-block();
+			&-lnk {
+				.lnk( @blue-dark );
 			}
 		}
 	}
@@ -58,7 +57,12 @@
 .antisocial {
 	&-lst {
 		&:extend( .nav .list );
+		flex: 0 1 25%;
+
 		&-itm	{
+			display: inline-block;
+			vertical-align: middle;
+			line-height: 1.6;
 			&-lnk {
 				.icon( "app", @arrow-fwd, @green );
 
@@ -75,8 +79,11 @@
 .social {
 	&-lst {
 		&:extend( .nav .list );
+		flex: 0 1 25%;
+		padding+: @base-margin-half 0 @base-margin-half 0;
+
 		&-itm {
-			.inline-block;
+			.inline-block();
 			font-size: 0;
 			border: 1px solid @border-color;
 			border-radius: 40px;

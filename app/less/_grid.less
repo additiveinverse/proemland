@@ -40,6 +40,8 @@ body {
 
 .column( @x, @columns: @columns, @margin-top: 'auto') {
 	.col( @x, @columns: @columns );
+	display: inline-block;
+	vertical-align: top;
 	margin: @margin-top @total-width*((@gutter-width*.5)/@gridsystem-width);
 }
 

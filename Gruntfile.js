@@ -30,13 +30,21 @@ module.exports = function ( grunt ) {
 			img: "build/img/"
 		},
 		manifest: {
-		css: {
-			"build/css/layout.min.css": [
-				"app_modules/normalize-less/normalize.less",
-				"app/less/base-*.less"
+			css: {
+				"build/css/layout.min.css": [
+					"app_modules/normalize-less/normalize.less",
+					"app/less/base-*.less"
+				],
+				"build/css/<%= pkg.name %>.css": "app/less/global.less"
+			},
+			js: [
+				"<%= config.lib %>/angular/angular.min.js",
+				"<%= config.lib %>/angular-animate/angular-animate.min.js",
+				"<%= config.lib %>/angular-sanitize/angular-sanitize.min.js",
+				"<%= config.lib %>/angular-smooth-scroll/angular-smooth-scroll.min.js",
+				"<%= config.lib %>/angular-pageslide-directive/dist/angular-pageslide-direective.min.js",
+				"<%= config.lib %>/angular-route/angular-route.min.js"
 			],
-			"build/css/<%= pkg.name %>.css": "app/less/global.less"
-		}
 		}
 	},
 
@@ -51,24 +59,25 @@ module.exports = function ( grunt ) {
 	// ///////////////////////////////////////////////////////////////// scaffold
 	concat: {
 		options: {
-		separator: " ",
-		banner: "<%= banner %>",
-		stripBanners: false,
-		sourceMap: true
+			separator: " ",
+			banner: "<%= banner %>",
+			stripBanners: false,
+			sourceMap: true
 		},
 		appJS: {
-		src: [
-			"<%= config.app.js %>prm.*.js"
-		],
-		dest: "<%= config.dist.js %>prm.js"
+			src: [
+				"<%= config.app.js %>prm.*.js"
+			],
+			dest: "<%= config.dist.js %>prm.js"
 		},
 		libJS: {
 		src: [
-			"<%= config.lib %>/angular/angular.min.js",
-			"<%= config.lib %>/angular-animate/angular-animate.min.js",
-			"<%= config.lib %>/angular-sanitize/angular-sanitize.min.js",
-			"<%= config.lib %>/angular-smooth-scroll/angular-smooth-scroll.min.js",
-			"<%= config.lib %>/angular-route/angular-route.min.js"
+				"<%= config.lib %>/angular/angular.min.js",
+				"<%= config.lib %>/angular-animate/angular-animate.min.js",
+				"<%= config.lib %>/angular-sanitize/angular-sanitize.min.js",
+				"<%= config.lib %>/angular-smooth-scroll/angular-smooth-scroll.min.js",
+				"<%= config.lib %>/angular-pageslide-directive/dist/angular-pageslide-direective.min.js",
+				"<%= config.lib %>/angular-route/angular-route.min.js"
 		],
 		dest: "<%= config.dist.js %>angular.js"
 		}
@@ -179,15 +188,15 @@ module.exports = function ( grunt ) {
 
 	jade: {
 		compile: {
-		options: {
-			pretty: true,
-			data: function ( dest, src ) {
-				return grunt.file.readJSON( "config.json" )
+			options: {
+				pretty: true,
+				data: function ( dest, src ) {
+					return grunt.file.readJSON( "config.json" )
+				}
+			},
+			files: {
+				"<%= config.dist.root %>index.htm": "<%= config.app.tpl %>index.jade"
 			}
-		},
-		files: {
-			"<%= config.dist.root %>index.htm": "<%= config.app.tpl %>index.jade"
-		}
 		}
 	},
 
