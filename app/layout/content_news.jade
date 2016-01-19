@@ -3,7 +3,7 @@ block variables
 	-var post_class= post_content + '-' + post_id
 
 if content.news
-	section( id=post_id, class=post_content + ' ' + post_class )
+	section( id=post_id, class=post_content + ' ' + post_class, ui-view='news' )
 		block page_nav
 
 		-each post in content.news

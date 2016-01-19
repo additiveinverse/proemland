@@ -40,10 +40,10 @@ module.exports = function ( grunt ) {
 			js: [
 				"<%= config.lib %>/angular/angular.min.js",
 				"<%= config.lib %>/angular-animate/angular-animate.min.js",
+				"<%= config.lib %>/angular-resource/angular-resource.min.js",
 				"<%= config.lib %>/angular-sanitize/angular-sanitize.min.js",
 				"<%= config.lib %>/angular-smooth-scroll/angular-smooth-scroll.min.js",
-				"<%= config.lib %>/angular-pageslide-directive/dist/angular-pageslide-direective.min.js",
-				"<%= config.lib %>/angular-route/angular-route.min.js"
+				"<%= config.lib %>/angular-ui-router/release/angular-ui-router.min.js"
 			],
 		}
 	},
@@ -71,15 +71,15 @@ module.exports = function ( grunt ) {
 			dest: "<%= config.dist.js %>prm.js"
 		},
 		libJS: {
-		src: [
+			src: [
 				"<%= config.lib %>/angular/angular.min.js",
 				"<%= config.lib %>/angular-animate/angular-animate.min.js",
+				"<%= config.lib %>/angular-resource/angular-resource.min.js",
 				"<%= config.lib %>/angular-sanitize/angular-sanitize.min.js",
 				"<%= config.lib %>/angular-smooth-scroll/angular-smooth-scroll.min.js",
-				"<%= config.lib %>/angular-pageslide-directive/dist/angular-pageslide-direective.min.js",
-				"<%= config.lib %>/angular-route/angular-route.min.js"
-		],
-		dest: "<%= config.dist.js %>angular.js"
+				"<%= config.lib %>/angular-ui-router/release/angular-ui-router.min.js"
+			],
+			dest: "<%= config.dist.js %>angular.js"
 		}
 	},
 

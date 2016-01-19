@@ -1,51 +1,29 @@
 // /////////////////////////////////////////////////////// Proemland
-proem.controller( "ProductsController", function ( $scope, $http, $route, $controller, $filter ) {
-	var url = "discog.json"
-	$scope.data = dataComm( $scope, $http, url, "GET", $route )
-} )
+proem.controller('DiscographyController', function( $scope, discog, $state ){
 
-proem.controller( "DLController", function ( $scope, $http, $route, $controller ) {
+	$scope.title = 'Discography list'
+	$scope.data = discog
+
+	console.dir( $scope.data.rekkids )
+})
+
+proem.controller('DiscController', function( $scope, disc, $stateParams ){
+	// discography single item
+
+	$scope.title = 'Discography detail'
+	$scope.data = disc
+})
+
+proem.controller( "DLController", function ( $scope, $http, $controller ) {
 	var url = "dl.json"
-	$scope.data = dataComm( $scope, $http, url, "GET", $route )
-} )
+
+	// $scope.data = dataComm( $scope, $http, url, "GET")
+})
+
 // /////////////////////////////////////////////////////// spotify junk
-
-// /////////////////////////////////////////////////////// soundcloud
-
-// /////////////////////////////////////////////////////// last.fm
-lastfm = angular.module( "appLastfm", [] )
-lastfm.url = "http://ws.audioscrobbler.com/2.0/?api_key=e497db57301354ff58b3085aa2118a21&format=json&method="
-lastfm.artist = "&artist=proem"
-
-// group chatter
-lastfm.controller( "GroupShoutsController", function ( $scope, $http, $route, $routeParams ) {
-	var method = "group.getshouts",
-		limit = "&limit=15",
-		combined = lastfm.url + method + lastfm.artist + limit
-
-	$scope.data = dataComm( $scope, $http, combined, "GET" )
-} )
-
-
-// artist shouts
-lastfm.controller( "ShoutsController", function ( $scope, $http, $route, $routeParams ) {
-	var method = "artist.getshouts",
-		limit = "&limit=15",
-		combined = lastfm.url + method + lastfm.artist + limit
-
-	$scope.data = dataComm( $scope, $http, combined, "GET" )
-} )
+proem.sptfy = angular.module( "appSptfy", [ ] )
+proem.sptfy.url = ''
 
 // /////////////////////////////////////////////////////// twitter
-twtr = angular.module( "appTwtr", [] )
-twtr.url = ''
-
-// stream
-twtr.controller( "StreamController", function ( $scope, $http ) {
-	// stuff defined here
-} )
-
-// search results
-twtr.controller( "SearchController", function ( $scope, $http ) {
-	// stuff defined here
-} )
+proem.twttr = angular.module( "appTwttr", [ ] )
+proem.twttr.url = '';

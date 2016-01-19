@@ -1,0 +1,11 @@
+article( role="article", itemscope, class="hproduct prod", data-elem="self")
+	span(role="button").btn.btn-expand
+		=expand
+
+	header.hdr.prod-hdr
+		h2.ttl.prod-hdr-ttl.fn
+			{{ title }}
+
+	section.prod-details
+		figure.prod-images.images
+			img(ng-src="{{ d.img }}", alt="{{ d.ttl }} ").prod-photo.photo

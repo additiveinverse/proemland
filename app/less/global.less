@@ -84,26 +84,6 @@
 
 .page {
 	&-hdr {
-		// &:after {
-		// 	position: absolute;
-		// 	top: -12px;
-		// 	right: 0;
-		// 	._inject();
-		// 	display: inline-block;
-		// 	border: 6px solid;
-		// 	border-color: transparent @blue-dark @blue-dark transparent;
-		// }
-
-		// &:before {
-		// 	._inject();
-		// 	width: 100%;
-		// 	display: block;
-		// 	border-top: solid 12px fade( @orange, 50%);
-		// 	position: absolute;
-		// 	top: -12px;
-		// 	left: 0;
-		// }
-
 		&-ttl {
 			text-shadow: -1px -1px 0 multiply(fade(@yellow, 75%), @blue-dark);
 			font-family: @base-type;
@@ -400,5 +380,14 @@
 	}
 	.prod {
 		width: calc(~"100% / 5 - 2em" );
+	}
+
+	.post-content {
+		&-wrap {
+			width: auto;
+			.prefix(4);
+			.suffix(4);
+			margin: 0 auto;
+		}
 	}
 }

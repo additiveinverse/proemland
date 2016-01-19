@@ -67,3 +67,6 @@ body {
 .prefix( @offset: 1 ) {
 	padding-left: @total-width*(((@gutter-width+@column-width)*@offset) / @gridsystem-width) + @total-width*((@gutter-width*.5)/@gridsystem-width);
 }
+.suffix( @offset: 1 ) {
+	padding-right: @total-width*(((@gutter-width+@column-width)*@offset) / @gridsystem-width) + @total-width*((@gutter-width*.5)/@gridsystem-width);
+}

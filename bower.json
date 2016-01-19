@@ -31,9 +31,10 @@
     "headjs": "~1.0.3",
     "lesshat": "~3.0.2",
     "normalize-less": "*",
-    "typicons": "~2.0.7"
+    "typicons": "~2.0.7",
+    "angular-resource": "~1.4.8"
   },
   "resolutions": {
-    "angular": "1.4.7"
+    "angular": "1.4.6"
   }
 }
