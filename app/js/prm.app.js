@@ -32,12 +32,6 @@ proem.config( function ( $stateProvider, $urlRouterProvider, $locationProvider )
 		} )
 		.state( 'discog.list', {
 			url: '/list',
-			resolve: {
-				discs: function( discog ) {
-					console.log('resources resolved')
-					return discog;
-				}
-			},
 			templateUrl: 'app/partials/disc-list.html',
 		})
 		.state( 'discog.detail', {

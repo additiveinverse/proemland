@@ -41,7 +41,7 @@
 		.inline-block();
 		position: absolute;
 		top: -12px;
-		margin-left: 37px;
+		margin-left: 34px;
 	}
 
 	.lil_box( @color ) {
@@ -129,8 +129,8 @@
 			&-ttl {
 				flex: 0 1 50%;
 				text-align: left;
-				background: data-uri('image/svg+xml;charset=UTF-8','../img/logo_flat.svg') no-repeat;
-				.prefix(1.5);
+				background: data-uri('image/svg+xml;charset=UTF-8','../img/logo_flat_alt.svg') no-repeat;
+				.prefix(1);
 
 				&-nfo {
 					margin-top: -8px;
@@ -382,6 +382,11 @@
 		width: calc(~"100% / 5 - 2em" );
 	}
 
+	.filter-lst,
+	.info-lst {
+		.prefix(4);
+		.suffix(4);
+	}
 	.post-content {
 		&-wrap {
 			width: auto;
