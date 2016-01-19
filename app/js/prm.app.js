@@ -34,7 +34,7 @@ proem.config( function ( $stateProvider, $urlRouterProvider, $locationProvider )
 			templateUrl: 'app/partials/disc-list.html',
 		})
 		.state( 'discog.detail', {
-			url: '/list',
+			url: '/list/:category/:id',
 			templateUrl: 'app/partials/disc-detail.html'
 		})
 		.state( 'news', {

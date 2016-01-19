@@ -3,8 +3,7 @@ proem.controller('DiscographyController', function( $scope, discog, $state ){
 
 	$scope.title = 'Discography list'
 	$scope.data = discog
-
-	console.dir( $scope.data.rekkids )
+	// console.dir( $scope.data.rekkids )
 })
 
 proem.controller('DiscController', function( $scope, disc, $stateParams ){

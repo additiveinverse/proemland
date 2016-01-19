@@ -7,7 +7,7 @@ angular.module('appProem').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('app/partials/disc-list.html',
-    "<article role=\"article\" itemscope ng-repeat=\"d in data.rekkids | filter:query \" class=\"hproduct prod\" id=\"release-{{ d.prod_id }}\" toggler data-elem=\"self\" data-category=\"{{ d.prod_type }}\" data-ng-click=\"\" data-prodid=\"{{ d.prod_id }}\" data-date=\"{{ d.date }}\" data-label=\"{{ d.cat_lbl }}\" data-ng-cloak><span role=\"button\" class=\"btn btn-expand\">expand</span><header class=\"hdr prod-hdr\"><h2 ng-bind-html-unsafe=\"d.ttl\" class=\"ttl prod-hdr-ttl fn\" itemprop=\"name\">{{ d.ttl }}</h2></header><section class=\"prod-details\"><figure class=\"prod-images images\"><img class=\"prod-photo photo\" ng-src=\"{{ d.img }}\" alt=\"{{ d.ttl }}\"></figure></section></article>"
+    "<article role=\"article\" itemscope ng-repeat=\"d in data.rekkids | filter:query \" class=\"hproduct prod\" id=\"release-{{ d.prod_id }}\" data-category=\"{{ d.prod_type }}\" data-ng-click=\"\" data-prodid=\"{{ d.prod_id }}\" data-date=\"{{ d.date }}\" data-label=\"{{ d.cat_lbl }}\" data-ng-cloak><a ui-sref=\"/detail/{{ d.prod_type }}/{{ d.prod_id }}\"><span role=\"button\" class=\"btn btn-expand\">expand</span><header class=\"hdr prod-hdr\"><h2 ng-bind-html-unsafe=\"d.ttl\" class=\"ttl prod-hdr-ttl fn\" itemprop=\"name\">{{ d.ttl }}</h2></header><section class=\"prod-details\"><figure class=\"prod-images images\"><img class=\"prod-photo photo\" ng-src=\"{{ d.img }}\" alt=\"{{ d.ttl }}\"></figure></section></a></article>"
   );
 
 
