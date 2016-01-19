@@ -6,13 +6,19 @@ section( role='article', id=post_id, class=post_content + ' ' + post_class )
 	block page_nav
 
 	article(class=post_content + '-wrap ' + post_content + '-wrap-' + post_id )
-		img( class=post_class + '-img ttl fn', src= content.studio.image )
-		-each gear, key in content.studio.gear
-			dl( class= post_class + '-lst ' + post_class + '-lst-' + key )
-				dt(class=post_class + '-lst-ttl ttl') #{key}
-				dd(class=post_class + '-lst-itm itm')
-					ul.lst
-						for item in gear
-							li.itm #{item}
+		div(class=post_content + '-mask ' + post_content + '-' +post_id + '-mask', toggler)
+			span(role="button", toggler).btn.btn-expand
+				=expand
+
+			img( class=post_class + '-img ttl fn', src= content.studio.image )
+
+			div(class=post_content + '-' +post_id + '-mask-content')
+				-each gear, key in content.studio.gear
+					dl( class= post_class + '-lst ' + post_class + '-lst-' + key )
+						dt(class=post_class + '-lst-ttl ttl') #{key}
+						dd(class=post_class + '-lst-itm itm')
+							ul.lst
+								for item in gear
+									li.itm #{item}
 
 	include link_top

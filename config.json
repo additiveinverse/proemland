@@ -22,17 +22,18 @@
 	"network": {
 		"social": {
 			"bandcamp": "http://proem.bandcamp.com/",
-			"soundcloud": "http://soundcloud.com/proem",
-			"last-fm": "http://www.last.fm/user/proemland",
-			"spotify": "https://open.spotify.com/artist/1hTlyo5QWVHUA3xUGgXqa5",
-			"twitter": "http://twitter.com/wallofknives",
 			"flickr": "http://www.flickr.com/photos/proem/",
+			"last-fm": "http://www.last.fm/user/proemland",
 			"society6": "http://society6.com/proem",
-			"splice": "http://society6.com/proem"
+			"soundcloud": "http://soundcloud.com/proem",
+			"splice": "http://society6.com/proem",
+			"spotify": "https://open.spotify.com/artist/1hTlyo5QWVHUA3xUGgXqa5",
+			"twitter": "http://twitter.com/wallofknives"
 		},
 		"antisocial": {
-			"book of proem": "http://placeguntohead.com",
-			"design work": "http://additiveinverse.com",
+			"pgth": "http://placeguntohead.com",
+			"art": "http://heywhatever.com",
+			"design": "http://additiveinverse.com",
 			"dxrxt": "http://dxrxt.com"
 		}
 	},

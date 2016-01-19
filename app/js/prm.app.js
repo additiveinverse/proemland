@@ -11,7 +11,6 @@ proem.config( function ( $stateProvider, $urlRouterProvider, $locationProvider )
 			resolve: {
 				discResource: 'discResource',
 				discog: function( discResource ) {
-					console.log('resources requested')
 					return discResource.get().$promise
 				}
 			},
@@ -36,25 +35,25 @@ proem.config( function ( $stateProvider, $urlRouterProvider, $locationProvider )
 		})
 		.state( 'discog.detail', {
 			url: '/list',
-			resolve: {
-				// discs: function( discog ) {
-				// 	console.log('resources resolved')
-				// 	return discog;
-				// }
-			},
 			templateUrl: 'app/partials/disc-detail.html'
 		})
-
 		.state( 'news', {
 			url: '/news'
-			// this one has multiple views
+			// abstract: true,
+			// resolve: {
+			// 	newsResource: 'newsResource',
+			// 	news: function( discResource ) {
+			// 		console.log('resources requested')
+			// 		return discResource.get().$promise
+			// 	}
+			// },
+
 		})
 })
 
-proem.factory('discResource', ['$resource', 'apistuff', function( $resource, url ){
+proem.factory('discResource', ['$resource', 'apistuff', function( $resource, apistuff ){
 	var resource = $resource('/discog.json')
-
-	console.log('resources init')
+	// var resource = apistuff.dataComm('/discog.json', 'GET' )
 
 	return resource
 }])

@@ -11,7 +11,7 @@ section( id=post_id, class=post_content + ' ' + post_class )
 		p( class=post_class + '-desc' )
 			img( class=post_class + '-img ttl fn', src= content.bio.image )
 			!=content.bio.content
-		p
+			br
 			a( href=content.bio.link ) press kit download
 
 	include link_top

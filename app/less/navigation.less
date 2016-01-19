@@ -19,21 +19,41 @@
 
 .filter {
 	&-nav {
+		display: flex;
 		background-color: fade( @black, 25% );
 	}
+
 	&-lst {
-		&:extend( .nav .list, .width-half );
-		padding+: @base-margin-half @base-margin;
+		&:extend( .nav .list );
+		padding+: @base-margin-half 0;
+		flex: 0 1 50%;
 
 		&-itm {
 			display: inline-block;
 			vertical-align: top;
-			padding: @base-margin-quarter @base-margin-half;
+			padding: @base-margin-quarter @base-margin @base-margin-quarter 0;
 		}
 	}
 
-	&-btn-reset {
-		.btn .reset;
+	&-search {
+		flex: 0 1 35%;
+		text-align: right;
+		margin: @base-margin-half 0 @base-margin-quarter;
+		position: relative;
+
+		&-txt {
+			.font-size( @base-type-h4, 1.2 );
+		}
+
+		&-lbl {
+			font-size: 0;
+			.icon( "pre", @eye, @blue, @base-type-h2, 1.9 );
+		}
+
+		&-btn-reset {
+			// .btn .reset;
+			padding: @base-margin-half @base-margin;
+		}
 	}
 }
 
@@ -42,7 +62,7 @@
 		&:extend( .nav .list );
 		background-color: fade(@yellow, 20%);
 		&-itm {
-			padding: 0 @base-margin-half;
+			padding: 0 @base-margin 0 0;
 			.font-size(@base-type-h3);
 			.inline-block();
 			&-lnk {
@@ -63,13 +83,15 @@
 			vertical-align: middle;
 			line-height: 1.6;
 			&-lnk {
-				.icon( "app", @arrow-fwd, @green );
+				.icon( "app", @arrow-fwd, @grey );
 
 				&:after {
+					&:extend( .all-transition );
 					line-height: 1;
 					margin-top: -4px;
 				}
-				.lnk( @green );
+
+				.lnk( @grey );
 			}
 		}
 	}
@@ -91,6 +113,7 @@
 			&:extend( .sprite, .opacity-transition );
 			background-size: 302%;
 			background-color: @white-off;
+			opacity: 0.5;
 
 			&-bandcamp {
 				.svg-sprite-position( @ico-bandcamp );
@@ -107,22 +130,22 @@
 			&-soundcloud 	{
 				.svg-sprite-position( @ico-soundcloud-fill );
 			}
+			&-splice {
+				.svg-sprite-position( @ico-splice );
+			}
 			&-spotify {
 				.svg-sprite-position( @ico-spotify-fill );
 			}
 			&-twitter {
 				.svg-sprite-position( @ico-twitter-fill );
 			}
-			&-splice {
-				.svg-sprite-position( @ico-splice );
-			}
 			&:hover {
-				opacity: 0.7;
+				opacity: 1;
 			}
-		}
-		&-lnk {
-			display: block;
-			.size(40px);
+			&-lnk {
+				display: block;
+				.size(40px);
+			}
 		}
 	}
 }
