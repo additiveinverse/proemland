@@ -6,16 +6,23 @@ if content.news
 	section( id=post_id, class=post_content + ' ' + post_class, ui-view='news' )
 		block page_nav
 
-		div.spotify-stuff
+		article(class=post_content + '-wrap ' + post_class + '-wrap' )
+			div( class=post_class + '-section post-stuff' )
+				h1.ttl News
+				-each post in content.news
+						h2( class=post_class + '-ttl ttl' )= post.title
+						img( class=post_class + '-img ttl fn', src= post.image )
+						p( class=post_class + '-desc' )
+							!=post.content
 
-		div.post-stuff
-			-each post in content.news
-				article(class=post_content + '-wrap ' + post_content + '-wrap-' + post_id )
-					h1( class=post_class + '-ttl ttl' )= post.title
-					img( class=post_class + '-img ttl fn', src= post.image )
-					p( class=post_class + '-desc' )
-						!=post.content
+			div( class=post_class + '-section twitter-stuff' )
+				h1.ttl Twitter
 
-		div.twitter-stuff
+			div( class=post_class + '-section soundcloud-stuff' )
+				h1.ttl Soundcloud
 
+			div( class=post_class + '-section spotify-stuff' )
+				h1.ttl Spotify
+
+			img( src='/img/logo_flat_2016.svg', width='10%', height='auto')
 		include link_top
