@@ -7,7 +7,7 @@ mixin menuMaker( navName, stuff )
 						a( class=navName + '-lst-itm-lnk lnk ' + navName + '-lst-itm-lnk', ng-click='query="'+ i +'"' )= val
 				when 'info'
 					li( role='menuitem', class='itm ' + navName + '-lst-itm ' + navName + '-lst-itm-' + i )
-						a( class=navName + '-lst-itm-lnk lnk', ui-sref=i, scroll-to=i, duration='1000', offset='75' )= val
+						a( class=navName + '-lst-itm-lnk lnk', ui-sref='/' + i, scroll-to=i, duration='1000', offset='75' )= val
 				default
 					li( role='menuitem', class='itm ' + navName + '-lst-itm ' + navName + '-lst-itm-' + i )
 						a( class=navName + '-lst-itm-lnk lnk', href=val, target='_blank' )= i

@@ -12,5 +12,7 @@ section( id=post_id, class=post_content + ' ' + post_class, ui-view='discog' )
 			input( ng-model='query', class='txt filter-search-txt', id='searchInput', type='search', name='searchInput', placeholder='Search')
 			span( role='button', ng-click='query=""', class='btn btn-reset filter-search-btn-reset', title='reset filters' ) reset
 
-	article( class=post_content + '-wrap ' + post_content + '-wrap-' + post_id, ui-view='discog.list', ng-cloak )
+	section( class=post_content + '-wrap ' + post_content + '-wrap-' + post_id, ui-view='discog.list', ng-cloak )
+		img( src='/img/logo_flat_2016.svg', width='50%', height='auto', align='center')
 	include link_top
+

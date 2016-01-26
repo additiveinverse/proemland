@@ -1,6 +1,6 @@
-<article role="article" itemscope ng-repeat="d in data.rekkids | filter:query " class="hproduct prod" id="release-{{ d.prod_id }}" data-category="{{ d.prod_type }}" data-ng-click="" data-prodid="{{ d.prod_id }}" data-date="{{ d.date }}" data-label="{{ d.cat_lbl }}" data-ng-cloak>
-	<a ui-sref="/detail/{{ d.prod_type }}/{{ d.prod_id }}">
-		<span role="button" class="btn btn-expand">expand</span>
+<article role="article" itemscope ng-repeat="d in data.rekkids | filter:query " class="hproduct prod" id="release-{{ d.prod_id }}" data-category="{{ d.prod_type }}" data-prodid="{{ d.prod_id }}" data-date="{{ d.date }}" data-label="{{ d.cat_lbl }}" data-ng-cloak>
+	<a ui-sref="discog.detail({ discID: {{ $index }} })">
+		<span role="button" class="btn btn-expand btn-expand-off">expand</span>
 		<header class="hdr prod-hdr">
 			<h2 ng-bind-html-unsafe="d.ttl" class="ttl prod-hdr-ttl fn" itemprop="name">{{ d.ttl }} </h2>
 		</header>

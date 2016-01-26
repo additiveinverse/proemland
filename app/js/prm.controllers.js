@@ -2,14 +2,15 @@
 proem.controller('DiscographyController', ['$scope', 'discog', '$stateParams', function( $scope, discog, $stateParams ){
 	$scope.title = 'Discography list'
 	$scope.data = discog
-	// console.dir( $scope.data.rekkids )
 }])
 
-proem.controller('DiscController', ['$scope', 'disc', '$stateParams', function( $scope, disc, $stateParams ){
+proem.controller('DiscController', ['$scope', 'discog', '$stateParams', function( $scope, discog, $stateParams ){
 	// discography single item
 
 	$scope.title = 'Discography detail'
-	$scope.data = disc
+
+	console.log( $scope.title )
+	console.dir( $scope.$id )
 }])
 
 // /////////////////////////////////////////////////////// spotify junk

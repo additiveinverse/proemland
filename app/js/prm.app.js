@@ -1,7 +1,7 @@
 proem = angular.module( "appProem", [ "ui.router", "ngSanitize", "ngResource", "ngAnimate", "direcTives", "smoothScroll" ] )
 
 proem.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", function ( $stateProvider, $urlRouterProvider, $locationProvider ) {
-	$urlRouterProvider.otherwise( "/" )
+	$urlRouterProvider.otherwise( "/discog/list" )
 
 	// $stateProvider
 	$stateProvider
@@ -16,26 +16,26 @@ proem.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", funct
 			},
 			views: {
 				"discog.list": {
+					controller: "DiscographyController",
 					templateProvider: [ "$templateCache", function ( $templateCache ) {
 						return $templateCache.get( "app/partials/disc-list.html" );
-					} ],
-					controller: "DiscographyController"
+					} ]
 				},
 				"discog.detail": {
+					controller: "DiscController",
 					templateProvider: [ "$templateCache", function ( $templateCache ) {
 						return $templateCache.get( "app/partials/disc-detail.html" );
-					} ],
-					controller: "DiscController"
+					} ]
 				}
 			}
 		} )
 		.state( "discog.list", {
-			url: "/list",
-			templateUrl: "app/partials/disc-list.html",
+			data: discog,
+			url: "/list"
 		} )
 		.state( "discog.detail", {
-			url: "/list/:category/:id",
-			templateUrl: "app/partials/disc-detail.html"
+			data: discog,
+			url: "/detail/:discID",
 		} )
 		.state( "news", {
 			url: "/news",
@@ -60,10 +60,23 @@ proem.factory( "discResource", [ "$resource", "apistuff", function ( $resource, 
 	return resource
 } ] )
 
+// scaffolding disc service
+proem.service("discService", ["$resource", "apistuff", function( $resource, apistuff ){
+
+	this.discographyList = function() {
+
+	}
+
+	this.discographyItem = function () {
+
+	}
+
+}])
+
 proem.run( [ "$rootScope", "$state", "$stateParams", function ( $rootScope, $state, $stateParams ) {
 	$rootScope.$state = $state;
 	$rootScope.$stateParams = $stateParams;
-	$state.go( "discog.list" );
+	// $state.go( "discog.list" );
 } ] )
 
 proem.factory( "apistuff", [ "$http", "$q", function ( $http, $q ) {
