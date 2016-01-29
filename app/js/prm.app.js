@@ -1,13 +1,16 @@
-proem = angular.module( "appProem", [ "ui.router", "ngSanitize", "ngResource", "ngAnimate", "direcTives", "smoothScroll" ] )
+proem = angular.module( "appProem", [ "ui.router", "ngSanitize", "ngResource", "ngAnimate", "smoothScroll" ] )
 
 proem.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", function ( $stateProvider, $urlRouterProvider, $locationProvider ) {
-	$urlRouterProvider.otherwise( "/discog/list" )
+	$urlRouterProvider.otherwise( "/" )
 
 	// $stateProvider
 	$stateProvider
 		.state( "discog", {
 			url: "/discog",
 			abstract: true,
+			params: {
+				discID: null
+			},
 			resolve: {
 				discResource: "discResource",
 				discog: function ( discResource ) {
@@ -15,13 +18,13 @@ proem.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", funct
 				}
 			},
 			views: {
-				"discog.list": {
+				"list": {
 					controller: "DiscographyController",
 					templateProvider: [ "$templateCache", function ( $templateCache ) {
 						return $templateCache.get( "app/partials/disc-list.html" );
 					} ]
 				},
-				"discog.detail": {
+				"detail": {
 					controller: "DiscController",
 					templateProvider: [ "$templateCache", function ( $templateCache ) {
 						return $templateCache.get( "app/partials/disc-detail.html" );
@@ -30,11 +33,12 @@ proem.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", funct
 			}
 		} )
 		.state( "discog.list", {
-			data: discog,
 			url: "/list"
 		} )
 		.state( "discog.detail", {
-			data: discog,
+			params: {
+				discID: null
+			},
 			url: "/detail/:discID",
 		} )
 		.state( "news", {
@@ -55,28 +59,31 @@ proem.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", funct
 
 proem.factory( "discResource", [ "$resource", "apistuff", function ( $resource, apistuff ) {
 	var resource = $resource( "/discog.json" )
-		// var resource = apistuff.dataComm("/discog.json", "GET" )
+	var resourceFilter = ""
 
+	// var resource = apistuff.dataComm("/discog.json", "GET" )
 	return resource
-} ] )
+}])
 
 // scaffolding disc service
 proem.service("discService", ["$resource", "apistuff", function( $resource, apistuff ){
+	var service = {}
 
-	this.discographyList = function() {
-
-	}
-
-	this.discographyItem = function () {
+	service.discographyList = function() {
 
 	}
 
+	service.discographyItem = function () {
+
+	}
+
+	return service
 }])
 
 proem.run( [ "$rootScope", "$state", "$stateParams", function ( $rootScope, $state, $stateParams ) {
 	$rootScope.$state = $state;
 	$rootScope.$stateParams = $stateParams;
-	// $state.go( "discog.list" );
+	$state.go( "discog.list" );
 } ] )
 
 proem.factory( "apistuff", [ "$http", "$q", function ( $http, $q ) {
