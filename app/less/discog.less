@@ -1,11 +1,11 @@
 // some global product stuff
 .prod {
-	background: @white-out;
 	position: relative;
 	overflow: hidden;
 	.inline-block;
 
 	.defaults {
+		background: @white-out;
 		width: 100%;
 		position: absolute;
 	}
@@ -20,16 +20,10 @@
 	}
 
 	&-hdr {
-		&:extend( .all-transition, .prod .defaults );
-		cursor: pointer;
-		background-color: @white-out;
-		z-index: 4;
-
+		min-height: 48px;
 		&-ttl {
-			padding: @base-margin-quarter @base-margin-half 0 @base-margin-half;
-			color: black;
+			margin-bottom: 0;
 			text-shadow: 1px 1px 0 @white;
-			.font-size( @base-type-h5 );
 		}
 	}
 
@@ -48,46 +42,58 @@
 
 	&-thumb {
 		border: 4px solid @white;
-		.col(2);
+		margin-top: @base-margin;
+		.col(3);
 	}
 
 	&-item {
 		margin-right: 1.25rem;
 		margin-bottom: 1.25rem;
+		cursor: pointer;
 		&:extend( .post .content-defaults .post-image );
 
 		&-hdr {
 			top: 38%;
+			background-color: @white-out;
 			opacity: 0;
-			max-height: 48px;
+			z-index: 4;
+			&:extend( .all-transition, .prod .defaults );
+
+			&-ttl {
+				padding: @base-margin-quarter @base-margin-half 0 @base-margin-half;
+				color: black;
+				.font-size( @base-type-h5, 1 );
+			}
 		}
 	}
 
 	&-detail {
-		&:extend( .all-transition, .prod .defaults );
-		width: 100%;
-		z-index: 999;
-		// opacity: 0;
+		&:extend( .all-transition );
+		width: 0%;
+		background-color: fadeout( @white-off, 15% );
 
 		&-wrap {
 			position: absolute;
-			top: 38px;
-			min-width: 41%;
+			top: 0;
+			z-index: 999;
+			height: 100%;
+			&-active {
+				min-width: 41%;
+			}
 		}
 
 		&-hdr {
-			top: 0;
+			position: static;
 			opacity: 1;
+			padding: @base-margin-quarter @base-margin;
 		}
 
 		&-nfo {
-			background-color: @white-out;
-			padding: @base-margin-half;
+			padding: 0 @base-margin-half @base-margin;
 			z-index: 1;
 			color: @blue-darker;
 			text-shadow: none;
-			position: relative;
-			top: 48px;
+			position: static;
 			padding-bottom: 48px;
 
 			&-lst {

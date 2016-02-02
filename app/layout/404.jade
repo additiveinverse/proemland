@@ -1,0 +1,22 @@
+extends layout
+
+block append vars
+	- bodyclass = '404'
+
+block page_nav
+	//- include nav_page
+
+block page_header
+
+block content
+	append variables
+
+	-var post_id= '404'
+	header.ttl.ttl-404
+		img( src='/img/logo_flat_2016.svg', width='300px', height='auto')
+		iframe( src="https://bandcamp.com/EmbeddedPlayer/album=1277648846/size=large/bgcol=333333/linkcol=e99708/minimal=true/transparent=true/", seamless).player-embed-bandcamp
+			a( href="http://proem.bandcamp.com/album/vault-ep-1-4-noise") Vault ep.1/4 (Noise) by Proem
+		iframe( src="https://bandcamp.com/EmbeddedPlayer/album=3551252061/size=large/bgcol=333333/linkcol=e99708/minimal=true/transparent=true/", seamless).player-embed-bandcamp
+			a( href="http://proem.bandcamp.com/album/vault-ep-2-4-drone") Vault ep.2/4 (Drone) by Proem
+
+block js

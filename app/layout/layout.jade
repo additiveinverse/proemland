@@ -16,25 +16,60 @@ html(lang='en')
 		link( rel='stylesheet', href='https://fonts.googleapis.com/css?family=Oswald:700,300|Unica+One', type='text/css')
 		link( rel='stylesheet', href='/css/layout.min.css', type='text/css' )
 		link( rel='stylesheet', href='/css/proemland2014.css', type='text/css' )
+
+		link(rel="apple-touch-icon", sizes="57x57", href="/apple-touch-icon-57x57.png?v8=5AAQnNJl5y")
+		link(rel="apple-touch-icon", sizes="60x60", href="/apple-touch-icon-60x60.png?v8=5AAQnNJl5y")
+		link(rel="apple-touch-icon", sizes="72x72", href="/apple-touch-icon-72x72.png?v8=5AAQnNJl5y")
+		link(rel="apple-touch-icon", sizes="76x76", href="/apple-touch-icon-76x76.png?v8=5AAQnNJl5y")
+		link(rel="apple-touch-icon", sizes="114x114", href="/apple-touch-icon-114x114.png?v8=5AAQnNJl5y")
+		link(rel="apple-touch-icon", sizes="120x120", href="/apple-touch-icon-120x120.png?v8=5AAQnNJl5y")
+		link(rel="apple-touch-icon", sizes="144x144", href="/apple-touch-icon-144x144.png?v8=5AAQnNJl5y")
+		link(rel="apple-touch-icon", sizes="152x152", href="/apple-touch-icon-152x152.png?v8=5AAQnNJl5y")
+		link(rel="apple-touch-icon", sizes="180x180", href="/apple-touch-icon-180x180.png?v8=5AAQnNJl5y")
+
+		link(rel="icon", type="image/png", href="/favicon-16x16.png?v8=5AAQnNJl5y", sizes="16x16")
+		link(rel="icon", type="image/png", href="/favicon-32x32.png?v8=5AAQnNJl5y", sizes="32x32")
+		link(rel="icon", type="image/png", href="/favicon-96x96.png?v8=5AAQnNJl5y", sizes="96x96")
+		link(rel="icon", type="image/png", href="/android-chrome-192x192.png?v8=5AAQnNJl5y", sizes="192x192")
+
+		link(rel="manifest", href="/manifest.json?v8=5AAQnNJl5y")
+		link(rel="mask-icon", href="/safari-pinned-tab.svg?v8=5AAQnNJl5y", color="#535236")
+		link(rel="shortcut icon", href="/favicon.ico?v8=5AAQnNJl5y")
+
+		meta(name="msapplication-TileColor", content="#ffc40d")
+		meta(name="msapplication-TileImage", content="/mstile-144x144.png?v8=5AAQnNJl5y")
+		meta(name="theme-color", content="#535236")
+
 		script.
 			prfx = '/js/';
 
 	body(lang='en', ng-app='appProem').page
-		header( class='hdr page-hdr', role='banner' )
-			h1( class='ttl page-hdr-ttl', title=locals.title , role='banner' )
-				a(class="page-hdr-ttl-lnk lnk", href=url )= locals.title
-				p( class='nfo page-hdr-ttl-nfo page-nfo', role='note' )
-					span.page-hdr-ttl-nfo-desc.page-nfo-desc.nfo= locals.description
-					span.page-hdr-ttl-nfo-vrsn.page-nfo-vrsn.nfo= 'v' + locals.version
-					span.page-hdr-ttl-nfo-yr.page-nfo-yr.nfo= new Date().getFullYear()
+		block page_header
+			header( class='hdr page-hdr', role='banner' )
+				h1( class='ttl page-hdr-ttl', title=locals.title , role='banner' )
+					a(class="page-hdr-ttl-lnk lnk", href=url )= locals.title
+					p( class='nfo page-hdr-ttl-nfo page-nfo', role='note' )
+						span.page-hdr-ttl-nfo-desc.page-nfo-desc.nfo= locals.description
+						span.page-hdr-ttl-nfo-vrsn.page-nfo-vrsn.nfo= 'v' + locals.version
+						span.page-hdr-ttl-nfo-yr.page-nfo-yr.nfo= new Date().getFullYear()
 
-			include nav
-			//- include nav_page
-			+menuMaker( 'antisocial', network.antisocial )
-			+menuMaker( 'social', network.social )
+				include nav
+				//- include nav_page
+				+menuMaker( 'antisocial', network.antisocial )
+				+menuMaker( 'social', network.social )
 
-		main( class='page-content ' + bodyclass + '-content', id='top' )
+		main( class='page-content ' + 'page-' + bodyclass + '-content', id='top' )
 			block content
 
-	script( type="text/javascript", src=locals.url + '/js/angular.js' )
-	script( type="text/javascript", src=locals.url + '/js/prm.js' )
+	block js
+		script( type="text/javascript", src=locals.url + '/js/angular.js' )
+		script( type="text/javascript", src=locals.url + '/js/prm.js' )
+
+	script.
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-34496736-1', 'auto');
+		ga('send', 'pageview');

@@ -12,7 +12,8 @@ angular.module( 'direcTives', [] ).directive( 'toggler', [ '$parse', function ( 
 				var trgrClass = [ prefix, TXTactive ].join( '-' )
 
 				element.on( ev, function ( e ) {
-						element.toggleClass( elemClass )
+					console.dir( elem )
+					element.toggleClass( elemClass )
 				} )
 			}
 		}

@@ -15,8 +15,9 @@ section( id=post_id, class=post_content + ' ' + post_class, ui-view='discog' )
 
 	section( class=post_content + '-wrap ' + post_content + '-wrap-' + post_id )
 		div( ui-view='list' ).prod-list-wrap
-			img( src='/img/logo_flat_2016.svg', width='50%', height='auto', class="logo-loading")
-		div( ui-view='detail', ui-sref-active='active').prod-detail-wrap
+			img( src='/img/logo_flat_2016.svg', width='50%', height='auto', class='logo-loading')
+
+		div( ui-view='detail' ).prod-detail-wrap
 
 	include link_top
 
