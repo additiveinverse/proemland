@@ -88,6 +88,13 @@ module.exports = function ( grunt ) {
         ],
         dest: "<%= config.app.less %>"
       },
+      favs: {
+        expand: true,
+        flatten: true,
+        cwd: "<%= config.app.img %>favicons/",
+        src: [ "*.*" ],
+        dest: "<%= config.dist.img %>favs/"
+      },      
       svgs: {
         files: [ {
           expand: true,
@@ -189,7 +196,8 @@ module.exports = function ( grunt ) {
           }
         },
         files: {
-          "<%= config.dist.root %>index.htm": "<%= config.app.tpl %>index.jade"
+          "<%= config.dist.root %>index.php": "<%= config.app.tpl %>index.jade",
+          "<%= config.dist.root %>404.php": "<%= config.app.tpl %>404.jade"
         }
       },
       dev: {
@@ -200,7 +208,8 @@ module.exports = function ( grunt ) {
           }
         },
         files: {
-          "<%= config.dist.root %>index.htm": "<%= config.app.tpl %>index.jade"
+          "<%= config.dist.root %>index.php": "<%= config.app.tpl %>index.jade",
+          "<%= config.dist.root %>404.php": "<%= config.app.tpl %>404.jade"
         }
       }
     },
@@ -256,13 +265,14 @@ module.exports = function ( grunt ) {
         }
       },
     },
+
     realFavicon: {
       favicons: {
-        src: 'TODO: Path to your master picture',
-        dest: 'TODO: Path to the directory where to store the icons',
+        src: "<%= config.app.img %>logo_flat_2016.svg",
+        dest: "<%= config.app.img %>favicons/",
         options: {
           iconsPath: '/',
-          html: [ 'TODO: List of the HTML files where to inject favicon markups' ],
+          html: "",
           design: {
             ios: {
               pictureAspect: 'backgroundAndMargin',
@@ -358,7 +368,8 @@ module.exports = function ( grunt ) {
           collapseWhitespace: true
         },
         files: {
-          '<%= config.dist.root %>index.htm': '<%= config.dist.root %>index.htm'
+          "<%= config.dist.root %>404.html": "<%= config.dist.root %>404.html",
+          "<%= config.dist.root %>index.html": "<%= config.dist.root %>index.html"
         }
       }
     },
@@ -390,7 +401,7 @@ module.exports = function ( grunt ) {
           hostname: "localhost",
           livereload: true,
           open: {
-            target: "http://localhost:9001/index.htm", // target url to open
+            target: "http://localhost:9001/index.html", // target url to open
             appName: "Chrome"
           },
         }
@@ -430,6 +441,7 @@ module.exports = function ( grunt ) {
   } );
 
   require( "matchdep" ).filterDev( "grunt-*" ).forEach( grunt.loadNpmTasks )
+  grunt.renameTask('realFavicon', 'favicon');
 
   // init
   grunt.registerTask( "devint", [ "concat", "ngtemplates", "copy", "svgprep" ] )
