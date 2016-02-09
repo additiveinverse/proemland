@@ -196,8 +196,8 @@ module.exports = function ( grunt ) {
           }
         },
         files: {
-          "<%= config.dist.root %>index.php": "<%= config.app.tpl %>index.jade",
-          "<%= config.dist.root %>404.php": "<%= config.app.tpl %>404.jade"
+          "<%= config.dist.root %>index.html": "<%= config.app.tpl %>index.jade",
+          "<%= config.dist.root %>404.html": "<%= config.app.tpl %>404.jade"
         }
       },
       dev: {
@@ -208,8 +208,8 @@ module.exports = function ( grunt ) {
           }
         },
         files: {
-          "<%= config.dist.root %>index.php": "<%= config.app.tpl %>index.jade",
-          "<%= config.dist.root %>404.php": "<%= config.app.tpl %>404.jade"
+          "<%= config.dist.root %>index.html": "<%= config.app.tpl %>index.jade",
+          "<%= config.dist.root %>404.html": "<%= config.app.tpl %>404.jade"
         }
       }
     },
@@ -271,7 +271,7 @@ module.exports = function ( grunt ) {
         src: "<%= config.app.img %>logo_flat_2016.svg",
         dest: "<%= config.app.img %>favicons/",
         options: {
-          iconsPath: '/',
+          iconsPath: '/img/favs/',
           html: "",
           design: {
             ios: {
@@ -441,19 +441,21 @@ module.exports = function ( grunt ) {
   } );
 
   require( "matchdep" ).filterDev( "grunt-*" ).forEach( grunt.loadNpmTasks )
-  grunt.renameTask('realFavicon', 'favicon');
 
   // init
-  grunt.registerTask( "devint", [ "concat", "ngtemplates", "copy", "svgprep" ] )
+  grunt.registerTask( "devint", [ "concat", "ngtemplates", "imgprep" ] )
 
   // Develop
   grunt.registerTask( "default", [ "jade:dev", "devint", "less:dev", "connect", "watch:build" ] )
 
-  grunt.registerTask( "svgprep", [ "svg_sprite", "svgmin" ] )
+  // asset prep
+  grunt.registerTask( "imgprep", [ "favprep", "svgprep", "svgmin", "imagemin" ] )
+  grunt.registerTask( "favprep", [ "realFavicon", "copy:favs" ] )
+  grunt.registerTask( "svgprep", [ "svg_sprite", "copy:svgs"] )
+  grunt.registerTask( "dataprep", [ "jsonlint", "minjson" ] )
 
   // Test
   grunt.registerTask( "test", [ "jsonlint" ] )
-  grunt.registerTask( "dataprep", [ "minjson" ] )
 
   // Build for Production
   grunt.registerTask( "build", [ "jade:prod", "devint", "htmlmin", "less:production", "dataprep" ] )
