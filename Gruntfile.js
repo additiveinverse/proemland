@@ -27,7 +27,8 @@ module.exports = function ( grunt ) {
         root: "build/",
         css: "build/css/",
         js: "build/js/",
-        img: "build/img/"
+        img: "build/img/",
+        pi: "build/images/"
       },
       manifest: {
         css: {
@@ -83,7 +84,7 @@ module.exports = function ( grunt ) {
         flatten: true,
         cwd: "<%= config.lib %>",
         src: [
-          "lesshat/build/lesshat.less",
+          "lesshat/build/lesshat-prefixed.less",
           "normalize-less/normalize.less"
         ],
         dest: "<%= config.app.less %>"
@@ -325,7 +326,7 @@ module.exports = function ( grunt ) {
     },
 
     imagemin: {
-      dynamic: {
+      site: {
         options: {
           optimizationLevel: 5,
           pngquant: true
@@ -333,8 +334,20 @@ module.exports = function ( grunt ) {
         files: [ {
           expand: true,
           cwd: "<%= config.app.img %>",
-          src: [ '**/*.{png,jpg,gif,svg}' ],
-          dest: "<%= config.tmp %>"
+          src: [ '*.{png,jpg,gif,svg}' ],
+          dest: "<%= config.dist.img %>"
+        } ]
+      },
+      product: {
+        options: {
+          optimizationLevel: 5,
+          pngquant: true
+        },
+        files: [ {
+          expand: true,
+          cwd: "<%= config.dist.pi %>",
+          src: [ '*.{png,jpg,gif,svg}' ],
+          dest: "<%= config.dist.pi %>"
         } ]
       }
     },
@@ -415,7 +428,7 @@ module.exports = function ( grunt ) {
           "config.json",
           "<%= config.app.root %>**/*"
         ],
-        tasks: [ "jade:dev", "newer:svgprep", "newer:minjson", "newer:ngtemplates", "concat", "less:dev" ],
+        tasks: [ "jade:dev", "newer:minjson", "newer:ngtemplates", "concat", "less:dev" ],
         options: {
           reload: false,
           livereload: true,
@@ -443,7 +456,7 @@ module.exports = function ( grunt ) {
   require( "matchdep" ).filterDev( "grunt-*" ).forEach( grunt.loadNpmTasks )
 
   // init
-  grunt.registerTask( "devint", [ "concat", "ngtemplates", "imgprep" ] )
+  grunt.registerTask( "devint", [ "concat", "ngtemplates" ] )
 
   // Develop
   grunt.registerTask( "default", [ "jade:dev", "devint", "less:dev", "connect", "watch:build" ] )

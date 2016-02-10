@@ -1,5 +1,5 @@
 @import '_variables';
-@import 'lesshat';
+@import 'lesshat-prefixed';
 
 // a bunch of helper classes that should probably be used with &:extend()
 .uppercase {
@@ -7,11 +7,11 @@
 }
 
 .all-transition {
-	.transition( all, 0.3s, ease-in-out );
+	.lh-transition( all, 0.3s, ease-in-out );
 }
 
 .opacity-transition {
-	.transition( opacity, .2s, ease-in-out );
+	.lh-transition( opacity, .2s, ease-in-out );
 }
 
 .zero {

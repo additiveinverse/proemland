@@ -1,5 +1,5 @@
-@import 'lesshat';
 @import '_variables';
+@import 'lesshat-prefixed';
 
 .font-size( @font-size: @base-type-size, @offset: 1 ) {
 	@rem: ( @font-size / 10 );
@@ -15,6 +15,12 @@
 .inline-block( @valign: top ) {
 	display: inline-block;
 	vertical-align: @valign;
+}
+
+.mq(@min-width; @rules) {
+	@media only screen and (min-width: @min-width) {
+		@rules();
+	}
 }
 
 //////////////////////////// Helper Class
@@ -163,7 +169,7 @@
 }
 
 .lnk( @color: @base-link ) {
-	.transition( all, 0.3s, ease-in-out );
+	.lh-transition( all, 0.3s, ease-in-out );
 	text-decoration: none;
 	color: @color;
 	cursor: pointer;
@@ -177,5 +183,51 @@
 	&:focus {
 		outline: none;
 		color: lighten(@color, 25%);
+	}
+}
+
+// transforms
+.transforms(...) {
+	-webkit-transform: @arguments;
+		-ms-transform: @arguments;
+			transform: @arguments;
+}
+
+.transforms-origin(...) {
+	-webkit-transform-origin: @arguments;
+		 -moz-transform-origin: @arguments;
+			-ms-transform-origin: @arguments;
+					transform-origin: @arguments;
+}
+
+	.rotates( @deg: 5deg, @origin: center ) {
+		.transforms( rotate( @deg ) );
+		.transforms-origin( @origin );
+	}
+
+	.scales( @r1: 1, @r2: 1, @origin: center ) {
+		.transforms( scale( @r1, @r2 ) );
+		.transforms-origin( @origin );
+	}
+
+	.translates( @x:0, @y:0, @origin: center ) {
+		.transforms( translate( @x, @y ) );
+		.transforms-origin( @origin );
+	}
+
+	.translates3d( @x:0, @y:0, @origin: center ) {
+		.transforms( translate3d( @x, @y ) );
+		.transforms-origin( @origin );
+	}
+
+.keyframes(@name; @arguments) {
+ 	@-moz-keyframes @name { 
+ 		@arguments(); 
+ 	}
+	@-webkit-keyframes @name { 
+		@arguments(); 
+	}
+	@keyframes @name { 
+		@arguments(); 
 	}
 }

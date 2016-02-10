@@ -1,7 +1,7 @@
 @import './_variables';
+@import './lesshat-prefixed';
 @import './_mixins';
 @import './_utilities';
-@import './lesshat';
 
  // Nice UI touch for placeholders.
 [ placeholder ] {
@@ -64,61 +64,61 @@ textarea,
 .note { font-style: italic }
 
 // ------------------------------------ required
-.req {
-	box-shadow: 0 0 5px @error inset;
-	position: relative;
+// .req {
+// 	box-shadow: 0 0 5px @error inset;
+// 	position: relative;
 
-	&:after {
-		position: absolute;
-		left: -18px;
-		&:extend( .base-font );
-		._inject("*");
-	}
-}
+// 	&:after {
+// 		position: absolute;
+// 		left: -18px;
+// 		&:extend( .base-font );
+// 		._inject("*");
+// 	}
+// }
 
 // ------------------------------------ errors
 // error wrapper
-.fault {
-	&:extend( .base-font );
-}
+// .fault {
+// 	&:extend( .base-font );
+// }
 
-.fault,
-.err {
-	color: @error
-}
+// .fault,
+// .err {
+// 	color: @error
+// }
 
-.err {
-	background-color: @error;
-	border-radius: 16px;
-	height: auto;
-	left: 33%;
-	padding: 0 @base-margin;
+// .err {
+// 	background-color: @error;
+// 	border-radius: 16px;
+// 	height: auto;
+// 	left: 33%;
+// 	padding: 0 @base-margin;
 
-	&-ttl {
-		text-transform: uppercase;
-		font-family: @base-type;
-		text-shadow: 1px 1px 0 rgb(220,0,0);
-	}
-}
+// 	&-ttl {
+// 		text-transform: uppercase;
+// 		font-family: @base-type;
+// 		text-shadow: 1px 1px 0 rgb(220,0,0);
+// 	}
+// }
 
-.error {
-	.fld-err & {
-		text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
-		padding: 0 8px 0 4px;
-		border-radius: 0 5px 5px 0;
-		box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+// .error {
+// 	.fld-err & {
+// 		text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+// 		padding: 0 8px 0 4px;
+// 		border-radius: 0 5px 5px 0;
+// 		box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 
-		&:before {
-			margin-right: 0;
-			position: relative;
-			top: 5px;
-			border: 12px solid;
-			border-color: transparent #900 transparent transparent;
-			color: @white;
-			._inject("");
-		}
-	}
-}
+// 		&:before {
+// 			margin-right: 0;
+// 			position: relative;
+// 			top: 5px;
+// 			border: 12px solid;
+// 			border-color: transparent #900 transparent transparent;
+// 			color: @white;
+// 			._inject("");
+// 		}
+// 	}
+// }
 
 .btn {
 	.inline-block();
@@ -157,7 +157,7 @@ textarea,
 	&-expand {
 		&:extend( .btn .topright );
 		.icon("app", @plus, 24 );
-		.size(32px, 24px);
+		.lh-size(32px, 24px);
 		&:after {
 			margin-left: 0;
 		}
@@ -165,7 +165,7 @@ textarea,
 
 	&-top {
 		.icon("app", @arrow-up, 24 );
-		.size(32px, 24px);
+		.lh-size(32px, 24px);
 	}
 
 	&-reset {

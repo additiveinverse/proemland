@@ -1,12 +1,12 @@
 @import '_variables';
-@import 'lesshat';
+@import 'lesshat-prefixed';
 @import '_mixins';
 @import '_grid';
 @import '_utilities';
 @import '_sprite';
 
 @font-face {
-	.font-face('typicons', '../fonts/typicons', 'normal', 'normal');
+	.lh-font-face('typicons', '../fonts/typicons', 'normal', 'normal');
 }
 
 #decor {
@@ -16,7 +16,7 @@
 
 	.tile( @color: @yellow ) {
 		.diagonals( @color );
-		.background-size( 9px 21px );
+		.lh-background-size( 9px 21px );
 		background-repeat: repeat-x;
 	}
 
@@ -35,7 +35,7 @@
 	}
 
 	.little_box_base {
-		.size(28px, 6px);
+		.lh-size(28px, 6px);
 		._inject();
 		.inline-block();
 		position: absolute;
@@ -208,7 +208,6 @@
 
 				&-section {
 					.column(6);
-
 					&.post-stuff {
 						.column(8);
 					}
@@ -217,8 +216,7 @@
 			}
 
 			&-discog {
-				.info-lst-itm-discog .lnk {
-					&:extend( .post .content-defaults .post-active );
+				.info-lst-itm-discog .lnk {					&:extend( .post .content-defaults .post-active );
 				}
 			}
 		}
