@@ -38,7 +38,6 @@
     "grunt-open": "^0.2.3",
     "grunt-real-favicon": "^0.1.5",
     "grunt-spritesmith": "^5.1.1",
-    "grunt-strip": "^0.2.1",
     "grunt-svg-sprite": "^1.2.10",
     "grunt-svgmin": "^2.0.1",
     "jstransformer-json": "0.0.0",

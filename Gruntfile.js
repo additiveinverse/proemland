@@ -7,7 +7,7 @@ module.exports = function ( grunt ) {
     ],
     "build/css/<%= pkg.name %>.css": "app/less/global.less"
   }
-  var manifestjs = "<%= pkg.manifest.js %>"
+  var manifestjs = "<%= config.manifest.js %>"
   var reports = "reports/<%= pkg.name %>-"
 
   grunt.initConfig( {
@@ -45,7 +45,8 @@ module.exports = function ( grunt ) {
           "<%= config.lib %>/angular-sanitize/angular-sanitize.min.js",
           "<%= config.lib %>/angular-smooth-scroll/angular-smooth-scroll.min.js",
           "<%= config.lib %>/angular-ui-router/release/angular-ui-router.min.js",
-          "<%= config.lib %>/angular-pageslide-directive/dist/angular-pageslide-directive.min.js"
+          "<%= config.lib %>/angular-pageslide-directive/dist/angular-pageslide-directive.min.js",
+          "<%= config.lib %>/ngScrollSpy/dist/ngScrollSpy.min.js",
         ],
       }
     },
@@ -124,16 +125,6 @@ module.exports = function ( grunt ) {
       },
       data: {
         src: [ "<%= config.app.data %>*.json", "<%= config.dist.root %>*.json" ]
-      }
-    },
-
-    strip: {
-      main: {
-        src: "<%= config.app.root %>*.js",
-        dest: "<%= config.app.root %>*.js",
-        options: {
-          nodes: [ "console.log", "console.dir", "debug" ]
-        }
       }
     },
 
