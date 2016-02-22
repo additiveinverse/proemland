@@ -378,6 +378,15 @@ module.exports = function ( grunt ) {
       }
     },
 
+    combine_mq: {
+      default_options: {
+        expand: true,
+        cwd: "<%= config.dist.css %>",
+        src: "*.css",
+        dest: "<%= config.dist.css %>"
+      }
+    },
+
     // ///////////////////////////////////////////////////////////////// build / deploy / workflow
     bump: {
       options: {
@@ -419,7 +428,7 @@ module.exports = function ( grunt ) {
           "config.json",
           "<%= config.app.root %>**/*"
         ],
-        tasks: [ "jade:dev", "newer:minjson", "newer:ngtemplates", "concat", "less:dev" ],
+        tasks: [ "jade:dev", "newer:minjson", "newer:ngtemplates", "concat", "less:dev", "combine_mq" ],
         options: {
           reload: false,
           livereload: true,

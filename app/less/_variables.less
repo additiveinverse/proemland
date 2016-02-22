@@ -99,4 +99,13 @@
 @base-opacity: 							0.65;
 @sprite-path: 							"../img/";
 
+@screen-res: 								320, 480, 640, 768, 992, 1024, 1280;
+@screen-xxs:								unit( extract( @screen-res, 1 ), px); // 320
+@screen-xs:									unit( extract( @screen-res, 2 ), px); // 480
+@screen-s:									unit( extract( @screen-res, 3 ), px); // 640
+@screen-m:									unit( extract( @screen-res, 4 ), px); // 768
+@screen-l:									unit( extract( @screen-res, 5 ), px); // 992
+@screen-xl:									unit( extract( @screen-res, 6 ), px); // 1024
+@screen-xxl: 								unit( extract( @screen-res, 7 ), px); // 1280
+
 @import './_typicons';

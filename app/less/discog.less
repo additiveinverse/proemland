@@ -50,8 +50,25 @@
 		margin-right: 1.25rem;
 		margin-bottom: 1.25rem;
 		cursor: pointer;
+		min-height: 10em;
 		&:extend( .post .content-defaults .post-image );
 
+		.mq(@screen-xs, {
+			width: calc(~"100% / 2 - 3em" );	
+		});
+		.mq(@screen-s, {
+			width: calc(~"100% / 3 - 2.5em" );
+		});
+		.mq(@screen-l, {
+			width: calc(~"100% / 6 - 2em" );
+		});
+		.mq(@screen-xl, {
+			width: calc(~"100% / 3 - 2em" );
+		});
+		.mq(@screen-xxl, {
+			width: calc(~"100% / 6 - 2em" );
+		});
+	
 		&-hdr {
 			top: 38%;
 			background-color: @white-out;
