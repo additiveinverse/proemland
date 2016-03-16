@@ -4,12 +4,6 @@ proem.controller('DiscographyController', ['$scope', 'discog', '$state', '$state
 	$scope.id = $stateParams.discID
 	$scope.title = 'Discography list'
 	$scope.data = discog
-
-	$scope.checked = false
-	$scope.toggle = function () {
-		$scope.checked = !$scope.checked
-		console.log( $scope.checked )
-	}
 }])
 
 proem.controller('DiscController', ['$scope', 'discog', '$stateParams', '$state', function( $scope, discog, $stateParams, $state ){

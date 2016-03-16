@@ -23,7 +23,8 @@
 		min-height: 48px;
 		&-ttl {
 			margin-bottom: 0;
-			text-shadow: 1px 1px 0 @white;
+			text-shadow: 1px 1px 0 @white-out;
+			color: @base-type-heading-2-color;
 		}
 	}
 
@@ -78,7 +79,6 @@
 
 			&-ttl {
 				padding: @base-margin-quarter @base-margin-half 0 @base-margin-half;
-				color: black;
 				.font-size( @base-type-h5, 1 );
 			}
 		}
@@ -86,7 +86,6 @@
 
 	&-detail {
 		&:extend( .all-transition );
-		width: 0%;
 		background-color: fadeout( @white-off, 15% );
 
 		&-wrap {
@@ -94,6 +93,7 @@
 			top: 0;
 			z-index: 999;
 			height: 100%;
+	
 			&-active {
 				min-width: 41%;
 			}

@@ -269,13 +269,8 @@ body {
 		}
 
 		&-news {
-			&-img {
-				&:extend( .post .content-defaults .post-image );
-			}
-
-			.info-lst-itm-news .lnk {
-				&:extend( .post .content-defaults .post-active );
-			}
+			&-img:extend( .post .content-defaults .post-image ) {};
+			.info-lst-itm-news .lnk:extend( .post .content-defaults .post-active ){};
 
 			&-section {
 				.column(6);
@@ -286,7 +281,7 @@ body {
 		}
 
 		&-discog {
-			.info-lst-itm-discog .lnk&:extend( .post .content-defaults .post-active ) {};
+			.info-lst-itm-discog .lnk:extend( .post .content-defaults .post-active ) {};
 		}
 	}
 }
