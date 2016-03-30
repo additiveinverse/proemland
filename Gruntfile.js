@@ -335,7 +335,7 @@ module.exports = function ( grunt ) {
         },
         files: [ {
           expand: true,
-          cwd: "<%= config.dist.pi %>",
+          cwd: "<%= config.app.img %>discog/",
           src: [ '*.{png,jpg,gif,svg}' ],
           dest: "<%= config.dist.pi %>"
         } ]
@@ -455,10 +455,10 @@ module.exports = function ( grunt ) {
   require( "matchdep" ).filterDev( "grunt-*" ).forEach( grunt.loadNpmTasks )
 
   // init
-  grunt.registerTask( "devint", [ "concat", "ngtemplates" ] )
+  grunt.registerTask( "devint", [ "concat", "copy", "ngtemplates", "imgprep", "dataprep" ] )
 
   // Develop
-  grunt.registerTask( "default", [ "jade:dev", "devint", "less:dev", "connect", "watch:build" ] )
+  grunt.registerTask( "default", [ "connect", "watch:build" ] )
 
   // asset prep
   grunt.registerTask( "imgprep", [ "favprep", "svgprep", "svgmin", "imagemin" ] )

@@ -35,6 +35,6 @@
     "ngScrollSpy": "^1.0.10"
   },
   "resolutions": {
-    "angular": "1.4.9"
+    "angular": "1.4.10"
   }
 }
