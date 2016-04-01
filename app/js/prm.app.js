@@ -1,4 +1,12 @@
-proem = angular.module( "appProem", [ "ui.router", "ngSanitize", "ngResource", "ngAnimate", "smoothScroll", "direcTives" ] )
+proem = angular.module( "appProem", 
+	[ "ui.router", 
+		"ngSanitize", 
+		"ngResource", 
+		// "ngAnimate", 
+		// direcTives,
+		"smoothScroll", 
+		"pageslide-directive" 
+	])
 
 proem.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", function ( $stateProvider, $urlRouterProvider, $locationProvider ) {
 	$urlRouterProvider.otherwise( "/" )
@@ -33,16 +41,13 @@ proem.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", funct
 			}
 		} )
 		.state( "discog.list", {
-			params: {
-				discID: null
-			},
 			url: "/list"
 		} )
 		.state( "discog.detail", {
 			params: {
 				discID: null
 			},
-			url: "/detail/:discID",
+			url: "/:discID",
 		} )
 		.state( "news", {
 			url: "/news",

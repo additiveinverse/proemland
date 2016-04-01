@@ -13,6 +13,7 @@ angular.module( 'direcTives', [] ).directive( 'toggler', [ '$parse', function ( 
 
 				element.on( ev, function ( e ) {
 					element.toggleClass( elemClass )
+					element.siblings().removeClass( elemClass )
 				} )
 			}
 		}

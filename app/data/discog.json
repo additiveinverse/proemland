@@ -240,7 +240,7 @@
 			"img": "/images/109.png",
 			"img_thumb": "/images/109t.png",
 			"prod_type": "various-artist",
-			"prod_frmt": "MP3",
+			"prod_frmt": "Digital",
 			"cat_lbl": "two circles",
 			"cat_lnk": "http://www.twocirclesrecords.com",
 			"cat_num": "2circles008",
@@ -319,9 +319,8 @@
 			"img": "/images/105.png",
 			"img_thumb": "/images/105t.png",
 			"prod_type": "various-artist",
-			"prod_id": "",
-			"prod_inv": "",
-			"prod_frmt": "CD",
+		"prod_id": "",
+				"prod_frmt": "CD",
 			"cat_lbl": "n5md",
 			"cat_lnk": "http://www.n5md.com",
 			"cat_num": "CATMD150",
@@ -366,7 +365,6 @@
 		"prod_type": "full-lengths",
 
 		"prod_id": "PROEM06",
-		"prod_inv": "14",
 		"prod_frmt": "CD",
 		"cat_lbl": "n5md",
 		"cat_lnk": "http://www.n5md.com",
@@ -398,9 +396,7 @@
 		"img": "/images/103.png",
 		"img_thumb": "/images/103t.png",
 		"prod_type": "various-artist",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "data CD",
 		"cat_lbl": "merck",
 		"cat_lnk": "http://www.merckrecords.com/",
@@ -439,10 +435,8 @@
 		"img": "/images/96.png",
 		"img_thumb": "/images/96t.png",
 		"prod_type": "live-sets",
-
 		"prod_id": "proemL0020",
-		"prod_inv": "",
-		"prod_frmt": "MP3",
+		"prod_frmt": "Digital",
 		"cat_lbl": "digital nimbus",
 		"cat_lnk": "http://digitalnimbus.com",
 		"cat_num": "",
@@ -461,7 +455,6 @@
 		"prod_type": "full-lengths",
 
 		"prod_id": "PROEM05",
-		"prod_inv": "268",
 		"prod_frmt": "CD",
 		"cat_lbl": "merck records",
 		"cat_lnk": "http://www.m3rck.net",
@@ -503,7 +496,6 @@
 		"prod_type": "various-artist",
 
 		"prod_id": "",
-		"prod_inv": "5",
 		"prod_frmt": "CD",
 		"cat_lbl": "merck",
 		"cat_lnk": "http://www.merckrecords.com",
@@ -540,7 +532,6 @@
 		"prod_type": "remixes",
 
 		"prod_id": "123",
-		"prod_inv": "15",
 		"prod_frmt": "CD",
 		"cat_lbl": "merck records",
 		"cat_lnk": "http://www.m3rck.net",
@@ -594,9 +585,7 @@
 		"img": "/images/77.png",
 		"img_thumb": "/images/77t.png",
 		"prod_type": "remixes",
-
 		"prod_id": "prmx05",
-		"prod_inv": "",
 		"prod_frmt": "CD",
 		"cat_lbl": "n5md",
 		"cat_lnk": "http://www.n5md.com",
@@ -630,7 +619,6 @@
 		"prod_type": "remixes",
 
 		"prod_id": "prmx05",
-		"prod_inv": "0",
 		"prod_frmt": "CD",
 		"cat_lbl": "merck",
 		"cat_lnk": "http://www.m3rck.net",
@@ -662,7 +650,6 @@
 		"prod_type": "singles",
 
 		"prod_id": "",
-		"prod_inv": "2",
 		"prod_frmt": "Seven",
 		"cat_lbl": "merck records",
 		"cat_lnk": "http://www.m3rck.net",
@@ -685,7 +672,6 @@
 		"prod_type": "singles",
 
 		"prod_id": "",
-		"prod_inv": "2",
 		"prod_frmt": "Seven",
 		"cat_lbl": "merck records",
 		"cat_lnk": "http://www.m3rck.net",
@@ -708,7 +694,6 @@
 		"prod_type": "remixes",
 
 		"prod_id": "prmx04",
-		"prod_inv": "5",
 		"prod_frmt": "CD",
 		"cat_lbl": "merck records",
 		"cat_lnk": "http://www.m3rck.net",
@@ -746,10 +731,8 @@
 		"img": "/images/28.png",
 		"img_thumb": "/images/28t.png",
 		"prod_type": "singles",
-
 		"prod_id": "",
-		"prod_inv": "",
-		"prod_frmt": "MP3",
+		"prod_frmt": "Digital",
 		"cat_lbl": "enpeg digital",
 		"cat_lnk": "http://www.enpeg.com",
 		"cat_num": "EN08",
@@ -776,7 +759,6 @@
 		"prod_type": "remixes",
 
 		"prod_id": "",
-		"prod_inv": "15",
 		"prod_frmt": "CD",
 		"cat_lbl": "merck records",
 		"cat_lnk": "http://www.m3rck.net",
@@ -809,10 +791,8 @@
 		"img": "/images/40.png",
 		"img_thumb": "/images/40t.png",
 		"prod_type": "various-artist",
-
 		"prod_id": "",
-		"prod_inv": "",
-		"prod_frmt": "MP3",
+		"prod_frmt": "Digital",
 		"cat_lbl": "n5md",
 		"cat_lnk": "http://www.n5md.com",
 		"cat_num": "CATMD125",
@@ -870,9 +850,7 @@
 		"img": "/images/76.png",
 		"img_thumb": "/images/76t.png",
 		"prod_type": "remixes",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "Twelve",
 		"cat_lbl": "component records",
 		"cat_lnk": "http://www.componentrecords.com/",
@@ -897,7 +875,6 @@
 		"prod_type": "singles",
 
 		"prod_id": "",
-		"prod_inv": "150",
 		"prod_frmt": "Twelve",
 		"cat_lbl": "merck records",
 		"cat_lnk": "http://www.m3rck.net",
@@ -924,7 +901,6 @@
 		"prod_type": "singles",
 
 		"prod_id": "",
-		"prod_inv": "25",
 		"prod_frmt": "CD",
 		"cat_lbl": "coredump",
 		"cat_lnk": "http://www.coredumprecords.net",
@@ -952,9 +928,7 @@
 		"img": "/images/20.png",
 		"img_thumb": "/images/20t.png",
 		"prod_type": "live-sets",
-
 		"prod_id": "proemL0016",
-		"prod_inv": "",
 		"prod_frmt": "CD",
 		"cat_lbl": "n5md",
 		"cat_lnk": "http://www.n5md.com",
@@ -983,9 +957,7 @@
 		"img": "/images/55.png",
 		"img_thumb": "/images/55t.png",
 		"prod_type": "various-artist",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "CD",
 		"cat_lbl": "n5md",
 		"cat_lnk": "http://www.n5md.com",
@@ -1020,7 +992,7 @@
 		"prod_type": "full-lengths",
 
 		"prod_id": "PROEM04",
-		"prod_inv": "196",
+
 		"prod_frmt": "CD",
 		"cat_lbl": "merck records",
 		"cat_lnk": "http://www.m3rck.net",
@@ -1052,9 +1024,7 @@
 		"img": "/images/39.png",
 		"img_thumb": "/images/39t.png",
 		"prod_type": "various-artist",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "CD",
 		"cat_lbl": "RL66",
 		"cat_lnk": "http://www.rl66.com",
@@ -1086,9 +1056,7 @@
 		"img": "/images/38.png",
 		"img_thumb": "/images/38t.png",
 		"prod_type": "various-artist",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "CD",
 		"cat_lbl": "component records",
 		"cat_lnk": "http://www.componentrecords.com/",
@@ -1120,9 +1088,7 @@
 		"img": "/images/37.png",
 		"img_thumb": "/images/37t.png",
 		"prod_type": "various-artist",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "CD",
 		"cat_lbl": "six records",
 		"cat_lnk": "http://www.six-records.com",
@@ -1159,9 +1125,7 @@
 		"img": "/images/42.png",
 		"img_thumb": "/images/42t.png",
 		"prod_type": "various-artist",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "Twelve",
 		"cat_lbl": "merck records",
 		"cat_lnk": "http://www.m3rck.net",
@@ -1184,9 +1148,7 @@
 		"img": "/images/54.png",
 		"img_thumb": "/images/54t.png",
 		"prod_type": "remixes",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "CD",
 		"cat_lbl": "aural industries",
 		"cat_lnk": "http://www.aural-industries.com.au",
@@ -1220,9 +1182,7 @@
 		"img": "/images/26.png",
 		"img_thumb": "/images/26t.png",
 		"prod_type": "singles",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "Seven",
 		"cat_lbl": "n5md",
 		"cat_lnk": "http://www.n5md.com",
@@ -1243,9 +1203,7 @@
 		"img": "/images/58.png",
 		"img_thumb": "/images/58t.png",
 		"prod_type": "remixes",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "CD",
 		"cat_lbl": "merck records",
 		"cat_lnk": "http://www.m3rck.net",
@@ -1279,7 +1237,6 @@
 		"img": "/images/23.png",
 		"img_thumb": "/images/23t.png",
 		"prod_type": "singles",
-
 		"prod_id": "",
 		"prod_inv": "30",
 		"prod_frmt": "Twelve",
@@ -1300,14 +1257,11 @@
 		},
 		{
 		"date": "2002-07-01",
-
 		"ttl": "no_carrier",
 		"img": "/images/25.png",
 		"img_thumb": "/images/25t.png",
 		"prod_type": "singles",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "CD",
 		"cat_lbl": "component",
 		"cat_lnk": "http://www.component-records.com",
@@ -1327,14 +1281,11 @@
 		},
 		{
 		"date": "2002-05-01",
-
 		"ttl": "marumari - the remixes",
 		"img": "/images/53.png",
 		"img_thumb": "/images/53t.png",
 		"prod_type": "remixes",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "CD",
 		"cat_lbl": "carpark records",
 		"cat_lnk": "http://www.tubgirl.ca/",
@@ -1368,14 +1319,11 @@
 		},
 		{
 		"date": "2002-04-01",
-
 		"ttl": "engram",
 		"img": "/images/56.png",
 		"img_thumb": "/images/56t.png",
 		"prod_type": "remixes",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "Twelve",
 		"cat_lbl": "hymen",
 		"cat_lnk": "http://www.hymen-records.com",
@@ -1395,14 +1343,11 @@
 		},
 		{
 		"date": "2002-04-01",
-
 		"ttl": "half the battle 12inch",
 		"img": "/images/51.png",
 		"img_thumb": "/images/51t.png",
 		"prod_type": "remixes",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "Twelve",
 		"cat_lbl": "merck records",
 		"cat_lnk": "http://www.m3rck.net",
@@ -1415,14 +1360,11 @@
 		},
 		{
 		"date": "2002-01-27",
-
 		"ttl": "cottage industries 2",
 		"img": "/images/36.png",
 		"img_thumb": "/images/36t.png",
 		"prod_type": "various-artist",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "CD/12inch",
 		"cat_lbl": "neo ouija",
 		"cat_lnk": "http://www.neoouija.com",
@@ -1460,14 +1402,11 @@
 		},
 		{
 		"date": "2001-11-06",
-
 		"ttl": "Among Others",
 		"img": "/images/22.png",
 		"img_thumb": "/images/22t.png",
 		"prod_type": "full-lengths",
-
 		"prod_id": "PROEM03",
-		"prod_inv": "6",
 		"prod_frmt": "",
 		"cat_lbl": "n5md",
 		"cat_lnk": "http://www.n5md.com",
@@ -1494,14 +1433,11 @@
 		},
 		{
 		"date": "2001-08-05",
-
 		"ttl": "integral components",
 		"img": "/images/35.png",
 		"img_thumb": "/images/35t.png",
 		"prod_type": "various-artist",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "CD",
 		"cat_lbl": "component records",
 		"cat_lnk": "http://www.componentrecords.com",
@@ -1529,12 +1465,10 @@
 		},
 		{
 		"date": "2001-05-09",
-
 		"ttl": "Negativ",
 		"img": "/images/17.png",
 		"img_thumb": "/images/17t.png",
 		"prod_type": "full-lengths",
-
 		"prod_id": "PROEM02",
 		"prod_inv": "47",
 		"prod_frmt": "CD",
@@ -1568,9 +1502,7 @@
 		"img": "/images/41.png",
 		"img_thumb": "/images/41t.png",
 		"prod_type": "various-artist",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "",
 		"cat_lbl": "n5md",
 		"cat_lnk": "http://www.n5md.com",
@@ -1601,9 +1533,7 @@
 		"img": "/images/34.png",
 		"img_thumb": "/images/34t.png",
 		"prod_type": "various-artist",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "CD",
 		"cat_lbl": "merck records",
 		"cat_lnk": "http://www.m3rck.net",
@@ -1637,13 +1567,11 @@
 		"img": "/images/18.png",
 		"img_thumb": "/images/18t.png",
 		"prod_type": "singles",
-
 		"prod_id": "",
-		"prod_inv": "",
-		"prod_frmt": "MP3",
+		"prod_frmt": "Digital",
 		"cat_lbl": "monotonik",
 		"cat_lnk": "http://www.mono211.com",
-		"cat_num": "mtk.mp3.041",
+		"cat_num": "mtk.Digital.041",
 		"cat_limit": "unlimited",
 		"prod_avail": "free",
 		"digital": "",
@@ -1661,9 +1589,7 @@
 		"img": "/images/32.png",
 		"img_thumb": "/images/32t.png",
 		"prod_type": "various-artist",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "Twelve",
 		"cat_lbl": "toytronic",
 		"cat_lnk": "http://www.toytronic.com",
@@ -1690,9 +1616,7 @@
 		"img": "/images/31.png",
 		"img_thumb": "/images/31t.png",
 		"prod_type": "various-artist",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "CD",
 		"cat_lbl": "toytronic",
 		"cat_lnk": "http://www.toytronic.com",
@@ -1722,14 +1646,11 @@
 		},
 		{
 		"date": "2000-01-01",
-
 		"ttl": "amalgamation",
 		"img": "/images/50.png",
 		"img_thumb": "/images/50t.png",
 		"prod_type": "remixes",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "CD",
 		"cat_lbl": "component",
 		"cat_lnk": "http://www.componentrecords.com",
@@ -1757,14 +1678,11 @@
 		},
 		{
 		"date": "1999-11-11",
-
 		"ttl": "penguin mechanics vol.3",
 		"img": "/images/30.png",
 		"img_thumb": "/images/30t.png",
 		"prod_type": "various-artist",
-
 		"prod_id": "",
-		"prod_inv": "",
 		"prod_frmt": "CD",
 		"cat_lbl": "kracfive",
 		"cat_lnk": "http://www.kracfive.com",
@@ -1797,7 +1715,6 @@
 		"img_thumb": "/images/15t.png",
 		"prod_type": "full-lengths",
 		"prod_id": "PROEM01",
-		"prod_inv": "",
 		"prod_frmt": "CD",
 		"cat_lbl": "hydrant records",
 		"cat_lnk": "http://www.discogs.com/label/Hydrant+Records",
