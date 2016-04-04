@@ -1,4 +1,4 @@
-<article role="article" itemscope ng-repeat="d in ( filterD = (data | filter:query))" class="hproduct prod prod-item" id="release-{{ d.prod_id}}" ui-sref="discog.detail({ discID: $index })">
+<article role="article" itemscope ng-repeat="d in ( filterD = (data | filter:query))" class="hproduct prod prod-item" id="release-{{ d.prod_id}}" ui-sref="discog.detail({ discID: $index })" ng-click="select_item( $index )">
 	<span role="button" class="btn btn-expand btn-expand-off">expand</span>
 	<header class="hdr prod-hdr prod-item-hdr">
 		<h2 ng-bind-html-unsafe="d.ttl" class="ttl prod-hdr-ttl prod-item-hdr-ttl fn" itemprop="name">{{ d.ttl }}</h2>

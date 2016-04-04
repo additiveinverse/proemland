@@ -1,42 +1,37 @@
 // /////////////////////////////////////////////////////// Proemland
-proem.controller('DiscographyController', ['$scope', 'discog', '$state', '$stateParams', 'discService', 
-	function( $scope, discog, $state, $stateParams, discService ){
+proem.controller('DiscographyController', ['$scope', 'discog', '$state', '$stateParams', 'discService', '$filter',
+	function( $scope, discog, $state, $stateParams, discService, $filter ){
 	// discography list
 	$scope.title = 'Discography list'
 	$scope.data = discog.rekkids
-	
-	console.dir( $scope.$parent.filterD )
+
 	// scope either has to be re-applied after the filter is fired off
 	// OR
 	// add services watch filter to grab new scope data
-	// $scope.transfer = function( key ) {
-	// 	console.log( "key is " + key )
-	// 	console.dir( $scope.data[key] )
+	$scope.select_item = function( key ) {
+		console.log( "key is " + key )
 
-	// 	discService.itemAdd( $scope.data[key] )
-
-	// }
+		discService.itemAdd( $scope.filterD[ key ] )
+	}
 
 }])
 
 proem.controller('DiscController', ['$scope', '$stateParams', '$state', 'discService', 'discog', '$filter', 
 	function( $scope, $stateParams, $state, discService, discog, $filter ){
-	// discography single item
-	$scope.title = 'Discography detail'
-
-	// this is probably not the right way to do this
-	// its terribly hardcoded to MY data... but baby steps!
-	
 	var newQ = ''
 
+	// discography single item
+	$scope.title = 'Discography detail'
+	$scope.id = $stateParams.discID
+
+	// this is probably not the right way to do this
 	$scope.$watch('query', function( newQ, oldQ ) {
-		$scope.id = $stateParams.discID
 
 		console.log("filter box:", newQ);
-
+		console.dir( discService.itemGet() )
 		// this is the JS equivalent of "data | filter: newQ"
  		// $scope.filteredArray = $filter('filter')($scope.data, newQ);   
-		console.dir( $scope.filterD )
+		$scope.data = discService.itemGet()
 	})
 }])
 

@@ -66,20 +66,25 @@ proem.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",
 		})
 }])
 
-proem.factory( "discResource", [ "$resource", "apistuff", function ( $resource, apistuff ) {
+proem.factory( "discResource", [ "$resource", "apistuff", 
+	function ( $resource, apistuff ) {
 	var resource = $resource( "/discog.json" )
-	var resourceFilter = ""
 
 	// var resource = apistuff.dataComm("/discog.json", "GET" )
 	return resource
 }])
 
 // disc service
-proem.service("discService", ["discResource" , function( discResource ) {
+proem.service("discService", ["discResource" , 
+	function( discResource ) {
+	var items = discResource.get( ).$promise
+
+
 	var itemList = []
 
 	var itemAdd = function( newObj ) {
 		itemList.splice( 0, 0, newObj )
+		console.dir( newObj )  
 	}
 
 	var itemGet = function() {
@@ -87,18 +92,21 @@ proem.service("discService", ["discResource" , function( discResource ) {
 	}
 
 	return {
+		items: items,
 		itemAdd: itemAdd,
 		itemGet: itemGet
 	}
 }])
 
-proem.run( [ "$rootScope", "$state", "$stateParams", function ( $rootScope, $state, $stateParams ) {
+proem.run( [ "$rootScope", "$state", "$stateParams", 
+	function ( $rootScope, $state, $stateParams ) {
 	$rootScope.$state = $state;
 	$rootScope.$stateParams = $stateParams;
 	$state.go( "discog.list" );
 } ] )
 
-proem.factory( "apistuff", [ "$http", "$q", function ( $http, $q ) {
+proem.factory( "apistuff", [ "$http", "$q", 
+	function ( $http, $q ) {
 	var service = {}
 	var filename = ""
 
