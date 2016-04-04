@@ -7,7 +7,7 @@ angular.module('appProem').run(['$templateCache', function($templateCache) {
 
 
   $templateCache.put('app/partials/disc-list.html',
-    "<article role=\"article\" itemscope ng-repeat=\"(key, d) in data.rekkids | filter:query track by key\" class=\"hproduct prod prod-item\" id=\"release-{{ d.prod_id}}\" ui-sref=\"discog.detail({ discID: key })\"><span role=\"button\" class=\"btn btn-expand btn-expand-off\">expand</span><header class=\"hdr prod-hdr prod-item-hdr\"><h2 ng-bind-html-unsafe=\"d.ttl\" class=\"ttl prod-hdr-ttl prod-item-hdr-ttl fn\" itemprop=\"name\">{{ d.ttl }}</h2></header><section class=\"prod-details\"><figure class=\"prod-images images\"><img class=\"prod-photo photo\" ng-src=\"{{ d.img }}\" alt=\"{{ d.ttl }}\"></figure></section></article>"
+    "<article role=\"article\" itemscope ng-repeat=\"d in ( filterD = (data | filter:query))\" class=\"hproduct prod prod-item\" id=\"release-{{ d.prod_id}}\" ui-sref=\"discog.detail({ discID: $index })\"><span role=\"button\" class=\"btn btn-expand btn-expand-off\">expand</span><header class=\"hdr prod-hdr prod-item-hdr\"><h2 ng-bind-html-unsafe=\"d.ttl\" class=\"ttl prod-hdr-ttl prod-item-hdr-ttl fn\" itemprop=\"name\">{{ d.ttl }}</h2></header><section class=\"prod-details\"><figure class=\"prod-images images\"><img class=\"prod-photo photo\" ng-src=\"{{ d.img }}\" alt=\"{{ d.ttl }}\"></figure></section></article>"
   );
 
 

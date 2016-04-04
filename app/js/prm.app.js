@@ -3,12 +3,13 @@ proem = angular.module( "appProem",
 		"ngSanitize", 
 		"ngResource", 
 		// "ngAnimate", 
-		// direcTives,
+		"direcTives",
 		"smoothScroll", 
 		"pageslide-directive" 
 	])
 
-proem.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", function ( $stateProvider, $urlRouterProvider, $locationProvider ) {
+proem.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", 
+	function ( $stateProvider, $urlRouterProvider, $locationProvider ) {
 	$urlRouterProvider.otherwise( "/" )
 
 	// $stateProvider
@@ -73,20 +74,23 @@ proem.factory( "discResource", [ "$resource", "apistuff", function ( $resource, 
 	return resource
 }])
 
-// scaffolding disc service
-// proem.service("discService", ["$resource", "apistuff", function( $resource, apistuff ){
-// 	var service = {}
+// disc service
+proem.service("discService", ["discResource" , function( discResource ) {
+	var itemList = []
 
-// 	service.discographyList = function() {
+	var itemAdd = function( newObj ) {
+		itemList.splice( 0, 0, newObj )
+	}
 
-// 	}
+	var itemGet = function() {
+		return itemList
+	}
 
-// 	service.discographyItem = function () {
-
-// 	}
-
-// 	return service
-// }])
+	return {
+		itemAdd: itemAdd,
+		itemGet: itemGet
+	}
+}])
 
 proem.run( [ "$rootScope", "$state", "$stateParams", function ( $rootScope, $state, $stateParams ) {
 	$rootScope.$state = $state;
