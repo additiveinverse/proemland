@@ -20,6 +20,7 @@ section( id=post_id, class=post_content + ' ' + post_class, ui-view='discog' )
 		//- div( ps-open='checked', pageslide, ps-body-class='true', ps-class='prod-detail-wrap', ps-size='480px' )
 
 		div.prod-detail-wrap
+			span( role='button', class='btn btn-expand btn-expand-on')= expand
 			div( ui-view='detail' ).prod-detail
 
 

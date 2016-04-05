@@ -5,7 +5,7 @@
 	.inline-block;
 
 	.defaults {
-		background: @white-out;
+		// background: @white-out;
 		width: 100%;
 		position: absolute;
 	}
@@ -71,14 +71,14 @@
 		});
 	
 		&-hdr {
-			top: 38%;
-			background-color: @white-out;
+			top: 30%;
 			opacity: 0;
 			z-index: 4;
 			&:extend( .all-transition, .prod .defaults );
 
 			&-ttl {
-				padding: @base-margin-quarter @base-margin-half 0 @base-margin-half;
+				background-color: @white-out;
+				padding: @base-margin-quarter @base-margin-half;
 				.font-size( @base-type-h5, 1 );
 			}
 		}
@@ -86,11 +86,18 @@
 
 	&-detail {
 		&-wrap {
+			#decor .content-border( @black );
+			#decor .tile(@black);
 			&:extend( .all-transition );
-			background-color: fadeout( @white-off, 15% );
-			width: 480px;
+			background-color: fadeout( @white-off, 10% );
 			position: absolute;
+			top: @base-margin;
+			min-height: auto;
+			height: 100%;
+			z-index: 25;
+			left: 0;
 			padding: 0 @base-margin-half;
+			width: 30%;
 		}
 
 		&-hdr {
