@@ -1,4 +1,5 @@
-angular.module( 'direcTives', [] ).directive( 'toggler', [ '$parse', function ( $parse ) {
+angular.module( 'direcTives', [] ).directive( 'toggler', [ '$parse', 
+	function ( $parse ) {
 		return {
 			restrict: 'EA',
 			link: function ( scope, element, attrs ) {
@@ -12,9 +13,9 @@ angular.module( 'direcTives', [] ).directive( 'toggler', [ '$parse', function ( 
 				var trgrClass = [ prefix, TXTactive ].join( '-' )
 
 				element.on( ev, function ( e ) {
-					element.toggleClass( elemClass )
-					element.siblings().removeClass( elemClass )
-				} )
+					element.toggleClass( elemClass )	
+				})
 			}
 		}
-} ] )
+	} 
+])
