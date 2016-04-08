@@ -5,11 +5,12 @@ proem.controller('DiscographyController', ['$scope', 'discog', '$state', '$state
 		$scope.title = 'Discography list'
 		$scope.data = discog.rekkids
 
+
 		$scope.checked = false
 
 		$scope.select_item = function( key ) {
 			discService.itemAdd( $scope.filterD[ key ] )
-			// $scope.checked = !$scope.checked
+			// $scope.$broadcast('event:pane', '1');
 		}
 	}
 ])

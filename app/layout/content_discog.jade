@@ -17,12 +17,11 @@ section( id=post_id, class=post_content + ' ' + post_class, ui-view='discog' )
 		div( ui-view='list' ).prod-list-wrap
 			img( src='/img/logo_flat_2016.svg', width='50%', height='auto', class='logo-loading')
 
-		//- div( ps-open='checked', pageslide, ps-body-class='true', ps-class='prod-detail-wrap', ps-size='480px' )
 
+		//- div( ps-open='checked', pageslide, ps-body-class='true', ps-cloak='false', ps-class='prod-detail-wrap', ps-size='480px' )
+			
 		div.prod-detail-wrap
-			span( role='button', class='btn btn-expand btn-expand-on')= expand
+			span( role='button', class='btn btn-expand' )= expand
 			div( ui-view='detail' ).prod-detail
 
-
 	include link_top
-

@@ -154,12 +154,22 @@ textarea,
 		visibility: hidden;
 	}
 
+	&-buy {
+		.icon("pre", @shopping-cart, 20 );
+		padding-right: @base-margin-half;
+		padding-left: @base-margin-half;
+		border: 4px solid @black;
+	}
+
 	&-expand {
 		&:extend( .btn .topright );
 		.icon("app", @plus, 24 );
 		.lh-size(32px, 24px);
 		&:after {
 			margin-left: 0;
+		}
+		&-on:after {
+			.lh-rotate( 45deg )
 		}
 	}
 
