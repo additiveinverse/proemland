@@ -45,8 +45,7 @@ module.exports = function ( grunt ) {
           "<%= config.lib %>/angular-sanitize/angular-sanitize.min.js",
           "<%= config.lib %>/angular-smooth-scroll/angular-smooth-scroll.min.js",
           "<%= config.lib %>/angular-ui-router/release/angular-ui-router.min.js",
-          "<%= config.lib %>/angular-pageslide-directive/dist/angular-pageslide-directive.min.js",
-          "<%= config.lib %>/ngScrollSpy/dist/ngScrollSpy.min.js",
+          "<%= config.lib %>/angular.panels/dist/angular.panels.min.js",
         ],
       }
     },

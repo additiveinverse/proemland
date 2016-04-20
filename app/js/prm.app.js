@@ -4,8 +4,8 @@ proem = angular.module( "appProem",
 		"ngResource", 
 		"ngAnimate", 
 		"direcTives",
-		"smoothScroll", 
-		"pageslide-directive" 
+		"smoothScroll",
+		"angular.panels"
 	])
 
 proem.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", 
@@ -64,6 +64,23 @@ proem.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",
 					}
 				}
 			})
+
+		  panelsProvider
+        .add({
+            id: "testmenu",
+            position: "right",
+            size: "700px",
+            templateUrl: "../resources/template/testmenu.html",
+            controller: "testmenuCtrl"
+        })
+        .add({
+            id: "testpanel",
+            position: "right",
+            size: "80%",
+            templateUrl: "../resources/template/testpanel.html",
+            controller: "testpanelCtrl",
+            closeCallbackFunction: "testpanelClose"
+        })
 	}
 ])
 

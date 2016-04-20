@@ -10,7 +10,6 @@ proem.controller('DiscographyController', ['$scope', 'discog', '$state', '$state
 
 		$scope.select_item = function( key ) {
 			discService.itemAdd( $scope.filterD[ key ] )
-			// $scope.$broadcast('event:pane', '1');
 		}
 	}
 ])
@@ -25,6 +24,7 @@ proem.controller('DiscController', ['$scope', '$stateParams', '$state', 'discSer
 		// this is probably not the right way to do this
 		$scope.$watch('query', function( newQ, oldQ ) {
 			$scope.data = discService.itemGet()
+			$scope.checked = true
 		})
 	}
 ])
