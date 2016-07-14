@@ -105,7 +105,7 @@ body {
 			z-index: 20;
 			order: 1;
 			height: 75px;
-		});	
+		});
 
 		&-ttl {
 			text-shadow: -1px -1px 0 multiply(fade(@yellow, 75%), @blue-dark);
@@ -326,4 +326,97 @@ body {
 			margin: 0 auto;
 		}
 	}
+}
+
+/*
+	@license Angular Panels version 1.0.3
+	ⓒ 2015 AHN JAE-HA http://github.com/eu81273
+	License: MIT
+
+*/
+
+.dimming {
+	display: none;
+}
+
+.dimming.open {
+	background:#000;
+	bottom:0;
+	display:block;
+	left:0;
+	opacity: 0.25;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 1031;
+}
+
+.overflow-hidden {
+	overflow:hidden;
+}
+
+.panels {
+	box-shadow: none;
+	display: block;
+	overflow-x: auto;
+	overflow-y: auto;
+	pointer-events: all;
+	position: fixed;
+	z-index: 1032;
+	border: none;
+
+	#decor .content-border( @black );
+	#decor .tile(@black);
+	&:extend( .all-transition );
+	background-color: fadeout( @white-off, 10% );
+	top: @base-margin;
+
+	&::-webkit-scrollbar {
+		width: 5px;
+		&-thumb {
+			background-color: rgba(0,0,0,0.3);
+			&:hover {
+				background-color: rgba(0,0,0,0.5);
+			}
+		}
+		&-track {
+			background-color:transparent;
+		}
+	}
+	&.panel {
+		&-top,
+		&-bottom {
+			width:100%;
+		}
+		&-top {
+			&.open {
+				.lh-box-shadow( 0 20px 80px rgba(0,0,0,0.7) );
+			}
+		}
+		&-bottom {
+			&.open {
+				.lh-box-shadow( 0 -20px 80px rgba(0,0,0,0.7) );
+			}
+		}
+	}
+}
+
+
+.panels.panel-left, .panels.panel-right {
+	height:100%;
+	top: 0;
+}
+
+
+.panels.panel-left.open {
+	-moz-box-shadow:20px 0 80px 0 rgba(0,0,0,0.7);
+	-webkit-box-shadow:20px 0 80px 0 rgba(0,0,0,0.7);
+	box-shadow:20px 0 80px 0 rgba(0,0,0,0.7);
+}
+
+
+.panels.panel-right.open {
+	-moz-box-shadow:-20px 0 80px 0 rgba(0,0,0,0.7);
+	-webkit-box-shadow:-20px 0 80px 0 rgba(0,0,0,0.7);
+	box-shadow:-20px 0 80px 0 rgba(0,0,0,0.7);
 }

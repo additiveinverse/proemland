@@ -20,4 +20,9 @@ angular.module('appProem').run(['$templateCache', function($templateCache) {
     "<ul class=\"lastfm-lst lst\"><li class=\"lastfm-itm shout-itm\" ng-repeat=\"d in data.shout\"><p>{{sh.date}} - {{ sh.author }}</p><p>{{ sh.body }}</p></li></ul>"
   );
 
+
+  $templateCache.put('app/partials/pane-template.html',
+    "<div class=\"pane-head\"><button role=\"button\" , type=\"button\" data-ng-click=\"panels.close();\" class=\"btn btn-expand\">x</button></div><div ui-view=\"detail\" class=\"prod-detail\"></div>"
+  );
+
 }]);

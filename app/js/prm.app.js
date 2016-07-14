@@ -1,14 +1,14 @@
-proem = angular.module( "appProem", 
-	[ "ui.router", 
-		"ngSanitize", 
-		"ngResource", 
-		"ngAnimate", 
+proem = angular.module( "appProem",
+	[ "ui.router",
+		"ngSanitize",
+		"ngResource",
+		"ngAnimate",
 		"direcTives",
 		"smoothScroll",
 		"angular.panels"
 	])
 
-proem.config(["$stateProvider", "$urlRouterProvider", "$locationProvider", 
+proem.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",
 	function ( $stateProvider, $urlRouterProvider, $locationProvider ) {
 		$urlRouterProvider.otherwise( "/" )
 
@@ -64,27 +64,21 @@ proem.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",
 					}
 				}
 			})
-
-		  panelsProvider
-        .add({
-            id: "testmenu",
-            position: "right",
-            size: "700px",
-            templateUrl: "../resources/template/testmenu.html",
-            controller: "testmenuCtrl"
-        })
-        .add({
-            id: "testpanel",
-            position: "right",
-            size: "80%",
-            templateUrl: "../resources/template/testpanel.html",
-            controller: "testpanelCtrl",
-            closeCallbackFunction: "testpanelClose"
-        })
 	}
 ])
 
-proem.factory( "discResource", [ "$resource", "apistuff", 
+proem.config(["panelsProvider", function (panelsProvider ) {
+	panelsProvider
+		.add({
+			id: "panelDetail",
+			position: "left",
+			size: "50%",
+			templateUrl: "pane-template.html",
+			controller: "paneController"
+		})
+}])
+
+proem.factory( "discResource", [ "$resource", "apistuff",
 	function ( $resource, apistuff ) {
 		var resource = $resource( "/discog.json" )
 
@@ -94,7 +88,7 @@ proem.factory( "discResource", [ "$resource", "apistuff",
 ])
 
 // disc service
-proem.service("discService", ["discResource", 
+proem.service("discService", ["discResource",
 	function( discResource ) {
 		var items = discResource.get( ).$promise
 
@@ -117,15 +111,15 @@ proem.service("discService", ["discResource",
 	}
 ])
 
-proem.run( [ "$rootScope", "$state", "$stateParams", 
+proem.run( [ "$rootScope", "$state", "$stateParams",
 	function ( $rootScope, $state, $stateParams ) {
 		$rootScope.$state = $state;
 		$rootScope.$stateParams = $stateParams;
 		$state.go( "discog.list" );
-	} 
+	}
 ])
 
-proem.factory( "apistuff", [ "$http", "$q", 
+proem.factory( "apistuff", [ "$http", "$q",
 	function ( $http, $q ) {
 		var service = {}
 		var filename = ""
@@ -149,5 +143,5 @@ proem.factory( "apistuff", [ "$http", "$q",
 		}
 
 		return service
-	} 
+	}
 ])
