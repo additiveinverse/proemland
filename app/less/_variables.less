@@ -1,51 +1,51 @@
 // //////////////////////// Greyscale
-@black: 										rgb( 0, 0, 0 );
-@grey-darker:								darken( @grey, 25% );
-@grey-dark:									darken( @grey, 15% );
-@grey:											rgb( 94, 94, 99 );
+@black: 									rgb( 0, 0, 0 );
+@grey-darker:							darken( @grey, 25% );
+@grey-dark:								darken( @grey, 15% );
+@grey:									rgb( 94, 94, 99 );
 @grey-light:								lighten( @grey, 25% );
 @grey-lighter: 							lighten( @grey, 10% );
-@white: 										rgb( 255, 255, 255 );
+@white: 									rgb( 255, 255, 255 );
 
 // //////////////////////// Branding
 @white-off: 								rgb( 240, 243, 243 );
 @white-out: 								fade( @white-off, 70% );
-@blue: 											rgb( 4, 180, 191 );
-@blue-dark:									rgb(39, 47, 53);
+@blue: 									rgb( 4, 180, 191 );
+@blue-dark:								rgb(39, 47, 53);
 @blue-darker: 							fade(@blue-dark, 75%);
-@green: 										rgb( 72, 179, 14 );
-@orange: 										rgb( 255, 94, 7 );
-@yellow: 										rgb( 240, 181, 20 );
-@red:												#A80608;
+@green: 									rgb( 72, 179, 14 );
+@orange: 								rgb( 255, 94, 7 );
+@yellow: 									rgb( 240, 181, 20 );
+@red:										#A80608;
 
 
 // //////////////////////// VISUAL DEFAULTS
 // ------------------------ icons
-@font-icon:									'typicons';
+@font-icon:								'typicons';
 
-@base-icon-color: 					@blue;
+@base-icon-color: 						@blue;
 @base-icon-size: 						@base-type-h4;
 
 // ------------------------ Typography
-@font-sans-serif: 					Helvetica, Arial, sans-serif;
+@font-sans-serif: 						Helvetica, Arial, sans-serif;
 @font-serif:								"Times New Roman", Times, serif;
 @font-button: 							"Unica One", sans-serif;
 @font-heading:							"Oswald", sans-serif;
 
-@base-type:        					@font-sans-serif;
-@base-type-size:   					16;
-@base-type-color: 					@grey-dark;
+@base-type:        						@font-sans-serif;
+@base-type-size:   						16;
+@base-type-color: 						@grey-dark;
 
 @base-type-heading:					@font-heading;
-@base-type-heading-color:   @yellow;
-@base-type-heading-2-color: @grey;
+@base-type-heading-color:   			@yellow;
+@base-type-heading-2-color: 			@grey;
 
-@base-line-height: 					1.5;
-@base-line-multiplier:			@base-type-size * @base-line-height; // 24
+@base-line-height: 						1.5;
+@base-line-multiplier:					@base-type-size * @base-line-height; // 24
 
-@base-link:									@orange;
+@base-link:								@orange;
 @base-link-hover:	 					lighten( @base-link, 10% );
-@base-input-focus:					darken( @base-link, 25% );
+@base-input-focus:						darken( @base-link, 25% );
 
 // ------------------------ Typography - headings
 @base-type-h1: 							floor( @base-type-size * 3 ); // ~48px
@@ -57,56 +57,56 @@
 @base-type-sm:							@base-type-size / @base-line-height;
 
 // ------------------------ Typography - spacing
-// @base-margin:								unit( @base-line-height, %) * 3;
-@base-margin:								unit( @base-line-height, rem);
-@base-margin-half:					@base-margin / 2;
-@base-margin-quarter:				@base-margin / 4;
-@base-margin-eighth:				@base-margin / 8;
+// @base-margin:							unit( @base-line-height, %) * 3;
+@base-margin:							unit( @base-line-height, rem);
+@base-margin-half:						@base-margin / 2;
+@base-margin-quarter:					@base-margin / 4;
+@base-margin-eighth:					@base-margin / 8;
 
 // ------------------------ Forms - Messaging
-@error: 										@red;
-@alert: 										@green;
-@note:											@grey-light;
+@error: 									@red;
+@alert: 									@green;
+@note:									@grey-light;
 
 // ------------------------ Forms - buttons
 @btn-primary: 							@black;
 @btn-secondary:							@grey-darker;
-@btn-type-color:						@blue;
-@btn-pad:										@base-margin-quarter @base-margin-eighth;
+@btn-type-color:							@blue;
+@btn-pad:								@base-margin-quarter @base-margin-eighth;
 @btn-type-family:						@font-button;
 
 // ------------------------ Forms - labels
 @label-width: 							30%;
-@label-right: 							@base-margin-half;
-@label-total: 							( @label-width + @label-right );
+@label-right: 								@base-margin-half;
+@label-total: 								( @label-width + @label-right );
 
 // ------------------------ Forms - inputs
-@input-width:								calc( ~"100% - " @label-total );
-@input-bg:									@white;
-@input-bg-disabled: 				@white-off;
+@input-width:							calc( ~"100% - " @label-total * 1.5 );
+@input-bg:								@white;
+@input-bg-disabled: 					@white-off;
 
 @input-color:								@border-color;
 @input-border:							@border-color;
-@input-focus:								darken( @input-color, 50% );
-@input-height-base:					( @base-line-height + ( @base-margin-half * 2 ) + 2 );
+@input-focus:							darken( @input-color, 50% );
+@input-height-base:						( @base-line-height + ( @base-margin-half * 2 ) + 2 );
 
 @legend-color:							@grey-dark;
 // @legend-border-color:				#e5e5e5;
 
 @border-color: 							@grey-darker;
-@border-radius: 						@base-margin-eighth;
+@border-radius: 							@base-margin-eighth;
 @border-width: 							@base-margin-quarter;
 
 @base-opacity: 							0.65;
 @sprite-path: 							"../img/";
 
-@screen-res: 								320, 480, 640, 768, 992, 1024, 1280;
+@screen-res: 							320, 480, 640, 768, 992, 1024, 1280;
 @screen-xxs:								unit( extract( @screen-res, 1 ), px); // 320
-@screen-xs:									unit( extract( @screen-res, 2 ), px); // 480
-@screen-s:									unit( extract( @screen-res, 3 ), px); // 640
-@screen-m:									unit( extract( @screen-res, 4 ), px); // 768
-@screen-l:									unit( extract( @screen-res, 5 ), px); // 992
-@screen-xl:									unit( extract( @screen-res, 6 ), px); // 1024
+@screen-xs:								unit( extract( @screen-res, 2 ), px); // 480
+@screen-s:								unit( extract( @screen-res, 3 ), px); // 640
+@screen-m:								unit( extract( @screen-res, 4 ), px); // 768
+@screen-l:								unit( extract( @screen-res, 5 ), px); // 992
+@screen-xl:								unit( extract( @screen-res, 6 ), px); // 1024
 @screen-xxl: 								unit( extract( @screen-res, 7 ), px); // 1280
 
 @import './_typicons';

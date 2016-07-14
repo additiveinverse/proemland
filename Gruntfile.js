@@ -95,7 +95,7 @@ module.exports = function ( grunt ) {
         cwd: "<%= config.app.img %>favicons/",
         src: [ "*.*" ],
         dest: "<%= config.dist.img %>favs/"
-      },      
+      },
       svgs: {
         files: [ {
           expand: true,
@@ -455,7 +455,7 @@ module.exports = function ( grunt ) {
   require( "matchdep" ).filterDev( "grunt-*" ).forEach( grunt.loadNpmTasks )
 
   // init
-  grunt.registerTask( "devint", [ "concat", "copy", "ngtemplates", "imgprep", "dataprep" ] )
+  grunt.registerTask( "devint", [ "concat", "copy", "ngtemplates", "imgprep", "dataprep", "less:dev", "jade:prod" ] )
 
   // Develop
   grunt.registerTask( "default", [ "connect", "watch:build" ] )
