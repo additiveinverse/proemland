@@ -72,7 +72,7 @@ proem.config(["panelsProvider", function (panelsProvider ) {
 		.add({
 			id: "panelDetail",
 			position: "left",
-			size: "50%",
+			size: "45%",
 			templateUrl: "pane-template.html",
 			controller: "paneController"
 		})

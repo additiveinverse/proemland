@@ -21,7 +21,7 @@ html(lang='en')
 		- var caches = '?v8=favicon'
 		- var favs_url = '/img/favs/'
 
-		for tc in icon_touch 
+		for tc in icon_touch
 			link(rel="apple-touch-icon", sizes="#{ tc }x#{ tc }", href="#{ favs_url }apple-touch-icon-#{ tc }x#{ tc }.png#{ caches }")
 
 		for fc in icon_fav

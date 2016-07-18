@@ -328,31 +328,24 @@ body {
 	}
 }
 
-/*
-	@license Angular Panels version 1.0.3
-	ⓒ 2015 AHN JAE-HA http://github.com/eu81273
-	License: MIT
-
-*/
-
+// 	@license Angular Panels version 1.0.3ⓒ 2015 AHN JAE-HA http://github.com/eu81273 - License: MIT
 .dimming {
 	display: none;
 }
 
 .dimming.open {
-	background:#000;
-	bottom:0;
-	display:block;
-	left:0;
-	opacity: 0.25;
+	background: @blue-darker;
+	bottom: 0;
+	display: block;
+	left: 0;
 	position: fixed;
 	right: 0;
 	top: 0;
-	z-index: 1031;
+	z-index: 303;
 }
 
 .overflow-hidden {
-	overflow:hidden;
+	overflow: hidden;
 }
 
 .panels {
@@ -362,61 +355,58 @@ body {
 	overflow-y: auto;
 	pointer-events: all;
 	position: fixed;
-	z-index: 1032;
+	z-index: 306;
 	border: none;
 
 	#decor .content-border( @black );
 	#decor .tile(@black);
 	&:extend( .all-transition );
+
 	background-color: fadeout( @white-off, 10% );
-	top: @base-margin;
 
 	&::-webkit-scrollbar {
-		width: 5px;
+		width: 10px;
+
 		&-thumb {
-			background-color: rgba(0,0,0,0.3);
+			background-color: @blue-darker;
 			&:hover {
-				background-color: rgba(0,0,0,0.5);
+				background-color: @blue-darker;
 			}
 		}
 		&-track {
-			background-color:transparent;
+			background-color: transparent;
 		}
 	}
 	&.panel {
 		&-top,
 		&-bottom {
-			width:100%;
+			width: 100%;
 		}
+
 		&-top {
 			&.open {
-				.lh-box-shadow( 0 20px 80px rgba(0,0,0,0.7) );
+				.lh-box-shadow( 0 20px 80px @black-out );
 			}
 		}
+
 		&-bottom {
 			&.open {
-				.lh-box-shadow( 0 -20px 80px rgba(0,0,0,0.7) );
+				.lh-box-shadow( 0 -20px 80px @black-out );
 			}
 		}
+
+		&-left,
+		&-right {
+			height: 100%;
+			top: 0;
+		}
+
+		&-left.open {
+			.lh-box-shadow( 20px 0 80px 0 @black-out );
+		}
+
+		&-right.open {
+			.lh-box-shadow( -20px 0 80px 0 @black-out );
+		}
 	}
-}
-
-
-.panels.panel-left, .panels.panel-right {
-	height:100%;
-	top: 0;
-}
-
-
-.panels.panel-left.open {
-	-moz-box-shadow:20px 0 80px 0 rgba(0,0,0,0.7);
-	-webkit-box-shadow:20px 0 80px 0 rgba(0,0,0,0.7);
-	box-shadow:20px 0 80px 0 rgba(0,0,0,0.7);
-}
-
-
-.panels.panel-right.open {
-	-moz-box-shadow:-20px 0 80px 0 rgba(0,0,0,0.7);
-	-webkit-box-shadow:-20px 0 80px 0 rgba(0,0,0,0.7);
-	box-shadow:-20px 0 80px 0 rgba(0,0,0,0.7);
 }
