@@ -130,7 +130,7 @@ textarea,
 	text-shadow: 1px 1px 0 @black;
 	text-align: center;
 	font-family: @btn-type-family;
-	text-transform: uppercase;
+	.text-uppercase;
 
 	#gradient .vertical( @btn-primary, @btn-secondary, 0%, 100% );
 
@@ -152,39 +152,5 @@ textarea,
 	&:disabled {
 		opacity: 0;
 		visibility: hidden;
-	}
-
-	&-buy {
-		.icon("pre", @shopping-cart, 20 );
-		padding-right: @base-margin-half;
-		padding-left: @base-margin-half;
-		border: 4px solid @black;
-	}
-
-	&-expand {
-		&:extend( .btn .topright );
-		.icon("app", @plus, 24 );
-		.lh-size(32px, 24px);
-		&:after {
-			margin-left: 0;
-		}
-		&-on:after {
-			.lh-rotate( 45deg )
-		}
-	}
-
-	&-top {
-		.icon("app", @arrow-up, 24 );
-		.lh-size(32px, 24px);
-	}
-
-	&-reset {
-		.icon("app", @delete, 24 );
-	}
-
-	&-link {
-		&:extend( .btn .topright );
-		opacity: 0;
-		.icon("app", @plus, 24 );
 	}
 }

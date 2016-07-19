@@ -27,6 +27,10 @@
 	}
 }
 
+.display( @type: inline-block, @align: top ) {
+	display: @type;
+	vertical-align: @align;
+}
 
 // ////////// GRID //
 body {
@@ -38,11 +42,10 @@ body {
 	margin: 0 @total-width*(((@gutter-width*.5)/@gridsystem-width)*-1);
 }
 
-.column( @x, @columns: @columns, @margin-top: 'auto') {
+.column( @x, @columns: @columns, @margin-top: inherit, @margin-bottom: inherit) {
 	.col( @x, @columns: @columns );
-	display: inline-block;
-	vertical-align: top;
-	margin: @margin-top @total-width*((@gutter-width*.5)/@gridsystem-width);
+	.display();
+	margin: @margin-top @total-width*((@gutter-width*.5)/@gridsystem-width) @margin-bottom;
 }
 
 // just the width ma'am

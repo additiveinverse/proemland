@@ -58,11 +58,15 @@
 @base-type-sm:							@base-type-size / @base-line-height;
 
 // ------------------------ Typography - spacing
-// @base-margin:							unit( @base-line-height, %) * 3;
+// @base-margin:							unit( @total-width*((@gutter-width*.5)/@gridsystem-width), rem) * 3;
 @base-margin:							unit( @base-line-height, rem);
 @base-margin-half:						@base-margin / 2;
 @base-margin-quarter:					@base-margin / 4;
 @base-margin-eighth:					@base-margin / 8;
+
+@gutter-width: 20;
+@total-width: 100%;
+@gridsystem-width: unit( (@column-width*@columns) + (@gutter-width*@columns), px);
 
 // ------------------------ Forms - Messaging
 @error: 									@red;
@@ -74,6 +78,7 @@
 @btn-secondary:							@grey-darker;
 @btn-type-color:							@blue;
 @btn-pad:								@base-margin-quarter @base-margin-eighth;
+@btn-lrg: 									@base-margin-half @base-margin;
 @btn-type-family:						@font-button;
 
 // ------------------------ Forms - labels

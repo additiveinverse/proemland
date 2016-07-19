@@ -41,7 +41,6 @@
 		position: absolute;
 		top: -12px;
 		.push(0.4)
-		// margin-left: 34px;
 	}
 
 	.lil_box( @color ) {
@@ -53,10 +52,6 @@
 	}
 }
 
-.post-content {
-	#decor .lil_box( #161C1E; );
-}
-
 html {
 	overflow-x: hidden;
 }
@@ -64,6 +59,43 @@ html {
 body {
 	@background-bodyimage: data-uri('image/svg+xml;charset=UTF-8','../img/granite.svg');
 	background: @blue-dark @background-bodyimage 10px 0 fixed;
+}
+
+// button types
+.btn {
+	&-buy {
+		.icon("pre", @shopping-cart );
+		padding: @base-margin-half @base-margin;
+	}
+
+	&-expand {
+		&:extend( .btn .topright );
+		.icon("app", @plus, 24 );
+		.lh-size(32px, auto);
+
+		&:after {
+			margin-left: 0;
+		}
+
+		// &-on:after {
+		// 	.lh-rotate( 45deg )
+		// }
+	}
+
+	&-top {
+		.icon("app", @arrow-up, 24 );
+		.lh-size( 32px, auto );
+	}
+
+	&-reset {
+		.icon("app", @delete, 24 );
+	}
+
+	&-link {
+		&:extend( .btn .topright );
+		opacity: 0;
+		.icon("app", @plus, 24 );
+	}
 }
 
 @import 'navigation';
@@ -129,7 +161,7 @@ body {
 			});
 
 			.mq(@screen-xxl, {
-				flex: 0 1 50%;
+				flex: 0 1 40%;
 				background-size: 6%;
 			});
 
@@ -189,6 +221,8 @@ body {
 
 	&-content {
 		&:extend( .post .content-defaults .post-border );
+		#decor .lil_box( #161C1E; );
+
 		.mq(@screen-xxs, {
 			margin-bottom: 0;
 		});
@@ -197,6 +231,11 @@ body {
 			margin-bottom: @base-margin * 20;
 		});
 
+		&-btn-top  {
+			.mq( @screen-xxl, {
+				.push(0.5);
+			} );
+		}
 
 		&-wrap {
 			position: relative;
@@ -252,7 +291,7 @@ body {
 				max-height: 700px;
 
 				&-content {
-					.all-transition;
+					&:extend( .all-transition );
 					position: absolute;
 					top: 100%;
 					width: 91.25%;
@@ -290,58 +329,30 @@ body {
 	}
 }
 
-.width-half {
-	.mq(@screen-xxs, {
-		width: calc( ~"100% / 2" - 3.25rem );
-		.inline-block();
-	});
-	.mq(@screen-xl, {
-		width: auto;
-		.inline-block();
-	})
-}
-
-// 1280px
-@media only screen and ( min-width: 1280px ) {
-	.post-content-btn-top {
-		.push(1);
-	}
-
-	.filter-lst {
-		.prefix(1);
-	}
-
-	.filter-search {
-		.suffix(1);
-	}
-
-	.info-lst {
-		&:extend( .filter-lst, .filter-search );
-	}
-
-	.post-content {
-		&-wrap {
-			&:extend( .filter-lst, .filter-search );
-			width: auto;
-			margin: 0 auto;
-		}
-	}
-}
+// .width-half {
+// 	.mq(@screen-xxs, {
+// 		width: calc( ~"100% / 2" - 3.25rem );
+// 		.inline-block();
+// 	});
+// 	.mq(@screen-xl, {
+// 		width: auto;
+// 		.inline-block();
+// 	})
+// }
 
 // 	@license Angular Panels version 1.0.3ⓒ 2015 AHN JAE-HA http://github.com/eu81273 - License: MIT
 .dimming {
 	display: none;
-}
-
-.dimming.open {
-	background: @blue-darker;
-	bottom: 0;
-	display: block;
-	left: 0;
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: 303;
+	&.open {
+		background: @blue-darker;
+		bottom: 0;
+		display: block;
+		left: 0;
+		position: fixed;
+		right: 0;
+		top: 0;
+		z-index: 303;
+	}
 }
 
 .overflow-hidden {
@@ -350,63 +361,67 @@ body {
 
 .panels {
 	box-shadow: none;
-	display: block;
 	overflow-x: auto;
 	overflow-y: auto;
 	pointer-events: all;
 	position: fixed;
 	z-index: 306;
 	border: none;
+	background-color: fadeout( @white-off, 10% );
 
 	#decor .content-border( @black );
 	#decor .tile(@black);
 	&:extend( .all-transition );
 
-	background-color: fadeout( @white-off, 10% );
 
 	&::-webkit-scrollbar {
 		width: 10px;
 
 		&-thumb {
-			background-color: @blue-darker;
+			background-color: @white-off;
 			&:hover {
-				background-color: @blue-darker;
+				background-color: @white;
 			}
 		}
 		&-track {
 			background-color: transparent;
 		}
 	}
-	&.panel {
-		&-top,
-		&-bottom {
-			width: 100%;
-		}
 
-		&-top {
-			&.open {
-				.lh-box-shadow( 0 20px 80px @black-out );
-			}
-		}
-
-		&-bottom {
-			&.open {
-				.lh-box-shadow( 0 -20px 80px @black-out );
-			}
-		}
-
-		&-left,
-		&-right {
-			height: 100%;
-			top: 0;
-		}
-
-		&-left.open {
-			.lh-box-shadow( 20px 0 80px 0 @black-out );
-		}
-
-		&-right.open {
-			.lh-box-shadow( -20px 0 80px 0 @black-out );
+	&.open {
+		.btn-expand:after {
+			.lh-transition-delay( 0.3s );
+			.lh-rotate( 45deg );
 		}
 	}
 }
+
+.panel {
+	// &-top,
+	// &-bottom {
+	// 	width: 100%;
+	// }
+
+	&-left,
+	&-right {
+		height: 100%;
+		top: 0;
+	}
+
+	// &-top.open {
+	// 	.lh-box-shadow( 0 20px 80px @black-out );
+	// }
+
+	// &-bottom.open {
+	// 	.lh-box-shadow( 0 -20px 80px @black-out );
+	// }
+
+	&-left.open {
+		.lh-box-shadow( 20px 0 80px 0 @black-out );
+	}
+
+	&-right.open {
+		.lh-box-shadow( -20px 0 80px 0 @black-out );
+	}
+}
+

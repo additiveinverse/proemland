@@ -37,12 +37,11 @@
 	&-photo {
 		width: 100%;
 		&:extend( .all-transition );
-		.inline-block;
 		.scales( 1.1, 1.1, center );
 	}
 
 	&-thumb {
-		border: 4px solid @white;
+		border: @border-width solid @white;
 		margin-top: @base-margin;
 		.col(4);
 	}
@@ -85,12 +84,12 @@
 	}
 
 	&-detail {
-		padding: 0 @base-margin;
+		padding: 0 @base-margin @base-margin * 2;
 
 		&-hdr {
 			position: static;
 			opacity: 1;
-			padding: @base-margin @base-margin-quarter 0;
+			padding: @base-margin 0 0;
 		}
 
 		&-nfo {
@@ -101,9 +100,8 @@
 			padding-bottom: @base-margin-half;
 
 			&-lst {
-				margin-left: 1em;
-				width: 70%;
-				.inline-block;
+				.column( 11, @columns, @base-margin, 0 );
+				padding-left: 1em;
 			}
 
 			&-typ,
@@ -115,9 +113,8 @@
 
 		&-track {
 			&-lst {
-				margin-top: 0;
-				width: 67%;
-				.inline-block;
+				.column( 11 );
+				margin: 0;
 			}
 		}
 
