@@ -41,7 +41,10 @@ proem.sptfy.controller('PlaylistController', ['', function(){
 
 // /////////////////////////////////////////////////////// twitter
 proem.twttr = angular.module( "appTwttr", [ ] )
-proem.twttr.url = "";
-proem.twttr.controller('TimelineController', ['', function(){
+proem.twttr.url = "https://userstream.twitter.com/1.1/user.json";
+proem.twttr.controller('TimelineController', ["$scope", "$state","$stateParams",
+	function( $scope, $state, $stateParams ) {
+		$scope.data = ""
 
-}])
+	}
+])

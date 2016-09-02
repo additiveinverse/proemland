@@ -21,6 +21,11 @@ angular.module('appProem').run(['$templateCache', function($templateCache) {
   );
 
 
+  $templateCache.put('app/partials/news-timeline.html',
+    "TEST"
+  );
+
+
   $templateCache.put('app/partials/pane-template.html',
     "<div class=\"pane-head\"><button role=\"button\" , type=\"button\" data-ng-click=\"panels.close();\" class=\"btn btn-expand\">x</button></div><div ui-view=\"detail\" class=\"prod-detail\"></div>"
   );

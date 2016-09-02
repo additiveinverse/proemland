@@ -54,13 +54,16 @@ proem.config(["$stateProvider", "$urlRouterProvider", "$locationProvider",
 				url: "/news",
 				views: {
 					"news.twitter": {
-						controller: ""
+						controller: "TimelineController",
+						templateProvider: [ "$templateCache", function ( $templateCache ) {
+							return $templateCache.get( "app/partials/news-timeline.html" );
+						} ]
 					},
 					"news.soundcloud": {
 						controller: ""
 					},
 					"news.spotify": {
-						controller: ""
+						controller: "PlaylistController",
 					}
 				}
 			})
