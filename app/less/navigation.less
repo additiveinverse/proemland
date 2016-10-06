@@ -2,10 +2,10 @@
 	.list {
 		list-style: none;
 		padding: @base-margin-half @base-margin;
-		text-transform: uppercase;
 		font-family: @font-heading;
 		margin-top: 0;
 		margin-bottom: 0;
+		.text-uppercase;
 	}
 
 	.wrap {
@@ -18,7 +18,7 @@
 		cursor: pointer;
 		display: block;
 		color: @btn-type-color;
-		.uppercase;
+		.text-uppercase;
 		.icon( "pre", @th-menu, @btn-type-color );
 	}
 }
@@ -28,11 +28,19 @@
 		display: flex;
 		background-color: fade( @black, 25% );
 		&:extend( .nav .wrap );
+		.mq(@screen-xxs, {
+			text-align: center;
+			flex-direction: column;
+		});
+		.mq(@screen-s, {
+			flex-direction: row;
+		});
 	}
 
 	&-lst {
 		&:extend( .nav .list );
-		flex: 0 1 60%;
+		flex: 0 0 51%;
+		font-size: 90%;
 
 		&-itm {
 			.inline-block(top);
@@ -42,10 +50,9 @@
 	}
 
 	&-search {
-		flex: 0 1 40%;
-		text-align: right;
 		margin: @base-margin-half 0 @base-margin-quarter;
 		position: relative;
+		flex: 0 0 43%;
 
 		.mq(@screen-xxl, {
 			.suffix(0.5);
@@ -86,9 +93,14 @@
 
 .antisocial {
 	&-lst {
+		.mq( @screen-xxs, {
+			display: none;
+		} );
+
 		&:extend( .nav .list );
 		flex: 1 0 20%;
 		text-align: right;
+		padding-right: 0;
 
 		&-itm	{
 			.inline-block(middle);
@@ -110,17 +122,19 @@
 
 .social {
 	&-lst {
+		.mq( @screen-xxs, {
+			display: none;
+		} );
+
 		&:extend( .nav .list );
-		flex: 1 0 30%;
-		padding+: @base-margin-half 0 @base-margin-half 0;
+		flex: 1 0 22%;
 
 		&-itm {
-			.inline-block();
+			.inline-block( super );
 			font-size: 0;
 			border: 1px solid @border-color;
 			border-radius: 40px;
-			margin: 8px 8px 8px 0;
-			.size(30px);
+			.size(24px);
 			&:extend( .sprite, .opacity-transition );
 			background-size: 302%;
 			background-color: @white-off;
@@ -155,7 +169,7 @@
 			}
 			&-lnk {
 				display: block;
-				.size(40px);
+				.size(30px);
 			}
 		}
 	}

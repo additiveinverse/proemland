@@ -1,11 +1,11 @@
-@import './_variables';
-@import './_mixins';
-@import './_utilities';
-@import './lesshat-prefixed';
+@import (reference) './_variables';
+@import (reference) './_mixins';
+@import (reference) './_utilities';
+@import (once) './lesshat-prefixed';
 
-* {
-	// .box-sizing(border-box);
-}
+// * {
+// 	.box-sizing(border-box);
+// }
 
 html,
 body {
@@ -54,8 +54,8 @@ h3 {
 
 h4 {
 	.font-size( @base-type-h4, 1.5 );
-  margin-bottom: 0.5em;
-  top: @base-line-height * @base-type-h4 + 1px;
+	margin-bottom: 0.5em;
+	top: @base-line-height * @base-type-h4 + 1px;
 }
 
 h5 {

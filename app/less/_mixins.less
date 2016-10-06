@@ -1,6 +1,6 @@
-@import '_variables';
-@import '_grid';
-@import 'lesshat-prefixed';
+@import (reference) '_variables';
+@import (reference) '_grid';
+@import (once) 'lesshat-prefixed';
 
 .font-size( @font-size: @base-type-size, @offset: 1 ) {
 	@rem: ( @font-size / 10 );

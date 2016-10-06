@@ -179,7 +179,7 @@ module.exports = function ( grunt ) {
 		},
 
 		jade: {
-			prod: {
+			production: {
 				options: {
 					pretty: true,
 					data: function ( dest, src ) {
@@ -400,11 +400,11 @@ module.exports = function ( grunt ) {
 		// ///////////////////////////////////////////////////////////////// build / deploy / workflow
 		bump: {
 			options: {
-				files: [ "package.json", "bower.json" ],
+				files: [ "package.json", "bower.json", "config_dev.json", "config_prod.json" ],
 				updateConfigs: [ ],
 				commit: true,
 				commitMessage: "Release v%VERSION%",
-				commitFiles: [ "package.json", "bower.json" ],
+				commitFiles: [ "package.json", "bower.json", "config_dev.json", "config_prod.json" ],
 				createTag: true,
 				tagName: "%VERSION%",
 				tagMessage: "%VERSION%",
@@ -435,12 +435,12 @@ module.exports = function ( grunt ) {
 			build: {
 				files: [
 					"Gruntfile.js",
-					"config.json",
+					"*.json",
 					"<%= config.app.root %>**/*"
 				],
-				tasks: [ "jade:dev", "newer:minjson", "newer:ngtemplates", "concat", "less:dev", "combine_mq" ],
+				tasks: [ "jade:dev", "newer:ngtemplates", "concat", "less:dev", "combine_mq" ],
 				options: {
-					reload: false,
+					reload: true,
 					livereload: true,
 					spawn: false,
 					dateFormat: function ( time ) {
@@ -477,14 +477,14 @@ module.exports = function ( grunt ) {
 		grunt.registerTask( "imgprep", [ "favprep", "svgprep", "svgmin", "imagemin" ] )
 		grunt.registerTask( "favprep", [ "realFavicon", "copy:favs" ] )
 		grunt.registerTask( "svgprep", [ "svg_sprite", "copy:svgs"] )
-		grunt.registerTask( "dataprep", [ "jsonlint", "minjson" ] )
+		grunt.registerTask( "dataprep", [ "minjson" ] )
 
 	// Test
 	grunt.registerTask( "test", [ "jsonlint" ] )
 
 	// Build for Production
-	grunt.registerTask( "build", [ "devint", "htmlmin", "cssprep" ] )
+	grunt.registerTask( "build", [ "dataprep", "svgmin", "imagemin:site", "jade:production", "htmlmin", "cssprep" ] )
 
 	// Deploy
-	grunt.registerTask( "deploy", [ "build", "cssprep" ] )
+	grunt.registerTask( "deploy", [ "build", "bump" ] )
 }

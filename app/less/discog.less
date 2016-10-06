@@ -47,27 +47,35 @@
 	}
 
 	&-item {
-		margin-right: 1.25rem;
-		margin-bottom: 1.25rem;
-		cursor: pointer;
-		min-height: 10em;
 		&:extend( .post .content-defaults .post-image );
 
-		.mq(@screen-xs, {
-			width: calc(~"100% / 2 - 3em" );
+		.mq(@screen-xxs, {
+			margin-bottom: 1.25rem;
+			cursor: pointer;
+			min-height: 10em;
+			margin-right: 0;
+			width: calc(~"100% - 0.9rem" );
 		});
+
+		.mq(@screen-xs, {
+			margin-right: 1.25rem;
+			width: calc(~"100% / 2 - 1rem" );
+		});
+
 		.mq(@screen-s, {
-			width: calc(~"100% / 3 - 2.5em" );
+			width: calc(~"100% / 3 - 1.75rem" );
 		});
 
 		.mq(@screen-l, {
-			width: calc(~"100% / 4 - 2em" );
+			width: calc(~"100% / 4 - 2rem" );
 		});
+
 		.mq(@screen-xl, {
-			width: calc(~"100% / 5 - 2em" );
+			width: calc(~"100% / 5 - 2rem" );
 		});
+
 		.mq(@screen-xxl, {
-			width: calc(~"100% / 6 - 2em" );
+			width: calc(~"100% / 6 - 2rem" );
 		});
 
 		&-hdr {

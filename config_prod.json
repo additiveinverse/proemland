@@ -1,7 +1,7 @@
 {
-	"url": "http://dev.proemland.com",
+	"url": "http://www.proemland.com",
 	"title": "Proemland",
-	"version": "7.0.0",
+	"version": "7.0.1",
 	"owner": "Proem",
 	"description": "Relatively stagnant since 2007",
 	"map": {
@@ -30,10 +30,8 @@
 			"twitter": "http://twitter.com/wallofknives"
 		},
 		"antisocial": {
-			"pgth": "http://placeguntohead.com",
-			"art": "http://hey-whatever.com",
-			"design": "http://additiveinverse.com",
-			"dxrxt": "http://dxrxt.com"
+			"the book": "http://placeguntohead.com",
+			"design": "http://additiveinverse.com"
 		}
 	},
 	"content": {
@@ -57,7 +55,6 @@
 			"gear": {
 				"Hardware": [
 					"Alesis IODock",
-					"Arturia beatstep",
 					"Arturia microbrute",
 					"ART FXRII",
 					"Korg Wavestation A/D",
@@ -71,8 +68,7 @@
 					"Novation Remote SL25",
 					"Novation Launchpad mini",
 					"Motu 2408 x 3",
-					"Motu Midi Express XT",
-					"Waldorf Blofeld"
+					"Motu Midi Express XT"
 				],
 				"Desktop": [
 					"Ableton Live Suite",

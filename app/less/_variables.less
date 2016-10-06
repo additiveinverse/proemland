@@ -59,7 +59,7 @@
 
 // ------------------------ Typography - spacing
 // @base-margin:							unit( @total-width*((@gutter-width*.5)/@gridsystem-width), rem) * 3;
-@base-margin:							unit( @base-line-height, rem);
+@base-margin:							1rem;
 @base-margin-half:						@base-margin / 2;
 @base-margin-quarter:					@base-margin / 4;
 @base-margin-eighth:					@base-margin / 8;
@@ -87,7 +87,7 @@
 @label-total: 								( @label-width + @label-right );
 
 // ------------------------ Forms - inputs
-@input-width:							calc( ~"100% - " @label-total * 1.5 );
+@input-width:							calc( ~"100% - " @label-total * @base-line-height );
 @input-bg:								@white;
 @input-bg-disabled: 					@white-off;
 
@@ -97,7 +97,6 @@
 @input-height-base:						( @base-line-height + ( @base-margin-half * 2 ) + 2 );
 
 @legend-color:							@grey-dark;
-// @legend-border-color:				#e5e5e5;
 
 @border-color: 							@grey-darker;
 @border-radius: 							@base-margin-eighth;
@@ -115,4 +114,4 @@
 @screen-xl:								unit( extract( @screen-res, 6 ), px); // 1024
 @screen-xxl: 								unit( extract( @screen-res, 7 ), px); // 1280
 
-@import './_typicons';
+@import (reference) './_typicons';

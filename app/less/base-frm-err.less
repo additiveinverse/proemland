@@ -1,7 +1,7 @@
-@import './_variables';
-@import './lesshat-prefixed';
-@import './_mixins';
-@import './_utilities';
+@import (reference) './_variables';
+@import (reference) './lesshat-prefixed';
+@import (reference) './_mixins';
+@import (reference) './_utilities';
 
  // Nice UI touch for placeholders.
 [ placeholder ] {
@@ -38,15 +38,10 @@ label,
 // text inputs and text area
 input,
 select,
-textarea,
-.sel,
-.txtarea,
-.txt {
+textarea {
 	color: @input-color;
 	border: 1px solid @border-color;
 	padding: @base-margin-quarter @base-margin-half;
-	width: @input-width;
-	margin-right: @base-margin-eighth;
 
 	&:hover {
 		box-shadow: 1px 1px 5px @grey-light inset;
@@ -57,6 +52,20 @@ textarea,
 		box-shadow: 1px 1px 10px @grey-light inset;
 		color: @input-focus;
 	}
+}
+
+.sel,
+.txtarea,
+.txt {
+
+	.mq(@screen-xxs, {
+		width: 50%;
+	});
+
+	.mq(@screen-l, {
+		width: @input-width;
+	});
+	margin-right: @base-margin-eighth;
 }
 
 
