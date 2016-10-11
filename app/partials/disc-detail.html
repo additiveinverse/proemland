@@ -1,9 +1,8 @@
 <header class="hdr prod-hdr prod-detail-hdr">
 	<h2 ng-bind-html-unsafe="data[0].ttl" class="ttl prod-hdr-ttl prod-detail-hdr-ttl fn" itemprop="name">{{ data[0].ttl }} </h2>
 </header>
-
+<img class="prod-thumb thumb photo" ng-src="{{ data[0].img }}" alt="{{ data[0].ttl }}" />
 <article class="prod-details prod-detail-nfo prod-nfo nfo">
-	<img class="prod-thumb thumb photo" ng-src="{{ data[0].img }}" alt="{{ data[0].ttl }}" />
 	<dl class="lst prod-detail-nfo-lst nfo-lst">
 		<dt class="type prod-detail-nfo-typ nfo-typ">released</dt>
 		<dd class="val prod-detail-nfo-val nfo-val">{{ data[0].date | date:yyyy }}</dd>

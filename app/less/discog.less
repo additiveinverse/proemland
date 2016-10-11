@@ -1,3 +1,5 @@
+@import (reference) '_grid';
+
 // some global product stuff
 .prod {
 	position: relative;
@@ -43,7 +45,13 @@
 	&-thumb {
 		border: @border-width solid @white;
 		margin-top: @base-margin;
-		.col(4);
+
+		.mq( @screen-xxs, {
+			width: 100%;
+		});
+		.mq( @screen-s, {
+			width: calc( ~"100% / 3");
+		});
 	}
 
 	&-item {
@@ -102,10 +110,15 @@
 			text-shadow: none;
 			position: static;
 			padding-bottom: @base-margin-half;
+			.mq( @screen-xxs, {
+				width: 100%;
+			});
+			.mq( @screen-s, {
+				.column( 10, @columns, @base-margin, 0 );
+			});
 
 			&-lst {
-				.column( 11, @columns, @base-margin, 0 );
-				padding-left: 1em;
+				padding-left: 1.5em;
 			}
 
 			&-typ,
@@ -115,12 +128,11 @@
 			}
 		}
 
-		&-track {
-			&-lst {
-				.column( 11 );
-				margin: 0;
-			}
-		}
+		// &-track {
+		// 	&-lst {
+		// 		margin: 0;
+		// 	}
+		// }
 
 		&-lnk {
 			.icon("app", @link );
