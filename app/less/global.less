@@ -108,72 +108,57 @@ body {
 }
 
 .page {
-	display: flex;
-	justify-content: flex-start;
-	flex-direction: column;
-
-	.mq(@screen-m, {
-		padding-top: 75px;
-	});
-
 	&-hdr {
-		// display: flex;
+		display: flex;
+		justify-content: flex-start;
 
 		.mq(@screen-xxs, {
+			// flex-direction: row;
 			padding: 0 0 0 0.5em;
 			background-color: fade(@black, 50%);
 		});
 
 		.mq(@screen-m, {
-			left: 0;
-			top: 0;
-			width: 100%;
-			position: fixed;
-			z-index: 20;
-			order: 1;
-			height: 75px;
+
 		});
 
 		&-ttl {
+			.font-size( @base-type-h4, @base-line-height );
+			text-shadow: -1px -1px 0 multiply(fade(@yellow, 75%), @blue-dark);
+			font-family: @base-type;
+			flex:  2 1 50%;
+			padding-top: 0.25em;
+			padding-bottom: 0.5em;
+
+
 			.mq(@screen-xxs, {
-				text-shadow: -1px -1px 0 multiply(fade(@yellow, 75%), @blue-dark);
-				font-family: @base-type;
-				.font-size( @base-type-h3, @base-line-height );
-				flex: 0 1 100%;
-				padding-top: 1rem;
 			});
 
-			.mq(@screen-xl, {
-				flex: 0 1 35%;
+			.mq(@screen-m, {
 			});
 
 			.mq(@screen-xxl, {
-				flex: 0 1 40%;
-				background-size: 6%;
 			});
 
 			&-lnk {
-				background: data-uri('image/svg+xml;charset=UTF-8','../img/logo_flat_2016.svg') 4% 50% no-repeat;
-				background-size: 12%;
+				background: data-uri('image/svg+xml;charset=UTF-8','../img/logo_flat_2016.svg') 5% 4px no-repeat;
+				background-size: 4%;
 				display: block;
 				text-align: left;
-				.prefix(3);
 				.lnk( fade(@yellow, 20%) );
+				.prefix(1.5);
 			}
 
 			&-nfo {
-				.prefix( 3);
 				color: @grey-light;
-				.font-size(@base-type-sm, 0.3);
 				margin-bottom: 0;
+				.font-size(@base-type-sm, 0.3);
+				.prefix(1.5);
 			}
 		}
 	}
 
 	&-content {
-		flex: 1 1 auto;
-		order: 2;
-
 		&-wrap {
 			.mq(@screen-l, {
 				margin-bottom: @base-margin * 20;
@@ -280,15 +265,15 @@ body {
 				&:extend( .post .content-defaults .post-image );
 
 				// this will need to move down to the 1024 media query
-				max-height: 700px;
+				// max-height: 680px;
 
 				&-content {
-					&:extend( .all-transition );
-					position: absolute;
-					top: 100%;
-					width: 91.25%;
-					padding: @base-margin * 2 @base-margin * 3;
-					background-color: @blue-darker;
+					// &:extend( .all-transition );
+					// position: absolute;
+					// top: 100%;
+					// width: 91.25%;
+					// background-color: @blue-darker;
+					padding: @base-margin @base-margin * 2;
 				}
 
 				&-active {
@@ -385,15 +370,19 @@ body {
 		left: -100%;
 
 		.mq( @screen-xxs, {
+			width: 310px;
+		} );
+
+		.mq( @screen-xs, {
 			.col(12);
 		} );
 
 		.mq( @screen-m, {
-			.col(10);
+			.col(11);
 		} );
 
 		.mq( @screen-l, {
-			.col(8);
+			.col(10);
 		} );
 
 	}

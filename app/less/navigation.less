@@ -1,11 +1,18 @@
 .nav {
 	.list {
 		list-style: none;
-		padding: @base-margin-half @base-margin;
 		font-family: @font-heading;
 		margin-top: 0;
 		margin-bottom: 0;
 		.text-uppercase;
+	}
+
+	.list-big {
+		padding: @base-margin @base-margin;
+	}
+
+	.list-small {
+		padding: @base-margin-half @base-margin;
 	}
 
 	.wrap {
@@ -23,40 +30,58 @@
 	}
 }
 
+.info {
+	&-nav {
+		&:extend( .nav .wrap );
+		background-color: fade(@yellow, 20%);
+	}
+
+	&-lst {
+		&:extend( .nav .list, .nav .list-big );
+		&-itm {
+			padding: 0 @base-margin 0 0;
+			.inline-block();
+			.font-size(@base-type-h3 );
+
+			&-lnk {
+				.lnk( @blue-dark );
+			}
+		}
+	}
+}
+
 .filter {
 	&-nav {
 		display: flex;
 		background-color: fade( @black, 25% );
+
 		&:extend( .nav .wrap );
+
 		.mq(@screen-xxs, {
 			text-align: center;
 			flex-direction: column;
 		});
+
 		.mq(@screen-s, {
+			text-align: left;
 			flex-direction: row;
 		});
 	}
 
 	&-lst {
-		&:extend( .nav .list );
-		flex: 0 0 51%;
-		font-size: 90%;
+		&:extend( .nav .list, .nav .list-big );
+		flex: 1 1 78%;
 
 		&-itm {
 			.inline-block(top);
-			padding: @base-margin-quarter @base-margin @base-margin-quarter 0;
+				padding: @base-margin-quarter @base-margin @base-margin-quarter 0;
 		}
-
 	}
 
 	&-search {
-		margin: @base-margin-half 0 @base-margin-quarter;
+		margin: 0.75rem 0 @base-margin-quarter;
 		position: relative;
-		flex: 0 0 43%;
-
-		.mq(@screen-xxl, {
-			.suffix(0.5);
-		});
+		flex: 0 0 30%;
 
 		&-txt {
 			.font-size( @base-type-h4, 1.2 );
@@ -73,32 +98,11 @@
 	}
 }
 
-.info {
-	&-nav {
-		&:extend( .nav .wrap );
-		background-color: fade(@yellow, 20%);
-	}
-	&-lst {
-		&:extend( .nav .list );
-		&-itm {
-			padding: 0 @base-margin 0 0;
-			.font-size(@base-type-h3);
-			.inline-block();
-			&-lnk {
-				.lnk( @blue-dark );
-			}
-		}
-	}
-}
 
 .antisocial {
 	&-lst {
-		.mq( @screen-xxs, {
-			display: none;
-		} );
-
-		&:extend( .nav .list );
-		flex: 1 0 20%;
+		&:extend( .nav .list, .nav .list-small );
+		flex: 0 0 12%;
 		text-align: right;
 		padding-right: 0;
 
@@ -122,12 +126,8 @@
 
 .social {
 	&-lst {
-		.mq( @screen-xxs, {
-			display: none;
-		} );
-
-		&:extend( .nav .list );
-		flex: 1 0 22%;
+		&:extend( .nav .list, .nav .list-small );
+		flex: 0 0 19%;
 
 		&-itm {
 			.inline-block( super );

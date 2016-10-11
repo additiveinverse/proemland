@@ -440,9 +440,9 @@ module.exports = function ( grunt ) {
 				],
 				tasks: [ "jade:dev", "newer:ngtemplates", "concat", "less:dev", "combine_mq" ],
 				options: {
-					reload: true,
+					reload: false,
 					livereload: true,
-					spawn: false,
+					spawn: true,
 					dateFormat: function ( time ) {
 						grunt.log.writeln( "The watch finished in " + time + "ms at" + ( new Date( ) ).toString( ) )
 					}
