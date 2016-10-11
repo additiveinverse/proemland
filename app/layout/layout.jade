@@ -51,9 +51,10 @@ html(lang='en')
 						span.page-hdr-ttl-nfo-yr.page-nfo-yr.nfo= new Date().getFullYear()
 
 				include nav
-				//- include nav_page
-				+menuMaker( 'antisocial', network.antisocial )
-				+menuMaker( 'social', network.social )
+				.page-hdr-nav
+					//- include nav_page
+					+menuMaker( 'antisocial', network.antisocial )
+					+menuMaker( 'social', network.social )
 
 		main( class='page-content ' + 'page-' + bodyclass + '-content', id='top' )
 			block content

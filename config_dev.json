@@ -6,11 +6,11 @@
 	"description": "Relatively stagnant since 2007",
 	"map": {
 		"discog": {
-			"full-lengths": "Full Lengths",
+			"full-lengths": "Albums",
 			"singles": "Singles",
 			"remixes": "Remixes",
 			"live-sets": "Live",
-			"various-artist": "Various Artist"
+			"various-artist": "Compilations"
 		},
 		"info": {
 			"discog": "Discography",

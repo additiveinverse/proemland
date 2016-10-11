@@ -110,50 +110,102 @@ body {
 .page {
 	&-hdr {
 		display: flex;
-		justify-content: flex-start;
+		padding: 0 0 0 0.5em;
+		background-color: fade(@black, 50%);
 
 		.mq(@screen-xxs, {
-			// flex-direction: row;
-			padding: 0 0 0 0.5em;
-			background-color: fade(@black, 50%);
+			flex-flow: column wrap;
 		});
 
-		.mq(@screen-m, {
-
+		.mq(@screen-s, {
+			flex-flow: row;
 		});
+
+
+		&-nav {
+			.mq(@screen-xxs, {
+				display: none;
+			});
+
+			.mq(@screen-s, {
+				display: inline-flex;
+				flex: 0 0 66%;
+			});
+
+			.mq( @screen-m, {
+				flex: 0 0 55%;
+			});
+
+			.mq( @screen-l, {
+				flex: 0 0 43%;
+			});
+
+			.mq( @screen-xl, {
+				flex: 0 0 41%;
+			});
+
+			.mq( @screen-xxl, {
+				flex: 0 0 33%;
+			});
+
+			&-activator {}
+			&-wrap {}
+		}
 
 		&-ttl {
 			.font-size( @base-type-h4, @base-line-height );
 			text-shadow: -1px -1px 0 multiply(fade(@yellow, 75%), @blue-dark);
 			font-family: @base-type;
-			flex:  2 1 50%;
+			flex:  1;
 			padding-top: 0.25em;
 			padding-bottom: 0.5em;
 
 
-			.mq(@screen-xxs, {
-			});
-
-			.mq(@screen-m, {
-			});
-
-			.mq(@screen-xxl, {
-			});
-
 			&-lnk {
-				background: data-uri('image/svg+xml;charset=UTF-8','../img/logo_flat_2016.svg') 5% 4px no-repeat;
-				background-size: 4%;
+				background: data-uri('image/svg+xml;charset=UTF-8','../img/logo_flat_2016.svg') no-repeat;
 				display: block;
-				text-align: left;
 				.lnk( fade(@yellow, 20%) );
-				.prefix(1.5);
+
+				.mq( @screen-xxs, {
+					background-position: left center;
+					background-size: 13%;
+					.prefix( 2 );
+				});
+
+				.mq( @screen-xs, {
+					background-position: 1% 50%;
+					background-size: 8%;
+					.prefix( 1.5 );
+				});
+				.mq( @screen-s, {
+					background-position: 1% 50%;
+					background-size: 16%;
+					.prefix( 3 );
+				});
+				.mq( @screen-m, {
+					background-position: 5% 5px;
+					background-size: 33px;
+					.prefix( 2 );
+				});
 			}
 
 			&-nfo {
 				color: @grey-light;
 				margin-bottom: 0;
-				.font-size(@base-type-sm, 0.3);
-				.prefix(1.5);
+
+				.mq(@screen-xxs, {
+					font-size: 0;
+				});
+
+				.mq(@screen-m, {
+					.prefix(3);
+					.font-size(@base-type-sm, 0.5);
+				});
+				.mq(@screen-l, {
+					.prefix( 2 );
+					.font-size(@base-type-sm, 0.5);
+				});
+
 			}
 		}
 	}
@@ -221,6 +273,10 @@ body {
 		}
 
 		&-bio {
+			&-ttl {
+				line-height: 1;
+				margin-bottom: 1rem;
+			}
 			&-desc {
 				overflow: hidden;
 			}
@@ -248,9 +304,14 @@ body {
 
 		&-studio {
 			&-lst {
-				display: inline-block;
-				vertical-align: top;
-				width: calc( ~"100% / 3 - 0.5em" );
+				.inline-block(top);
+				.mq( @screen-xxs, {
+					width: 100%;
+				});
+
+				.mq( @screen-s, {
+					width: calc( ~"100% / 3 - 0.5em" );
+				});
 
 				&-ttl {
 					.font-size( @base-type-h4 )
