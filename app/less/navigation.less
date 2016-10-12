@@ -6,11 +6,9 @@
 		margin-bottom: 0;
 		.text-uppercase;
 	}
-
 	.list-big {
 		padding: @base-margin @base-margin;
 	}
-
 	.list-small {
 		padding: @base-margin-half @base-margin;
 	}
@@ -32,9 +30,8 @@
 
 .info {
 	&-nav {
-		&:extend( .nav .wrap );
 		background-color: fade(@yellow, 20%);
-
+		&:extend( .nav .wrap );
 		.mq(@screen-xxs, {
 			text-align: center;
 		});
@@ -68,27 +65,23 @@
 	&-nav {
 		display: flex;
 		background-color: fade( @black, 25% );
-
 		&:extend( .nav .wrap );
-
 		.mq( @screen-xxs, {
 			text-align: center;
 			flex-flow: column;
 		});
-
 		.mq( @screen-s, {
 			text-align: left;
 			flex-flow: row;
 		});
-
 	}
 
 	&-lst {
 		&:extend( .nav .list, .nav .list-big );
+		justify-content: flex-start;
 		.mq( @screen-s, {
 			flex: 1;
 		});
-
 		.mq( @screen-m, {
 			flex: 1 1 70%;
 		});
@@ -98,7 +91,6 @@
 			.mq( @screen-xxs, {
 				padding: 0 @base-margin-quarter 0 0;
 			});
-
 			.mq( @screen-s, {
 				padding: @base-margin-quarter @base-margin-half @base-margin-quarter 0;
 			});
@@ -110,24 +102,21 @@
 
 	&-search {
 		position: relative;
+		justify-content: flex-end;
 		.mq( @screen-xxs, {
 			margin: @base-margin-quarter 0 @base-margin;
 			flex: 0 0 100%;
 		});
-
 		.mq( @screen-s, {
 			margin: 0.75rem 0 @base-margin-quarter;
 			flex: 0 0 47%;
 		});
-
 		.mq( @screen-m, {
-			flex: 0 0 42%;
+			flex: 0 0 40%;
 		});
-
 		.mq( @screen-xl, {
 			flex: 0 0 35%;
 		});
-
 		.mq( @screen-xxl, {
 			flex: 0 0 29%;
 		});
@@ -152,17 +141,6 @@
 	&-lst {
 		&:extend( .nav .list, .nav .list-small );
 		padding-right: 0;
-		// .mq( @screen-xxs, {
-		// 	flex: 0 0 50%;
-		// });
-
-		// .mq( @screen-s, {
-		// 	flex: 0 0 24%;
-		// });
-
-		// .mq( @screen-m, {
-		// 	flex: 0 0 20%;
-		// });
 
 		&-itm	{
 			line-height: @base-line-height * 2;
@@ -170,10 +148,8 @@
 
 			&-lnk {
 				.icon( "app", @arrow-fwd, @grey, @base-type-size, 0.5 );
-
 				&:after {
 					&:extend( .all-transition );
-					// line-height: 1;
 					margin-top: -4px;
 				}
 
@@ -186,13 +162,7 @@
 .social {
 	&-lst {
 		&:extend( .nav .list, .nav .list-small );
-		// .mq( @screen-m, {
-		// 	flex: 0 0 31%;
-		// });
-
-		// .mq( @screen-m, {
-		// 	flex: 0 0 31%;
-		// });
+		padding-right: 0;
 
 		&-itm {
 			.inline-block( super );
@@ -229,9 +199,11 @@
 			&-twitter {
 				.svg-sprite-position( @ico-twitter-fill );
 			}
+
 			&:hover {
 				opacity: 1;
 			}
+
 			&-lnk {
 				display: block;
 				.size(30px);

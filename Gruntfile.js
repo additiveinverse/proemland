@@ -223,7 +223,7 @@ module.exports = function ( grunt ) {
 				expand: true,
 				cwd: "<%= config.app.img %>icons/",
 				src: [ '*.svg' ],
-				dest: "<%= config.app.img %>",
+				dest: "<%= config.dist.root %>img/",
 				options: {
 					shape: {
 						dimension: {
@@ -241,7 +241,7 @@ module.exports = function ( grunt ) {
 							prefix: "@ico-%s",
 							bust: true,
 							sprite: "icons.sprite.svg",
-							dest: "../images/",
+							dest: "../img/",
 							common: "sprite",
 							dimensions: true,
 							mixin: "svg-sprite",
@@ -355,9 +355,9 @@ module.exports = function ( grunt ) {
 			dist: {
 				files: [ {
 					expand: true,
-					cwd: "<%= config.app.img %>",
+					cwd: "<%= config.dist.img %>",
 					src: [ '*.svg' ],
-					dest: "<%= config.app.img %>"
+					dest: "<%= config.dist.img %>"
 				} ]
 			}
 		},
@@ -371,8 +371,8 @@ module.exports = function ( grunt ) {
 					collapseWhitespace: true
 				},
 				files: {
-					"<%= config.dist.root %>404.html": "<%= config.dist.root %>404.html",
-					"<%= config.dist.root %>index.html": "<%= config.dist.root %>index.html"
+					"<%= config.dist.root %>404.php": "<%= config.dist.root %>404.html",
+					"<%= config.dist.root %>index.php": "<%= config.dist.root %>index.html"
 				}
 			}
 		},
@@ -474,7 +474,7 @@ module.exports = function ( grunt ) {
 	// asset prep
 	grunt.registerTask( "assetint", [ "jade:dev", "less:dev", "imgprep", "dataprep"] )
 		grunt.registerTask( "cssprep", [ "less:production", "combine_mq", "cssmin" ] )
-		grunt.registerTask( "imgprep", [ "favprep", "svgprep", "svgmin", "imagemin" ] )
+		grunt.registerTask( "imgprep", [ "svgprep", "imagemin" ] )
 		grunt.registerTask( "favprep", [ "realFavicon", "copy:favs" ] )
 		grunt.registerTask( "svgprep", [ "svg_sprite", "copy:svgs"] )
 		grunt.registerTask( "dataprep", [ "minjson" ] )

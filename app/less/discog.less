@@ -5,7 +5,6 @@
 	position: relative;
 	overflow: hidden;
 	.inline-block;
-
 	.defaults {
 		width: 100%;
 		position: absolute;
@@ -16,10 +15,9 @@
 			opacity: 1;
 		}
 		.prod-photo {
-			.scales( 1.1, 1.1 );
+			.scales( 1.25, 1.25 );
 		}
 	}
-
 
 	&-hdr {
 		min-height: 48px;
@@ -60,23 +58,18 @@
 		min-height: 10em;
 		margin-bottom: 1.25rem;
 		margin-left: 1.25rem;
-
 		.mq( @screen-xxs, {
 			width: 85%;
 		});
-
 		.mq( @screen-xs, {
 			width: calc(~"100% / 2 - 2rem" );
 		});
-
 		.mq( @screen-s, {
 			width: calc(~"100% / 3 - 2rem" );
 		});
-
 		.mq( @screen-l, {
 			width: calc(~"100% / 4 - 2rem" );
 		});
-
 		.mq( @screen-xl, {
 			width: calc(~"100% / 6 - 2rem" );
 		});
@@ -127,12 +120,6 @@
 				width: calc( ~"100% / 2" );
 			}
 		}
-
-		// &-track {
-		// 	&-lst {
-		// 		margin: 0;
-		// 	}
-		// }
 
 		&-lnk {
 			.icon("app", @link );
