@@ -1,7 +1,7 @@
 <header class="hdr prod-hdr prod-detail-hdr">
 	<h2 ng-bind-html-unsafe="data[0].ttl" class="ttl prod-hdr-ttl prod-detail-hdr-ttl fn" itemprop="name">{{ data[0].ttl }} </h2>
 </header>
-<img class="prod-thumb thumb photo" ng-src="{{ data[0].img }}" alt="{{ data[0].ttl }}" />
+	<img class="prod-thumb thumb photo" ng-src="{{ data[0].img }}" alt="{{ data[0].ttl }}" />
 <article class="prod-details prod-detail-nfo prod-nfo nfo">
 	<dl class="lst prod-detail-nfo-lst nfo-lst">
 		<dt class="type prod-detail-nfo-typ nfo-typ">released</dt>
@@ -12,9 +12,10 @@
 		</dd>
 		<dt class="type prod-detail-nfo-typ nfo-typ">catalog ID</dt>
 		<dd class="val prod-detail-nfo-val nfo-val">
-			<a class="prod-detail-nfo-lnk" href="{{ data[0].digital }}" target="_blank">{{ data[0].cat_num }}</a>
+			<a class="prod-detail-nfo-lnk" href="{{ data[0].cat.lnk }}" target="_blank">{{ data[0].cat_num }}</a>
 		</dd>
 	</dl>
+	<a class="prod-detail-buy btn-buy btn" href="{{ data[0].buy }}" target="_blank">Purchase</a>
 	<ol class="lst track-lst prod-detail-track-lst">
 		<li ng-repeat="tl in data[0].Body track by $index">{{ tl }}</li>
 	</ol>
