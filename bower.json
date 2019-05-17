@@ -1,6 +1,6 @@
 {
   "name": "Proemland",
-  "version": "7.0.7",
+  "version": "7.0.8",
   "homepage": "https://github.com/additiveinverse/pland",
   "authors": [
     "Richard Bailey <additive.inverse@gmail.com>"
@@ -35,6 +35,6 @@
     "angular.panels": "^1.0.3"
   },
   "resolutions": {
-    "angular": "1.4.10"
+    "angular": "1.4.3"
   }
 }

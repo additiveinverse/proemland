@@ -1,7 +1,7 @@
 {
 	"url": "http://localhost:9001",
 	"title": "Proemland",
-	"version": "7.0.7",
+	"version": "7.0.8",
 	"owner": "Proem",
 	"description": "Relatively stagnant since 2007",
 	"map": {
@@ -20,24 +20,23 @@
 	},
 	"network": {
 		"social": {
-			"bandcamp": "http://proem.bandcamp.com/",
-			"flickr": "http://www.flickr.com/photos/proem/",
-			"last-fm": "http://www.last.fm/user/proemland",
-			"society6": "http://society6.com/proem",
-			"soundcloud": "http://soundcloud.com/proem",
-			"splice": "http://society6.com/proem",
-			"spotify": "https://open.spotify.com/artist/1hTlyo5QWVHUA3xUGgXqa5",
-			"twitter": "http://twitter.com/wallofknives"
+			"bandcamp": "//proem.bandcamp.com/",
+			"instagram": "//instagram.com/__proem__",
+			"society6": "//society6.com/proem",
+			"soundcloud": "//soundcloud.com/proem",
+			"splice": "//society6.com/proem",
+			"spotify": "//open.spotify.com/artist/1hTlyo5QWVHUA3xUGgXqa5",
+			"twitter": "//twitter.com/__proem__"
 		},
 		"antisocial": {
-			"the book": "http://placeguntohead.com",
-			"design": "http://additiveinverse.com"
+			"the book": "//grimoire.proemland.com",
+			"design": "//additiveinverse.com"
 		}
 	},
 	"content": {
 		"news": [],
 		"bio": {
-			"title": "What is a 'Proem' anyway?",
+			"title": "What does 'Proem' mean anyway?",
 			"image": "/images/proem-2017.jpg",
 			"content": "Richard Bailey has been releasing emotive, ham-fisted electronic music under the pseudonym of 'Proem since the release of Burnplate no.1 on Hydrant records in 1999. For the last fifteen odd years, he as released a sizable collection of full lengths, ep's, and various artist appearances for underground electronic labels such as n5md, merck, hymen, and toytronic.<br/><br/>Inspired by dramatic lighting and insomnia, our hero began his journey armed with thrift store record players, some tape (for locked grooves), tape decks, casio sk-5's and a handful of effects. The early recordings focused largely on locked groove drones, harsh noise, mangling and making sound by any means necessary. These experiments, while more textural than tonal, set in motion the murky underpinnings of his later work.<br/><br/>Once Richard discovered that the family computer, with the aid of a DOS based tracker (modedit) and his 16bit sound card, could remove most of the hardware and timing limitations he quickly changed directions and dove head first into computer based music. He looked up from the screen a year later with a demo he sent out to labels that would welcome his brand of distorted beats and somber melodies. A few false starts and a pile of silent rejections later, the nice folks at Hydrant agreed to release a 1000 copy run and then promo the hell out of it at the winter music conference that year. A few other fledgling labels took notice and before long, Proem had a regular release schedule on several different labels.",
 			"link": "/files/Proem_presspack.pdf"
@@ -49,17 +48,14 @@
 			"gear": {
 				"Hardware": [
 					"Alesis IODock",
-					"Arturia microbrute",
+					"Arturia Keystep",
 					"ART FXRII",
 					"Korg Wavestation A/D",
-					"Korg Volca Keys",
-					"Moog Little Phatty Stage II",
 					"Fretless bass",
 					"Fender Squier Bass VI",
 					"Guitar Rig - Rig Kontrol 2",
-					"Ipad 2",
+					"Ipad Pro 9.7",
 					"Lexicon MX400",
-					"Novation Remote SL25",
 					"Novation Launchpad mini",
 					"Motu 2408 x 3",
 					"Motu Midi Express XT"
@@ -68,17 +64,14 @@
 					"Ableton Live Suite",
 					"Arturia Arp2600",
 					"Audio Damage plugins",
-					"Bitwig Studio",
 					"Cuckos Reaper",
-					"FLStudio 12",
-					"Izotope StutterEdit",
+					"FLStudio 20",
 					"Korg Legacy Digital Collection (M1, Polysix, Wavestation)",
 					"Madrona Aalto",
-					"Native Instruments Komplete 9",
-					"Sunrizer vst"
+					"Native Instruments Komplete",
+					"Sunrizer"
 				],
 				"IOS": [
-					"Arturia iSem",
 					"AudioShare",
 					"AudioBus",
 					"Beatmaker 2",
@@ -97,8 +90,7 @@
 					"Samplr",
 					"Sector",
 					"StepPolyArp",
-					"Sunrizer",
-					"Yamaha TNR-i"
+					"Sunrizer"
 				]
 			}
 		}

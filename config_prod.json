@@ -1,7 +1,7 @@
 {
 	"url": "http://www.proemland.com",
 	"title": "Proemland",
-	"version": "7.0.7",
+	"version": "7.0.8",
 	"owner": "Proem",
 	"description": "Relatively stagnant since 2007",
 	"map": {
@@ -20,18 +20,17 @@
 	},
 	"network": {
 		"social": {
-			"bandcamp": "http://proem.bandcamp.com/",
-			"flickr": "http://www.flickr.com/photos/proem/",
-			"last-fm": "http://www.last.fm/user/proemland",
-			"society6": "http://society6.com/proem",
-			"soundcloud": "http://soundcloud.com/proem",
-			"splice": "http://society6.com/proem",
-			"spotify": "https://open.spotify.com/artist/1hTlyo5QWVHUA3xUGgXqa5",
-			"twitter": "http://twitter.com/wallofknives"
+			"bandcamp": "//proem.bandcamp.com/",
+			"instagram": "//instagram.com/__proem__",
+			"society6": "//society6.com/proem",
+			"soundcloud": "//soundcloud.com/proem",
+			"splice": "//society6.com/proem",
+			"spotify": "//open.spotify.com/artist/1hTlyo5QWVHUA3xUGgXqa5",
+			"twitter": "//twitter.com/__proem__"
 		},
 		"antisocial": {
-			"the book": "http://placeguntohead.com",
-			"design": "http://additiveinverse.com"
+			"the book": "://grimoire.proemland.com",
+			"design": "://additiveinverse.com"
 		}
 	},
 	"content": {
