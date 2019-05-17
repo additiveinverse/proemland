@@ -2,6 +2,58 @@
 	"rekkids":
 	[
 		{
+			"date": "2019-04-19",
+			"ttl": "Until Here For Years",
+			"img": "/images/prm-MD274.png",
+			"prod_type": "full-lengths",
+			"prod_id": "prm-untilhereforyears",
+			"prod_frmt": "digital",
+			"cat_lbl": "n5md",
+			"cat_lnk": "//www.n5md.com",
+			"cat_num": "MD274",
+			"buy": "//n5md.bandcamp.com/album/until-here-for-years",
+			"Body": [
+				"Rectangle Snake",
+				"Cuddle Buddy",
+				"False Hope",
+				"Stick to Music Snowflake",
+				"Until Here Robot",
+				"Pine The Bear",
+				"Dimensional Scissors Dance Routine",
+				"Chair Reaction",
+				"An Effort Was Made",
+				"The Sad Underneath",
+				"Kids That Hate Live things",
+				"Your Bones Back Together"
+			]
+		},
+		{
+			"date": "2018-07-13",
+			"ttl": "Modern Rope",
+			"img": "/images/LR28_prm-mm.png",
+			"prod_type": "full-lengths",
+			"prod_id": "prm-modernrope",
+			"prod_frmt": "digital",
+			"cat_lbl": "the 1056",
+			"cat_lnk": "//onethousandfiftysix.com",
+			"cat_num": "LR28",
+			"buy": "//proem.bandcamp.com/album/modern-rope",
+			"Body": [
+				"Winter Wolves",
+				"On Regret Pond",
+				"Charred Inward (Redux)",
+				"Drawing Room Anguish",
+				"Modern Rope",
+				"I Can Feel the Bugs",
+				"A Cold Spring",
+				"Night Brain",
+				"False | Hopeless",
+				"Warm Light Within",
+				"Soft Is the Edge of the Blade",
+				"Light Eyes & Dark Minds"
+			]
+		},
+		{
 			"date": "2017-03-03",
 			"ttl": "Dead Worlds - Zero Point Five ep",
 			"img": "/images/LR30-DWep.jpg",
@@ -9,7 +61,7 @@
 			"prod_id": "prm-rmx-deadworlds",
 			"prod_frmt": "digital",
 			"cat_lbl": "the 1056",
-			"cat_lnk": "//the1056.com/",
+			"cat_lnk": "//onethousandfiftysix.com",
 			"cat_num": "LR30",
 			"buy": "//deadworlds.bandcamp.com/album/zero-point-five-ep",
 			"Body": [

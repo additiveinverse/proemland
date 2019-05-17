@@ -40,6 +40,10 @@ html(lang='en')
 		script.
 			prfx = '/js/';
 
+		block js
+			script( type="text/javascript", src='/js/angular.js' )
+			script( type="text/javascript", src='/js/prm.js' )
+
 	body(lang='en', ng-app='appProem').page
 		block page_header
 			header( class='hdr page-hdr', role='banner' )
@@ -59,9 +63,6 @@ html(lang='en')
 		main( class='page-content ' + 'page-' + bodyclass + '-content', id='top' )
 			block content
 
-	block js
-		script( type="text/javascript", src='/js/angular.js' )
-		script( type="text/javascript", src='/js/prm.js' )
 
 	script.
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

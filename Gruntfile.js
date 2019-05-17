@@ -248,7 +248,7 @@ module.exports = function ( grunt ) {
 							render: {
 								less: {
 									template: "<%= config.app.img %>icons/sprite.mustache",
-									dest: '../less/_sprite.less'
+									dest: '../app/less/_sprite.less'
 								}
 							}
 						}
@@ -415,18 +415,37 @@ module.exports = function ( grunt ) {
 			}
 		},
 
-		connect: {
-			server: {
+		// connect: {
+		// 	server: {
+		// 		options: {
+		// 			port: "9001",
+		// 			base: "build/",
+		// 			protocol: "http",
+		// 			hostname: "localhost",
+		// 			livereload: true,
+		// 			open: {
+		// 				target: "http://localhost:9001/index.html", // target url to open
+		// 				appName: "Chrome"
+		// 			},
+		// 		}
+		// 	}
+		// },
+
+		browserSync: {
+			dev: {
+				bsFiles: {
+					src : [
+						'<%= config.dist.root %>css/*.css',
+						'<%= config.dist.root %>js/*.css',
+						'<%= config.dist.root %>*.html'
+					]
+				},
 				options: {
-					port: "9001",
-					base: "build/",
-					protocol: "http",
-					hostname: "localhost",
-					livereload: true,
-					open: {
-						target: "http://localhost:9001/index.html", // target url to open
-						appName: "Chrome"
+					watchTask: true,
+					server: {
+						baseDir: 'build',
 					},
+					port: '9001'
 				}
 			}
 		},
@@ -438,11 +457,8 @@ module.exports = function ( grunt ) {
 					"*.json",
 					"<%= config.app.root %>**/*"
 				],
-				tasks: [ "jade:dev", "newer:ngtemplates", "concat", "less:dev", "combine_mq" ],
+				tasks: [ "jade:dev", "newer:ngtemplates", "concat", "less:dev", "dataprep" ],
 				options: {
-					reload: false,
-					livereload: true,
-					spawn: true,
 					dateFormat: function ( time ) {
 						grunt.log.writeln( "The watch finished in " + time + "ms at" + ( new Date( ) ).toString( ) )
 					}
@@ -469,7 +485,7 @@ module.exports = function ( grunt ) {
 	grunt.registerTask( "devint", [ "assetint", "copy", "ngtemplates", "concat" ] )
 
 	// Develop
-	grunt.registerTask( "default", [ "connect", "watch:build" ] )
+	grunt.registerTask( "default", [ "browserSync", "watch:build" ] )
 
 	// asset prep
 	grunt.registerTask( "assetint", [ "jade:dev", "less:dev", "imgprep", "dataprep"] )

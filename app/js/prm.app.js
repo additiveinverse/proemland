@@ -2,7 +2,6 @@ proem = angular.module( "appProem",
 	[ "ui.router",
 		"ngSanitize",
 		"ngResource",
-		"ngAnimate",
 		"direcTives",
 		"smoothScroll",
 		"angular.panels"
@@ -82,7 +81,7 @@ proem.config(["panelsProvider", function (panelsProvider ) {
 
 proem.factory( "discResource", [ "$resource", "apistuff",
 	function ( $resource, apistuff ) {
-		var resource = $resource( "/discog.json" )
+		var resource = $resource( "discog.json" )
 
 		// var resource = apistuff.dataComm("/discog.json", "GET" )
 		return resource
